@@ -59,9 +59,7 @@ public class EntityService {
 	}
 	
 	public List<Entity> findByName(String name) {
-		//return searchString("companyName", name);
-		//return repository.findByCompanyName(name);
-		return repository.findByName(name);
+		return searchString("companyName", name);
 	}
 	
 	public List<Entity> findBySector(String name) {
