@@ -1,0 +1,132 @@
+Create mapping for existing index
+PUT termrule/_mapping
+
+{
+  "properties": {
+    "term_id": {
+      "type": "text"
+    },
+	"processing_status": {
+      "type": "text"
+    },
+	"period_type": {
+      "type": "text"
+    },
+	"name": {
+      "type": "text"
+    },
+	"financial_statement": {
+      "type": "text"
+    },
+	"has_validations": {
+      "type": "text"
+    },
+	"description": {
+      "type": "text"
+    },
+	"id": {
+      "type": "text"
+    },
+	"last_modified": {
+      "type": "text"
+    },
+	"type": {
+      "type": "text"
+    },
+	"order": {
+      "type": "text"
+    }
+  }
+}
+
+Add a single document to index
+POST termrule/_doc
+{
+        "term_id":"XPEN",
+        "processing_status":"Completed",
+        "period_type":"duration",
+        "name":"Pension Expense",
+        "financial_statement":"Pensions Footnote",
+        "has_validations":false,
+        "description":"The amount of pension benefit costs recognized during the period for (1) defined benefit plans and (2) defined contribution plans. For defined benefit plans, pension expense includes the following components: service cost, interest cost, expected return on plan assets, gain (loss) on plan assets, prior service cost or credit, transition asset or obligation, and gain (loss) due to settlements or curtailments. For defined contribution plans, the pension expense generally equals the firm's contribution to employees' accounts (if the firm contributes) during the period.",
+        "id":"XPEN",
+        "last_modified":"2021-08-20T00:04:48.143Z",
+        "type":"monetary",
+        "order":1
+}
+
+Add JSON file to index
+curl -H 'Content-Type: application/json' -XPOST -u elastic:4WbDBgMYm8yLwEJ9SVUabv1K  'sec-maxds-dev01.es.us-east-1.aws.found.io:9243/termrule/_bulk?pretty' --data-binary @maxds_term_rule_all_new.json
+
+curl -H 'Content-Type: application/json' -XPOST -u elastic:4WbDBgMYm8yLwEJ9SVUabv1K  'https://sec-maxds-dev01.es.us-east-1.aws.found.io:9243/termmapinformation/_bulk?pretty' --data-binary @maxds_term_map_information.json
+
+curl -H 'Content-Type: application/json' -XPOST 'sec-maxds-dev01.es.us-east-1.aws.found.io:9243/termrule/_bulk?pretty' --data-binary @maxds_term_rule_all_new.json
+
+Delete an index 
+DELETE termrule
+
+Get all index info
+GET /_cat/indices?v
+
+Reindex to duplicate an index
+POST /_reindex
+{
+  "source": {
+    "index": "current_index_name"
+  },
+  "dest": {
+    "index": "new_index_name"
+  }
+}
+
+Search by property
+Post termrule/_search
+{
+  "query": {
+    "match": {
+      "term_id": "CHEC"
+    }
+  }
+}
+
+curl -X GET -u elastic:4WbDBgMYm8yLwEJ9SVUabv1K  'sec-maxds-dev01.es.us-east-1.aws.found.io:9243/termrule/_bulk?pretty' -H 'Content-Type: application/json' -d'
+{
+  "query": {
+    "match": {
+      "user.id": "kimchy"
+    }
+  }
+}
+'
+
+Performance compare:
+Start maxds-app and maxds-aws from STS
+Start Insomnia
+go to Solr folder run Get All
+go to Localhost folder run Get All
+
+Sending request POST /_search?typed_keys=true&max_concurrent_shard_requests=5&ignore_unavailable=false&expand_wildcards=open&allow_no_indices=true&ignore_throttled=true&search_type=query_then_fetch&batched_reduce_size=512&ccs_minimize_roundtrips=true with parameters: 
+Request body: {"query":{"bool":{"must":[{"wildcard":{"term_id":{"wildcard":"chec*","boost":1.0}}}],"adjust_pure_negative":true,"boost":1.0}}}
+
+Working curl cmd:
+ curl -X POST -u elastic:4WbDBgMYm8yLwEJ9SVUabv1K  'https://sec-maxds-dev01.es.us-east-1.aws.found.io:9243/termrule/_search?pretty' -H 'Content-Type: application/json' -d '{"query": { "match": { "term_id": "CHEC"} }}'
+ 
+ d5dcad5bdfd3404d84226cfd738737b1.us-east-1.aws.found.io
+ 
+https://sec-maxds-dev01.ent.us-east-1.aws.found.io/login
+424ab1d140cb4a59b13831204729f22d
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

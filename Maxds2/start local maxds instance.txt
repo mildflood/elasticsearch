@@ -1,0 +1,15 @@
+Run the java program using the same jvm where you install the cert
+
+	npm install (This will create a folder 'node_modules' in the root of the project with all libraries)
+	
+	npm run start to start web application on http://localhost:4200/   //dont need to run start, just install should be good. 
+	
+	under maxds-web, 
+	npm run build
+	under maxds-app
+	mvn clean compile package
+	####$ /c/Dev/Java/jdk1.8.0_271/bin/java.exe -jar -Dspring.profiles.active=ci target/maxds-app-2.0.0.1-SNAPSHOT.war
+	C:\\Dev\\Java\\jdk1.8.0_271\\bin\\java.exe -jar -Dspring.profiles.active=ci target/maxds-app-2.0.0.1-SNAPSHOT.war
+
+	maxds is availabe to test at:
+	http://localhost:18081/welcome
