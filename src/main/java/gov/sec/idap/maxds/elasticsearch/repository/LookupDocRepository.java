@@ -15,24 +15,20 @@ import org.springframework.data.domain.Pageable;
 
 @Repository
 public interface LookupDocRepository extends ElasticsearchRepository<LookupDoc, String> {  
-	
-	List<LookupDoc> findAll();
-	
-	@Query("{\"bool\":{\"must\":[{\"match\":{\"type_s\":{\"query\":\"?0\"}}}]}}")
-    List<LookupDoc> findNameByType(String type);
-    
-    @Query(value="name_s:?0 AND type_s:taxonomyElement")
-    List<LookupDoc> findTaxonomyElementByName(String name, Pageable pageable);
-    
-    @Query("{\"bool\":{\"must\":[{\"wildcard\":{\"type_s\":{\"wildcard\":\"termMapGroup\",\"boost\":1.0}}}],\"adjust_pure_negative\":true,\"boost\":1.0}}}")
-     //@Query("{\"bool\" : {\"must\" : [ {\"field\" : {\"name_s\" : \"?0\"}}, {\"field\" : {\"type_s\" : \"?1\"}} ]}}")
-    List<LookupDoc> findByNameAndType(String name, String type, Pageable pageable);
-    
-    @Query(value="type_s:taxonomyElement AND isTextBlock_b:?0 AND name_s:*?1*")
-    Page<LookupDoc> findByIsTextBlockAndNameContaining(Boolean isTextBlock, 
-            String name, Pageable pageable);    
-    
-    Page<LookupDoc> findByNameLike(String name, Pageable pageable);
-     
-    void deleteByNameAndType(String name, String type);
+//	@Query("{\"bool\":{\"must\":[{\"match\":{\"type_s\":{\"query\":\"?0\"}}}]}}")
+//    List<LookupDoc> findNameByType(String type);
+//    
+//    @Query(value="name_s:?0 AND type_s:taxonomyElement")
+//    List<LookupDoc> findTaxonomyElementByName(String name, Pageable pageable);
+//    
+//     @Query(value="name_s:\"?0\" AND type_s:?1")
+//    List<LookupDoc> findByNameAndType(String name, String type, Pageable pageable);
+//    
+//    @Query(value="type_s:taxonomyElement AND isTextBlock_b:?0 AND name_s:*?1*")
+//    Page<LookupDoc> findByIsTextBlockAndNameContaining(Boolean isTextBlock, 
+//            String name, Pageable pageable);    
+//    
+//    Page<LookupDoc> findByNameLike(String name, Pageable pageable);
+//     
+//    void deleteByNameAndType(String name, String type);
 }
