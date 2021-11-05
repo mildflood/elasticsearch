@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Component
-@Document(indexName = Indices.MAXDS_LOOKUP_REFERENCES)
+@Document(indexName = Indices.LOOKUP_REFERENCES_INDEX)
 @Setting(settingPath = "static/es-settings.json")
 public class LookupDoc {
 
@@ -101,5 +101,4 @@ public class LookupDoc {
 		this.isTextBlock = isTextBlock_b;
 	}
      
-   
 }

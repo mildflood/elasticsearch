@@ -1,12 +1,13 @@
 package gov.sec.idap.maxds.elasticsearch.document;
 
-import gov.sec.idap.maxds.elasticsearch.helper.Indices;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 import org.springframework.data.elasticsearch.annotations.Setting;
 import org.springframework.stereotype.Component;
+
+import gov.sec.idap.maxds.elasticsearch.helper.Indices;
 
 @Component
 @Document(indexName = Indices.ENTITY_INDEX)
