@@ -41,6 +41,7 @@ public class Entity {
     private String sector;
     @Field(type = FieldType.Text)
     private String tradingSymbol;
+    
 	public String getId() {
 		return id;
 	}
