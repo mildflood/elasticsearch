@@ -13,8 +13,8 @@ import gov.sec.idap.maxds.domain.TermRule;
 import gov.sec.idap.maxds.domain.TermRuleHeader;
 import gov.sec.idap.maxds.domain.TermRuleOverride;
 import gov.sec.idap.maxds.domain.TermValidationExpression;
-import gov.sec.idap.maxds.elasticsearch.document.TermruleDoc;
-import gov.sec.idap.maxds.elasticsearch.repository.TermruleRepository;
+import gov.sec.idap.maxds.elasticsearch.document.TermRuleDoc;
+import gov.sec.idap.maxds.elasticsearch.repository.TermRuleRepository;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -41,27 +41,27 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Service("termRuleService")
 public class TermRuleService {
 
-	private final TermruleRepository repository;
+	private final TermRuleRepository repository;
 	private final RestHighLevelClient client;
 	private ObjectMapper objectMapper;
 
 	@Autowired
-	public TermRuleService(TermruleRepository repository, RestHighLevelClient client, ObjectMapper objectMapper) {
+	public TermRuleService(TermRuleRepository repository, RestHighLevelClient client, ObjectMapper objectMapper) {
 		this.repository = repository;
 		this.client = client;
 		this.objectMapper = objectMapper;
 	}
 
 	public TermRule getTermRuleByTermId(String id) {
-		List<TermruleDoc> docs = new ArrayList<>();
+		List<TermRuleDoc> docs = new ArrayList<>();
 		docs.add(this.repository.findById(id).orElse(null));
 		return getRule(docs);
 	}
 
 	public List<TermRule> getTermRulesForAccuracyTesting() {
-		Iterable<TermruleDoc> docs = this.repository.findAll();
-		List<TermruleDoc> termruleDocs = new ArrayList<TermruleDoc>();
-		for (TermruleDoc doc : docs) {
+		Iterable<TermRuleDoc> docs = this.repository.findAll();
+		List<TermRuleDoc> termruleDocs = new ArrayList<TermRuleDoc>();
+		for (TermRuleDoc doc : docs) {
 			if (doc.getIncludeInAccuracyTests().booleanValue()) {
 				termruleDocs.add(doc);
 			}
@@ -78,19 +78,19 @@ public class TermRuleService {
 		return getRuleList(repository.findAll());
 	}
 
-	public void save(final TermruleDoc termrule) {
+	public void save(final TermRuleDoc termrule) {
 		repository.save(termrule);
 	}
 
-	public TermruleDoc findById(final String id) {
+	public TermRuleDoc findById(final String id) {
 		return repository.findById(id).orElse(null);
 	}
 
-	public void saveAllTermrule(List<TermruleDoc> termrules) {
+	public void saveAllTermrule(List<TermRuleDoc> termrules) {
 		repository.saveAll(termrules);
 	}
 
-	public Iterable<TermruleDoc> findAllTermrules() {
+	public Iterable<TermRuleDoc> findAllTermrules() {
 		return repository.findAll();
 	}
 
@@ -225,7 +225,7 @@ public class TermRuleService {
 	public void SaveAsIs(TermRule termRule) {
 
 		termRule.setLastModified(new Date());
-		TermruleDoc itemToSave = buildTermRuleDoc(termRule);
+		TermRuleDoc itemToSave = buildTermRuleDoc(termRule);
 
 		repository.save(itemToSave);
 
@@ -280,11 +280,11 @@ public class TermRuleService {
 		return trFullList;
 	}
 
-	public List<TermruleDoc> findByTermid(String termid) {
+	public List<TermRuleDoc> findByTermid(String termid) {
 		return searchString("termId", termid);
 	}
 
-	public List<TermruleDoc> findByName(String name) {
+	public List<TermRuleDoc> findByName(String name) {
 		return searchString("name", name);
 	}
 
@@ -331,7 +331,7 @@ public class TermRuleService {
 
 	}
 
-	private List<TermruleDoc> searchString(String field, String name) {
+	private List<TermRuleDoc> searchString(String field, String name) {
 		String searchName = name.toLowerCase() + "*";
 
 		SearchRequest searchRequest = new SearchRequest();
@@ -353,42 +353,42 @@ public class TermRuleService {
 		return getSearchResult(response);
 	}
 
-	private List<TermruleDoc> getSearchResult(SearchResponse response) {
+	private List<TermRuleDoc> getSearchResult(SearchResponse response) {
 		SearchHit[] searchHit = response.getHits().getHits();
-		List<TermruleDoc> termrules = new ArrayList<>();
+		List<TermRuleDoc> termrules = new ArrayList<>();
 		for (SearchHit hit : searchHit) {
-			termrules.add(objectMapper.convertValue(hit.getSourceAsMap(), TermruleDoc.class));
+			termrules.add(objectMapper.convertValue(hit.getSourceAsMap(), TermRuleDoc.class));
 		}
 		return termrules;
 	}
 
-	private TermRule getRule(List<TermruleDoc> ruleDocs) {
+	private TermRule getRule(List<TermRuleDoc> ruleDocs) {
 		if (ruleDocs.size() >= 1) {
-			TermruleDoc doc = (TermruleDoc) ruleDocs.get(0);
+			TermRuleDoc doc = (TermRuleDoc) ruleDocs.get(0);
 			return doc.BuildRuleFromRuleText();
 		}
 		return null;
 	}
 
-	private List<TermRule> getRuleList(Iterable<TermruleDoc> ruleDocs) {
+	private List<TermRule> getRuleList(Iterable<TermRuleDoc> ruleDocs) {
 		List<TermRule> trFullList = new ArrayList<>();
-		for (TermruleDoc tr : ruleDocs) {
+		for (TermRuleDoc tr : ruleDocs) {
 			trFullList.add(tr.BuildRuleFromRuleText());
 		}
 
 		return trFullList;
 	}
 
-	private List<TermRuleHeader> getRuleHeaderList(Iterable<TermruleDoc> ruleDocs) {
+	private List<TermRuleHeader> getRuleHeaderList(Iterable<TermRuleDoc> ruleDocs) {
 		List<TermRuleHeader> trList = new ArrayList<>();
-		for (TermruleDoc tr : ruleDocs) {
+		for (TermRuleDoc tr : ruleDocs) {
 			trList.add(tr.buildTermRuleHeader());
 		}
 		return trList;
 	}
 
-	private TermruleDoc buildTermRuleDoc(TermRule tr) {
-		TermruleDoc doc = new TermruleDoc();
+	private TermRuleDoc buildTermRuleDoc(TermRule tr) {
+		TermRuleDoc doc = new TermRuleDoc();
 		tr.setId(tr.getTermId());
 		BeanUtils.copyProperties(tr, doc);
 

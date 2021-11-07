@@ -39,11 +39,11 @@ import gov.sec.idap.maxds.domain.TermMapInformation;
 import gov.sec.idap.maxds.domain.TermMapInformationDisplay;
 import gov.sec.idap.maxds.elasticsearch.document.LookupDoc;
 import gov.sec.idap.maxds.elasticsearch.document.TermMapInformationDoc;
-import gov.sec.idap.maxds.elasticsearch.document.TermruleDoc;
+import gov.sec.idap.maxds.elasticsearch.document.TermRuleDoc;
 import gov.sec.idap.maxds.elasticsearch.helper.Indices;
 import gov.sec.idap.maxds.elasticsearch.repository.LookupDocRepository;
 import gov.sec.idap.maxds.elasticsearch.repository.TermMapInformationRepository;
-import gov.sec.idap.maxds.elasticsearch.repository.TermruleRepository;
+import gov.sec.idap.maxds.elasticsearch.repository.TermRuleRepository;
 
 @Service("termMapService")
 public class TermMapService {
@@ -63,7 +63,7 @@ public class TermMapService {
     private TermMapInformationRepository mapInformationRepository;
 
     @Autowired
-    private TermruleRepository termRuleRepository;
+    private TermRuleRepository termRuleRepository;
     
     @Autowired
     private TermRuleService termruleService;
@@ -144,10 +144,10 @@ public class TermMapService {
     
     public List<GroupTermMapInformation> getAllTermMapInformations() {
 
-        Iterable<TermruleDoc> rules = termRuleRepository.findAll();
+        Iterable<TermRuleDoc> rules = termRuleRepository.findAll();
 
-        HashMap<String, TermruleDoc> validRules = new HashMap();
-        for (TermruleDoc tr : rules) {
+        HashMap<String, TermRuleDoc> validRules = new HashMap();
+        for (TermRuleDoc tr : rules) {
             validRules.put(tr.getTermId(), tr);
         }
 
@@ -167,7 +167,7 @@ public class TermMapService {
 
         HashMap<String, GroupTermMapInformation> mapsByTermId = new HashMap();
 
-        for (TermruleDoc tr : rules) {
+        for (TermRuleDoc tr : rules) {
 
             GroupTermMapInformation data = new GroupTermMapInformation();
             data.termId = tr.getTermId();
@@ -239,9 +239,9 @@ public class TermMapService {
 
         HashMap<String, TermMapInformationDisplay> mapsByTermId = new HashMap();
 
-        Iterable<TermruleDoc> rules = termRuleRepository.findAll();
-        HashMap<String, TermruleDoc> rulebyId = new HashMap();
-        for (TermruleDoc tr : rules) {
+        Iterable<TermRuleDoc> rules = termRuleRepository.findAll();
+        HashMap<String, TermRuleDoc> rulebyId = new HashMap();
+        for (TermRuleDoc tr : rules) {
             rulebyId.put(tr.getTermId(), tr);
         }
 
@@ -266,7 +266,7 @@ public class TermMapService {
             current.mappedInfoSets.add(info.getTermMapInformation());
         }
 
-        for (TermruleDoc tr : rules) {
+        for (TermRuleDoc tr : rules) {
 
             if (!mapsByTermId.containsKey(tr.getTermId())) {
                 //we do not have any mappings for these terms...
