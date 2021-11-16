@@ -17,8 +17,6 @@ import org.elasticsearch.search.sort.SortOrder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -74,8 +72,9 @@ public class ProcessingLogService {
 	}
 
 	public Iterable<ProcessingLogDoc> getLatestProcessingLogs(int limit) {
-		PageRequest request = new PageRequest(0, limit, new Sort(Sort.Direction.DESC, "lastModified_dt"));
-		return repository.findAll(request);
+		//PageRequest request = new PageRequest(0, limit, new Sort(Sort.Direction.DESC, "lastModified_dt"));
+		//return repository.findAll(request);
+		return repository.findAll();
 	}
 
 	public void cancelPendingProcessingItems(String userId) {

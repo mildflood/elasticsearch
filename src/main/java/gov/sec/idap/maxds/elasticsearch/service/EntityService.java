@@ -58,8 +58,9 @@ public class EntityService {
 		return repository.findByCik(formatted);
 	}
 	
-	public List<Entity> findByName(String name) {
-		return searchString("companyName", name);
+	public List<Entity> findByCompanyName(String name) {
+		//return searchString("companyName", name);
+		return repository.findByCompanyName(name);
 	}
 	
 	public List<Entity> findBySector(String name) {
@@ -71,7 +72,8 @@ public class EntityService {
 	}
 	
 	public List<Entity> findByIndustry(String name) {
-		return searchString("industry", name);
+		//return searchString("industry", name);
+		return repository.findByIndustry(name);
 	}
 	
 	public List<Entity> findByFilerCategory(String name) {

@@ -59,6 +59,10 @@ public class ReferenceDataService {
 		});
 		return ret;
 	}
+	
+	public List<LookupDoc> findNameByType() {
+		return repository.findNameByType(LookupDoc.LookupType.termMapGroup.toString());
+	}
 
 	// use custom @query from repo
 //	public List<TermMapGroup> getAllMappingGroups() {
@@ -162,7 +166,7 @@ public class ReferenceDataService {
 	}
 
 	public List<USGAAPTaxonomyElement> findByTaxonomyElementIdLike(String query, Boolean isTextBlock) {
-		PageRequest request = new PageRequest(0, 20, new Sort(Sort.Direction.ASC, "name_s"));
+		//PageRequest request = new PageRequest(0, 20, new Sort(Sort.Direction.ASC, "name_s"));
 		if (query.contains("us-gaap")) {
 			query = query.replace("us-gaap", "gaap");
 		}

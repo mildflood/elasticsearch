@@ -6,7 +6,7 @@
 package gov.sec.idap.maxds.calculation.Domain;
 
 import gov.sec.idap.maxds.domain.FactDimension;
-import gov.sec.idap.maxds.domain.NormalizedFact;
+import gov.sec.idap.maxds.elasticsearch.document.NormalizedFact;
 import java.util.ArrayList;
 import java.util.List;
 

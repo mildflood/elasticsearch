@@ -15,9 +15,9 @@ import org.springframework.data.domain.Pageable;
 
 @Repository
 public interface LookupDocRepository extends ElasticsearchRepository<LookupDoc, String> {  
-//	@Query("{\"bool\":{\"must\":[{\"match\":{\"type_s\":{\"query\":\"?0\"}}}]}}")
-//    List<LookupDoc> findNameByType(String type);
-//    
+	@Query("{\"bool\":{\"must\":[{\"match\":{\"type_s\":{\"query\":\"?0\"}}}]}}")
+    List<LookupDoc> findNameByType(String type);
+    
 //    @Query(value="name_s:?0 AND type_s:taxonomyElement")
 //    List<LookupDoc> findTaxonomyElementByName(String name, Pageable pageable);
 //    

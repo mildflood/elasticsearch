@@ -16,7 +16,7 @@ import javax.script.ScriptException;
 
 import gov.sec.idap.maxds.domain.PeriodType;
 import gov.sec.idap.maxds.domain.TermResult;
-import gov.sec.idap.maxds.solr.document.TermResultsDoc;
+import gov.sec.idap.maxds.elasticsearch.document.TermResultsDoc;
 
 /**
  *
@@ -42,7 +42,7 @@ public class FormulaTermResults {
     {
         for(TermResultsDoc tr : termResults )
         {
-            String key = String.format("%s %s %d",tr.entityId, tr.FQ, tr.FY);
+            String key = String.format("%s %s %d",tr.getEntityId(), tr.FQ, tr.FY);
             FormulaTermResult cur = this.resultsMap.get(key);
             if( cur == null)
             {
@@ -104,7 +104,7 @@ public class FormulaTermResults {
             ret.cik = baseTr.cik;
             ret.accession = baseTr.accession;
             ret.filingDate = baseTr.filingDate;
-            ret.entityId = baseTr.entityId;
+            ret.setEntityId(baseTr.getEntityId());
             ret.periodType = termType;
             ret.resolvedExpression = String.format("%s = %s",resolvedExpressionDisplay ,
                     decimalFormat.format(ret.value));

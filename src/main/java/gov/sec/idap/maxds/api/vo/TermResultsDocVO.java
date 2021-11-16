@@ -13,7 +13,7 @@ public class TermResultsDocVO
 {
     public String id;
     public DerivationTrailVO derivationTrails;   
-    public gov.sec.idap.maxds.solr.document.TermResultsDoc.TermResultsDocType myDocType = gov.sec.idap.maxds.solr.document.TermResultsDoc.TermResultsDocType.primaryTermResult;
+    public gov.sec.idap.maxds.elasticsearch.document.TermResultsDoc.TermResultsDocType myDocType = gov.sec.idap.maxds.elasticsearch.document.TermResultsDoc.TermResultsDocType.primaryTermResult;
 
     public String entityId;
     

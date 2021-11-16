@@ -11,7 +11,7 @@ import java.util.List;
 import gov.sec.idap.maxds.domain.DimensionExpressionSet;
 import gov.sec.idap.maxds.domain.ExpressionSetTypeCode;
 import gov.sec.idap.maxds.domain.FactDimension;
-import gov.sec.idap.maxds.domain.NormalizedFact;
+import gov.sec.idap.maxds.elasticsearch.document.NormalizedFact;
 
 public class ConceptMatchWithDimResolvedTermExpression extends ResolvedTermExpression {
 

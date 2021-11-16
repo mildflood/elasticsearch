@@ -46,7 +46,7 @@ public class EntityController {
 	
 	@GetMapping(value= "/findbyname/{name}")
 	public Iterable<Entity> getByName(@PathVariable(name = "name") String name) {
-		return service.findByName(name);
+		return service.findByCompanyName(name);
 	}
 	
 	@GetMapping(value= "/findbysector/{name}")

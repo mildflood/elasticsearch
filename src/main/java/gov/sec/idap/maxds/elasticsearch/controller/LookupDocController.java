@@ -7,6 +7,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.core.SearchHits;
 import org.springframework.web.bind.annotation.*;
 
+import gov.sec.idap.maxds.domain.TermMapGroup;
+import gov.sec.idap.maxds.domain.USGAAPTaxonomyElement;
 import gov.sec.idap.maxds.elasticsearch.document.LookupDoc;
 import gov.sec.idap.maxds.elasticsearch.service.ReferenceDataService;
 
@@ -20,18 +22,24 @@ public class LookupDocController {
         this.service = service;
     }
 	
-	@GetMapping(value= "/findall") 
-	List<LookupDoc> findAll () {
-		return service.findAll();
+//	@GetMapping(value= "/findall") 
+//	List<LookupDoc> findAll () {
+//		return service.findAll();
+//	}
+	
+	//test repository query
+	@GetMapping(value= "/findnamebytype") 
+	List<LookupDoc> findNameByType(){
+		return service.findNameByType();
 	}
 	
 	@GetMapping(value= "/getallmappinggroups") 
-	List<LookupDoc> getAllMappingGroups(String type){
+	List<TermMapGroup> getAllMappingGroups(String type){
 		return service.getAllMappingGroups();
 	}
     
     @GetMapping(value= "/findtaxonomyelementbyname")
-    LookupDoc findOneTaxonomyElementByName(String name, Pageable pageable) {
+    USGAAPTaxonomyElement findOneTaxonomyElementByName(String name, Pageable pageable) {
     	return service.findOneTaxonomyElement(name);
     }
     
@@ -40,9 +48,9 @@ public class LookupDocController {
     	return service.findOne(name, type);
     }
 	
-    @GetMapping(value= "/findbyistextblockandnamecontaining/{istextblock}")
-    List<LookupDoc> findByIsTextBlockAndNameContaining(@PathVariable(name = "istextblock") Boolean isTextBlock) {
-    	String query = "";
-    	return service.findByTaxonomyElementIdLike(query, isTextBlock);
-    }
+//    @GetMapping(value= "/findbyistextblockandnamecontaining/{istextblock}")
+//    List<LookupDoc> findByIsTextBlockAndNameContaining(@PathVariable(name = "istextblock") Boolean isTextBlock) {
+//    	String query = "";
+//    	return service.findByTaxonomyElementIdLike(query, isTextBlock);
+//    }
 }
