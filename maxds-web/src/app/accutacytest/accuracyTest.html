@@ -1,0 +1,125 @@
+<div>
+    <p-progressSpinner *ngIf="progressSpinner" [style]="{width: '50px', height: '50px',float:'left'}" strokeWidth="8"
+        fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+    <p-messages [value]="msgs"></p-messages>
+</div>
+<div *ngIf="showError" class="alert alert-danger" role="alert">
+    <strong>{{errorMsg}}</strong>
+</div>
+
+
+<div class="col-lg-12">
+    <div class="col-lg-6">
+        <form (ngSubmit)="onSubmit(dt)" style="text-align: left;">
+
+            <p-autoComplete joyrideStep="searchCompany" title="Company Name"
+                text="This is where a user can enter a desired Company name or CIK. " [style]="{'width':'420px' }"
+                [inputStyle]="{'width':'420px'} " placeholder="Search Company" [dropdown]="false"
+                [suggestions]="filteredCompany" name="companyName" [forceSelection]="true"
+                (onSelect)="onCompanyNameChange($event)"
+                (completeMethod)="searchCompany($event)" [(ngModel)]="accuracyTest.companyName">
+            </p-autoComplete>
+            <span style="width: 5px; padding-left: 10px;"></span>
+            <p-autoComplete placeholder="Select Year" [dropdown]="true" [suggestions]="filteredYears" name="year"
+                joyrideStep="year" title="Year" [stepContent]="yearContent" (completeMethod)="searchYears($event)"
+                (onSelect)="onYearChange($event)"
+                [(ngModel)]="accuracyTest.year">
+            </p-autoComplete>
+            <span style="width: 5px; padding-left: 10px;"></span>
+            <button joyrideStep="runTest" title="Run Test" text="This button executes the accuracy test."
+                class="btn btn-primary" label="Save" style="margin:3px" (click)="dt.reset()"> Run Test</button>
+
+        </form>
+    </div>
+    <div class="col-lg-5" *ngIf="showTitle">
+
+        <button class="btn btn-primary pull-left" label="Export" (click)="openlink()">
+            Filing Url</button>
+
+        <button class="btn btn-primary pull-right" label="Export" style="margin-left:8px"
+            (click)="exportTableToCSV(dt)">
+            Export</button>
+        <button class="btn btn-primary pull-right" label="Save" style="margin-left:8px"
+            (click)="saveAccuracyTestData()">
+            Save</button>
+        <button class="btn btn-primary pull-right" label="Research" style="margin-left:8px"
+            (click)="openResearchLink()">
+            Research</button>
+
+
+    </div>
+    <div class="col-lg-1"></div>
+</div>
+
+<div class="col-lg-12" [ngClass]="{'display-none': !showTitle}">
+    <div class="col-lg-6">
+
+        <span *ngIf="showTitle">{{accuracyTest.companyName}} 10-K</span> <a (click)="openlink()"
+            style="cursor: pointer;"><u>{{fillingURL}}</u></a>
+        <div [innerHTML]="htmlcontent" style="border: black 1px solid; overflow: auto; max-height: 800px;"></div>
+    </div>
+    <div class="col-lg-6">
+        <div class="table-responsive">
+
+            <p-table #dt [columns]="cols" [value]="accuracyTestList" [(selection)]="selectedAccuracyTest"
+                [paginator]="false" [rows]="10" exportFilename="accuracyTestData">
+
+
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+
+                        <th *ngFor="let col of columns" pResizableColumn pReorderableColum
+                            [ngStyle]="{'width': col.width}" [pSortableColumn]="col.field">
+                            <div pTooltip="Click to sort {{col.header}}">
+                                {{col.header}}
+                                <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"
+                                    ariaLabelDesc="Activate to sort in descending order"
+                                    ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                            </div>
+                        </th>
+
+                    </tr>
+                </ng-template>
+
+                <ng-template pTemplate="body" let-rowData let-columns="columns" let-col let-rowIndex>
+                    <tr>
+
+                        <td *ngFor="let col of columns" [ngStyle]="loadBackgroundColors(col,rowData)"
+                            [ngClass]="(col.field === 'csTermValue' || col.field === 'value') ? 'text-align-right' : null">
+                            <span *ngIf=" col.header==='CS'" style=" width: 8em">
+                                {{rowData[col.field]}}</span>
+                            <span *ngIf="col.field==='csTermValue'">
+                                {{rowData[col.field] | number}}</span>
+                            <span *ngIf="col.field==='isCheckedCS'">
+                                <input type="checkbox" class="form-check-input customcheckbox"
+                                    (click)="csCheckboxselect($event,rowData)" />
+                            </span>
+                            <span *ngIf="col.header==='MAXDS'">
+                                <a href="javascript:void(0)" (click)="goManageTermPage(rowData[col.field])">
+                                  {{rowData[col.field]}}
+                                </a>
+                            </span>
+                            <!--<span *ngIf="col.header==='MAXDS'"> {{rowData[col.field]}}</span>-->
+                            <span *ngIf="col.field==='value'">
+                                {{rowData[col.field] | number}}</span>
+                            <span *ngIf="col.header==='Resolved Expression'"> {{rowData[col.field]}}</span>
+                            <span *ngIf="col.field==='isCheckedMaxDS'">
+                                <input type="checkbox" class="form-check-input customcheckbox"
+                                    (click)="maxDsCheckboxselect($event,rowData)" />
+                            </span>
+                            <span *ngIf="col.header==='Notes'">
+                                <input type="text" value="" style="width: 5em;" [(ngModel)]="rowData[col.field]" />
+                            </span>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>
+
+<ng-template #yearContent>
+    <div>This is where the user can select a desired year. </div>
+    <div>Default is current year.
+    </div>
+</ng-template>

@@ -27,8 +27,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Document(indexName = Indices.TERMRULE_INDEX)
 @Setting(settingPath = "static/es-settings.json")
 public class TermRuleDoc {
-	private final Logger log = LoggerFactory.getLogger(this.getClass());
-
 	@Id
 	@Field(type = FieldType.Keyword)
 	private String id;
@@ -185,7 +183,7 @@ public class TermRuleDoc {
 		         this.setPriorityGroup(object.getString("priorityGroup"));
 		      }
 		} catch (JSONException err) {
-			log.debug("Error", err.toString());
+			//log.debug("Error", err.toString());
 		}
 		this.ruleText = ruleText;
 	}

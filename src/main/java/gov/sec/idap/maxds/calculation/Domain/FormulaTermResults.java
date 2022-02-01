@@ -18,6 +18,7 @@ import gov.sec.idap.maxds.domain.PeriodType;
 import gov.sec.idap.maxds.domain.TermResult;
 import gov.sec.idap.maxds.elasticsearch.document.TermResultsDoc;
 
+
 /**
  *
  * @author SRIKANTH

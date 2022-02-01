@@ -4,6 +4,7 @@ import gov.sec.idap.maxds.elasticsearch.document.Entity;
 import gov.sec.idap.maxds.elasticsearch.service.EntityService;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,7 @@ public class EntityController {
     }
 
     @GetMapping("/{id}")
-    public Entity findById(@PathVariable final String id) {
+    public Optional<Entity> findById(@PathVariable final String id) {
         return service.findById(id);
     }
     
@@ -46,7 +47,7 @@ public class EntityController {
 	
 	@GetMapping(value= "/findbyname/{name}")
 	public Iterable<Entity> getByName(@PathVariable(name = "name") String name) {
-		return service.findByCompanyName(name);
+		return service.findByName(name);
 	}
 	
 	@GetMapping(value= "/findbysector/{name}")

@@ -25,47 +25,47 @@ public class ProcessingLogDoc {
     @Field(type = FieldType.Keyword)
     private String id;
 	
-	@JsonProperty("processingGroupId_s")
+	@JsonProperty("processingGroupId")
     @Field(type = FieldType.Text)
     private String processingGroupId;
     
-    @JsonProperty("entityId_s")
+    @JsonProperty("entityId")
     @Field(type = FieldType.Text)
     private String entityId;
     
-    @JsonProperty("termId_s")
+    @JsonProperty("termId")
     @Field(type = FieldType.Text)
     private String termId;
     
-    @JsonProperty("logStatus_s")
+    @JsonProperty("logStatus")
     @Field(type = FieldType.Text)
     private String logStatus;
     
-    @JsonProperty("description_s")
+    @JsonProperty("description")
     @Field(type = FieldType.Text)
     private String description;
     
-    @JsonProperty("userName_s")
+    @JsonProperty("userName")
     @Field(type = FieldType.Text)
     private String userName;
     
-    @JsonProperty("currentTime_s")
+    @JsonProperty("currentTime")
     @Field(type = FieldType.Text)
     private String currentTime;
     
-    @JsonProperty("processingTimeInSec_l")
+    @JsonProperty("processingTimeInSec")
     @Field(type = FieldType.Long)
     private long processingTimeInSec;
     
-    @JsonProperty("noOfEntitiesBeingProcessed_i")
+    @JsonProperty("noOfEntitiesBeingProcessed")
     @Field(type = FieldType.Integer)
     private int noOfEntitiesBeingProcessed;
     
-    @JsonProperty("lastModified_dt")
-    @Field(type = FieldType.Text)
+    @JsonProperty("lastModified")
+    @Field(type = FieldType.Date)
     private Date lastModified = new Date();
     
-    @JsonProperty("processingSequence_i")
+    @JsonProperty("processingSequence")
     @Field(type = FieldType.Integer)
     private int processingSequence = 0;
     
@@ -210,6 +210,4 @@ public class ProcessingLogDoc {
 	public void setProcessingSequence(int processingSequence) {
 		this.processingSequence = processingSequence;
 	}
-	
-	
 }

@@ -59,10 +59,6 @@ public class ReferenceDataService {
 		});
 		return ret;
 	}
-	
-	public List<LookupDoc> findNameByType() {
-		return repository.findNameByType(LookupDoc.LookupType.termMapGroup.toString());
-	}
 
 	// use custom @query from repo
 //	public List<TermMapGroup> getAllMappingGroups() {
@@ -223,7 +219,7 @@ public class ReferenceDataService {
 			searchSourceBuilder.query(boolQueryBuilder);
 			// Generate the actual request to send to ES.
 			SearchRequest searchRequest = new SearchRequest();
-			searchRequest.source(searchSourceBuilder);
+			searchRequest.source(searchSourceBuilder.size(1000));
 			SearchResponse response = client.search(searchRequest, RequestOptions.DEFAULT);
 			serverList = getSearchResult(response);
 		} catch (Exception e) {

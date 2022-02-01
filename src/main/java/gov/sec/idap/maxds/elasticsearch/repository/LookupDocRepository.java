@@ -15,20 +15,25 @@ import org.springframework.data.domain.Pageable;
 
 @Repository
 public interface LookupDocRepository extends ElasticsearchRepository<LookupDoc, String> {  
-	@Query("{\"bool\":{\"must\":[{\"match\":{\"type_s\":{\"query\":\"?0\"}}}]}}")
-    List<LookupDoc> findNameByType(String type);
+	
+    //@Query(value="type_s:?0")
+    @Query("{\"bool\": {\"must\":[{\"match\" : { \"type_s\" : \"?0\" }}]}}")
+   List<LookupDoc> findNameByType(String type);
+   
+   //@Query(value="name_s:?0 AND type_s:taxonomyElement")
+   @Query("{\"bool\": {\"must\":[{\"match\" : { \"name_s\" : \"?0\" }},{\"match\" : { \"type_s\" : \"taxonomyElement\" }}]}}")
+   List<LookupDoc> findTaxonomyElementByName(String name, Pageable pageable);
+   
+    //@Query(value="name_s:\"?0\" AND type_s:?1")
+    @Query("{\"bool\": {\"must\":[{\"match\" : { \"name_s\" : \"?0\" }},{\"match\" : { \"type_s\" : \"?1\" }}]}}")
+   List<LookupDoc> findByNameAndType(String name, String type, Pageable pageable);
+   
+   //@Query(value="type_s:taxonomyElement AND isTextBlock_b:?0 AND name_s:*?1*")
+   @Query("{\"bool\": {\"must\":[{\"match\" : { \"isTextBlock_b\" : \"?0\" }},{\"match\" : { \"type_s\" : \"taxonomyElement\" }}, {\"wildcard\": {\"name_s\": \"*?1*\"}}]}}")
+   Page<LookupDoc> findByIsTextBlockAndNameContaining(Boolean isTextBlock, 
+           String name, Pageable pageable);
+   
+    Page<LookupDoc> findByNameLike(String name, Pageable pageable);
     
-//    @Query(value="name_s:?0 AND type_s:taxonomyElement")
-//    List<LookupDoc> findTaxonomyElementByName(String name, Pageable pageable);
-//    
-//     @Query(value="name_s:\"?0\" AND type_s:?1")
-//    List<LookupDoc> findByNameAndType(String name, String type, Pageable pageable);
-//    
-//    @Query(value="type_s:taxonomyElement AND isTextBlock_b:?0 AND name_s:*?1*")
-//    Page<LookupDoc> findByIsTextBlockAndNameContaining(Boolean isTextBlock, 
-//            String name, Pageable pageable);    
-//    
-//    Page<LookupDoc> findByNameLike(String name, Pageable pageable);
-//     
-//    void deleteByNameAndType(String name, String type);
+    void deleteByNameAndType(String name, String type);
 }

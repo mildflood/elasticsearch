@@ -1,0 +1,12 @@
+maxds-aws.log
+maxds-aws.log.2020-11-23.0.gz maxds-aws.log.2020-11-24.0.gz
+maxds-aws.log.2020-11-23.0.gz maxds-aws.log.2020-11-24.0.gz
+maxds-aws.log.2020-11-23.0.gz maxds-aws.log.2020-11-24.0.gz
+.classpath .factorypath
+.classpath
+.factorypath
+.settings/
+target/
+.project
+/.class
+*/target/**

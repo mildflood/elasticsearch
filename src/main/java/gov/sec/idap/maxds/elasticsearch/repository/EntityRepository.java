@@ -10,15 +10,16 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EntityRepository extends ElasticsearchRepository<Entity, String> {
+	
 	//search cik with exact matching with input text
-	@Query("{\"bool\":{\"must\":[{\"match\":{\"cik\":{\"query\":\"?0\"}}}]}}")
-	public List<Entity> findByCik(String cik);
-	
-	//search company name that has a word starting with input text
-	@Query("{\"bool\":{\"must\":[{\"wildcard\":{\"companyName\":\"?0*\"}}]}}")
-	public List<Entity> findByCompanyName(String name);
-	
-	//search industry that contains a string as input text
-	@Query("{\"bool\":{\"must\":[{\"wildcard\":{\"industry\":\"*?0*\"}}]}}")
-	public List<Entity> findByIndustry(String industry);
+		@Query("{\"bool\":{\"must\":[{\"match\":{\"cik\":{\"query\":\"?0\"}}}]}}")
+		public List<Entity> findByCik(String cik);
+		
+		//search company name that has a word starting with input text
+		@Query("{\"bool\":{\"must\":[{\"wildcard\":{\"companyName\":\"?0*\"}}]}}")
+		public List<Entity> findByCompanyName(String name);
+		
+		//search industry that contains a string as input text
+		@Query("{\"bool\":{\"must\":[{\"wildcard\":{\"industry\":\"*?0*\"}}]}}")
+		public List<Entity> findByIndustry(String industry);
 }

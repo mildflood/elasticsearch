@@ -21,58 +21,105 @@ import org.springframework.data.elasticsearch.annotations.Setting;
 import org.springframework.stereotype.Component;
 
 @Component
-@Document(indexName = Indices.LOOKUP_REFERENCES_INDEX)
+@Document(indexName = Indices.NORMALIZED_FACT_INDEX)
 @Setting(settingPath = "static/es-settings.json")
 public class NormalizedFact {
-	public String id;
+	
+	@Id
+    @Field(type = FieldType.Keyword)
+    private String id;
 
     @JsonProperty("sub_cik")
-    @Field(type = FieldType.Integer)
-    public Integer cik;
+    @Field(type = FieldType.Long)
+    private Integer sub_cik;
 
     @JsonProperty("cell_elt")
-    @Field(type = FieldType.Text)
-    public String elementName;
+    @Field(type = FieldType.Keyword)
+    private String cell_elt;
     
     @JsonProperty("sub_act_standard")
-    @Field(type = FieldType.Text)
-    public String accountingStandard;
+    @Field(type = FieldType.Keyword)
+    private String sub_act_standard;
     
     @JsonProperty("num_ddate")
-    @Field(type = FieldType.Text)
-    public String periodEndDate;
+    @Field(type = FieldType.Keyword)
+    private String num_ddate;
+    //public String periodEndDate;
     
     @JsonProperty("fact_fy_i")
-    @Field(type = FieldType.Integer)
-    public int FY;
+    @Field(type = FieldType.Long)
+    private int fact_fy_i;
 
     @JsonProperty("fact_fp")
-    @Field(type = FieldType.Object)
-    public FQTypeCode FQ = FQTypeCode.na;
+    @Field(type = FieldType.Keyword)
+    private FQTypeCode fact_fp = FQTypeCode.na;
 
     @JsonProperty("num_value")
-    @Field(type = FieldType.Double)
-    public double value = 0;
+    @Field(type = FieldType.Float)
+    private double num_value = 0;
 
     @JsonProperty("tag_custom")
     @Field(type = FieldType.Boolean)
-    public Boolean isExtended;
+    private Boolean tag_custom;
+    //public Boolean isExtended;
 
     @JsonProperty("tag_datatype")
-    @Field(type = FieldType.Text)
-    public String elementType;
+    @Field(type = FieldType.Keyword)
+    //public String elementType;
+    private String tag_datatype;
     
     @JsonProperty("sub_name")
-    @Field(type = FieldType.Text)
-    public String companyName;
+    @Field(type = FieldType.Keyword)
+    //public String companyName;
+    private String sub_name;
+    
+    @JsonProperty("tag_crdr")
+    @Field(type = FieldType.Keyword)
+    private String tag_crdr;
+    
+    @JsonProperty("tag_iord")
+    @Field(type = FieldType.Keyword)
+    private String tag_iord;
 
-    public String tag_crdr;
-    public String tag_iord;
-    public Date sub_filed_dt;
-    public String num_uom;
+    @JsonProperty("sub_filed_dt")
+    @Field(type = FieldType.Date)
+    private Date sub_filed_dt;
+    
+    @JsonProperty("num_uom")
+    @Field(type = FieldType.Keyword)
+    private String num_uom;
 
-    public String dim_segments;
-    public String sub_adsh;
+    @JsonProperty("dim_segments")
+    @Field(type = FieldType.Keyword)
+    private String dim_segments;
+    
+    @JsonProperty("sub_adsh")
+    @Field(type = FieldType.Keyword)
+    private String sub_adsh;
+    
+    @JsonProperty("num_qtrs")
+    @Field(type = FieldType.Long)
+    private String num_qtrs;
+    
+    @JsonProperty("sub_form")
+    @Field(type = FieldType.Keyword)
+    private String sub_form;
+    
+    @JsonProperty("sub_fyend")
+    @Field(type = FieldType.Keyword)
+    private String sub_fyend;
+
+    @JsonProperty("sub_filed")
+    @Field(type = FieldType.Keyword)
+    private String sub_filed;
+
+    @JsonProperty("dtCreated")
+    @Field(type = FieldType.Date)
+    private Date dtCreated;
+
+    @JsonProperty("factkey")
+    @Field(type = FieldType.Keyword)
+    private String factkey;
     
     //Fact Level Properties
 
@@ -82,15 +129,15 @@ public class NormalizedFact {
     public List<NormalizedFact> dimensionalFacts = null;
     
     public String getCikString() {
-        return StringUtils.leftPad(cik.toString(), 10, "0");
+        return StringUtils.leftPad(sub_cik.toString(), 10, "0");
     }
 
     public String getFiscalKey() {
-        return String.format("%d:%s", this.FY, this.FQ);
+        return String.format("%d:%s", this.fact_fy_i, this.fact_fp);
     }
     
      public String getFiscalKeyWithEntity() {
-        return String.format("%s:%d:%s",this.getCikString(), this.FY, this.FQ);
+        return String.format("%s:%d:%s",this.getCikString(), this.fact_fy_i, this.fact_fp);
     }
 
     public void PopulateDimensionalInfo() {
@@ -183,84 +230,84 @@ public class NormalizedFact {
 		this.id = id;
 	}
 
-	public Integer getCik() {
-		return cik;
+	public Integer getSub_cik() {
+		return sub_cik;
 	}
 
-	public void setCik(Integer cik) {
-		this.cik = cik;
+	public void setSub_cik(Integer sub_cik) {
+		this.sub_cik = sub_cik;
 	}
 
-	public String getElementName() {
-		return elementName;
+	public String getCell_elt() {
+		return cell_elt;
 	}
 
-	public void setElementName(String elementName) {
-		this.elementName = elementName;
+	public void setCell_elt(String cell_elt) {
+		this.cell_elt = cell_elt;
 	}
 
-	public String getAccountingStandard() {
-		return accountingStandard;
+	public String getSub_act_standard() {
+		return sub_act_standard;
 	}
 
-	public void setAccountingStandard(String accountingStandard) {
-		this.accountingStandard = accountingStandard;
+	public void setSub_act_standard(String sub_act_standard) {
+		this.sub_act_standard = sub_act_standard;
 	}
 
-	public String getPeriodEndDate() {
-		return periodEndDate;
+	public String getNum_ddate() {
+		return num_ddate;
 	}
 
-	public void setPeriodEndDate(String periodEndDate) {
-		this.periodEndDate = periodEndDate;
+	public void setNum_ddate(String num_ddate) {
+		this.num_ddate = num_ddate;
 	}
 
-	public int getFY() {
-		return FY;
+	public int getFact_fy_i() {
+		return fact_fy_i;
 	}
 
-	public void setFY(int fY) {
-		FY = fY;
+	public void setFact_fy_i(int fact_fy_i) {
+		this.fact_fy_i = fact_fy_i;
 	}
 
-	public FQTypeCode getFQ() {
-		return FQ;
+	public FQTypeCode getFact_fp() {
+		return fact_fp;
 	}
 
-	public void setFQ(FQTypeCode fQ) {
-		FQ = fQ;
+	public void setFact_fp(FQTypeCode fact_fp) {
+		this.fact_fp = fact_fp;
 	}
 
-	public double getValue() {
-		return value;
+	public double getNum_value() {
+		return num_value;
 	}
 
-	public void setValue(double value) {
-		this.value = value;
+	public void setNum_value(double num_value) {
+		this.num_value = num_value;
 	}
 
-	public Boolean getIsExtended() {
-		return isExtended;
+	public Boolean getTag_custom() {
+		return tag_custom;
 	}
 
-	public void setIsExtended(Boolean isExtended) {
-		this.isExtended = isExtended;
+	public void setTag_custom(Boolean tag_custom) {
+		this.tag_custom = tag_custom;
 	}
 
-	public String getElementType() {
-		return elementType;
+	public String getTag_datatype() {
+		return tag_datatype;
 	}
 
-	public void setElementType(String elementType) {
-		this.elementType = elementType;
+	public void setTag_datatype(String tag_datatype) {
+		this.tag_datatype = tag_datatype;
 	}
 
-	public String getCompanyName() {
-		return companyName;
+	public String getSub_name() {
+		return sub_name;
 	}
 
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
+	public void setSub_name(String sub_name) {
+		this.sub_name = sub_name;
 	}
 
 	public String getTag_crdr() {
@@ -309,6 +356,54 @@ public class NormalizedFact {
 
 	public void setSub_adsh(String sub_adsh) {
 		this.sub_adsh = sub_adsh;
+	}
+
+	public String getNum_qtrs() {
+		return num_qtrs;
+	}
+
+	public void setNum_qtrs(String num_qtrs) {
+		this.num_qtrs = num_qtrs;
+	}
+
+	public String getSub_form() {
+		return sub_form;
+	}
+
+	public void setSub_form(String sub_form) {
+		this.sub_form = sub_form;
+	}
+
+	public String getSub_fyend() {
+		return sub_fyend;
+	}
+
+	public void setSub_fyend(String sub_fyend) {
+		this.sub_fyend = sub_fyend;
+	}
+
+	public String getSub_filed() {
+		return sub_filed;
+	}
+
+	public void setSub_filed(String sub_filed) {
+		this.sub_filed = sub_filed;
+	}
+
+	public Date getDtCreated() {
+		return dtCreated;
+	}
+
+	public void setDtCreated(Date dtCreated) {
+		this.dtCreated = dtCreated;
+	}
+
+	public String getFactkey() {
+		return factkey;
+	}
+
+	public void setFactkey(String factkey) {
+		this.factkey = factkey;
 	}
 
 	public List<FactDimension> getDimensions() {

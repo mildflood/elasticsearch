@@ -1,10 +1,18 @@
 package gov.sec.idap.maxds.elasticsearch.service;
 
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import javax.servlet.ServletOutputStream;
+
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVPrinter;
 import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.RequestOptions;
@@ -29,9 +37,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import gov.sec.idap.maxds.domain.AccuracyTestData;
 import gov.sec.idap.maxds.domain.AccuracyTestItem;
+import gov.sec.idap.maxds.domain.ExportAccuracyTestInput;
 import gov.sec.idap.maxds.domain.PostRequestResult;
+import gov.sec.idap.maxds.domain.TermRule;
 import gov.sec.idap.maxds.elasticsearch.document.AccuracyTestNotesDoc;
+import gov.sec.idap.maxds.elasticsearch.document.TermMapInformationDoc;
+import gov.sec.idap.maxds.elasticsearch.document.TermResultsDoc;
 import gov.sec.idap.maxds.elasticsearch.repository.AccuracyTestNotesRepository;
+import gov.sec.idap.maxds.service.SecApiService;
 
 @Service("accuracyTestService")
 public class AccuracyTestService {
@@ -51,8 +64,8 @@ public class AccuracyTestService {
 	@Autowired
 	private AccuracyTestNotesRepository repository;
 
-//	@Autowired
-//	private SecApiService secApiService;
+	@Autowired
+	private SecApiService secApiService;
 
 	@Autowired
 	private RestHighLevelClient client;
@@ -68,73 +81,73 @@ public class AccuracyTestService {
 	@Value("${sec.api.idap.get.compustat.data:https://sp-us-deraodp01.ix.sec.gov:18084/idap/datasets/maxds/api/v01/c951b}")
 	String idapGetCompustatUrl;
 
-//	public AccuracyTestData runAccuracyTest(String cik, int fiscalYear) {
-//
-//		AccuracyTestData output = new AccuracyTestData();
-//		output.cik = cik;
-//		output.fiscalYear = fiscalYear;
-//		output.status = true;
-//
-//		List<TermRule> trs = this.termRuleService.getTermRulesForAccuracyTesting();
-//		List<String> termIds = new ArrayList<>();
-//		trs.forEach((tr) -> {
-//			termIds.add(tr.getTermId());
-//		});
-//
-//		Collections.sort(trs, new Comparator<TermRule>() {
-//			public int compare(TermRule left, TermRule right) {
-//				if (left.getFinancialStatement() == null)
-//					return -1;
-//				if (right.getFinancialStatement() == null)
-//					return 1;
-//				int resp = left.getFinancialStatement().compareTo(right.getFinancialStatement());
-//				if (resp != 0)
-//					return resp;
-//
-//				return left.getName().compareTo(right.getName());
-//			}
-//
-//		});
-//
-//		HashMap<String, TermResultsDoc> maxDSResults = this.termResultService.getResultsByTermId(termIds, cik,
-//				fiscalYear);
-//
-//		HashMap<String, TermMapInformationDoc> compustatIdMaps = this.termMapService.findCompustatIds(termIds);
-//
-//		HashMap<String, AccuracyTestNotesDoc> notesInfoMap = this.getNotesDetails(cik, fiscalYear);
-//
-//		HashMap<String, Double> compustatValues = this.getCompustatValues(cik, fiscalYear, compustatIdMaps);
-//
-//		output.items = new ArrayList<>();
-//		for (TermRule tr : trs) {
-//
-//			AccuracyTestItem item = new AccuracyTestItem();
-//			item.termId = tr.getTermId();
-//			item.financialStatement = tr.getFinancialStatement();
-//
-//			if (maxDSResults.containsKey(item.termId)) {
-//				item.value = maxDSResults.get(item.termId).value;
-//				item.resolvedExpression = maxDSResults.get(item.termId).resolvedExpression;
-//			}
-//
-//			if (compustatIdMaps.containsKey(item.termId)) {
-//				item.csTermId = compustatIdMaps.get(item.termId).getMapTermId();
-//			}
-//			if (compustatValues.containsKey(item.termId)) {
-//				item.csTermValue = compustatValues.get(item.termId).doubleValue();
-//			}
-//			if (notesInfoMap.containsKey(item.termId)) {
-//				item.isCheckedCS = notesInfoMap.get(item.termId).getIsCheckedCS();
-//				item.isCheckedMaxDS = notesInfoMap.get(item.termId).getIsCheckedMaxDS();
-//
-//				item.notes = notesInfoMap.get(item.termId).getNotes();
-//			}
-//
-//			output.items.add(item);
-//		}
-//		setFilingInfo(output);
-//		return output;
-//	}
+	public AccuracyTestData runAccuracyTest(String cik, int fiscalYear) {
+
+		AccuracyTestData output = new AccuracyTestData();
+		output.cik = cik;
+		output.fiscalYear = fiscalYear;
+		output.status = true;
+
+		List<TermRule> trs = this.termRuleService.getTermRulesForAccuracyTesting();
+		List<String> termIds = new ArrayList<>();
+		trs.forEach((tr) -> {
+			termIds.add(tr.getTermId());
+		});
+
+		Collections.sort(trs, new Comparator<TermRule>() {
+			public int compare(TermRule left, TermRule right) {
+				if (left.getFinancialStatement() == null)
+					return -1;
+				if (right.getFinancialStatement() == null)
+					return 1;
+				int resp = left.getFinancialStatement().compareTo(right.getFinancialStatement());
+				if (resp != 0)
+					return resp;
+
+				return left.getName().compareTo(right.getName());
+			}
+
+		});
+
+		HashMap<String, TermResultsDoc> maxDSResults = this.termResultService.getResultsByTermId(termIds, cik,
+				fiscalYear);
+
+		HashMap<String, TermMapInformationDoc> compustatIdMaps = this.termMapService.findCompustatIds(termIds);
+
+		HashMap<String, AccuracyTestNotesDoc> notesInfoMap = this.getNotesDetails(cik, fiscalYear);
+
+		HashMap<String, Double> compustatValues = this.getCompustatValues(cik, fiscalYear, compustatIdMaps);
+
+		output.items = new ArrayList<>();
+		for (TermRule tr : trs) {
+
+			AccuracyTestItem item = new AccuracyTestItem();
+			item.termId = tr.getTermId();
+			item.financialStatement = tr.getFinancialStatement();
+
+			if (maxDSResults.containsKey(item.termId)) {
+				item.value = maxDSResults.get(item.termId).value;
+				item.resolvedExpression = maxDSResults.get(item.termId).resolvedExpression;
+			}
+
+			if (compustatIdMaps.containsKey(item.termId)) {
+				item.csTermId = compustatIdMaps.get(item.termId).getMapTermId();
+			}
+			if (compustatValues.containsKey(item.termId)) {
+				item.csTermValue = compustatValues.get(item.termId).doubleValue();
+			}
+			if (notesInfoMap.containsKey(item.termId)) {
+				item.isCheckedCS = notesInfoMap.get(item.termId).getIsCheckedCS();
+				item.isCheckedMaxDS = notesInfoMap.get(item.termId).getIsCheckedMaxDS();
+
+				item.notes = notesInfoMap.get(item.termId).getNotes();
+			}
+
+			output.items.add(item);
+		}
+		setFilingInfo(output);
+		return output;
+	}
 
 //    [ {
 //
@@ -182,49 +195,49 @@ public class AccuracyTestService {
 //
 //  "ap" : 44.4000,   
 //}]
-//	public HashMap<String, Double> getCompustatValues(String entityId, int fiscalYear,
-//			HashMap<String, TermMapInformationDoc> compustatIds) {
-//		HashMap<String, Double> ret = new HashMap<>();
-//
-//		try {
-//			int cik = Integer.parseInt(entityId);
-//
-//			String uri = String.format("%s?cik=%d&fyear=%d", idapGetCompustatUrl, cik, fiscalYear);
-//			List<LinkedHashMap<String, Object>> compustatData = secApiService.getGenericJsonResponseList(uri);
-//
-//			// only intereted in usd
-//			// "curcd" : "USD"
-//			for (LinkedHashMap<String, Object> dataByCur : compustatData) {
-//
-//				String cur = (String) dataByCur.get("curcd");
-//				if (cur.equals("USD")) {
-//
-//					for (TermMapInformationDoc doc : compustatIds.values()) {
-//
-//						String key = doc.getMapTermId().toLowerCase();
-//						if (dataByCur.containsKey(key)) {
-//
-//							Double value = (Double) dataByCur.get(key);
-//
-//							if (value != null) {
-//								value *= 1000000.0;
-//								value = Math.floor(value * 100) / 100;
-//							} else
-//								value = 0.0;
-//
-//							// vompustat data is rounded to millions so we need to multiply to get full
-//							// amount..
-//							ret.put(doc.getTermId(), value);
-//						}
-//					}
-//				}
-//			}
-//		} catch (Exception exp) {
-//			LOG.error("getCompustatValues: Exception  " + exp.getMessage());
-//		}
-//
-//		return ret;
-//	}
+	public HashMap<String, Double> getCompustatValues(String entityId, int fiscalYear,
+			HashMap<String, TermMapInformationDoc> compustatIds) {
+		HashMap<String, Double> ret = new HashMap<>();
+
+		try {
+			int cik = Integer.parseInt(entityId);
+
+			String uri = String.format("%s?cik=%d&fyear=%d", idapGetCompustatUrl, cik, fiscalYear);
+			List<LinkedHashMap<String, Object>> compustatData = secApiService.getGenericJsonResponseList(uri);
+
+			// only intereted in usd
+			// "curcd" : "USD"
+			for (LinkedHashMap<String, Object> dataByCur : compustatData) {
+
+				String cur = (String) dataByCur.get("curcd");
+				if (cur.equals("USD")) {
+
+					for (TermMapInformationDoc doc : compustatIds.values()) {
+
+						String key = doc.getMapTermId().toLowerCase();
+						if (dataByCur.containsKey(key)) {
+
+							Double value = (Double) dataByCur.get(key);
+
+							if (value != null) {
+								value *= 1000000.0;
+								value = Math.floor(value * 100) / 100;
+							} else
+								value = 0.0;
+
+							// vompustat data is rounded to millions so we need to multiply to get full
+							// amount..
+							ret.put(doc.getTermId(), value);
+						}
+					}
+				}
+			}
+		} catch (Exception exp) {
+			LOG.error("getCompustatValues: Exception  " + exp.getMessage());
+		}
+
+		return ret;
+	}
 
 //    {
 //  "_embedded" : {
@@ -251,46 +264,46 @@ public class AccuracyTestService {
 //    }
 //  }
 //}
-//	public void setFilingInfo(AccuracyTestData data) {
-//
-//		try {
-//			// remove leading zeros and convert to string for url query string
-//
-//			String uri = String.format("%s?cik=%d&fy=%d", idapFiledUrl, Integer.parseInt(data.cik), data.fiscalYear);
-//
-//			LinkedHashMap<String, Object> filingData = secApiService.getGenericJsonResponse(uri);
-//
-//			// "_embedded"
-//			LinkedHashMap<String, Object> embeddedArray = (LinkedHashMap) filingData.get("_embedded");
-//
-//			List<LinkedHashMap<String, Object>> filings = (List) embeddedArray.get("maxds-filedUrl");
-//
-//			int cur = 0;
-//			for (LinkedHashMap<String, Object> filing : filings) {
-////             "filed" : "20150715",
-////      "form" : "10-K",
-////      "url" : "https://www.sec.gov/Archives/edgar/data/1750/000104746915006136/a2225345z10-k.htm",
-//
-//				String filed = (String) filing.get("filed");
-//				String form = (String) filing.get("form");
-//				String url = (String) filing.get("url");
-//
-//				int filedInt = Integer.parseInt(filed);
-//
-//				if (filedInt > cur) {
-//					cur = filedInt;
-//
-//					data.filingUrl = url;
-//					data.formType = form;
-//					data.filingDate = filedInt;
-//				}
-//
-//			}
-//		} catch (Exception exp) {
-//			LOG.error("setFilingInfo: Exception  " + exp.getMessage());
-//		}
-//
-//	}
+	public void setFilingInfo(AccuracyTestData data) {
+
+		try {
+			// remove leading zeros and convert to string for url query string
+
+			String uri = String.format("%s?cik=%d&fy=%d", idapFiledUrl, Integer.parseInt(data.cik), data.fiscalYear);
+
+			LinkedHashMap<String, Object> filingData = secApiService.getGenericJsonResponse(uri);
+
+			// "_embedded"
+			LinkedHashMap<String, Object> embeddedArray = (LinkedHashMap) filingData.get("_embedded");
+
+			List<LinkedHashMap<String, Object>> filings = (List) embeddedArray.get("maxds-filedUrl");
+
+			int cur = 0;
+			for (LinkedHashMap<String, Object> filing : filings) {
+//             "filed" : "20150715",
+//      "form" : "10-K",
+//      "url" : "https://www.sec.gov/Archives/edgar/data/1750/000104746915006136/a2225345z10-k.htm",
+
+				String filed = (String) filing.get("filed");
+				String form = (String) filing.get("form");
+				String url = (String) filing.get("url");
+
+				int filedInt = Integer.parseInt(filed);
+
+				if (filedInt > cur) {
+					cur = filedInt;
+
+					data.filingUrl = url;
+					data.formType = form;
+					data.filingDate = filedInt;
+				}
+
+			}
+		} catch (Exception exp) {
+			LOG.error("setFilingInfo: Exception  " + exp.getMessage());
+		}
+
+	}
 
 	private HashMap<String, AccuracyTestNotesDoc> getNotesDetails(String entityId, int fiscalYear) {
 
@@ -333,60 +346,60 @@ public class AccuracyTestService {
 		return docs;
 	}
 
-//	public void exportAccuracyTestResults(ServletOutputStream stream, ExportAccuracyTestInput input) {
-//
-//		try {
-//
-//			AccuracyTestData resultData = runAccuracyTest(input.cik, input.fiscalYear);
-//
-//			List<String> header = new ArrayList();
-//			header.add("Company Name");
-//			header.add("CIK");
-//			header.add("Fiscal Year");
-//			header.add("Fiscal Period");
-//			header.add("CS Term ID");
-//
-//			header.add("CS Value");
-//			header.add("CS Verified");
-//			header.add("MAXDS Term ID");
-//
-//			header.add("MAXDS Value");
-//			header.add("MAXDS Resolved Expression");
-//			header.add("MAXDS Verified");
-//			header.add("Notes");
-//
-//			OutputStreamWriter streamWriter = new OutputStreamWriter(stream);
-//			CSVFormat csvFileFormat = CSVFormat.DEFAULT.withRecordSeparator(NEW_LINE_SEPARATOR);
-//			CSVPrinter csvFilePrinter = new CSVPrinter(streamWriter, csvFileFormat);
-//			// LOG.debug("Header: " + header);
-//			csvFilePrinter.printRecord(header);
-//
-//			for (AccuracyTestItem item : resultData.items) {
-//				List vals = new ArrayList();
-//				vals.add(input.companyName);
-//				vals.add(input.cik);
-//				vals.add(input.fiscalYear);
-//				vals.add(input.fiscalPeriod);
-//				vals.add(item.csTermId);
-//
-//				vals.add(item.csTermValue);
-//				vals.add(item.isCheckedCS);
-//				vals.add(item.termId);
-//
-//				vals.add(item.value);
-//				vals.add(item.resolvedExpression);
-//				vals.add(item.isCheckedMaxDS);
-//				vals.add(item.notes);
-//
-//				csvFilePrinter.printRecord(vals);
-//			}
-//			streamWriter.flush();
-//			streamWriter.close();
-//			csvFilePrinter.close();
-//		} catch (IOException e) {
-//			LOG.error("Exception raised in exportTermMapInformation. Exp Message: " + e.getMessage());
-//		}
-//	}
+	public void exportAccuracyTestResults(ServletOutputStream stream, ExportAccuracyTestInput input) {
+
+		try {
+
+			AccuracyTestData resultData = runAccuracyTest(input.cik, input.fiscalYear);
+
+			List<String> header = new ArrayList();
+			header.add("Company Name");
+			header.add("CIK");
+			header.add("Fiscal Year");
+			header.add("Fiscal Period");
+			header.add("CS Term ID");
+
+			header.add("CS Value");
+			header.add("CS Verified");
+			header.add("MAXDS Term ID");
+
+			header.add("MAXDS Value");
+			header.add("MAXDS Resolved Expression");
+			header.add("MAXDS Verified");
+			header.add("Notes");
+
+			OutputStreamWriter streamWriter = new OutputStreamWriter(stream);
+			CSVFormat csvFileFormat = CSVFormat.DEFAULT.withRecordSeparator(NEW_LINE_SEPARATOR);
+			CSVPrinter csvFilePrinter = new CSVPrinter(streamWriter, csvFileFormat);
+			// LOG.debug("Header: " + header);
+			csvFilePrinter.printRecord(header);
+
+			for (AccuracyTestItem item : resultData.items) {
+				List vals = new ArrayList();
+				vals.add(input.companyName);
+				vals.add(input.cik);
+				vals.add(input.fiscalYear);
+				vals.add(input.fiscalPeriod);
+				vals.add(item.csTermId);
+
+				vals.add(item.csTermValue);
+				vals.add(item.isCheckedCS);
+				vals.add(item.termId);
+
+				vals.add(item.value);
+				vals.add(item.resolvedExpression);
+				vals.add(item.isCheckedMaxDS);
+				vals.add(item.notes);
+
+				csvFilePrinter.printRecord(vals);
+			}
+			streamWriter.flush();
+			streamWriter.close();
+			csvFilePrinter.close();
+		} catch (IOException e) {
+			LOG.error("Exception raised in exportTermMapInformation. Exp Message: " + e.getMessage());
+		}
+	}
 
 	public PostRequestResult save(AccuracyTestData data) {
 
@@ -407,7 +420,6 @@ public class AccuracyTestService {
 		}
 
 		if (docs.size() > 0) {
-			this.repository.saveAll(docs);
 		}
 		return PostRequestResult.GetSuccessResult();
 	}

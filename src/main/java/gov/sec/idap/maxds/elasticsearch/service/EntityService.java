@@ -5,14 +5,15 @@ import gov.sec.idap.maxds.elasticsearch.repository.EntityRepository;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
 import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.index.query.BoolQueryBuilder;
-import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
@@ -21,27 +22,43 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-@Service
+@Service("entityService")
 public class EntityService {
 
-    private final EntityRepository repository;
-    private final RestHighLevelClient client;
+	@Autowired
+    private EntityRepository repository;
+	@Autowired
+    private RestHighLevelClient client;
+	@Autowired
     private ObjectMapper objectMapper;
-
+    
     @Autowired
-    public EntityService(EntityRepository repository, RestHighLevelClient client, ObjectMapper objectMapper) {
-        this.repository = repository;
-        this.client = client;
-        this.objectMapper = objectMapper;
-    }
+    private SecApiService idapAPIService;
+
+//    @Autowired
+//    public EntityService(EntityRepository repository, RestHighLevelClient client, ObjectMapper objectMapper) {
+//        this.repository = repository;
+//        this.client = client;
+//        this.objectMapper = objectMapper;
+//    }
 
     public void save(final Entity entity) {
         repository.save(entity);
     }
 
-    public Entity findById(final String id) {
-        return repository.findById(id).orElse(null);
+    public Optional<Entity> findById(final String id) {
+       // return repository.findfindById(id).orElse(null);
+        return repository.findById(id);
     }
+    public Entity getEntityById(String id) {
+        String query = String.format("entityId:%s", id);
+        List<Entity> result = idapAPIService.getEntitiesByQuery(query);
+        if (result != null && result.size() == 1) {
+            return result.get(0);
+        }
+        return null;
+    }
+    
     
 	public void saveAllEntity(List<Entity> entities) {
 		repository.saveAll(entities);
@@ -58,7 +75,7 @@ public class EntityService {
 		return repository.findByCik(formatted);
 	}
 	
-	public List<Entity> findByCompanyName(String name) {
+	public List<Entity> findByName(String name) {
 		//return searchString("companyName", name);
 		return repository.findByCompanyName(name);
 	}
@@ -118,6 +135,85 @@ public class EntityService {
         }
 
         return entities;
+    }
+    
+    public HashMap<String, Entity> findEntitiesByDivisionSectorAndSicCode(
+            final String division,
+            final String sector,
+            final String sic,
+            final String filerCategory) {
+
+       String query = buildQuery(division, sector, sic, filerCategory);
+        List<Entity> result 
+                = idapAPIService.getEntitiesByQuery(query);
+        
+        HashMap<String, Entity> ret = new HashMap<>();
+        for (Entity doc : result) {
+            ret.put(doc.getEntityId(), doc);
+        }
+        return ret;
+    }
+    
+    public HashMap<String, String> findByDivisionSectorAndSicCode(
+            final String division,
+            final String sector,
+            final String sic,
+            final String filerCategory) {
+
+        String fields = "entityId,companyName";
+
+        String query = buildQuery(division, sector, sic, filerCategory);
+        List<Entity> result 
+                = idapAPIService.getEntityFieldsByQuery(query, fields);
+        
+        HashMap<String, String> ret = new HashMap<>();
+        for (Entity doc : result) {
+            ret.put(doc.getEntityId(), doc.getCompanyName());
+        }
+        return ret;
+    }
+    public long count() {
+        return getAllByFields("entityId").size();
+    }
+
+    private List<Entity> getAllByFields(String field) {
+        return idapAPIService.getAllEntities(field);
+    }
+    
+    private String buildQuery(final String division, final String sector, final String sic, final String filerCategory) {
+        String query = "";
+        if (division != null && !division.isEmpty() && !division.equals("NULL")) {
+
+            query += String.format("division:\"%s\" AND ", division);
+
+        }
+        if (sector != null && !sector.isEmpty() && !sector.equals("NULL")) {
+
+            query += String.format("sector:\"%s\" AND ", sector);
+
+        }
+        if (sic != null && !sic.isEmpty() && !sic.equals("NULL")) {
+
+            query += String.format("sic:\"%s\" AND ", sic);
+
+        }
+        if (filerCategory != null && !filerCategory.isEmpty() && !filerCategory.equals("NULL")) {
+
+            query += String.format("filerCategory:\"%s\" AND ", filerCategory);
+
+        }
+        if( query.length() > 0)
+        {
+            query = query.substring(0,query.length()-5 );
+        }
+        return query;
+    }
+    
+    public List<Entity> findLimitedSlow() {
+
+        String fields = "entityId,companyName,cik,division,sector,sic,industry,filerCategory";
+        return getAllByFields(fields);
+
     }
 	
 }

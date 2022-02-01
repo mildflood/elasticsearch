@@ -1,0 +1,524 @@
+<div>
+    <p-progressSpinner *ngIf="progressSpinner" [style]="{width: '50px', height: '50px',float:'left'}" strokeWidth="8"
+        fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+    <h2 style="background-color:lightblue; width: 100%; text-align: center;"> Export</h2>
+
+</div>
+<div *ngIf="showError" class="alert alert-danger" role="alert">
+    <strong>{{errorMsg}}</strong>
+</div>
+
+<p-tabView [(activeIndex)]="activeIndex">
+    <p-tabPanel header="Select Companies" leftIcon="pi pi-calendar">
+        <div class="row">
+            <div class="column" style="width: 60%">
+                <div class="row">
+                    <div class="column1">
+
+                        <label>Company: </label>
+
+                    </div>
+                    <div class="column2">
+                        <p-autoComplete [(ngModel)]="companyName" name="companyName" [size]="50"
+                            [suggestions]="filteredCompany" (completeMethod)="searchCompany($event)"
+                            placeholder="Search Company" [size]="50" [dropdown]="true" joyrideStep="companyName"
+                            (onSelect)="onCompanyNameChange($event)"
+                            title="Company Name"
+                            text="This is where the user preforms a search for their desired company.">
+                        </p-autoComplete>
+
+                        <button pButton type="button" label="Go To Peer Goup" class="ui-button-rounded"
+                            joyrideStep="goToPeer" title="Go To Peer"
+                            text="By clicking this button, the Division, Sector Industry, and Filer Category will be automatically populated for a selected company."
+                            (click)="goToPeer($event)"></button>&nbsp;&nbsp;
+                        <button type="button" pButton (click)="resetCompanies()" icon="pi pi-times"
+                            Class="ui-button-danger" pTooltip="Reset Selected Companies"></button>&nbsp;
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column1">
+
+                        <label>
+                            Division:</label>
+
+                    </div>
+                    <div class="column2">
+                        <p-dropdown [options]="filtereddivision" placeholder="Select Division" [(ngModel)]="division"
+                            [style]="{'width':'400px'}" dropdownIcon="pi pi-chevron-down"
+                            (onChange)="divisionChange($event, false)" [virtualScroll]="true" [itemSize]="31"
+                            filter="true" joyrideStep="division" title="Division" [stepContent]="divisionSection">
+                        </p-dropdown>
+
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column1">
+
+                        <label>
+                            Sector:</label>
+
+                    </div>
+                    <div class="column2">
+                        <p-dropdown [options]="filteredsector" placeholder="Select Sector" [(ngModel)]="sector"
+                            [style]="{'width':'400px'}" dropdownIcon="pi pi-chevron-down"
+                            (onChange)="sectorChange($event, false)" [virtualScroll]="true" [itemSize]="31"
+                            joyrideStep="sector" title="Sector" [stepContent]="sectorDropdown" filter="true">
+                        </p-dropdown>
+
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column1">
+                        <label>Industry: </label>
+
+                    </div>
+                    <div class="column2">
+                        <p-dropdown [options]="filteredindustry" [(ngModel)]="industry" placeholder="Select Industry"
+                            [showClear]="true" dropdownIcon="pi pi-chevron-down"
+                            (onChange)="industryChange($event, false)" [virtualScroll]="true" [itemSize]="31"
+                            joyrideStep="industry" title="Industry" [stepContent]="industryDropdown" filter="true"
+                            [style]="{'width':'400px'}"></p-dropdown>
+
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column1">
+                        <label>Filer Category:</label>
+
+                    </div>
+                    <div class="column2">
+                        <p-dropdown [options]="filteredfilerCategory" [(ngModel)]="filerCategory"
+                            placeholder="Select Filer Category" [showClear]="true"
+                            (onChange)="filerChange($event, false)" [virtualScroll]="true" joyrideStep="filerCategory"
+                            title="Filer Category" [stepContent]="filerDropdown" [itemSize]="31" filter="true"
+                            [style]="{'width':'400px'}"></p-dropdown>&nbsp; {{categoryCount}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column2" *ngFor="let industry of entitiesList; let i = index">
+                        <!-- <button class="fa fa-minus-square"></button>
+                                                <p-checkbox name="group2" value="industry.industry" (ngClick)="selectEntitiesWithSicCode(industry, selectedEntities)" inputId="technology"></p-checkbox>
+
+                                                    <label for="sicSector">{{industry.industry}}</label> -->
+
+                        <div class="checkbox">
+                            <button alt="Expand or Collapse companies list"
+                                (click)="entitiesList[i].collapse=!entitiesList[i].collapse; show(industry)">
+                                <span *ngIf="entitiesList[i].collapse">
+                                    <i class="fa fa-minus-square" aria-hidden="true"></i>
+                                </span><span [hidden]="entitiesList[i].collapse">
+                                    <i class="fa fa-plus-square" aria-hidden="true"></i>
+
+                                </span></button> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <!-- <input id="sicSector" type="checkbox" ng-model="industry.selected" (click)="selectEntitiesWithSicCode(industry, selectedEntities)"> -->
+                            <p-checkbox value="industry" [(ngModel)]="industry.check" binary="true" inputId="industry"
+                                (onChange)="selectEntitiesWithSicCode(industry.industry, entitiesList[i].entities, industry.check)">
+                            </p-checkbox>
+                            <label for="sicSector">{{industry.industry}}</label>
+                            <div class="col-lg-offset-1" *ngIf="entitiesList[i].collapse">
+                                <div *ngFor="let entity of entitiesList">
+                                    <div class="checkbox" *ngIf="entity.industry ===industry.industry ">
+                                        <!-- <input id="companyList" type="checkbox" (click)="toggle(entity, selectedEntities)"
+                                                                                          ><label for="companyList">{{entity.companyName}}</label> -->
+                                        <div *ngFor="let e of entity.entities; let ind = index">
+                                            <p-checkbox [(ngModel)]="e.check" binary="true" value="entity"
+                                                inputId="entity" (click)="isSelected(e)"></p-checkbox>
+                                            <label for="companyList">{{e.companyName}}</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column2" style="width: 40%; background-color: lightgrey; overflow: scroll; height: 500px; ">
+                <!-- This is for Sidebox -->
+                <div
+                    style="color: white;background-color: darkslategray;text-align: center;padding-bottom: 5px;padding-top: 5px">
+                    Selected Companies</div>
+
+                <div style="background-color: white">
+                    <div *ngFor="let entity of selectedEntities ">
+                        {{entity.companyName}}
+                        <button alt="Remove company from selected list." type="button" (click)="isSelected(entity)">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <button alt="Remove all companies from selected list." *ngIf="selectedEntities.length > 0"
+                        (click)="removeSelectedEntities()">Remove Companies</button>
+                </div>
+            </div>
+        </div>
+
+    </p-tabPanel>
+    <p-tabPanel header="Select Terms">
+
+        <div class="row">
+
+            <div class="column1">
+                <label>Term: </label>
+
+            </div>
+            <div class="column2">
+                <p-autoComplete [(ngModel)]="termInput" [suggestions]="filteredTerms" field="name"
+                    (completeMethod)="filterTerm($event)" joyrideStep="termInput" title="Term"
+                    (onSelect)="onTermChange($event)"
+                    text="The term search is where a user can search for desired terms." (onClear)="filterTerm($event)"
+                    [size]="39" placeholder="Search Term" [minLength]="1">
+
+                </p-autoComplete>
+
+
+
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="column1">
+                <button pButton type="button" label="Select All Terms" class="ui-button-rounded"
+                    joyrideStep="selectAllTerms" title="Select All Terms"
+                    text="If the user chooses this option, all terms will be selected"
+                    (click)="selectAllTerms()"></button>
+            </div>
+            <div class="column2">
+                <button pButton type="button" label="Deselect All Terms" class="ui-button-rounded"
+                    joyrideStep="deselectAllTerms" title="Deselect All Terms"
+                    text="The user can select this button to deselect all terms. "
+                    (click)="deselectAllTerms()"></button>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-7" style="height: 700px; overflow-y: auto;">
+
+                <table class="table">
+                    <tbody>
+                        <tr *ngFor="let term of terms" style="text-align: left">
+                            <p-checkbox [(ngModel)]="term.check" binary="true" value="term" inputId="term"
+                                (click)="isTermSelected(term)"></p-checkbox>
+                            <label for="term">{{term.termId}} - {{term.name}}</label>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="col-lg-5" style="background-color: lightgrey; height: 700px; ">
+                <div
+                    style="color: white;background-color: darkslategray;text-align: center;padding-bottom: 5px;padding-top: 5px">
+                    Selected KPIs</div>
+
+                <div style="background-color: white">
+                    <div *ngFor="let term of selectedTerms ">
+                        {{term.termId}} - {{term.name}}
+                        <button alt="Remove term from selected list." type="button" (click)="isTermSelected(term)">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <button pButton type="button" label="Remove Terms" class="ui-button-rounded"
+                        *ngIf="selectedTerms.length > 0" (click)="removeSelectedTerms()"></button>
+                </div>
+            </div>
+        </div>
+        <!-- <div>
+                <button pButton type="button" label="Select All Terms" class="ui-button-rounded" (click)="selectAllTerms()"></button>
+
+        </div> -->
+    </p-tabPanel>
+    <p-tabPanel header="Export Data">
+        <div style="height: 92.5vh;">
+            <as-split direction="vertical">
+                <as-split-area>
+                    <div class="row">
+                        <div class="expcolumn" style="width: 25%">
+                            <div class="ui-g-6">
+                                <!-- <div class="well well-sm selectionCount">
+                                                    <div class="checkbox">
+                                                            <p-checkbox binary="true"  label="Quarterly" [(ngModel)]="quarterly" inputId="quarterly"></p-checkbox>
+                                                    </div>
+                                                </div> -->
+                                <div class="well well-sm selectionCount">
+                                    <div class="checkbox">
+                                        <p-checkbox binary="true" label="Annual" [(ngModel)]="annual"
+                                            joyrideStep="annual" title="Annual"
+                                            (onChange)="onAnnualChange($event)"
+                                            text="This box is checked by default and annual results for a company will be displayed if left selected. "
+                                            inputId="annual">
+                                        </p-checkbox>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="expcolumn">
+                            <div>
+                                <label>
+                                    Reporting Periods:
+                                </label>&nbsp;&nbsp;
+                                <h3>{{rangeValues[0] + ' - ' + rangeValues[1]}}</h3>
+                                <p-slider [(ngModel)]="rangeValues" [min]="minYear" [max]="maxYear" [step]="1"
+                                    [style]="{'width':'14em'}" [range]="true" (onChange)="yearSlideChange($event)">
+                                </p-slider>
+
+
+                            </div>
+                            <div style="padding: 5px;">
+                                <p-dropdown [options]="years" [(ngModel)]="year" placeholder="Select Year"
+                                    [showClear]="true" (onChange)="yearChange($event)" [virtualScroll]="true"
+                                    joyrideStep="selectYear" title="Select year"
+                                    text="Here the user can select a specific year by using the dropdown or multiple years by using the slider. "
+                                    [style]="{'width':'200px'}"></p-dropdown>
+                            </div>
+                        </div>
+                        <div class="expcolumn">
+                            <div class="col-lg-6">
+                                <div class="well selectionCount" aria-describedby="Selected companies count">
+                                    Companies Selected :
+                                    {{selectedOver === true ? 'ALL' :  selectedEntities.length=== 0 ? 'None': selectedEntities.length}}
+                                </div>
+                                <div class="well selectionCount" aria-describedby="Selected KPIs count">
+                                    KPIs Selected : {{selectedTerms.length}}
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="well well-sm selectionCount">
+                                    <div class="checkbox">
+                                        <p-checkbox label="Override selected companies, include all companies"
+                                            [(ngModel)]="selectedOver" binary="true" joyrideStep="overrideSelected "
+                                            (onChange)="onAllCompanyChange($event)"
+                                            title="Override selected companies, include all companies"
+                                            text="Override selected companies, include all companies" inputId="over">
+                                        </p-checkbox>
+                                    </div>
+                                </div>
+
+                                <div class="well well-sm selectionCount">
+                                    <div class="checkbox">
+                                        <p-checkbox label="Include Validation Info" [(ngModel)]="selectedVal"
+                                            joyrideStep="includeValidationInfo" title="Include Validation Info"
+                                            (onChange)="onValidationChange($event)"
+                                            text="The user can select this option if they want to return validation information for the selected results. "
+                                            inputId="selectedVal" binary="true">
+                                        </p-checkbox>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div>
+
+                        <label>
+                            Export Data Type:
+                        </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <p-inputSwitch [(ngModel)]="termRes" joyrideStep="termResults" title="Term Results"
+                            text="Term Results" (onChange)="termChange($event)"> </p-inputSwitch>
+                        &nbsp;&nbsp;<label> Term Results</label>&nbsp;&nbsp;
+                        <p-inputSwitch [(ngModel)]="covStat" joyrideStep="coverageStats" title="Coverage Status"
+                            text="The user can select the Coverage status for selected terms by choosing this slider."
+                            (onChange)="covChange($event)"></p-inputSwitch>
+                        &nbsp;&nbsp;<label>Coverage Stats </label>&nbsp;&nbsp;
+                        <p-inputSwitch *ngIf="termRes" [(ngModel)]="quatCheck" joyrideStep="quarterly" title="Quarterly"
+                            text="The user can select this option if they want to return quarterly results in addition to the annual data."
+                            (onChange)="quaterlyChange($event)">
+                        </p-inputSwitch>&nbsp;&nbsp;<label *ngIf="termRes">Quarterly </label>
+
+                    </div>
+                </as-split-area>
+                <as-split-area>
+                    <as-split direction="vertical">
+                        <as-split-area>
+                            <div style="background-color:#ccc;">
+                                <label style="float: left">
+                                    Data Preview :
+                                </label> <button pButton type="button" label="Refresh Data" class="ui-button-warning"
+                                    style="text-align: center" (click)="refreshData();"></button>
+
+                            </div>
+
+                            <div *ngIf="termRes">
+
+                                <p-table #exportTable [columns]="exportDataCols" [value]="exportData"
+                                    [responsive]=" true" [rowsPerPageOptions]="[10,20,30]" [resizableColumns]="true"
+                                    columnResizeMode="expand" [reorderableColumns]="true" selectionMode="single"
+                                    [(selection)]="termId" dataKey="termId" p-dataTable exportFilename="{{expFileName}}"
+                                    paginatorPosition="top" [paginator]="true" [rows]="10"
+                                    paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+                                    [showCurrentPageReport]="true" (onPage)="pagenation($event)"
+                                    currentPageReportTemplate="Showing {{num}} to {{first}} of {{total}}">
+                                    <ng-template pTemplate="caption">
+                                        <div class="ui-helper-clearfix" style="text-align: left" *ngIf="exportData">
+                                            <button pButton type="button" label="Export" class="ui-button-warning"
+                                                style="float: right;  padding-right: 10px;"
+                                                (click)="downloadTermResData(expFileName)"></button>
+                                            <input type="text" pInputText [(ngModel)]="expFileName"
+                                                style="float: right;  padding-right: 10px;" size="30" />
+                                            <label style="float: right; padding-right: 10px;"> Set Name :</label>
+
+                                        </div>
+
+                                    </ng-template>
+
+
+                                    <ng-template pTemplate="header" let-columns>
+                                        <tr>
+                                            <th *ngFor="let col of columns" pResizableColumn pReorderableColumn
+                                                [pSortableColumn]="col.field">
+                                                <div pTooltip="Click to sort {{col.header}}">
+                                                    {{col.header}}
+                                                    <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"
+                                                        ariaLabelDesc="Activate to sort in descending order"
+                                                        ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th *ngFor="let col of columns" [ngSwitch]="col.field">
+                                                <div *ngIf="col.field !== ''">
+                                                    <input *ngSwitchCase="col.field" pInputText type="text"
+                                                        placeholder="Search"
+                                                        [value]="exportTable.filters[col.field] ? exportTable.filters[col.field].value : ''"
+                                                        (input)="exportTable.filter($event.target.value, col.field, col.filterMatchMode);"
+                                                        style="width: 150px">
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="body" let-rowData let-columns="columns"
+                                        let-index="rowIndex">
+                                        <tr style="word-break:break-all">
+                                            <td>
+                                                {{rowData.company}}
+                                            </td>
+                                            <td>
+                                                {{rowData.reportingPeriod}}
+                                            </td>
+                                            <td>
+                                                {{rowData.periodEndDate}}
+                                            </td>
+                                            <td tabindex="0" *ngFor="let val of rowData.termResultValues">
+                                                {{val}}
+                                            </td>
+
+                                        </tr>
+                                    </ng-template>
+
+                                </p-table>
+                            </div>
+
+                            <div *ngIf="covStat">
+                                <p-table #covTable [columns]="coverageDataCols" [value]="coverageStats"
+                                    [responsive]=" true" [rowsPerPageOptions]="[10,20,30]" [resizableColumns]="true"
+                                    columnResizeMode="expand" [reorderableColumns]="true" selectionMode="single"
+                                    [(selection)]="termId" dataKey="termId" p-dataTable exportFilename="{{covFileName}}"
+                                    paginatorPosition="top" [paginator]="true" [rows]="10"
+                                    paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+                                    [showCurrentPageReport]="true" (onPage)="covPagenation($event)"
+                                    currentPageReportTemplate="Showing {{covNum}} to {{covFirst}} of {{covTotal}}">
+
+                                    <ng-template pTemplate="caption">
+                                        <div class="ui-helper-clearfix" style="text-align: left" *ngIf="coverageStats">
+                                            <button pButton type="button" label="Export" class="ui-button-warning"
+                                                style="float: right;  padding-right: 10px;"
+                                                (click)="downloadCovData(covFileName)"></button>
+                                            <input type="text" pInputText [(ngModel)]="covFileName"
+                                                style="float: right;  padding-right: 10px;" size="30" />
+                                            <label style="float: right; padding-right: 10px;"> Set Name :</label>
+
+                                        </div>
+                                    </ng-template>
+                                    <ng-template pTemplate="header" let-columns>
+                                        <tr>
+                                            <th *ngFor="let col of columns" pResizableColumn pReorderableColumn
+                                                [pSortableColumn]="col.field">
+                                                <div pTooltip="Click to sort {{col.header}}">
+                                                    {{col.header}}
+                                                    <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"
+                                                        ariaLabelDesc="Activate to sort in descending order"
+                                                        ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th *ngFor="let col of columns" [ngSwitch]="col.field">
+                                                <div *ngIf="col.field !== ''">
+                                                    <input *ngSwitchCase="col.field" pInputText type="text"
+                                                        placeholder="Search"
+                                                        [value]="covTable.filters[col.field] ? covTable.filters[col.field].value : ''"
+                                                        (input)="covTable.filter($event.target.value, col.field, col.filterMatchMode);"
+                                                        style="width: 150px">
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="body" let-rowData let-columns="columns"
+                                        let-index="rowIndex">
+                                        <tr style="word-break:break-all">
+                                            <td>
+                                                {{rowData.termName}}
+                                            </td>
+                                            <td>
+                                                {{rowData.termId}}
+                                            </td>
+
+                                            <td tabindex="0" *ngFor="let vals of rowData.coverageValues">
+                                                {{vals}}
+                                            </td>
+
+                                        </tr>
+                                    </ng-template>
+
+                                </p-table>
+                            </div>
+                        </as-split-area>
+                    </as-split>
+                </as-split-area>
+            </as-split>
+        </div>
+    </p-tabPanel>
+</p-tabView>
+
+<ng-template #divisionSection>
+    <div>The user can select a division from the dropdown.</div>
+    <div>After a company is selected, this field is automatically populated after the user clicks “Go To Peer Group”
+        button.
+    </div>
+</ng-template>
+
+<ng-template #sectorDropdown>
+    <div>The user can select a sector from the dropdown.
+    </div>
+    <div>After a company is selected, this field is automatically populated after the user clicks “Go To Peer Group”
+        button.</div>
+</ng-template>
+
+<ng-template #industryDropdown>
+    <div>The user can select an industry from the dropdown.
+    </div>
+    <div>After a company is selected, this field is automatically populated after the user clicks “Go To Peer Group”
+        button.
+    </div>
+</ng-template>
+
+<ng-template #filerDropdown>
+    <div>The user can select a filer from the dropdown.
+    </div>
+    <div>After a company is selected, this field is automatically populated after the user clicks “Go To Peer Group”
+        button.
+        on.
+    </div>
+</ng-template>

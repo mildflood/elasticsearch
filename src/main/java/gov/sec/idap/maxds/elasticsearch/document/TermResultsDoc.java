@@ -1,6 +1,7 @@
 package gov.sec.idap.maxds.elasticsearch.document;
 
 import gov.sec.idap.maxds.api.vo.TermResultsDocVO;
+import gov.sec.idap.maxds.api.vo.TermResultsDocVO.TermResultsDocType;
 import gov.sec.idap.maxds.domain.FQTypeCode;
 import gov.sec.idap.maxds.domain.PeriodType;
 import gov.sec.idap.maxds.domain.TermExpressionTypeCode;
@@ -8,6 +9,7 @@ import gov.sec.idap.maxds.domain.ValidationStatus;
 import gov.sec.idap.maxds.elasticsearch.helper.Indices;
 import gov.sec.idap.maxds.model.DerivationTrail;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
@@ -39,9 +41,9 @@ public class TermResultsDoc implements Comparator<TermResultsDoc> {
 		return o1.FQ.compareTo(o2.FQ);
 	}
 
-	public enum TermResultsDocType {
-		primaryTermResult, OtherTermResult, derivedZeroTermResult, derivedNonZeroTermResult, derivedZeroHasTermResult,
-	}
+//	public enum TermResultsDocType {
+//		primaryTermResult, OtherTermResult, derivedZeroTermResult, derivedNonZeroTermResult, derivedZeroHasTermResult,
+//	}
 
 	public TermResultsDoc() {
 	}
@@ -155,7 +157,7 @@ public class TermResultsDoc implements Comparator<TermResultsDoc> {
 
 	@JsonProperty("validationMessages")
 	@Field(type = FieldType.Object)
-	public List<String> validationMessages = null;
+	public List<String> validationMessages = new ArrayList<String>();
 
 	@JsonProperty("validationStatus")
 	@Field(type = FieldType.Object)

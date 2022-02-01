@@ -7,6 +7,9 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 import org.springframework.data.elasticsearch.annotations.Setting;
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import gov.sec.idap.maxds.domain.ValidationStatus;
 import gov.sec.idap.maxds.elasticsearch.helper.Indices;
 
 @Component
@@ -41,6 +44,11 @@ public class Entity {
     private String sector;
     @Field(type = FieldType.Text)
     private String tradingSymbol;
+    
+    private String _version_; 
+    private String altCik;
+    
+    public ValidationStatus validationStatus = ValidationStatus.na;
     
 	public String getId() {
 		return id;
@@ -120,5 +128,18 @@ public class Entity {
 	public void setTradingSymbol(String tradingSymbol) {
 		this.tradingSymbol = tradingSymbol;
 	}
+	public String get_version_() {
+		return _version_;
+	}
+	public void set_version_(String _version_) {
+		this._version_ = _version_;
+	}
+	public String getAltCik() {
+		return altCik;
+	}
+	public void setAltCik(String altCik) {
+		this.altCik = altCik;
+	}
+	
 }
 

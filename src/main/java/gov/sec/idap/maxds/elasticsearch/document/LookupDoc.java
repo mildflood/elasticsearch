@@ -35,7 +35,7 @@ public class LookupDoc {
     
     @JsonProperty("name_s")
     @Field(type = FieldType.Text)
-    private String name_s;
+    private String name;
     
     @JsonProperty("label_s")
     @Field(type = FieldType.Text)
@@ -47,11 +47,11 @@ public class LookupDoc {
     
     @JsonProperty("type_s")
     @Field(type = FieldType.Text)
-    private LookupType type_s = LookupType.none;
+    private LookupType type = LookupType.none;
     
     @JsonProperty("isTextBlock_b")
     @Field(type = FieldType.Boolean)
-    private Boolean isTextBlock_b;
+    private Boolean isTextBlock;
 
 	public String getId() {
 		return id;
@@ -62,11 +62,11 @@ public class LookupDoc {
 	}
 
 	public String getName() {
-		return name_s;
+		return name;
 	}
 
 	public void setName(String name_s) {
-		this.name_s = name_s;
+		this.name = name_s;
 	}
 
 	public String getLabel() {
@@ -86,19 +86,19 @@ public class LookupDoc {
 	}
 
 	public LookupType getType() {
-		return type_s;
+		return type;
 	}
 
 	public void setType(LookupType type_s) {
-		this.type_s = type_s;
+		this.type = type_s;
 	}
 
 	public Boolean getIsTextBlock() {
-		return isTextBlock_b;
+		return isTextBlock;
 	}
 
 	public void setIsTextBlock(Boolean isTextBlock_b) {
-		this.isTextBlock_b = isTextBlock_b;
+		this.isTextBlock = isTextBlock_b;
 	}
      
 }

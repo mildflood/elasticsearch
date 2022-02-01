@@ -17,6 +17,8 @@ import org.elasticsearch.search.sort.SortOrder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -43,23 +45,23 @@ public class ProcessingLogService {
 	}
 
 	public List<ProcessingLogDoc> findByProcessingGroupId(String id) {
-		// return repository.findByProcessingGroupId(id);
-		List<ProcessingLogDoc> docs = new ArrayList<ProcessingLogDoc>();
-		try {
-			// Build Query
-			BoolQueryBuilder boolQueryBuilder = new BoolQueryBuilder();
-			boolQueryBuilder.must(new MatchQueryBuilder("processingGroupId_s", id));
-			SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
-			searchSourceBuilder.query(boolQueryBuilder);
-			// Generate the actual request to send to ES.
-			SearchRequest searchRequest = new SearchRequest();
-			searchRequest.source(searchSourceBuilder);
-			SearchResponse response = client.search(searchRequest, RequestOptions.DEFAULT);
-			docs = getSearchResult(response);
-		} catch (Exception e) {
-			log.error("Elasticsearch failed: " + e.getMessage());
-		}
-		return docs;
+		return repository.findByProcessingGroupId(id);
+//		List<ProcessingLogDoc> docs = new ArrayList<ProcessingLogDoc>();
+//		try {
+//			// Build Query
+//			BoolQueryBuilder boolQueryBuilder = new BoolQueryBuilder();
+//			boolQueryBuilder.must(new MatchQueryBuilder("processingGroupId", id));
+//			SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+//			searchSourceBuilder.query(boolQueryBuilder);
+//			// Generate the actual request to send to ES.
+//			SearchRequest searchRequest = new SearchRequest();
+//			searchRequest.source(searchSourceBuilder);
+//			SearchResponse response = client.search(searchRequest, RequestOptions.DEFAULT);
+//			docs = getSearchResult(response);
+//		} catch (Exception e) {
+//			log.error("Elasticsearch failed: " + e.getMessage());
+//		}
+//		return docs;
 	}
 
 	private List<ProcessingLogDoc> getSearchResult(SearchResponse response) {
@@ -72,9 +74,9 @@ public class ProcessingLogService {
 	}
 
 	public Iterable<ProcessingLogDoc> getLatestProcessingLogs(int limit) {
-		//PageRequest request = new PageRequest(0, limit, new Sort(Sort.Direction.DESC, "lastModified_dt"));
-		//return repository.findAll(request);
-		return repository.findAll();
+		//PageRequest request = new PageRequest(0, limit, new Sort(Sort.Direction.DESC, "lastModified"));
+		Iterable<ProcessingLogDoc> docs = repository.findAll(PageRequest.of(0, limit, Sort.by(Sort.Direction.DESC, "lastModified")));
+		return docs;
 	}
 
 	public void cancelPendingProcessingItems(String userId) {
@@ -127,62 +129,68 @@ public class ProcessingLogService {
 	public ProcessingLogDoc getNextTermToProcess() {
 
 		// PageRequest request = new PageRequest(0, 1, new Sort(Sort.Direction.ASC,
-		// "processingSequence_i"));
+		// "processingSequence"));
 
-		List<ProcessingLogDoc> docs = new ArrayList<ProcessingLogDoc>();
-		try {
-			// Build Query
-			BoolQueryBuilder boolQueryBuilder = new BoolQueryBuilder();
-			boolQueryBuilder.must(new MatchQueryBuilder("logStatus_s", ProcessingStatusCode.Scheduled.toString()));
-			SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
-			searchSourceBuilder.query(boolQueryBuilder);
-			searchSourceBuilder.sort("processingSequence_i", SortOrder.ASC);
-			// Generate the actual request to send to ES.
-			SearchRequest searchRequest = new SearchRequest();
-			searchRequest.source(searchSourceBuilder);
-
-			SearchResponse response = client.search(searchRequest, RequestOptions.DEFAULT);
-			docs = getSearchResult(response);
-		} catch (Exception e) {
-			log.error("Elasticsearch failed: " + e.getMessage());
-		}
-
-//		List<ProcessingLogDoc> items = repository.findByStatus(ProcessingStatusCode.Scheduled.toString(), request)
-//				.getContent();
-
-		if (docs == null || docs.size() == 0) {
+		//List<ProcessingLogDoc> docs = new ArrayList<ProcessingLogDoc>();
+		List<ProcessingLogDoc> items = repository.findByLogStatus(ProcessingStatusCode.Scheduled.toString(), PageRequest.of(0, 1, Sort.by(Sort.Direction.ASC, "processingSequence")))
+				.getContent();
+		if (items == null || items.size() == 0) {
 
 			return null;
 		}
-		return docs.get(0);
+		return items.get(0);
+		
+//		try {
+//			// Build Query
+//			BoolQueryBuilder boolQueryBuilder = new BoolQueryBuilder();
+//			boolQueryBuilder.must(new MatchQueryBuilder("logStatus", ProcessingStatusCode.Scheduled.toString()));
+//			SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+//			searchSourceBuilder.query(boolQueryBuilder);
+//			searchSourceBuilder.sort("processingSequence", SortOrder.ASC);
+//			// Generate the actual request to send to ES.
+//			SearchRequest searchRequest = new SearchRequest();
+//			searchRequest.source(searchSourceBuilder);
+//
+//			SearchResponse response = client.search(searchRequest, RequestOptions.DEFAULT);
+//			docs = getSearchResult(response);
+//		} catch (Exception e) {
+//			log.error("Elasticsearch failed: " + e.getMessage());
+//		}
+//
+//		if (docs == null || docs.size() == 0) {
+//
+//			return null;
+//		}
+//		return docs.get(0);
 	}
 
 	public ProcessingLogDoc getItemCurrentlyBeingProcessed() {
 
-//		PageRequest request = new PageRequest(0, 1);
-//		List<ProcessingLogDoc> items = repository.findByStatus(ProcessingStatusCode.InProgress.toString(), request)
-//				.getContent();
+		//PageRequest request = new PageRequest(0, 1);
+		List<ProcessingLogDoc> items = repository.findByLogStatus(ProcessingStatusCode.InProgress.toString(), PageRequest.of(0, 1))
+				.getContent();
+		return items.get(0);
 
-		List<ProcessingLogDoc> docs = new ArrayList<ProcessingLogDoc>();
-		try {
-			// Build Query
-			BoolQueryBuilder boolQueryBuilder = new BoolQueryBuilder();
-			boolQueryBuilder.must(new MatchQueryBuilder("logStatus_s", ProcessingStatusCode.InProgress.toString()));
-			SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
-			searchSourceBuilder.query(boolQueryBuilder);
-			// Generate the actual request to send to ES.
-			SearchRequest searchRequest = new SearchRequest();
-			searchRequest.source(searchSourceBuilder);
-
-			SearchResponse response = client.search(searchRequest, RequestOptions.DEFAULT);
-			docs = getSearchResult(response);
-		} catch (Exception e) {
-			log.error("Elasticsearch failed: " + e.getMessage());
-		}
-		if (docs == null || docs.isEmpty()) {
-			return null;
-		}
-		return docs.get(0);
+//		List<ProcessingLogDoc> docs = new ArrayList<ProcessingLogDoc>();
+//		try {
+//			// Build Query
+//			BoolQueryBuilder boolQueryBuilder = new BoolQueryBuilder();
+//			boolQueryBuilder.must(new MatchQueryBuilder("logStatus", ProcessingStatusCode.InProgress.toString()));
+//			SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+//			searchSourceBuilder.query(boolQueryBuilder);
+//			// Generate the actual request to send to ES.
+//			SearchRequest searchRequest = new SearchRequest();
+//			searchRequest.source(searchSourceBuilder);
+//
+//			SearchResponse response = client.search(searchRequest, RequestOptions.DEFAULT);
+//			docs = getSearchResult(response);
+//		} catch (Exception e) {
+//			log.error("Elasticsearch failed: " + e.getMessage());
+//		}
+//		if (docs == null || docs.isEmpty()) {
+//			return null;
+//		}
+//		return docs.get(0);
 	}
 
 	public Boolean IsCanceled(String processingId) {
@@ -228,7 +236,7 @@ public class ProcessingLogService {
 		try {
 			// Build Query
 			BoolQueryBuilder boolQueryBuilder = new BoolQueryBuilder();
-			boolQueryBuilder.must(new MatchQueryBuilder("logStatus_s", scheduled));
+			boolQueryBuilder.must(new MatchQueryBuilder("logStatus", scheduled));
 			SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
 			searchSourceBuilder.query(boolQueryBuilder);
 			// Generate the actual request to send to ES.

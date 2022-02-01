@@ -5,6 +5,8 @@
  */
 package gov.sec.idap.maxds.domain;
 
+import gov.sec.idap.maxds.elasticsearch.document.Entity;
+
 /**
  *
  * @author SRIKANTH
