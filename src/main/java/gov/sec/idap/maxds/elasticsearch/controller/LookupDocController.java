@@ -30,7 +30,8 @@ public class LookupDocController {
 	//test repository query
 	@GetMapping(value= "/findnamebytype") 
 	List<LookupDoc> findNameByType(){
-		return service.findNameByType();
+		//return service.findNameByType();
+		return null;
 	}
 	
 	@GetMapping(value= "/getallmappinggroups") 

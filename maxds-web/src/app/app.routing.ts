@@ -18,12 +18,14 @@ import { AuthGuard } from './guards/auth.guards';
 import { FeaturehomeComponent } from './featurehome/featurehome.component';
 import { CompleteCompanylistResolverService } from './resolvers/completecompanylist-resolver.service';
 import { TermlistResolverService } from './resolvers/termlist-resolver.service';
+import { TermRuleCategoryListResolverService } from './resolvers/termrulecategorylist-resolver.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full', runGuardsAndResolvers: 'always' },
   { path: 'home', component: FeaturehomeComponent, runGuardsAndResolvers: 'always' ,
                     resolve: { completeCompanyList: CompleteCompanylistResolverService,
-                                termRuleList: TermlistResolverService}},
+							   termRuleList: TermlistResolverService,
+							   termRuleCategoryList: TermRuleCategoryListResolverService }},
   // { path: 'home', component: HomeComponent, runGuardsAndResolvers: 'always'},
   { path: 'header', component: HeaderComponent, runGuardsAndResolvers: 'always' },
   { path: 'maxds', component: HomeComponent, runGuardsAndResolvers: 'always' },

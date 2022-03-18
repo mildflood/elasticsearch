@@ -161,7 +161,7 @@ public class TermResultService {
             int minYearToCheck, int maxYearToCheck, Boolean includeQuarterly,
             String division, String sector, String sic, String filerCategory, String entityInputId) {
 
-        HashMap<String, Entity> entityMap = new HashMap();
+        HashMap<String, Entity> entityMap = new HashMap<String, Entity>();
 
         if (entityInputId != null && !entityInputId.isEmpty() && !entityInputId.equals("NULL")) {
             entityMap.put(entityInputId, entityService.getEntityById(entityInputId));
@@ -252,7 +252,7 @@ public class TermResultService {
             String entityId) {
         TermRuleStatistics ret = new TermRuleStatistics();
 
-        HashMap<String, String> entityMap = new HashMap();
+        HashMap<String, String> entityMap = new HashMap<String, String>();
         if (entityId != null && !entityId.isEmpty() && !entityId.equals("NULL")) {
             entityMap.put(entityId, entityId);
         } else if (division != null && !division.isEmpty()) {
@@ -403,7 +403,6 @@ public class TermResultService {
 
         HashMap<Integer, TermRuleStatistics.TermRuleStatisticsByRank> statisticsByRank = new HashMap<>();
 
-        FacetPage<TermResultsDoc> facetPage = null;
         SearchPage<TermResultsDoc> searchPage = null;
 
         if (includeQuarterly) {
@@ -637,14 +636,14 @@ public class TermResultService {
         if (isForAllEntities) {
             return resultsSolrRepo.findByTermsAndFY(termIds, start, end);
         } else {
-            return resultsSolrRepo.findByTermIdInAndEntityIdInAndFYBetween(termIds, entityIds, start, end);
+            return resultsSolrRepo.findByTermsInAndEntitiesInAndFYBetween(termIds, entityIds, start, end);
         }
     }
 
     public HashMap<String, TermResultsDoc> getResultsByTermId(Collection<String> termIds,
             String entityId, int fiscalYear) {
 
-        List<TermResultsDoc> results = resultsSolrRepo.findByTermIdInAndEntityIdAndFYAndFQ(termIds, entityId, fiscalYear, "FY");
+        List<TermResultsDoc> results = resultsSolrRepo.findByTermsInAndEntityIdAndFYAndFQ(termIds, entityId, fiscalYear, "FY");
         HashMap<String, TermResultsDoc> ret = new HashMap<>();
 
         results.forEach((doc) -> {

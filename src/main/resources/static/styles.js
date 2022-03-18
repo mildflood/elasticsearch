@@ -762,12 +762,12 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Dev\git\maxds-aws\maxds-web\node_modules\bootstrap\dist\css\bootstrap.min.css */"./node_modules/bootstrap/dist/css/bootstrap.min.css");
-__webpack_require__(/*! C:\Dev\git\maxds-aws\maxds-web\node_modules\ngx-bootstrap\datepicker\bs-datepicker.css */"./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css");
-__webpack_require__(/*! C:\Dev\git\maxds-aws\maxds-web\src\styles.css */"./src/styles.css");
-__webpack_require__(/*! C:\Dev\git\maxds-aws\maxds-web\node_modules\primeicons\primeicons.css */"./node_modules/primeicons/primeicons.css");
-__webpack_require__(/*! C:\Dev\git\maxds-aws\maxds-web\node_modules\morris.js\morris.css */"./node_modules/morris.js/morris.css");
-module.exports = __webpack_require__(/*! C:\Dev\git\maxds-aws\maxds-web\node_modules\angular2-draggable\css\resizable.min.css */"./node_modules/angular2-draggable/css/resizable.min.css");
+__webpack_require__(/*! C:\Dev\git\elasticsearch\maxds-web\node_modules\bootstrap\dist\css\bootstrap.min.css */"./node_modules/bootstrap/dist/css/bootstrap.min.css");
+__webpack_require__(/*! C:\Dev\git\elasticsearch\maxds-web\node_modules\ngx-bootstrap\datepicker\bs-datepicker.css */"./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css");
+__webpack_require__(/*! C:\Dev\git\elasticsearch\maxds-web\src\styles.css */"./src/styles.css");
+__webpack_require__(/*! C:\Dev\git\elasticsearch\maxds-web\node_modules\primeicons\primeicons.css */"./node_modules/primeicons/primeicons.css");
+__webpack_require__(/*! C:\Dev\git\elasticsearch\maxds-web\node_modules\morris.js\morris.css */"./node_modules/morris.js/morris.css");
+module.exports = __webpack_require__(/*! C:\Dev\git\elasticsearch\maxds-web\node_modules\angular2-draggable\css\resizable.min.css */"./node_modules/angular2-draggable/css/resizable.min.css");
 
 
 /***/ })

@@ -28,7 +28,7 @@ import {
 } from 'primeng/primeng';
 
 import { HomeComponent } from './home/homeComponent';
-import { HomeService } from './home/homeservice';
+import { HomeService } from './home/homeService';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileService } from './services/profile.service';
 import { ExportComponent } from './export/exportComponent';

@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
-import { HomeService } from 'app/home/homeservice';
+import { HomeService } from 'app/home/homeService';
 import { AppComponent } from 'app/app.component';
 import { Router, NavigationEnd } from '@angular/router';
 import { TreeNode, Message, ConfirmationService } from 'primeng/api';
@@ -222,7 +222,7 @@ export class FeaturehomeComponent implements OnInit {
 
   constructor(private homeService: HomeService, private app: AppComponent, private router: Router, private home: Home, private utilService: UtilService, private mappedEntity: MappedEntity, private rule: TermRule, private el: ElementRef,
     private confirmationService: ConfirmationService, private editForExpression: EditExpression, private idle: Idle, private keepalive: Keepalive, private login: LoginService, private readonly joyrideService: JoyrideService, private route: ActivatedRoute) {
-	this.getRuleList();
+
     this.app.showmenu = true;
 
     this.chart = {};
@@ -270,9 +270,14 @@ export class FeaturehomeComponent implements OnInit {
     this.refresh();
     console.log('homeComponent : calling ngOnInit...');
 
+	//from resolver
+	this.completeCompanyList = this.route.snapshot.data['completeCompanyList'];
+	this.trmRulFinStatmntList = this.route.snapshot.data['termRuleCategoryList'];
+	this.termRulesList = this.route.snapshot.data['termRuleList'];
+	//init ...
     this.expressioncols = this.home.homeCols();
     this.modalExpressioncols = this.home.modalExpressioncols();
-    //this.getRuleList();
+    this.getRuleList();
     this.getTermRuleOptions();
     this.getUserRole();
     this.utilService.getCompanyList().subscribe((response) => { this.companyList = response; });
@@ -294,8 +299,7 @@ export class FeaturehomeComponent implements OnInit {
       });
     })
 
-    //this.utilService.getCompleteCompanyList().subscribe((response) => { this.completeCompanyList = response });
-    this.completeCompanyList = this.route.snapshot.data['completeCompanyList'];
+    //this.completeCompanyList = this.route.snapshot.data['completeCompanyList'];
     this.addTerm();
   }
 
@@ -418,17 +422,83 @@ export class FeaturehomeComponent implements OnInit {
   }
 
   getUserRole() {
-    this.utilService.getUserRolesList().subscribe(
-      (response) => {
-        this.isAdminUser = response.includes('admin');
-      },
-      (error) => console.log(error)
-    )
-  }
-
-  // This method gets all the term rule in home page
+	  this.utilService.getUserRolesList().subscribe(
+	      (response) => {
+	        this.isAdminUser = response.includes('admin');
+	      },
+	      (error) => console.log(error)
+	    )
+	  }
+	
+  // This method populate termTree in home page
   getRuleList() {
+		if (this.trmRulFinStatmntList) {
+			this.trmRulFinStatmntList[this.trmRulFinStatmntList.length] = ({ "financialStatement": "Uncategorized" });
+		} else {
+		  this.homeService.getTermRuleCategoryList().subscribe(
+		      (response) => {
+		        this.trmRulFinStatmntList = response;
+		        this.trmRulFinStatmntList[this.trmRulFinStatmntList.length] = ({ "financialStatement": "Uncategorized" });
+		      },
+		      (error) => console.log(error)
+	    	)
+		}
+		
+		if (this.termRulesList) {
+		    this.termRulesList = this.termRulesList.sort((a, b) => {
+		          if (a.termId < b.termId) { return -1; }
+		          if (a.termId > b.termId) { return 1; }
+		          return 0;
+	        });
+	        for (var i = 0; i < this.trmRulFinStatmntList.length; i++) {
+	          this.populateList = [];
+	          for (var j = 0; j < this.termRulesList.length; j++) {
+	            if (this.trmRulFinStatmntList[i].financialStatement === this.termRulesList[j].financialStatement) {
+	              this.populateList.push(this.termRulesList[j]);
+	            }
+	          }
+	          let home = new Home();
+	          home.label = this.trmRulFinStatmntList[i].financialStatement;
+	          this.populateList.forEach(obj => {
+	            home.children.push({ "label": obj.termId + ' - ' + obj.name, "leaf": true, "key": obj.termId });
+	            this.termRuleLists.push(obj.name);
+	          }
+	          )
+	          home.leaf = false;
+	          this.termTree.push(home);
+	
+	        }
+		} else {
+			this.utilService.getTermRuleList().subscribe(
+		      	(response) => {
+			        this.termRulesList = response;
+			        this.termRulesList = this.termRulesList.sort((a, b) => {
+			          if (a.termId < b.termId) { return -1; }
+			          if (a.termId > b.termId) { return 1; }
+			          return 0;
+		        });
+		        for (var i = 0; i < this.trmRulFinStatmntList.length; i++) {
+		          this.populateList = [];
+		          for (var j = 0; j < this.termRulesList.length; j++) {
+		            if (this.trmRulFinStatmntList[i].financialStatement === this.termRulesList[j].financialStatement) {
+		              this.populateList.push(this.termRulesList[j]);
+		            }
+		          }
+		          let home = new Home();
+		          home.label = this.trmRulFinStatmntList[i].financialStatement;
+		          this.populateList.forEach(obj => {
+		            home.children.push({ "label": obj.termId + ' - ' + obj.name, "leaf": true, "key": obj.termId });
+		            this.termRuleLists.push(obj.name);
+		          }
+		          )
+		          home.leaf = false;
+		          this.termTree.push(home);
+		        };
+		      }
+	    	)
+		}
 
+/*	
     this.utilService.getTermRuleList().subscribe(
       (response) => {
         this.termRulesList = response;
@@ -456,15 +526,7 @@ export class FeaturehomeComponent implements OnInit {
 
         };
       }
-    )
-    this.homeService.getTermRuleCategoryList().subscribe(
-      (response) => {
-        this.trmRulFinStatmntList = response;
-        this.trmRulFinStatmntList[this.trmRulFinStatmntList.length] = ({ "financialStatement": "Uncategorized" });
-      },
-      (error) => console.log(error)
-    )
-
+    ) */
   }
 
   onCompanyNameChange($event) {

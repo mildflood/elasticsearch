@@ -61,14 +61,7 @@ public class TermRuleService {
 	}
 
 	public List<TermRule> getTermRulesForAccuracyTesting() {
-		Iterable<TermRuleDoc> docs = this.repository.findAll();
-		List<TermRuleDoc> termruleDocs = new ArrayList<TermRuleDoc>();
-		for (TermRuleDoc doc : docs) {
-			if (doc.getIncludeInAccuracyTests().booleanValue()) {
-				termruleDocs.add(doc);
-			}
-		}
-		return getRuleList(termruleDocs);
+		return getRuleList(repository.findByIncludeInAccuracyTests());
 	}
 
 	public TermRule getTermRuleByTermName(String termName) {

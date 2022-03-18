@@ -18,6 +18,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.elasticsearch.core.SearchPage;
 import org.springframework.data.solr.core.query.result.FacetPage;
 import org.springframework.data.solr.core.query.result.FacetPivotFieldEntry;
 import org.springframework.stereotype.Service;
@@ -534,14 +535,14 @@ public class TermResultService {
         if (isForAllEntities) {
             return resultsSolrRepo.findByTermsAndFY(termIds, start, end);
         } else {
-            return resultsSolrRepo.findByTermIdInAndEntityIdInAndFYBetween(termIds, entityIds, start, end);
+            return resultsSolrRepo.findByTermsInAndEntitiesInAndFYBetween(termIds, entityIds, start, end);
         }
     }
 
     public HashMap<String, TermResultsDoc> getResultsByTermId(Collection<String> termIds,
             String entityId, int fiscalYear) {
 
-        List<TermResultsDoc> results = resultsSolrRepo.findByTermIdInAndEntityIdAndFYAndFQ(termIds, entityId, fiscalYear, "FY");
+        List<TermResultsDoc> results = resultsSolrRepo.findByTermsInAndEntityIdAndFYAndFQ(termIds, entityId, fiscalYear, "FY");
         HashMap<String, TermResultsDoc> ret = new HashMap<>();
 
         results.forEach((doc) -> {

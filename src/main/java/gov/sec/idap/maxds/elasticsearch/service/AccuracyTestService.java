@@ -45,6 +45,7 @@ import gov.sec.idap.maxds.elasticsearch.document.TermMapInformationDoc;
 import gov.sec.idap.maxds.elasticsearch.document.TermResultsDoc;
 import gov.sec.idap.maxds.elasticsearch.repository.AccuracyTestNotesRepository;
 import gov.sec.idap.maxds.service.SecApiService;
+import gov.sec.idap.maxds.elasticsearch.service.TermMapService;
 
 @Service("accuracyTestService")
 public class AccuracyTestService {

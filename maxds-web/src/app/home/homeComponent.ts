@@ -3,7 +3,7 @@ import { OnInit, ViewChild } from '@angular/core';
 import { OnDestroy } from '@angular/core';
 import { ISubscription } from 'rxjs/Subscription';
 import { NavigationEnd, Router } from '@angular/router';
-import { HomeService } from './homeservice';
+import { HomeService } from './homeService';
 import { Home } from '../domain/home';
 import { UtilService } from '../utils/utilService';
 import { TreeNode } from 'primeng/api';

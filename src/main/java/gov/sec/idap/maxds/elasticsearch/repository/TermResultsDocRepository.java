@@ -1,12 +1,10 @@
 package gov.sec.idap.maxds.elasticsearch.repository;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.annotations.Query;
-import org.springframework.data.elasticsearch.core.SearchHits;
 import org.springframework.data.elasticsearch.core.SearchPage;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 import org.springframework.stereotype.Repository;
@@ -40,35 +38,131 @@ public interface TermResultsDocRepository extends ElasticsearchRepository<TermRe
             String myDocType, int rank);
 
     //@Query(value = "termId:(?0) AND entityId:(?1) AND FY:[?2 TO ?3] AND myDocType:primaryTermResult")
-    @Query("{\"bool\": {\"must\":[{\"match\" : { \"termId\" : \"?0\" }},{\"match\" : { \"entityId\" : \"?1\" }},{\"match\" : { \"myDocType\" : \"primaryTermResult\" }}, {\"range\": {\"FY\": {\"gte\": \"?2\", \"lte\": \"?3\"}}}]}}")
-    public List<TermResultsDoc> findByTermIdInAndEntityIdInAndFYBetween(Collection<String> termIds,
+//    @Query("{\"bool\": {\"must\":[{\"match\" : { \"termId\" : \"?0\" }},{\"match\" : { \"entityId\" : \"?1\" }},{\"match\" : { \"myDocType\" : \"primaryTermResult\" }}]}}")
+    
+    @Query("{ \r\n"
+    		+ "    \"bool\": {\r\n"
+    		+ "      \"must\": [\r\n"
+    		+ "        {\"match\" : { \"myDocType\" : \"primaryTermResult\" }},  \r\n"
+    		+ "		{\"range\": {\"FY\": {\"gte\": \"?2\", \"lte\": \"?3\"}}}\r\n"
+    		+ "      ], \r\n"
+    		+ "      \"filter\": { \"bool\": { \"should\": [\r\n"
+    		+ "                { \"terms\":  { \"termId\": ?0 }},\r\n"
+    		+ "				{ \"terms\":  { \"entityId\": ?1 }}\r\n"
+    		+ "      ]}}\r\n"
+    		+ "    }\r\n"
+    		+ "  }")
+    //@Query("{ \"bool\": { \"must\": [ {\"match\" : { \"myDocType\" : \"primaryTermResult\" }}, {\"range\": {\"FY\": {\"gte\": \"?2\", \"lte\": \"?3\"}}}]} }")
+    public List<TermResultsDoc> findByTermsInAndEntitiesInAndFYBetween(Collection<String> termIds,
             Collection<String> entityIds, int start, int end);
+//      public List<TermResultsDoc> findByTermIdInAndEntityIdInAndFYBetween(Collection<String> termIds,
+//              Collection<String> entityIds, int start, int end);
     
     //@Query(value = "termId:(?0) AND entityId:?1 AND FY:?2 AND FQ:?3 AND myDocType:primaryTermResult")
-    @Query("{\"bool\": {\"must\":[{\"match\" : { \"termId\" : \"?0\" }},{\"match\" : { \"entityId\" : \"?1\" }},{\"match\" : { \"FQ\" : \"?2\" }},{\"match\" : { \"myDocType\" : \"primaryTermResult\" }}]}}")
-    public List<TermResultsDoc> findByTermIdInAndEntityIdAndFYAndFQ(Collection<String> termIds,
+    //@Query("{\"bool\": {\"must\":[{\"match\" : { \"termId\" : \"?0\" }},{\"match\" : { \"entityId\" : \"?1\" }},{\"match\" : { \"FQ\" : \"?2\" }},{\"match\" : { \"myDocType\" : \"primaryTermResult\" }}]}}")
+    @Query("{\r\n"
+    		+ "    \"bool\": {\r\n"
+    		+ "      \"must\": [\r\n" 
+    		+ "        {\"match\" : { \"myDocType\" : \"primaryTermResult\" }},  \r\n"
+    		+ "		{\"match\" : { \"entityId\" : \"?1\" }}, \r\n"
+    		+ "		{\"match\": {\"FY\": \"?2\" }},\r\n"
+    		+ "		{\"match\": {\"FQ\": \"?3\" }}\r\n"
+    		+ "      ], \r\n"
+    		+ "      \"filter\": [\r\n"
+    		+ "         { \"terms\":  { \"termId\": ?0 }}\r\n"
+    		+ "	  ]\r\n"
+    		+ "    }\r\n"
+    		+ "  }")
+    public List<TermResultsDoc> findByTermsInAndEntityIdAndFYAndFQ(Collection<String> termIds,
             String entityId, int fy, String fq);
     
     //@Query(value = "termId:(?0) AND FY:[?1 TO ?2] AND myDocType:primaryTermResult")
-    @Query("{\"bool\": {\"must\":[{\"match\" : { \"termId\" : \"?0\" }},{\"match\" : { \"myDocType\" : \"primaryTermResult\" }}, {\"range\": {\"FY\": {\"gte\": \"?1\", \"lte\": \"?2\"}}}]}}")
+   // @Query("{\"bool\": {\"must\":[{\"match\" : { \"termId\" : \"?0\" }},{\"match\" : { \"myDocType\" : \"primaryTermResult\" }}, {\"range\": {\"FY\": {\"gte\": \"?1\", \"lte\": \"?2\"}}}]}}")
+    @Query("{ \r\n"
+    		+ "    \"bool\": {\r\n"
+    		+ "      \"must\": [\r\n"
+    		+ "        {\"match\" : { \"myDocType\" : \"primaryTermResult\" }},  \r\n"
+    		+ "		{\"range\": {\"FY\": {\"gte\": \"?1\", \"lte\": \"?2\"}}}\r\n"
+    		+ "      ], \r\n"
+    		+ "      \"filter\":[\r\n"
+    		+ "                { \"terms\":  { \"termId\": ?0 }}\r\n"
+    		+ "      ]\r\n"
+    		+ "    }\r\n"
+    		+ "  }")
     public List<TermResultsDoc> findByTermsAndFY(Collection<String> termIds, int start, int end);
 
     //@Query(value = "termId:(?0) AND entityId:(?1) AND FY:[?2 TO ?3] AND -FQ:FY AND myDocType:primaryTermResult")
-    @Query(" {\"bool\": {\"must\":[{\"match\" : { \"termId\" : \"?0\" }},{\"match\" : { \"entityId\" : \"?1\" }},{\"match\" : { \"myDocType\" : \"primaryTermResult\" }}, {\"range\": {\"FY\": {\"gte\": \"?2\", \"lte\": \"?3\"}}}]}}")
+    //@Query(" {\"bool\": {\"must\":[{\"match\" : { \"termId\" : \"?0\" }},{\"match\" : { \"entityId\" : \"?1\" }},{\"match\" : { \"myDocType\" : \"primaryTermResult\" }}, {\"range\": {\"FY\": {\"gte\": \"?2\", \"lte\": \"?3\"}}}]}}")
+    @Query("{\r\n"
+    		+ "  \"query\": { \r\n"
+    		+ "    \"bool\": {\r\n"
+    		+ "      \"must\": [\r\n"
+    		+ "        {\"match\" : { \"myDocType\" : \"primaryTermResult\" }},  \r\n"
+    		+ "		{\"range\": {\"FY\": {\"gte\": \"?2\", \"lte\": \"?3\"}}}\r\n"
+    		+ "      ], \r\n"
+    		+ "	  \"must_not\": [\r\n"
+    		+ "		{\"match\": { \"FQ\" : \"FY\" }}\r\n"
+    		+ "	  ]\r\n"
+    		+ "      \"filter\": { \"bool\": { \"should\": [\r\n"
+    		+ "                { \"terms\":  { \"termId\": ?0 }},\r\n"
+    		+ "				{ \"terms\":  { \"entityId\": ?1 }}\r\n"
+    		+ "      ]}}\r\n"
+    		+ "    }\r\n"
+    		+ "  }\r\n"
+    		+ "}")
     public List<TermResultsDoc> findByTermsEntitiesAndFYQuarterlyOnly(Collection<String> termIds,
             Collection<String> entityIds, int start, int end);
 
     //@Query(value = "termId:(?0) AND FY:[?1 TO ?2] AND -FQ:FY AND myDocType:primaryTermResult")
-    @Query("{\"bool\": {\"must\":[{\"match\" : { \"termId\" : \"?0\" }},{\"match\" : { \"myDocType\" : \"primaryTermResult\" }}, {\"range\": {\"FY\": {\"gte\": \"?1\", \"lte\": \"?2\"}}}], \"must_not\":[{\"match\" : { \"FQ\" : \"FY\" }}]}}")
+    //@Query("{\"bool\": {\"must\":[{\"match\" : { \"termId\" : \"?0\" }},{\"match\" : { \"myDocType\" : \"primaryTermResult\" }}, {\"range\": {\"FY\": {\"gte\": \"?1\", \"lte\": \"?2\"}}}], \"must_not\":[{\"match\" : { \"FQ\" : \"FY\" }}]}}")
+    @Query("{ \r\n"
+    		+ "    \"bool\": {\r\n"
+    		+ "      \"must\": [\r\n"
+    		+ "        {\"match\" : { \"myDocType\" : \"primaryTermResult\" }},  \r\n"
+    		+ "		{\"range\": {\"FY\": {\"gte\": \"?1\", \"lte\": \"?2\"}}}\r\n"
+    		+ "      ], \r\n"
+    		+ "	  \"must_not\": [\r\n"
+    		+ "		{\"match\": { \"FQ\" : \"FY\" }}\r\n"
+    		+ "	  ]\r\n"
+    		+ "      \"filter\": [\r\n"
+    		+ "                { \"terms\":  { \"termId\": ?0 }}\r\n"
+    		+ "      ]\r\n"
+    		+ "    }\r\n"
+    		+ "  }")
     public List<TermResultsDoc> findByTermsAndFYQuarterlyOnly(Collection<String> termIds, int start, int end);
 
     //@Query(value = "termId:(?0) AND entityId:(?1) AND FY:[?2 TO ?3] AND FQ:FY AND myDocType:primaryTermResult")
-    @Query("{\"bool\": {\"must\":[{\"match\" : { \"termId\" : \"?0\" }},{\"match\" : { \"entityId\" : \"?1\" }},{\"match\" : { \"myDocType\" : \"primaryTermResult\" }},{\"match\" : {\"FQ\":\"FY\"}},{\"range\": {\"FY\": {\"gte\": \"?2\", \"lte\": \"?3\"}}}]}}")
+    //@Query("{\"bool\": {\"must\":[{\"match\" : { \"termId\" : \"?0\" }},{\"match\" : { \"entityId\" : \"?1\" }},{\"match\" : { \"myDocType\" : \"primaryTermResult\" }},{\"match\" : {\"FQ\":\"FY\"}},{\"range\": {\"FY\": {\"gte\": \"?2\", \"lte\": \"?3\"}}}]}}")
+    @Query("{ \r\n"
+    		+ "    \"bool\": {\r\n"
+    		+ "      \"must\": [\r\n"
+    		+ "        {\"match\" : { \"myDocType\" : \"primaryTermResult\" }},  \r\n"
+    		+ "		{\"match\" : { \"FQ\" : \"FY\" }}, \r\n"
+    		+ "		{\"range\": {\"FY\": {\"gte\": \"?2\", \"lte\": \"?3\"}}}\r\n"
+    		+ "      ], \r\n"
+    		+ "      \"filter\": { \"bool\": { \"should\": [\r\n"
+    		+ "                { \"terms\":  { \"termId\": ?0 }},\r\n"
+    		+ "				{ \"terms\":  { \"entityId\": ?1 }}\r\n"
+    		+ "      ]}}\r\n"
+    		+ "    }\r\n"
+    		+ "  }")
     public List<TermResultsDoc> findByTermsEntitiesAndFYYealyOnly(Collection<String> termIds,
             Collection<String> entityIds, int start, int end);
 
     //@Query(value = "termId:(?0) AND FY:[?1 TO ?2] AND FQ:FY AND myDocType:primaryTermResult")
-    @Query("{\"bool\": {\"must\":[{\"match\" : { \"termId\" : \"?0\" }},{\"match\" : { \"myDocType\" : \"primaryTermResult\" }},{\"match\" : {\"FQ\":\"FY\"}},{\"range\": {\"FY\": {\"gte\": \"?1\", \"lte\": \"?2\"}}}]}}")
+    //@Query("{\"bool\": {\"must\":[{\"match\" : { \"termId\" : \"?0\" }},{\"match\" : { \"myDocType\" : \"primaryTermResult\" }},{\"match\" : {\"FQ\":\"FY\"}},{\"range\": {\"FY\": {\"gte\": \"?1\", \"lte\": \"?2\"}}}]}}")
+    @Query("{ \r\n"
+    		+ "    \"bool\": {\r\n"
+    		+ "      \"must\": [\r\n"
+    		+ "        {\"match\" : { \"myDocType\" : \"primaryTermResult\" }},  \r\n"
+    		+ "		{\"match\" : { \"FQ\" : \"FY\" }}, \r\n"
+    		+ "		{\"range\": {\"FY\": {\"gte\": \"?1\", \"lte\": \"?2\"}}}\r\n"
+    		+ "      ], \r\n"
+    		+ "      \"filter\": [\r\n"
+    		+ "                { \"terms\":  { \"termId\": ?0 }}\r\n"
+    		+ "      ]\r\n"
+    		+ "    }\r\n"
+    		+ "  }")
     public List<TermResultsDoc> findByTermsAndFYYealyOnly(Collection<String> termIds,
             int start, int end);
 

@@ -337,7 +337,7 @@ module.exports = "<div class=\"jw-modal\">\r\n    <div class=\"jw-modal-body\">\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* MODAL STYLES\n-------------------------------*/\njw-modal {\n  /* modals are hidden by default */\n  display: none;\n}\njw-modal .jw-modal {\n  /* modal container fixed across whole screen */\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  /* z-index must be higher than .jw-modal-background */\n  z-index: 800;\n  /* enables scrolling for tall modals */\n  overflow: auto;\n}\njw-modal .jw-modal .jw-modal-body {\n  padding: 20px;\n  background: #fff;\n  min-width: 600px;\n  max-width: 80%;\n  /* margin exposes part of the modal background */\n  margin: 200px;\n}\njw-modal .jw-modal-background {\n  /* modal background fixed across whole screen */\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  /* semi-transparent black  */\n  background-color: #000;\n  opacity: 0.65;\n  /* z-index must be below .jw-modal and above everything else  */\n  z-index: 700;\n}\nbody.jw-modal-open {\n  /* body overflow is hidden to hide main scrollbar when modal window is open */\n  overflow: hidden;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvX2RpYWxvZ21vZGFsL2RpYWxvZ21vZGFsLmNvbXBvbmVudC5sZXNzIiwic3JjL2FwcC9fZGlhbG9nbW9kYWwvQzovRGV2L2dpdC9tYXhkcy1hd3MvbWF4ZHMtd2ViL3NyYy9hcHAvX2RpYWxvZ21vZGFsL2RpYWxvZ21vZGFsLmNvbXBvbmVudC5sZXNzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO2dDQUNnQztBQ0NoQztFRENFLGlDQUFpQztFQ0MvQixhQUFBO0FEQ0o7QUNIQTtFREtFLDhDQUE4QztFQ0N4QyxlQUFBO0VBQ0EsTUFBQTtFQUNBLFFBQUE7RUFDQSxTQUFBO0VBQ0EsT0FBQTtFRENOLHFEQUFxRDtFQ0UvQyxZQUFBO0VEQU4sc0NBQXNDO0VDR2hDLGNBQUE7QUREUjtBQ2ZBO0VBbUJZLGFBQUE7RUFDQSxnQkFBQTtFQUNBLGdCQUFBO0VBQ0EsY0FBQTtFRERWLGdEQUFnRDtFQ0l0QyxhQUFBO0FERlo7QUN2QkE7RUR5QkUsK0NBQStDO0VDTXpDLGVBQUE7RUFDQSxNQUFBO0VBQ0EsUUFBQTtFQUNBLFNBQUE7RUFDQSxPQUFBO0VESk4sNEJBQTRCO0VDT3RCLHNCQUFBO0VBQ0EsYUFBQTtFRExOLCtEQUErRDtFQ1F6RCxZQUFBO0FETlI7QUNVQTtFRFJFLDZFQUE2RTtFQ1UzRSxnQkFBQTtBRFJKIiwiZmlsZSI6InNyYy9hcHAvX2RpYWxvZ21vZGFsL2RpYWxvZ21vZGFsLmNvbXBvbmVudC5sZXNzIiwic291cmNlc0NvbnRlbnQiOlsiLyogTU9EQUwgU1RZTEVTXG4tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKi9cbmp3LW1vZGFsIHtcbiAgLyogbW9kYWxzIGFyZSBoaWRkZW4gYnkgZGVmYXVsdCAqL1xuICBkaXNwbGF5OiBub25lO1xufVxuanctbW9kYWwgLmp3LW1vZGFsIHtcbiAgLyogbW9kYWwgY29udGFpbmVyIGZpeGVkIGFjcm9zcyB3aG9sZSBzY3JlZW4gKi9cbiAgcG9zaXRpb246IGZpeGVkO1xuICB0b3A6IDA7XG4gIHJpZ2h0OiAwO1xuICBib3R0b206IDA7XG4gIGxlZnQ6IDA7XG4gIC8qIHotaW5kZXggbXVzdCBiZSBoaWdoZXIgdGhhbiAuanctbW9kYWwtYmFja2dyb3VuZCAqL1xuICB6LWluZGV4OiA4MDA7XG4gIC8qIGVuYWJsZXMgc2Nyb2xsaW5nIGZvciB0YWxsIG1vZGFscyAqL1xuICBvdmVyZmxvdzogYXV0bztcbn1cbmp3LW1vZGFsIC5qdy1tb2RhbCAuanctbW9kYWwtYm9keSB7XG4gIHBhZGRpbmc6IDIwcHg7XG4gIGJhY2tncm91bmQ6ICNmZmY7XG4gIG1pbi13aWR0aDogNjAwcHg7XG4gIG1heC13aWR0aDogODAlO1xuICAvKiBtYXJnaW4gZXhwb3NlcyBwYXJ0IG9mIHRoZSBtb2RhbCBiYWNrZ3JvdW5kICovXG4gIG1hcmdpbjogMjAwcHg7XG59XG5qdy1tb2RhbCAuanctbW9kYWwtYmFja2dyb3VuZCB7XG4gIC8qIG1vZGFsIGJhY2tncm91bmQgZml4ZWQgYWNyb3NzIHdob2xlIHNjcmVlbiAqL1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIHRvcDogMDtcbiAgcmlnaHQ6IDA7XG4gIGJvdHRvbTogMDtcbiAgbGVmdDogMDtcbiAgLyogc2VtaS10cmFuc3BhcmVudCBibGFjayAgKi9cbiAgYmFja2dyb3VuZC1jb2xvcjogIzAwMDtcbiAgb3BhY2l0eTogMC42NTtcbiAgLyogei1pbmRleCBtdXN0IGJlIGJlbG93IC5qdy1tb2RhbCBhbmQgYWJvdmUgZXZlcnl0aGluZyBlbHNlICAqL1xuICB6LWluZGV4OiA3MDA7XG59XG5ib2R5Lmp3LW1vZGFsLW9wZW4ge1xuICAvKiBib2R5IG92ZXJmbG93IGlzIGhpZGRlbiB0byBoaWRlIG1haW4gc2Nyb2xsYmFyIHdoZW4gbW9kYWwgd2luZG93IGlzIG9wZW4gKi9cbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbn1cbiIsIi8qIE1PREFMIFNUWUxFU1xuLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSovXG5qdy1tb2RhbCB7XG4gICAgLyogbW9kYWxzIGFyZSBoaWRkZW4gYnkgZGVmYXVsdCAqL1xuICAgIGRpc3BsYXk6IG5vbmU7XG5cbiAgICAuanctbW9kYWwge1xuICAgICAgICAvKiBtb2RhbCBjb250YWluZXIgZml4ZWQgYWNyb3NzIHdob2xlIHNjcmVlbiAqL1xuICAgICAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgICAgIHRvcDogMDtcbiAgICAgICAgcmlnaHQ6IDA7XG4gICAgICAgIGJvdHRvbTogMDtcbiAgICAgICAgbGVmdDogMDtcblxuICAgICAgICAvKiB6LWluZGV4IG11c3QgYmUgaGlnaGVyIHRoYW4gLmp3LW1vZGFsLWJhY2tncm91bmQgKi9cbiAgICAgICAgei1pbmRleDogODAwO1xuXG4gICAgICAgIC8qIGVuYWJsZXMgc2Nyb2xsaW5nIGZvciB0YWxsIG1vZGFscyAqL1xuICAgICAgICBvdmVyZmxvdzogYXV0bztcblxuICAgICAgICAuanctbW9kYWwtYm9keSB7XG4gICAgICAgICAgICBwYWRkaW5nOiAyMHB4O1xuICAgICAgICAgICAgYmFja2dyb3VuZDogI2ZmZjtcbiAgICAgICAgICAgIG1pbi13aWR0aDogNjAwcHg7XG4gICAgICAgICAgICBtYXgtd2lkdGg6IDgwJTtcblxuICAgICAgICAgICAgLyogbWFyZ2luIGV4cG9zZXMgcGFydCBvZiB0aGUgbW9kYWwgYmFja2dyb3VuZCAqL1xuICAgICAgICAgICAgbWFyZ2luOiAyMDBweDtcbiAgICAgICAgfVxuICAgIH1cblxuICAgIC5qdy1tb2RhbC1iYWNrZ3JvdW5kIHtcbiAgICAgICAgLyogbW9kYWwgYmFja2dyb3VuZCBmaXhlZCBhY3Jvc3Mgd2hvbGUgc2NyZWVuICovXG4gICAgICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICAgICAgdG9wOiAwO1xuICAgICAgICByaWdodDogMDtcbiAgICAgICAgYm90dG9tOiAwO1xuICAgICAgICBsZWZ0OiAwO1xuXG4gICAgICAgIC8qIHNlbWktdHJhbnNwYXJlbnQgYmxhY2sgICovXG4gICAgICAgIGJhY2tncm91bmQtY29sb3I6ICMwMDA7XG4gICAgICAgIG9wYWNpdHk6IDAuNjU7XG5cbiAgICAgICAgLyogei1pbmRleCBtdXN0IGJlIGJlbG93IC5qdy1tb2RhbCBhbmQgYWJvdmUgZXZlcnl0aGluZyBlbHNlICAqL1xuICAgICAgICB6LWluZGV4OiA3MDA7XG4gICAgfVxufVxuXG5ib2R5Lmp3LW1vZGFsLW9wZW4ge1xuICAgIC8qIGJvZHkgb3ZlcmZsb3cgaXMgaGlkZGVuIHRvIGhpZGUgbWFpbiBzY3JvbGxiYXIgd2hlbiBtb2RhbCB3aW5kb3cgaXMgb3BlbiAqL1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG59XG4iXX0= */"
+module.exports = "/* MODAL STYLES\n-------------------------------*/\njw-modal {\n  /* modals are hidden by default */\n  display: none;\n}\njw-modal .jw-modal {\n  /* modal container fixed across whole screen */\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  /* z-index must be higher than .jw-modal-background */\n  z-index: 800;\n  /* enables scrolling for tall modals */\n  overflow: auto;\n}\njw-modal .jw-modal .jw-modal-body {\n  padding: 20px;\n  background: #fff;\n  min-width: 600px;\n  max-width: 80%;\n  /* margin exposes part of the modal background */\n  margin: 200px;\n}\njw-modal .jw-modal-background {\n  /* modal background fixed across whole screen */\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  /* semi-transparent black  */\n  background-color: #000;\n  opacity: 0.65;\n  /* z-index must be below .jw-modal and above everything else  */\n  z-index: 700;\n}\nbody.jw-modal-open {\n  /* body overflow is hidden to hide main scrollbar when modal window is open */\n  overflow: hidden;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvX2RpYWxvZ21vZGFsL2RpYWxvZ21vZGFsLmNvbXBvbmVudC5sZXNzIiwic3JjL2FwcC9fZGlhbG9nbW9kYWwvQzovRGV2L2dpdC9lbGFzdGljc2VhcmNoL21heGRzLXdlYi9zcmMvYXBwL19kaWFsb2dtb2RhbC9kaWFsb2dtb2RhbC5jb21wb25lbnQubGVzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtnQ0FDZ0M7QUNDaEM7RURDRSxpQ0FBaUM7RUNDL0IsYUFBQTtBRENKO0FDSEE7RURLRSw4Q0FBOEM7RUNDeEMsZUFBQTtFQUNBLE1BQUE7RUFDQSxRQUFBO0VBQ0EsU0FBQTtFQUNBLE9BQUE7RURDTixxREFBcUQ7RUNFL0MsWUFBQTtFREFOLHNDQUFzQztFQ0doQyxjQUFBO0FERFI7QUNmQTtFQW1CWSxhQUFBO0VBQ0EsZ0JBQUE7RUFDQSxnQkFBQTtFQUNBLGNBQUE7RUREVixnREFBZ0Q7RUNJdEMsYUFBQTtBREZaO0FDdkJBO0VEeUJFLCtDQUErQztFQ016QyxlQUFBO0VBQ0EsTUFBQTtFQUNBLFFBQUE7RUFDQSxTQUFBO0VBQ0EsT0FBQTtFREpOLDRCQUE0QjtFQ090QixzQkFBQTtFQUNBLGFBQUE7RURMTiwrREFBK0Q7RUNRekQsWUFBQTtBRE5SO0FDVUE7RURSRSw2RUFBNkU7RUNVM0UsZ0JBQUE7QURSSiIsImZpbGUiOiJzcmMvYXBwL19kaWFsb2dtb2RhbC9kaWFsb2dtb2RhbC5jb21wb25lbnQubGVzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qIE1PREFMIFNUWUxFU1xuLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSovXG5qdy1tb2RhbCB7XG4gIC8qIG1vZGFscyBhcmUgaGlkZGVuIGJ5IGRlZmF1bHQgKi9cbiAgZGlzcGxheTogbm9uZTtcbn1cbmp3LW1vZGFsIC5qdy1tb2RhbCB7XG4gIC8qIG1vZGFsIGNvbnRhaW5lciBmaXhlZCBhY3Jvc3Mgd2hvbGUgc2NyZWVuICovXG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgdG9wOiAwO1xuICByaWdodDogMDtcbiAgYm90dG9tOiAwO1xuICBsZWZ0OiAwO1xuICAvKiB6LWluZGV4IG11c3QgYmUgaGlnaGVyIHRoYW4gLmp3LW1vZGFsLWJhY2tncm91bmQgKi9cbiAgei1pbmRleDogODAwO1xuICAvKiBlbmFibGVzIHNjcm9sbGluZyBmb3IgdGFsbCBtb2RhbHMgKi9cbiAgb3ZlcmZsb3c6IGF1dG87XG59XG5qdy1tb2RhbCAuanctbW9kYWwgLmp3LW1vZGFsLWJvZHkge1xuICBwYWRkaW5nOiAyMHB4O1xuICBiYWNrZ3JvdW5kOiAjZmZmO1xuICBtaW4td2lkdGg6IDYwMHB4O1xuICBtYXgtd2lkdGg6IDgwJTtcbiAgLyogbWFyZ2luIGV4cG9zZXMgcGFydCBvZiB0aGUgbW9kYWwgYmFja2dyb3VuZCAqL1xuICBtYXJnaW46IDIwMHB4O1xufVxuanctbW9kYWwgLmp3LW1vZGFsLWJhY2tncm91bmQge1xuICAvKiBtb2RhbCBiYWNrZ3JvdW5kIGZpeGVkIGFjcm9zcyB3aG9sZSBzY3JlZW4gKi9cbiAgcG9zaXRpb246IGZpeGVkO1xuICB0b3A6IDA7XG4gIHJpZ2h0OiAwO1xuICBib3R0b206IDA7XG4gIGxlZnQ6IDA7XG4gIC8qIHNlbWktdHJhbnNwYXJlbnQgYmxhY2sgICovXG4gIGJhY2tncm91bmQtY29sb3I6ICMwMDA7XG4gIG9wYWNpdHk6IDAuNjU7XG4gIC8qIHotaW5kZXggbXVzdCBiZSBiZWxvdyAuanctbW9kYWwgYW5kIGFib3ZlIGV2ZXJ5dGhpbmcgZWxzZSAgKi9cbiAgei1pbmRleDogNzAwO1xufVxuYm9keS5qdy1tb2RhbC1vcGVuIHtcbiAgLyogYm9keSBvdmVyZmxvdyBpcyBoaWRkZW4gdG8gaGlkZSBtYWluIHNjcm9sbGJhciB3aGVuIG1vZGFsIHdpbmRvdyBpcyBvcGVuICovXG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG4iLCIvKiBNT0RBTCBTVFlMRVNcbi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0qL1xuanctbW9kYWwge1xuICAgIC8qIG1vZGFscyBhcmUgaGlkZGVuIGJ5IGRlZmF1bHQgKi9cbiAgICBkaXNwbGF5OiBub25lO1xuXG4gICAgLmp3LW1vZGFsIHtcbiAgICAgICAgLyogbW9kYWwgY29udGFpbmVyIGZpeGVkIGFjcm9zcyB3aG9sZSBzY3JlZW4gKi9cbiAgICAgICAgcG9zaXRpb246IGZpeGVkO1xuICAgICAgICB0b3A6IDA7XG4gICAgICAgIHJpZ2h0OiAwO1xuICAgICAgICBib3R0b206IDA7XG4gICAgICAgIGxlZnQ6IDA7XG5cbiAgICAgICAgLyogei1pbmRleCBtdXN0IGJlIGhpZ2hlciB0aGFuIC5qdy1tb2RhbC1iYWNrZ3JvdW5kICovXG4gICAgICAgIHotaW5kZXg6IDgwMDtcblxuICAgICAgICAvKiBlbmFibGVzIHNjcm9sbGluZyBmb3IgdGFsbCBtb2RhbHMgKi9cbiAgICAgICAgb3ZlcmZsb3c6IGF1dG87XG5cbiAgICAgICAgLmp3LW1vZGFsLWJvZHkge1xuICAgICAgICAgICAgcGFkZGluZzogMjBweDtcbiAgICAgICAgICAgIGJhY2tncm91bmQ6ICNmZmY7XG4gICAgICAgICAgICBtaW4td2lkdGg6IDYwMHB4O1xuICAgICAgICAgICAgbWF4LXdpZHRoOiA4MCU7XG5cbiAgICAgICAgICAgIC8qIG1hcmdpbiBleHBvc2VzIHBhcnQgb2YgdGhlIG1vZGFsIGJhY2tncm91bmQgKi9cbiAgICAgICAgICAgIG1hcmdpbjogMjAwcHg7XG4gICAgICAgIH1cbiAgICB9XG5cbiAgICAuanctbW9kYWwtYmFja2dyb3VuZCB7XG4gICAgICAgIC8qIG1vZGFsIGJhY2tncm91bmQgZml4ZWQgYWNyb3NzIHdob2xlIHNjcmVlbiAqL1xuICAgICAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgICAgIHRvcDogMDtcbiAgICAgICAgcmlnaHQ6IDA7XG4gICAgICAgIGJvdHRvbTogMDtcbiAgICAgICAgbGVmdDogMDtcblxuICAgICAgICAvKiBzZW1pLXRyYW5zcGFyZW50IGJsYWNrICAqL1xuICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDAwO1xuICAgICAgICBvcGFjaXR5OiAwLjY1O1xuXG4gICAgICAgIC8qIHotaW5kZXggbXVzdCBiZSBiZWxvdyAuanctbW9kYWwgYW5kIGFib3ZlIGV2ZXJ5dGhpbmcgZWxzZSAgKi9cbiAgICAgICAgei1pbmRleDogNzAwO1xuICAgIH1cbn1cblxuYm9keS5qdy1tb2RhbC1vcGVuIHtcbiAgICAvKiBib2R5IG92ZXJmbG93IGlzIGhpZGRlbiB0byBoaWRlIG1haW4gc2Nyb2xsYmFyIHdoZW4gbW9kYWwgd2luZG93IGlzIG9wZW4gKi9cbiAgICBvdmVyZmxvdzogaGlkZGVuO1xufVxuIl19 */"
 
 /***/ }),
 
@@ -1251,7 +1251,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var primeng_primeng__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! primeng/primeng */ "./node_modules/primeng/primeng.js");
 /* harmony import */ var primeng_primeng__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(primeng_primeng__WEBPACK_IMPORTED_MODULE_20__);
 /* harmony import */ var _home_homeComponent__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./home/homeComponent */ "./src/app/home/homeComponent.ts");
-/* harmony import */ var _home_homeservice__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./home/homeservice */ "./src/app/home/homeservice.ts");
+/* harmony import */ var _home_homeService__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./home/homeService */ "./src/app/home/homeService.ts");
 /* harmony import */ var _profile_profile_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./profile/profile.component */ "./src/app/profile/profile.component.ts");
 /* harmony import */ var _services_profile_service__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./services/profile.service */ "./src/app/services/profile.service.ts");
 /* harmony import */ var _export_exportComponent__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./export/exportComponent */ "./src/app/export/exportComponent.ts");
@@ -1378,7 +1378,7 @@ var AppModule = /** @class */ (function () {
                 primeng_primeng__WEBPACK_IMPORTED_MODULE_20__["FileUploadModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"], _ng_idle_keepalive__WEBPACK_IMPORTED_MODULE_14__["NgIdleKeepaliveModule"].forRoot(), angular2_moment__WEBPACK_IMPORTED_MODULE_15__["MomentModule"], primeng_treetable__WEBPACK_IMPORTED_MODULE_16__["TreeTableModule"], ngx_joyride__WEBPACK_IMPORTED_MODULE_19__["JoyrideModule"].forRoot(),
                 angular_split__WEBPACK_IMPORTED_MODULE_52__["AngularSplitModule"].forRoot(), angular_d3_tree__WEBPACK_IMPORTED_MODULE_54__["AngularD3TreeLibModule"], angular_morris_js__WEBPACK_IMPORTED_MODULE_17__["MorrisJsModule"], angular2_draggable__WEBPACK_IMPORTED_MODULE_18__["AngularDraggableModule"], _dialogmodal__WEBPACK_IMPORTED_MODULE_57__["DialogModalModule"]
             ],
-            providers: [_home_homeservice__WEBPACK_IMPORTED_MODULE_22__["HomeService"], _services_profile_service__WEBPACK_IMPORTED_MODULE_24__["ProfileService"], _export_exportService__WEBPACK_IMPORTED_MODULE_26__["ExportService"], _accutacytest_accuracyTestService__WEBPACK_IMPORTED_MODULE_28__["AccuracyTestService"], _manageTerm_manageTermService__WEBPACK_IMPORTED_MODULE_30__["ManageTermService"], _processingTerms_processingTermsService__WEBPACK_IMPORTED_MODULE_32__["ProcessingTermsService"], _submitFeedback_submitFeedbackService__WEBPACK_IMPORTED_MODULE_35__["SubmitFeedbackService"], _status_statusService__WEBPACK_IMPORTED_MODULE_37__["StatusService"], _utils_utilService__WEBPACK_IMPORTED_MODULE_41__["UtilService"],
+            providers: [_home_homeService__WEBPACK_IMPORTED_MODULE_22__["HomeService"], _services_profile_service__WEBPACK_IMPORTED_MODULE_24__["ProfileService"], _export_exportService__WEBPACK_IMPORTED_MODULE_26__["ExportService"], _accutacytest_accuracyTestService__WEBPACK_IMPORTED_MODULE_28__["AccuracyTestService"], _manageTerm_manageTermService__WEBPACK_IMPORTED_MODULE_30__["ManageTermService"], _processingTerms_processingTermsService__WEBPACK_IMPORTED_MODULE_32__["ProcessingTermsService"], _submitFeedback_submitFeedbackService__WEBPACK_IMPORTED_MODULE_35__["SubmitFeedbackService"], _status_statusService__WEBPACK_IMPORTED_MODULE_37__["StatusService"], _utils_utilService__WEBPACK_IMPORTED_MODULE_41__["UtilService"],
                 primeng_api__WEBPACK_IMPORTED_MODULE_9__["ConfirmationService"], primeng_primeng__WEBPACK_IMPORTED_MODULE_20__["MessageModule"], _domain_status__WEBPACK_IMPORTED_MODULE_38__["Status"], _domain_termMap__WEBPACK_IMPORTED_MODULE_39__["TermMap"], _domain_home__WEBPACK_IMPORTED_MODULE_40__["Home"], _domain_mappedEntity__WEBPACK_IMPORTED_MODULE_42__["MappedEntity"], _status_statusService__WEBPACK_IMPORTED_MODULE_37__["StatusService"], _domain_termRule__WEBPACK_IMPORTED_MODULE_43__["TermRule"], _domain_editExpression__WEBPACK_IMPORTED_MODULE_44__["EditExpression"], _domain_termMapInformation__WEBPACK_IMPORTED_MODULE_45__["TermMapInformation"], _domain_groupTermMapInformation__WEBPACK_IMPORTED_MODULE_46__["GroupTermMapInformation"],
                 { provide: _angular_common__WEBPACK_IMPORTED_MODULE_10__["LocationStrategy"], useClass: _angular_common__WEBPACK_IMPORTED_MODULE_10__["HashLocationStrategy"] }, _header_header_component__WEBPACK_IMPORTED_MODULE_49__["HeaderComponent"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
@@ -1417,6 +1417,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _featurehome_featurehome_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./featurehome/featurehome.component */ "./src/app/featurehome/featurehome.component.ts");
 /* harmony import */ var _resolvers_completecompanylist_resolver_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./resolvers/completecompanylist-resolver.service */ "./src/app/resolvers/completecompanylist-resolver.service.ts");
 /* harmony import */ var _resolvers_termlist_resolver_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./resolvers/termlist-resolver.service */ "./src/app/resolvers/termlist-resolver.service.ts");
+/* harmony import */ var _resolvers_termrulecategorylist_resolver_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./resolvers/termrulecategorylist-resolver.service */ "./src/app/resolvers/termrulecategorylist-resolver.service.ts");
+
 
 
 
@@ -1437,7 +1439,8 @@ var routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full', runGuardsAndResolvers: 'always' },
     { path: 'home', component: _featurehome_featurehome_component__WEBPACK_IMPORTED_MODULE_13__["FeaturehomeComponent"], runGuardsAndResolvers: 'always',
         resolve: { completeCompanyList: _resolvers_completecompanylist_resolver_service__WEBPACK_IMPORTED_MODULE_14__["CompleteCompanylistResolverService"],
-            termRuleList: _resolvers_termlist_resolver_service__WEBPACK_IMPORTED_MODULE_15__["TermlistResolverService"] } },
+            termRuleList: _resolvers_termlist_resolver_service__WEBPACK_IMPORTED_MODULE_15__["TermlistResolverService"],
+            termRuleCategoryList: _resolvers_termrulecategorylist_resolver_service__WEBPACK_IMPORTED_MODULE_16__["TermRuleCategoryListResolverService"] } },
     // { path: 'home', component: HomeComponent, runGuardsAndResolvers: 'always'},
     { path: 'header', component: _header_header_component__WEBPACK_IMPORTED_MODULE_12__["HeaderComponent"], runGuardsAndResolvers: 'always' },
     { path: 'maxds', component: _home_homeComponent__WEBPACK_IMPORTED_MODULE_1__["HomeComponent"], runGuardsAndResolvers: 'always' },
@@ -2851,7 +2854,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FeaturehomeComponent", function() { return FeaturehomeComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var app_home_homeservice__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/home/homeservice */ "./src/app/home/homeservice.ts");
+/* harmony import */ var app_home_homeService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/home/homeService */ "./src/app/home/homeService.ts");
 /* harmony import */ var app_app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/api.js");
@@ -3066,7 +3069,6 @@ var FeaturehomeComponent = /** @class */ (function () {
             this.derivedZeroExpressionForEdit = this.termRule.derivedZeroExpressions[index];
         };
         this.selectedTreeNode = {};
-        this.getRuleList();
         this.app.showmenu = true;
         this.chart = {};
         this.navigationSubscription = this.router.events.subscribe(function (e) {
@@ -3104,9 +3106,14 @@ var FeaturehomeComponent = /** @class */ (function () {
         this.progressSpinner = false;
         this.refresh();
         console.log('homeComponent : calling ngOnInit...');
+        //from resolver
+        this.completeCompanyList = this.route.snapshot.data['completeCompanyList'];
+        this.trmRulFinStatmntList = this.route.snapshot.data['termRuleCategoryList'];
+        this.termRulesList = this.route.snapshot.data['termRuleList'];
+        //init ...
         this.expressioncols = this.home.homeCols();
         this.modalExpressioncols = this.home.modalExpressioncols();
-        //this.getRuleList();
+        this.getRuleList();
         this.getTermRuleOptions();
         this.getUserRole();
         this.utilService.getCompanyList().subscribe(function (response) { _this.companyList = response; });
@@ -3127,8 +3134,7 @@ var FeaturehomeComponent = /** @class */ (function () {
                 _this.filteredfilerCategory.push(name);
             });
         });
-        //this.utilService.getCompleteCompanyList().subscribe((response) => { this.completeCompanyList = response });
-        this.completeCompanyList = this.route.snapshot.data['completeCompanyList'];
+        //this.completeCompanyList = this.route.snapshot.data['completeCompanyList'];
         this.addTerm();
     };
     FeaturehomeComponent.prototype.ngAfterContentInit = function () {
@@ -3249,12 +3255,20 @@ var FeaturehomeComponent = /** @class */ (function () {
             _this.isAdminUser = response.includes('admin');
         }, function (error) { return console.log(error); });
     };
-    // This method gets all the term rule in home page
+    // This method populate termTree in home page
     FeaturehomeComponent.prototype.getRuleList = function () {
         var _this = this;
-        this.utilService.getTermRuleList().subscribe(function (response) {
-            _this.termRulesList = response;
-            _this.termRulesList = _this.termRulesList.sort(function (a, b) {
+        if (this.trmRulFinStatmntList) {
+            this.trmRulFinStatmntList[this.trmRulFinStatmntList.length] = ({ "financialStatement": "Uncategorized" });
+        }
+        else {
+            this.homeService.getTermRuleCategoryList().subscribe(function (response) {
+                _this.trmRulFinStatmntList = response;
+                _this.trmRulFinStatmntList[_this.trmRulFinStatmntList.length] = ({ "financialStatement": "Uncategorized" });
+            }, function (error) { return console.log(error); });
+        }
+        if (this.termRulesList) {
+            this.termRulesList = this.termRulesList.sort(function (a, b) {
                 if (a.termId < b.termId) {
                     return -1;
                 }
@@ -3264,30 +3278,89 @@ var FeaturehomeComponent = /** @class */ (function () {
                 return 0;
             });
             var _loop_1 = function () {
-                _this.populateList = [];
-                for (var j = 0; j < _this.termRulesList.length; j++) {
-                    if (_this.trmRulFinStatmntList[i].financialStatement === _this.termRulesList[j].financialStatement) {
-                        _this.populateList.push(_this.termRulesList[j]);
+                this_1.populateList = [];
+                for (var j = 0; j < this_1.termRulesList.length; j++) {
+                    if (this_1.trmRulFinStatmntList[i].financialStatement === this_1.termRulesList[j].financialStatement) {
+                        this_1.populateList.push(this_1.termRulesList[j]);
                     }
                 }
                 var home = new app_domain_home__WEBPACK_IMPORTED_MODULE_6__["Home"]();
-                home.label = _this.trmRulFinStatmntList[i].financialStatement;
-                _this.populateList.forEach(function (obj) {
+                home.label = this_1.trmRulFinStatmntList[i].financialStatement;
+                this_1.populateList.forEach(function (obj) {
                     home.children.push({ "label": obj.termId + ' - ' + obj.name, "leaf": true, "key": obj.termId });
                     _this.termRuleLists.push(obj.name);
                 });
                 home.leaf = false;
-                _this.termTree.push(home);
+                this_1.termTree.push(home);
             };
-            for (var i = 0; i < _this.trmRulFinStatmntList.length; i++) {
+            var this_1 = this;
+            for (var i = 0; i < this.trmRulFinStatmntList.length; i++) {
                 _loop_1();
             }
-            ;
-        });
-        this.homeService.getTermRuleCategoryList().subscribe(function (response) {
-            _this.trmRulFinStatmntList = response;
-            _this.trmRulFinStatmntList[_this.trmRulFinStatmntList.length] = ({ "financialStatement": "Uncategorized" });
-        }, function (error) { return console.log(error); });
+        }
+        else {
+            this.utilService.getTermRuleList().subscribe(function (response) {
+                _this.termRulesList = response;
+                _this.termRulesList = _this.termRulesList.sort(function (a, b) {
+                    if (a.termId < b.termId) {
+                        return -1;
+                    }
+                    if (a.termId > b.termId) {
+                        return 1;
+                    }
+                    return 0;
+                });
+                var _loop_2 = function () {
+                    _this.populateList = [];
+                    for (var j = 0; j < _this.termRulesList.length; j++) {
+                        if (_this.trmRulFinStatmntList[i].financialStatement === _this.termRulesList[j].financialStatement) {
+                            _this.populateList.push(_this.termRulesList[j]);
+                        }
+                    }
+                    var home = new app_domain_home__WEBPACK_IMPORTED_MODULE_6__["Home"]();
+                    home.label = _this.trmRulFinStatmntList[i].financialStatement;
+                    _this.populateList.forEach(function (obj) {
+                        home.children.push({ "label": obj.termId + ' - ' + obj.name, "leaf": true, "key": obj.termId });
+                        _this.termRuleLists.push(obj.name);
+                    });
+                    home.leaf = false;
+                    _this.termTree.push(home);
+                };
+                for (var i = 0; i < _this.trmRulFinStatmntList.length; i++) {
+                    _loop_2();
+                }
+                ;
+            });
+        }
+        /*
+            this.utilService.getTermRuleList().subscribe(
+              (response) => {
+                this.termRulesList = response;
+                this.termRulesList = this.termRulesList.sort((a, b) => {
+                  if (a.termId < b.termId) { return -1; }
+                  if (a.termId > b.termId) { return 1; }
+                  return 0;
+                });
+                for (var i = 0; i < this.trmRulFinStatmntList.length; i++) {
+                  this.populateList = [];
+                  for (var j = 0; j < this.termRulesList.length; j++) {
+                    if (this.trmRulFinStatmntList[i].financialStatement === this.termRulesList[j].financialStatement) {
+                      this.populateList.push(this.termRulesList[j]);
+                    }
+                  }
+                  let home = new Home();
+                  home.label = this.trmRulFinStatmntList[i].financialStatement;
+                  this.populateList.forEach(obj => {
+                    home.children.push({ "label": obj.termId + ' - ' + obj.name, "leaf": true, "key": obj.termId });
+                    this.termRuleLists.push(obj.name);
+                  }
+                  )
+                  home.leaf = false;
+                  this.termTree.push(home);
+        
+                };
+              }
+            ) */
     };
     FeaturehomeComponent.prototype.onCompanyNameChange = function ($event) {
         console.log(this.companyName);
@@ -5848,7 +5921,7 @@ var FeaturehomeComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./featurehome.component.html */ "./src/app/featurehome/featurehome.component.html"),
             styles: [__webpack_require__(/*! ./featurehome.component.css */ "./src/app/featurehome/featurehome.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [app_home_homeservice__WEBPACK_IMPORTED_MODULE_2__["HomeService"], app_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], app_domain_home__WEBPACK_IMPORTED_MODULE_6__["Home"], app_utils_utilService__WEBPACK_IMPORTED_MODULE_7__["UtilService"], app_domain_mappedEntity__WEBPACK_IMPORTED_MODULE_9__["MappedEntity"], app_domain_termRule__WEBPACK_IMPORTED_MODULE_8__["TermRule"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"],
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [app_home_homeService__WEBPACK_IMPORTED_MODULE_2__["HomeService"], app_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], app_domain_home__WEBPACK_IMPORTED_MODULE_6__["Home"], app_utils_utilService__WEBPACK_IMPORTED_MODULE_7__["UtilService"], app_domain_mappedEntity__WEBPACK_IMPORTED_MODULE_9__["MappedEntity"], app_domain_termRule__WEBPACK_IMPORTED_MODULE_8__["TermRule"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"],
             primeng_api__WEBPACK_IMPORTED_MODULE_5__["ConfirmationService"], app_domain_editExpression__WEBPACK_IMPORTED_MODULE_10__["EditExpression"], _ng_idle_core__WEBPACK_IMPORTED_MODULE_11__["Idle"], _ng_idle_keepalive__WEBPACK_IMPORTED_MODULE_12__["Keepalive"], app_services_login_service__WEBPACK_IMPORTED_MODULE_13__["LoginService"], ngx_joyride__WEBPACK_IMPORTED_MODULE_14__["JoyrideService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]])
     ], FeaturehomeComponent);
     return FeaturehomeComponent;
@@ -6021,7 +6094,7 @@ module.exports = ".menuItem{\r\n  margin-top: 5px;\r\n  margin-bottom: 5px;\r\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-light mb-2 bg-secondary text-primary\" style=\"padding: 20px 15px 15px; min-height: 80px;\">\r\n  <div style=\"display: grid;margin-top: 4px; position: absolute; left: 15px\">\r\n    <div>\r\n      <p class=\"pull-left logo-name\" style=\"font-size: 32px; font-weight: bold;\r\n      line-height: 24px; color: #ffffff;\" title=\"MAXDS \"><span aria-hidden=\"true\"></span>\r\n        <span (click)=\"goToHome()\" style=\"cursor: pointer;\">MAXDS on aws</span></p>\r\n    </div>\r\n    <div style=\"font-size: 14px; font-weight: normal; color: #ffffff;\">Multiple Application XBRL Delivery System\r\n    </div>\r\n  </div>\r\n  <div style=\" position: absolute; left: 280px; \">\r\n    <ul style=\"list-style: none; \" class=\"pull-left\">\r\n      <!-- <li style=\"display: inline;\">\r\n      <img class=\"pull-left\" src=\"../assets/images/sec_logo copy.jpg\" style=\"border-radius: 25px;\" height=\"50\"\r\n        width=\"50\">\r\n    </li> -->\r\n\r\n\r\n      <li style=\"display: inline;\">\r\n        <a class=\"pull-left menuItem\" routerLink=\"/home\" title=\" Home\">\r\n          Home </a>\r\n      </li>\r\n\r\n      <li style=\"display: inline;\">\r\n        <a class=\"pull-left menuItem\" routerLink=\"/export\" title=\"Export\">\r\n          Export</a>\r\n      </li>\r\n\r\n      <li style=\"display: inline; \">\r\n        <a class=\"pull-left menuItem\" routerLink=\"/accuracyTest\" title=\"Accuracy test\">\r\n          Accuracy test</a>\r\n      </li>\r\n      <li style=\"display: inline; \" >\r\n        <a class=\"pull-left menuItem\" routerLink=\"/processTerm\" title=\"Process Terms\">\r\n          Process Terms</a>\r\n      </li>\r\n\r\n      <li style=\"display: inline; \">\r\n        <a class=\"pull-left menuItem\" routerLink=\"/manageTerm\" title=\"Manage Term Maps\">\r\n          Manage Term Maps</a>\r\n      </li>\r\n\r\n      <li style=\"display: inline; \">\r\n        <a class=\"pull-left menuItem\" routerLink=\"/status\" title=\"Status\">\r\n          Status</a>\r\n      </li>\r\n\r\n      <!-- <li style=\"display: inline; \" *ngIf=\"isAdmin\"> -->\r\n      <li style=\"display: inline; \">\r\n        <a class=\"pull-left menuItem\" routerLink=\"/admin\" title=\"Administration\">\r\n          Administration</a>\r\n      </li>\r\n      <li style=\"display: inline; \">\r\n        <a routerLink=\"/submit\" class=\"pull-left menuItem\" title=\"Submit Feedback\">\r\n          Submit Feedback </a>\r\n      </li>\r\n      <li style=\"display: inline;\">\r\n        <a class=\"pull-left menuItem\" href=\"https://confluence.ad.sec.gov/display/DOS/SEC_MAXDS_User_Guide\"\r\n          target=\"_blank\" title=\"help\">\r\n          Help</a>\r\n      </li>\r\n\r\n      <!-- <li style=\"display: inline; \">\r\n      <a routerLink=\"/featurehome\" class=\"pull-left menuItem\" title=\"Next Home\">\r\n        Next Home </a>\r\n    </li> -->\r\n\r\n\r\n    </ul>\r\n  </div>\r\n  <div class=\"col-lg-3 p-0\" style=\"text-align: right; position: absolute; right: 0px;\">\r\n    <a class=\"pull-left menuItem\" style=\"margin-top: 10px;\" href=\"javascript:void(0)\">\r\n      Tour</a>\r\n    <span class=\"pull-left onoffswitch\" joyrideStep=\"startTour\" stepPosition=\"bottom\"\r\n      title=\"MAXDS Tour: {{currentPage}}\" [stepContent]=\"customContent\" [prevTemplate]=\"prevButton\"\r\n      [nextTemplate]=\"nextButton\" [doneTemplate]=\"doneButton\" [counterTemplate]=\"counter\">\r\n      <input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch\"\r\n        [(ngModel)]=\"startTourCheck\" tabindex=\"0\" (change)=\"startTour()\">\r\n      <label class=\"onoffswitch-label\" for=\"myonoffswitch\">\r\n        <span class=\"onoffswitch-inner\"></span>\r\n        <span class=\"onoffswitch-switch\"></span>\r\n      </label>\r\n    </span>\r\n\r\n    <label class=\"welcome\">Hello</label> <label class=\"welcome\" style=\"margin: 2px;\">&nbsp;{{userFullName}} </label>\r\n\r\n    <!-- <span>\r\n      <a routerLink=\"/profile\" title=\"Profile\" class=\"bg-secondary text-white dropdownMenuItem\">\r\n        <button class=\"btn bg-secondary text-white\" type=\"button\" data-toggle=\"dropdown\">\r\n          <span class=\"glyphicon glyphicon-user\" style=\"font-size: 30px;\"></span>\r\n        </button>\r\n      </a>\r\n    </span>\r\n\r\n    <span>\r\n      <a routerLink=\"/logout\" title=\"Log Off\" class=\"bg-secondary text-white\">\r\n        <button class=\"btn bg-secondary text-white\" type=\"button\" data-toggle=\"dropdown\">\r\n          <span class=\"glyphicon glyphicon-log-out\" style=\"font-size: 30px; margin-left: 10px;\"></span>\r\n        </button>\r\n      </a>\r\n    </span> -->\r\n\r\n    <span class=\"dropdown\">\r\n      <button class=\"btn bg-secondary text-white dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\">\r\n        <span class=\"glyphicon glyphicon-user\" style=\"font-size: 30px;\"></span>\r\n      </button>\r\n\r\n      <ul class=\"dropdown-menu bg-secondary text-white  pull-right\">\r\n        <li class=\"bg-secondary text-white\">\r\n          <a routerLink=\"/profile\" title=\"Profile\" class=\"bg-secondary text-white dropdownMenuItem\">\r\n            Profile</a>\r\n          <a routerLink=\"/logout\" title=\"Log Off\" class=\"bg-secondary text-white dropdownMenuItem\"><span\r\n              class=\"glyphicon glyphicon-log-out\"></span>\r\n            Logoff</a>\r\n        </li>\r\n      </ul>\r\n    </span>\r\n\r\n    <span class=\"dropdown\" *ngIf=\"notifications && (notifications.length > 0)\">\r\n      <button class=\"btn bg-secondary text-white dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\">\r\n        <span class=\"glyphicon glyphicon-envelope\" style=\"font-size: 30px; margin-left: 10px;\"></span>\r\n      </button>\r\n\r\n      <ul class=\"dropdown-menu bg-secondary text-white  pull-right\">\r\n        <li class=\"bg-secondary text-white\">\r\n          <a (click)=\"goToProfile()\" href=\"javascript:void(0)\" *ngFor=\"let notification of notifications\"\r\n            title=\"Profile\" class=\"bg-secondary text-white font-weight-bold\">\r\n            {{notification.data.preferenceName.split('(')[1].slice(0, notification.data.preferenceName.split('(')[1].length - 1 )}}\r\n            has\r\n            {{notification.data.preferenceName.split('(')[0].slice(0, notification.data.preferenceName.split('(')[1].length - 1 )}}\r\n            of {{notification.data.companyName}}</a>\r\n        </li>\r\n      </ul>\r\n    </span>\r\n    <div class=\"notifictaion\" *ngIf=\"notifications && (notifications.length > 0)\">{{notifications.length}}</div>\r\n\r\n\r\n  </div>\r\n</nav>\r\n\r\n\r\n\r\n<ng-template #customContent>\r\n  <h3 class=\"popover-title p-10\">Welcome to a guided tour of the MAXDS {{currentPage}}</h3>\r\n  <div style=\"padding: 0px 13px 15px 13px\">\r\n    <div>\r\n      <div>This tour will help guide you through the basic features of the MAXDS {{currentPage}} Page</div>\r\n      <div *ngIf=\"currentPage === 'home'\">\r\n        <div>Manage Term Rules – Expressions to Resolve Term Rules and Validate Term Rules</div>\r\n        <div>To manage term rule expressions and validations, there are three main panels: list term rules, list term\r\n          details & expressions, expression builder.</div>\r\n      </div>\r\n      <div *ngIf=\"currentPage === 'profile'\">\r\n        <div>The Profile consists of user preferences saved to perform processing multiple times or share preferences\r\n          among other users.</div>\r\n        <div>It also provides the ability to add, delete and clear preferences.</div>\r\n      </div>\r\n\r\n      <div>Use the <i class=\"glyphicon glyphicon-backward\"></i> <b> Prev</b> and <b>Next </b> <i\r\n          class=\"glyphicon glyphicon-forward\"></i> buttons to navigate through the tour. </div>\r\n      <div> Please select <b>Next </b> <i class=\"glyphicon glyphicon-forward\"></i> button to begin the tour.</div>\r\n    </div>\r\n  </div>\r\n</ng-template>\r\n\r\n<ng-template #prevButton>\r\n  <button class=\"btn btn-sm btn-guided-tour\" data-role=\"prev\" aria-label=\"Prev\" style=\"margin-right:10px;\"><i\r\n      class=\"glyphicon glyphicon-backward\"></i>&nbsp;Prev</button>\r\n</ng-template>\r\n<ng-template #nextButton>\r\n  <button class=\"btn btn-sm btn-guided-tour\" data-role=\"next\" aria-label=\"Next\">Next&nbsp;<i\r\n      class=\"glyphicon glyphicon-forward\"></i></button>\r\n</ng-template>\r\n<ng-template #doneButton>\r\n  <button class=\"btn btn-sm btn-warning\" data-role=\"end\" aria-label=\"End tour\">End tour</button>\r\n</ng-template>\r\n"
+module.exports = "<nav class=\"navbar navbar-light mb-2 bg-secondary text-primary\" style=\"padding: 20px 15px 15px; min-height: 80px;\">\r\n  <div style=\"display: grid;margin-top: 4px; position: absolute; left: 15px\">\r\n    <div>\r\n      <p class=\"pull-left logo-name\" style=\"font-size: 32px; font-weight: bold;\r\n      line-height: 24px; color: #ffffff;\" title=\"MAXDS \"><span aria-hidden=\"true\"></span>\r\n        <span (click)=\"goToHome()\" style=\"cursor: pointer;\">MAXDS on OS</span></p>\r\n    </div>\r\n    <div style=\"font-size: 14px; font-weight: normal; color: #ffffff;\">Multiple Application XBRL Delivery System\r\n    </div>\r\n  </div>\r\n  <div style=\" position: absolute; left: 280px; \">\r\n    <ul style=\"list-style: none; \" class=\"pull-left\">\r\n      <!-- <li style=\"display: inline;\">\r\n      <img class=\"pull-left\" src=\"../assets/images/sec_logo copy.jpg\" style=\"border-radius: 25px;\" height=\"50\"\r\n        width=\"50\">\r\n    </li> -->\r\n\r\n\r\n      <li style=\"display: inline;\">\r\n        <a class=\"pull-left menuItem\" routerLink=\"/home\" title=\" Home\">\r\n          Home </a>\r\n      </li>\r\n\r\n      <li style=\"display: inline;\">\r\n        <a class=\"pull-left menuItem\" routerLink=\"/export\" title=\"Export\">\r\n          Export</a>\r\n      </li>\r\n\r\n      <li style=\"display: inline; \">\r\n        <a class=\"pull-left menuItem\" routerLink=\"/accuracyTest\" title=\"Accuracy test\">\r\n          Accuracy test</a>\r\n      </li>\r\n      <li style=\"display: inline; \" >\r\n        <a class=\"pull-left menuItem\" routerLink=\"/processTerm\" title=\"Process Terms\">\r\n          Process Terms</a>\r\n      </li>\r\n\r\n      <li style=\"display: inline; \">\r\n        <a class=\"pull-left menuItem\" routerLink=\"/manageTerm\" title=\"Manage Term Maps\">\r\n          Manage Term Maps</a>\r\n      </li>\r\n\r\n      <li style=\"display: inline; \">\r\n        <a class=\"pull-left menuItem\" routerLink=\"/status\" title=\"Status\">\r\n          Status</a>\r\n      </li>\r\n\r\n      <!-- <li style=\"display: inline; \" *ngIf=\"isAdmin\"> -->\r\n      <li style=\"display: inline; \">\r\n        <a class=\"pull-left menuItem\" routerLink=\"/admin\" title=\"Administration\">\r\n          Administration</a>\r\n      </li>\r\n      <li style=\"display: inline; \">\r\n        <a routerLink=\"/submit\" class=\"pull-left menuItem\" title=\"Submit Feedback\">\r\n          Submit Feedback </a>\r\n      </li>\r\n      <li style=\"display: inline;\">\r\n        <a class=\"pull-left menuItem\" href=\"https://confluence.ad.sec.gov/display/DOS/SEC_MAXDS_User_Guide\"\r\n          target=\"_blank\" title=\"help\">\r\n          Help</a>\r\n      </li>\r\n\r\n      <!-- <li style=\"display: inline; \">\r\n      <a routerLink=\"/featurehome\" class=\"pull-left menuItem\" title=\"Next Home\">\r\n        Next Home </a>\r\n    </li> -->\r\n\r\n\r\n    </ul>\r\n  </div>\r\n  <div class=\"col-lg-3 p-0\" style=\"text-align: right; position: absolute; right: 0px;\">\r\n    <a class=\"pull-left menuItem\" style=\"margin-top: 10px;\" href=\"javascript:void(0)\">\r\n      Tour</a>\r\n    <span class=\"pull-left onoffswitch\" joyrideStep=\"startTour\" stepPosition=\"bottom\"\r\n      title=\"MAXDS Tour: {{currentPage}}\" [stepContent]=\"customContent\" [prevTemplate]=\"prevButton\"\r\n      [nextTemplate]=\"nextButton\" [doneTemplate]=\"doneButton\" [counterTemplate]=\"counter\">\r\n      <input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch\"\r\n        [(ngModel)]=\"startTourCheck\" tabindex=\"0\" (change)=\"startTour()\">\r\n      <label class=\"onoffswitch-label\" for=\"myonoffswitch\">\r\n        <span class=\"onoffswitch-inner\"></span>\r\n        <span class=\"onoffswitch-switch\"></span>\r\n      </label>\r\n    </span>\r\n\r\n    <label class=\"welcome\">Hello</label> <label class=\"welcome\" style=\"margin: 2px;\">&nbsp;{{userFullName}} </label>\r\n\r\n    <!-- <span>\r\n      <a routerLink=\"/profile\" title=\"Profile\" class=\"bg-secondary text-white dropdownMenuItem\">\r\n        <button class=\"btn bg-secondary text-white\" type=\"button\" data-toggle=\"dropdown\">\r\n          <span class=\"glyphicon glyphicon-user\" style=\"font-size: 30px;\"></span>\r\n        </button>\r\n      </a>\r\n    </span>\r\n\r\n    <span>\r\n      <a routerLink=\"/logout\" title=\"Log Off\" class=\"bg-secondary text-white\">\r\n        <button class=\"btn bg-secondary text-white\" type=\"button\" data-toggle=\"dropdown\">\r\n          <span class=\"glyphicon glyphicon-log-out\" style=\"font-size: 30px; margin-left: 10px;\"></span>\r\n        </button>\r\n      </a>\r\n    </span> -->\r\n\r\n    <span class=\"dropdown\">\r\n      <button class=\"btn bg-secondary text-white dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\">\r\n        <span class=\"glyphicon glyphicon-user\" style=\"font-size: 30px;\"></span>\r\n      </button>\r\n\r\n      <ul class=\"dropdown-menu bg-secondary text-white  pull-right\">\r\n        <li class=\"bg-secondary text-white\">\r\n          <a routerLink=\"/profile\" title=\"Profile\" class=\"bg-secondary text-white dropdownMenuItem\">\r\n            Profile</a>\r\n          <a routerLink=\"/logout\" title=\"Log Off\" class=\"bg-secondary text-white dropdownMenuItem\"><span\r\n              class=\"glyphicon glyphicon-log-out\"></span>\r\n            Logoff</a>\r\n        </li>\r\n      </ul>\r\n    </span>\r\n\r\n    <span class=\"dropdown\" *ngIf=\"notifications && (notifications.length > 0)\">\r\n      <button class=\"btn bg-secondary text-white dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\">\r\n        <span class=\"glyphicon glyphicon-envelope\" style=\"font-size: 30px; margin-left: 10px;\"></span>\r\n      </button>\r\n\r\n      <ul class=\"dropdown-menu bg-secondary text-white  pull-right\">\r\n        <li class=\"bg-secondary text-white\">\r\n          <a (click)=\"goToProfile()\" href=\"javascript:void(0)\" *ngFor=\"let notification of notifications\"\r\n            title=\"Profile\" class=\"bg-secondary text-white font-weight-bold\">\r\n            {{notification.data.preferenceName.split('(')[1].slice(0, notification.data.preferenceName.split('(')[1].length - 1 )}}\r\n            has\r\n            {{notification.data.preferenceName.split('(')[0].slice(0, notification.data.preferenceName.split('(')[1].length - 1 )}}\r\n            of {{notification.data.companyName}}</a>\r\n        </li>\r\n      </ul>\r\n    </span>\r\n    <div class=\"notifictaion\" *ngIf=\"notifications && (notifications.length > 0)\">{{notifications.length}}</div>\r\n\r\n\r\n  </div>\r\n</nav>\r\n\r\n\r\n\r\n<ng-template #customContent>\r\n  <h3 class=\"popover-title p-10\">Welcome to a guided tour of the MAXDS {{currentPage}}</h3>\r\n  <div style=\"padding: 0px 13px 15px 13px\">\r\n    <div>\r\n      <div>This tour will help guide you through the basic features of the MAXDS {{currentPage}} Page</div>\r\n      <div *ngIf=\"currentPage === 'home'\">\r\n        <div>Manage Term Rules – Expressions to Resolve Term Rules and Validate Term Rules</div>\r\n        <div>To manage term rule expressions and validations, there are three main panels: list term rules, list term\r\n          details & expressions, expression builder.</div>\r\n      </div>\r\n      <div *ngIf=\"currentPage === 'profile'\">\r\n        <div>The Profile consists of user preferences saved to perform processing multiple times or share preferences\r\n          among other users.</div>\r\n        <div>It also provides the ability to add, delete and clear preferences.</div>\r\n      </div>\r\n\r\n      <div>Use the <i class=\"glyphicon glyphicon-backward\"></i> <b> Prev</b> and <b>Next </b> <i\r\n          class=\"glyphicon glyphicon-forward\"></i> buttons to navigate through the tour. </div>\r\n      <div> Please select <b>Next </b> <i class=\"glyphicon glyphicon-forward\"></i> button to begin the tour.</div>\r\n    </div>\r\n  </div>\r\n</ng-template>\r\n\r\n<ng-template #prevButton>\r\n  <button class=\"btn btn-sm btn-guided-tour\" data-role=\"prev\" aria-label=\"Prev\" style=\"margin-right:10px;\"><i\r\n      class=\"glyphicon glyphicon-backward\"></i>&nbsp;Prev</button>\r\n</ng-template>\r\n<ng-template #nextButton>\r\n  <button class=\"btn btn-sm btn-guided-tour\" data-role=\"next\" aria-label=\"Next\">Next&nbsp;<i\r\n      class=\"glyphicon glyphicon-forward\"></i></button>\r\n</ng-template>\r\n<ng-template #doneButton>\r\n  <button class=\"btn btn-sm btn-warning\" data-role=\"end\" aria-label=\"End tour\">End tour</button>\r\n</ng-template>\r\n"
 
 /***/ }),
 
@@ -6393,7 +6466,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _homeservice__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./homeservice */ "./src/app/home/homeservice.ts");
+/* harmony import */ var _homeService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./homeService */ "./src/app/home/homeService.ts");
 /* harmony import */ var _domain_home__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../domain/home */ "./src/app/domain/home.ts");
 /* harmony import */ var _utils_utilService__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/utilService */ "./src/app/utils/utilService.ts");
 /* harmony import */ var _domain_mappedEntity__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../domain/mappedEntity */ "./src/app/domain/mappedEntity.ts");
@@ -8848,7 +8921,7 @@ var HomeComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./home.html */ "./src/app/home/home.html"),
             styles: [__webpack_require__(/*! ../app.component.css */ "./src/app/app.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_homeservice__WEBPACK_IMPORTED_MODULE_3__["HomeService"], app_app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _domain_home__WEBPACK_IMPORTED_MODULE_4__["Home"], _utils_utilService__WEBPACK_IMPORTED_MODULE_5__["UtilService"], _domain_mappedEntity__WEBPACK_IMPORTED_MODULE_6__["MappedEntity"], _domain_termRule__WEBPACK_IMPORTED_MODULE_7__["TermRule"],
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_homeService__WEBPACK_IMPORTED_MODULE_3__["HomeService"], app_app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _domain_home__WEBPACK_IMPORTED_MODULE_4__["Home"], _utils_utilService__WEBPACK_IMPORTED_MODULE_5__["UtilService"], _domain_mappedEntity__WEBPACK_IMPORTED_MODULE_6__["MappedEntity"], _domain_termRule__WEBPACK_IMPORTED_MODULE_7__["TermRule"],
             primeng_api__WEBPACK_IMPORTED_MODULE_9__["ConfirmationService"], _domain_editExpression__WEBPACK_IMPORTED_MODULE_8__["EditExpression"], _ng_idle_core__WEBPACK_IMPORTED_MODULE_11__["Idle"], _ng_idle_keepalive__WEBPACK_IMPORTED_MODULE_12__["Keepalive"], app_services_login_service__WEBPACK_IMPORTED_MODULE_13__["LoginService"]])
     ], HomeComponent);
     return HomeComponent;
@@ -8858,9 +8931,9 @@ var HomeComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/home/homeservice.ts":
+/***/ "./src/app/home/homeService.ts":
 /*!*************************************!*\
-  !*** ./src/app/home/homeservice.ts ***!
+  !*** ./src/app/home/homeService.ts ***!
   \*************************************/
 /*! exports provided: HomeService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -11957,7 +12030,7 @@ var TermlistResolverService = /** @class */ (function () {
     }
     TermlistResolverService.prototype.resolve = function () {
         if (this.termRuleList) {
-            return this.termRuleList;
+            return this.getTermRuleList();
         }
         else {
             this.termRuleList = this.utilService.getTermRuleList();
@@ -11974,6 +12047,51 @@ var TermlistResolverService = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_utils_utilService__WEBPACK_IMPORTED_MODULE_2__["UtilService"]])
     ], TermlistResolverService);
     return TermlistResolverService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/resolvers/termrulecategorylist-resolver.service.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/resolvers/termrulecategorylist-resolver.service.ts ***!
+  \********************************************************************/
+/*! exports provided: TermRuleCategoryListResolverService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TermRuleCategoryListResolverService", function() { return TermRuleCategoryListResolverService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _home_homeService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../home/homeService */ "./src/app/home/homeService.ts");
+
+
+
+var TermRuleCategoryListResolverService = /** @class */ (function () {
+    function TermRuleCategoryListResolverService(homeService) {
+        this.homeService = homeService;
+    }
+    TermRuleCategoryListResolverService.prototype.resolve = function () {
+        if (this.termRuleCategoryList) {
+            return this.getTermRuleCategoryList();
+        }
+        else {
+            this.termRuleCategoryList = this.homeService.getTermRuleCategoryList();
+            return this.termRuleCategoryList;
+        }
+    };
+    TermRuleCategoryListResolverService.prototype.getTermRuleCategoryList = function () {
+        return this.termRuleCategoryList;
+    };
+    TermRuleCategoryListResolverService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_home_homeService__WEBPACK_IMPORTED_MODULE_2__["HomeService"]])
+    ], TermRuleCategoryListResolverService);
+    return TermRuleCategoryListResolverService;
 }());
 
 
@@ -13848,7 +13966,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Dev\git\maxds-aws\maxds-web\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Dev\git\elasticsearch\maxds-web\src\main.ts */"./src/main.ts");
 
 
 /***/ })

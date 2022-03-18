@@ -34,10 +34,13 @@ public interface TermRuleRepository extends ElasticsearchRepository<TermRuleDoc,
     
     public void deleteByTermId(String termId);
     
-    //only used by solr
-    @Query(value="includeInAccuracyTests_b:true")
+    //@Query(value="includeInAccuracyTests_b:true")
+    @Query("{ \"bool\": {\"must\":[{\"match\" : { \"includeInAccuracyTests_b\" : true }}]}}, \"from\":0,\"size\":100")
     public List<TermRuleDoc> findByIncludeInAccuracyTests();
-    //only used by solr
-    @Query(value="termId:?0")
+
+   // @Query(value="termId:?0")
+    @Query("{\r\n"
+    		+ "        \"terms\" : { \"termId\" : ?0 }\r\n"
+    		+ " }")
     public List<TermRuleDoc> findByTermIds(Collection<String> termId);
 }

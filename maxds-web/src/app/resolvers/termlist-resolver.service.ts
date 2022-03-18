@@ -12,7 +12,7 @@ export class TermlistResolverService implements Resolve<any> {
 
   resolve(): Observable<any> {
     if (this.termRuleList) {
-      return this.termRuleList;
+      return this.getTermRuleList();
     } else {
       this.termRuleList = this.utilService.getTermRuleList();
       return this.termRuleList;
