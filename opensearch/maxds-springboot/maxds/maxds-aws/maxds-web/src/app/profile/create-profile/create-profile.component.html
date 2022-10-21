@@ -1,0 +1,140 @@
+<div>
+    <p-messages [style]="{color: 'black'}" [value]="msgs"></p-messages>
+</div>
+<form [formGroup]="preferenceForm" *ngIf="preferenceForm">
+    <div class="modal-div">
+
+        <div class="form-group row">
+            <label for="termName" class="col-lg-3 form-control-label" style="margin-right: 2%;">Term Name</label>
+            <div class="col-xs-6">
+                <p-autoComplete [style]="{'width':'400px !important'}" [inputStyle]="{'width':'400px'}" name="termName"
+                    [suggestions]="filteredTerms" (completeMethod)="filterTerm($event)" placeholder="Search Terms"
+                    formControlName="termName" [(ngModel)]="profile.termName" [dropdown]="true"
+                    (ngModelChange)="onSelectTerm($event)">
+                </p-autoComplete>
+                <div *ngIf="!profile.termName" style="color: red; font-size: 12px;">
+                    Please enter valid
+                    term name.</div>
+            </div>
+
+        </div>
+        <div class="form-group row">
+            <p-radioButton name="filterRadio" formControlName="filterRadio" value="companyRadio"
+                [(ngModel)]="filterRadio">
+            </p-radioButton>
+            <label for="compamyName" class="col-lg-3 form-control-label">Search by Company:</label>
+            <div class="col-xs-8">
+                <p-autoComplete [style]="{'width':'400px !important'}"
+                    [inputStyle]="{'width':'400px','maxwidth':'400px'}" aria-required="true" name="companyName"
+                    [suggestions]="filteredCompany" placeholders="filteredCompany"
+                    (completeMethod)="searchCompany($event)" placeholder="Search Company" [dropdown]="false"
+                    multiple="true" [ngClass]="{ 'is-invalid':submitted && preferenceForm.controls.companyName.errors}"
+                    aria-required="companyName" formControlName="companyName" [(ngModel)]="profile.companies"
+                    (onSelect)="addOrRemoveEntities()" (onUnselect)="addOrRemoveEntities()">
+                </p-autoComplete>
+                <button icon="pi pi-check" label="Go To Peer Group" style="margin:3px"
+                [disabled]="profile.companies.length > 1" class="create-profile" type="button" pButton
+                    (click)="goToPeer($event)"></button>
+                <div *ngIf="profile.companies.length === 0" style="color: red; font-size: 12px;">Please enter valid
+                    company name.</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <p-radioButton name="filterRadio" formControlName="filterRadio" value="divisionRadio"
+                [(ngModel)]="filterRadio">
+            </p-radioButton>
+            <label for="divSector" class="col-lg-3 form-control-label">Search by Group: Division -> Sector:
+            </label>
+            <div class="col-xs-7">
+                <p-dropdown [options]="filtereddivSector" placeholder="Select Division Sector" [(ngModel)]="divSector"
+                    [style]="{'width':'400px'}" dropdownIcon="pi pi-chevron-down"
+                    (onChange)="divSectorChange(divSector)" [virtualScroll]="true" formControlName="division"
+                    [itemSize]="31" filter="true">
+                </p-dropdown>
+                &nbsp; {{divisionCount}}
+                <button pButton type="button" [disabled]="!(isTermNameValid)" label="Show Resolved"
+                    class="ui-button-success" (click)="showResolved()"></button>
+            </div>
+
+        </div>
+        <div class="form-group row">
+            <label for="industry" class="col-lg-3 form-control-label" style="margin-right: 2%;">Industry:</label>
+            <div class="col-xs-5">
+                <p-dropdown [options]="filteredindustry" placeholder="Select Industry" [(ngModel)]="profile.industry"
+                    [style]="{'width':'400px'}" dropdownIcon="pi pi-chevron-down"
+                    (onChange)="processIndustryChange(profile.industry)" [virtualScroll]="true"
+                    formControlName="industry" [itemSize]="31" filter="true">
+                </p-dropdown>
+                &nbsp; {{sectorCount}}
+            </div>
+        </div>
+        <div class="form-group row">
+
+            <label for="filerCategory" class="col-lg-3 form-control-label" style="margin-right: 2%;">Filer
+                Category:</label>
+            <div class="col-xs-5">
+                <p-dropdown [options]="filteredfilerCategory" placeholder="Select Filer Category"
+                    [(ngModel)]="profile.filerCategory" [style]="{'width':'400px'}" dropdownIcon="pi pi-chevron-down"
+                    formControlName="filerCategory" (onChange)="processfilCatChange(profile.filerCategory)"
+                    [virtualScroll]="true" [itemSize]="31" filter="true">
+                </p-dropdown>
+                &nbsp; {{categoryCount}}
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <!--Start Preference Name-->
+            <label for="preferenceName" class="col-lg-3 form-control-label" style="margin-right: 2%;"
+                aria-required="true">Preference
+                Name</label>
+            <div class="col-xs-5">
+                <input type="text" class="form-control"
+                    [ngClass]="{ 'is-invalid':preferenceForm.controls.preferenceyName.errors}"
+                    [(ngModel)]="profile.preferenceyName" style="width: 400px !important;display:inline"
+                    formControlName="preferenceyName">
+
+                <div *ngIf="preferenceForm.controls.preferenceyName.errors" class="invalid-feedback">
+                    <div *ngIf="preferenceForm.controls.preferenceyName.errors.required"
+                        style="color: red; font-size: 12px;">
+                        Preference
+                        Name Required</div>
+                </div>
+            </div>
+        </div>
+
+
+        <p-table #entityTable [columns]="homeEntityCol" [value]="entityList" [responsive]="true" selectionMode="single"
+            [(selection)]="selectedEntity" [paginator]="true" [rows]="10">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th style="width:4em;">
+                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                    </th>
+                    <th *ngFor="let col of columns">
+                        {{col.header}}
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr style="height:34px">
+                    <td>
+                        <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+                    </td>
+                    <td *ngFor="let col of columns">
+                        {{rowData[col.field]}}
+
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+
+        <div class="form-group row pull-right ">
+            <button icon="pi pi-check" label="Save" style="margin:3px " class="create-profile" type="button"
+                (click)="savePreference()"
+                [disabled]="!((profile.companies.length > 0) && (profile.termName) && preferenceForm.valid)"
+                pButton></button>
+            <button icon="pi pi-times" (click)="closeDialog()" style="margin:3px" label="Cancel" type="button" pButton
+                class="create-profile"></button>
+        </div>
+    </div>
+</form>

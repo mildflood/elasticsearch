@@ -1,0 +1,174 @@
+<div>
+<form class="form-horizontal">
+
+    <div class="alert alert-success" role="alert" *ngIf="isFeedbackSubmitted">
+        Thank you for your Feedback
+    </div>
+
+    <div class="form-group">
+        <label for="issueType" class="col-sm-1 control-label">Type</label>
+        <div class="col-sm-3">
+            <select id="issueType" class="form-control btn btn-default dropdown-toggel" [(ngModel)]="feedBackObj.issue"
+                name="issue" joyrideStep="type" title="Type" [stepContent]="typeContent">
+                <option selected> Issue </option>
+                <option> feature request</option>
+                <option> Others (eg : User Interface)</option>
+
+            </select>
+        </div>
+
+        <label for="category" class="col-sm-1 control-label">category</label>
+        <div class="col-sm-3">
+            <select id="category" class="form-control btn btn-default dropdown-toggel"
+                [(ngModel)]="feedBackObj.category" name="category" joyrideStep="category" title="Category"
+                [stepContent]="categoryContent">
+                <option selected> Home</option>
+                <option> Export</option>
+                <option> Accuracy test</option>
+                <option>Process All Terms</option>
+                <option selected> Manage Term Maps</option>
+                <option> Status</option>
+                <option>Administration</option>
+                <option selected> Derivation Trail</option>
+                <option> Profile</option>
+                <option> Processing Status</option>
+                <option>Others</option>
+            </select>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+
+        <label for="name" class="col-sm-1 control-label"> <span style="color: red;">*</span>Name</label>
+        <div class="col-sm-3">
+            <input type="text" for="name" class="form-control " id="name" joyrideStep="name" title="Name"
+                text="The name field is automatically populated with the user's AD login name"
+                [(ngModel)]="feedBackObj.name" name="name" readonly>
+        </div>
+        <label for="email" class="col-sm-1 control-label">Email</label>
+        <div class="col-sm-3">
+            <input type="text" for="email" joyrideStep="email" title="Email"
+                text="The email field is automatically populated with the user's email based on AD login information "
+                class="form-control" id="email" [(ngModel)]="feedBackObj.email" name="email">
+
+        </div>
+        <label for="phone" class="col-sm-1 control-label">Phone</label>
+        <div class="col-sm-2">
+            <input type="text" joyrideStep="phone" title="Phone" text="The phone field is where a user can leave a phone number to be contacted.
+            This field is optional.
+            " for="phone" class="form-control" id="phone" [(ngModel)]="feedBackObj.phone" name="phone">
+        </div>
+
+
+    </div>
+    <span class="col-sm-1"></span>
+    <span *ngIf="showName" class="col-sm-3 ">* Not a valid Name</span>
+    <span class="col-sm-4"></span>
+    <span *ngIf="showEmail" class="col-lg-3 ">* Not a valid Email</span>
+
+    <div class="col-lg-12">
+        <label for="message" class="col-sm-1 control-label">Message</label>
+
+        <div class="col-sm-7" style="text-align: center;">
+
+            <textarea rows="10" for="message" joyrideStep="message" title="Message"
+                text="The message text box is where a user can enter their desired feedback for the system's management team. "
+                class="form-control col-sm-12" id="message" cols="12" [(ngModel)]="feedBackObj.message"
+                name="message"></textarea>
+        </div>
+    </div>
+    <br><br><br>
+    <div class="col-lg-12" style="margin: 20px;">
+
+        <span class="col-lg-4"></span>
+        <button type="button" id="submitfeedback" class="col-lg-1 btn btn-primary btn-lg" joyrideStep="sendFeedback"
+            title="Send Feedback"
+            text="Finally, once all fields require and desired fields have been completed, the user will click the 'Send Feedback' button to send their feedback to the management team. "
+            style="margin-right:10px !important; width:200px !important" (click)="sendFeedback()">Send
+            Feedback</button>
+
+    </div>
+
+    <br><br><br>
+    <div class="col-lg-12">
+        <p-table #feedbackTable [columns]="feedbackCols" [value]="feedbackList" [paginator]="true" [rows]="10"
+                    [responsive]="true" [rowsPerPageOptions]="[10,20,30]" [resizableColumns]="true"
+                    [reorderableColumns]="true"
+                    p-dataTable>
+
+                    <ng-template pTemplate="colgroup" let-columns>
+                      <colgroup>
+                        <col *ngFor="let col of columns" [style.width]="col.width">
+                      </colgroup>
+                    </ng-template>
+                    <ng-template pTemplate="header" let-columns>
+                      <tr>
+                        <th *ngFor="let col of columns" pResizableColumn pReorderableColumn
+                          [pSortableColumn]="col.field">
+                          <div pTooltip="Click to sort {{col.header}}">
+                            {{col.header}}
+                            <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"
+                              ariaLabelDesc="Activate to sort in descending order"
+                              ariaLabelAsc="Activate to sort in ascending order">
+                            </p-sortIcon>
+                          </div>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th *ngFor="let col of columns" [ngSwitch]="col.field">
+                          <div *ngIf="col.field !== ''">
+                            <input *ngSwitchCase="col.field" pInputText type="text" placeholder="Search"
+                              [value]="feedbackTable.filters[col.field] ? feedbackTable.filters[col.field].value : ''"
+                              (input)="feedbackTable.filter($event.target.value, col.field, 'contains');"
+                              style="width: 100%;">
+                          </div>
+                        </th>
+                      </tr>
+                    </ng-template>
+
+                    <ng-template pTemplate="body" let-rowData let-columns="columns">
+                      <tr style="height:34px">
+                        <td *ngFor="let col of columns">
+                            {{rowData[col.field]}}
+                             <!-- {{rowData.ISSUETYPE}} -->
+                        </td>
+                      </tr>
+                    </ng-template>
+                    <!-- <ng-template pTemplate="loadingbody" let-columns="columns">
+                      <tr style="height:34px">
+                        <td *ngFor="let col of columns" pTooltip="{{rowData[col.field]}}">
+                          <div class="loading-text"></div>
+                        </td>
+                      </tr>
+                    </ng-template> -->
+                    <ng-template pTemplate="summary">
+                      Total number of Records: {{feedbackTable.totalRecords}}
+                    </ng-template>
+                  </p-table>
+    </div>
+
+</form>
+
+<ng-template #typeContent>
+    <div>The type dropdown is where a user can select the type of the feedback they are wishing to submit.
+    </div>
+    <div>Options include: Issue, Feature Request, and Other (eg: User Interface)</div>
+</ng-template>
+
+<ng-template #categoryContent>
+    <div>
+        The Category dropdown is where a user can select the category of the feedback they are wishing to submit.
+    </div>
+    <div>
+        Options include all the MaxDS pages, curtain key functions, and other.
+    </div>
+</ng-template>
+</div>
+<div style="height: 40px;">
+
+</div>
+<div>
+
+</div>
+

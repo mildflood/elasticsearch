@@ -1,0 +1,196 @@
+# Gitlab workflow Example
+# https://gitlab.com/gitlab-com/www-gitlab-com/-/blob/master/.gitlab-ci.yml
+#
+# Yaml references - must be a whole value
+# Yaml does not have a concatination operator, or substitution within a string or text block
+#
+# .a: &a 'string'
+#
+# A map
+# .b: &b
+#   key: value
+#
+# An array
+# .c: &c
+#   - value
+#
+# https://docs.gitlab.com/ee/ci/variables/predefined_variables.html
+# CI_COMMIT_BRANCH not available for merge or tag pipelines
+# CI_COMMIT_TAG for tag pipelines
+#
+# Stages
+# https://confluence.ad.sec.gov/display/CB/Apps+Pipeline
+# https://confluence.ad.sec.gov/display/CB/IaC+Pipeline
+# Feature Push -> Pipeline -> (compile success) -> Auto increment version -> Nexus
+# Create Development Merge Request (from good feature) to Development Branch -> Peer review -> Approved -> Nexus -> merged into Development
+# Merge request to Release from (good) Development branch -> Peer review -> Approved -> Nexus (stg repo) -> merged into Release
+# Merge request to main from (good) Release branch -> Peer review -> Approved -> Nexus (prd) -> merged into main
+#
+# Branching
+# https://confluence.ad.sec.gov/pages/viewpage.action?pageId=89818923
+# Push to Defect, Hotfix, Feature
+# Defect -> Development
+# Hotfix -> Development
+# Feature -> Development
+# Defect -> Release
+# Development -> Release
+# Hotfix -> Release
+# Hotfix -> main
+# Release -> main
+#
+# An approved merge to development, would look like a push.
+#   Thus - on push to development -> build -> send to nexus
+#
+# Onboarding documentation: https://confluence.ad.sec.gov/display/CB/CICD+Onboarding
+#
+# Defaults
+# NEXUSIQ_HOST=https://nexus-iq.cicd.prdoit-cuse1.aces.sec.gov
+# NEXUSIQ_PASSWORD=[MASKED]
+# NEXUSIQ_USERNAME=admin
+# NEXUSRM_DOCKER_PROXY=docker-proxy
+# NEXUSRM_HOSTNAME=nexus-repo.cicd.prdoit-cuse1.aces.sec.gov
+# NEXUSRM_MAVEN_PROXY=maven-proxy
+# NEXUSRM_PASSWORD=[MASKED]
+# NEXUSRM_PYPI_PROXY=pypi-proxy
+# NEXUSRM_USERNAME=admin
+#
+# The remainder need to be defined per repo
+# $NEXUSIQ_APPNAME
+# $NEXUSRM_HOSTED_MAVEN_DEV
+# $NEXUSRM_HOSTED_MAVEN_STG
+# $NEXUSRM_HOSTED_MAVEN_PRD
+# $NEXUSRM_HOSTED_DEV
+# $NEXUSRM_HOSTED_STG
+# $NEXUSRM_HOSTED_PRD
+
+
+# After approving a merge request
+# a new push request will be created (by the system) automatically
+# into the merge target branch.
+# However push requests do not have any information regarding if it was
+# initiated from a merge.
+# Therefore the target branch has to be protected to prevent users
+# from pushing to the branch - thus it must have come from a system
+# initated push.
+# (re)build on unprotected branch push ->
+# Run pipeline on merge request ->
+# Merge request approval ->
+# Run deploy on (system initated) push request to protected branch
+
+# You can have multiple stages with the same name with different
+# runner tags
+
+# If there is a stage defined here then there should also be a tag
+# which tells it which runner to execute the stage on
+# Futhermore: Every stage listed here must be defined below. (unique stage+tag)
+# and there must be a runner with that tag to execute it
+#
+# rules:changes always evaluates to true when there is no Git push event.
+# - if ...
+#   changes:
+#       - Dockerfile
+#       - service-one/**/*
+#
+stages:
+  # - preflightcheck
+  # - rebuild-feature-on-push-to-feature
+  - build-before-merge-into-development
+  - deploy-development-after-merge-into-development
+  - build-and-deploy-container-after-merge-into-development
+  - build-before-merge-into-release
+  - deploy-release-after-merge-into-release
+  - build-and-deploy-container-after-merge-into-release
+  - build-before-merge-into-production
+  - deploy-production-after-merge-into-production
+  - build-and-deploy-container-after-merge-into-production
+
+# Enforce workflow
+.anti-rules: &anti-rules
+# .anti-development-build-before-merge-rule: &anti-development-build-before-merge-rule
+  - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "development" && ($CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^release-.*/ ||  $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == "development")'
+# .anti-development-deploy-rule: &anti-development-deploy-rule
+  - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "development" && $CI_COMMIT_REF_PROTECTED != "true"'
+# .anti-release-build-before-merge-rule: &anti-release-build-before-merge-rule
+  - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^release-.*/ && ( $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != "development" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME !~ /^defect-.*/ && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME !~ /^hotfix-.*/ )'
+# .anti-release-deploy-rule: &anti-release-deploy-rule
+  - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH =~ /^release-.*/ && $CI_COMMIT_REF_PROTECTED != "true"'
+# .anti-production-build-before-merge-rule: &anti-production-build-before-merge-rule
+  - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^release-.*/ && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME != "main"'
+# .anti-production-deploy-rule: &anti-production-deploy-rule
+  - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main" && $CI_COMMIT_REF_PROTECTED != "true"'
+# .anti-merge-main-into: &anti-merge-main-into
+  - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == "main"'
+# .anti-master-merge: &anti-master-merge
+  - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+# .anti-master-push: &anti-master-push
+  - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master"'
+
+.feature-build-on-push-rule: &feature-build-on-push-rule
+  - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH != "development" && $CI_COMMIT_BRANCH != "main" && $CI_COMMIT_BRANCH !~ /^release-.*/ && $CI_COMMIT_BRANCH !~ /^defect-.*/ && $CI_COMMIT_BRANCH !~ /^hotfix-.*/'
+
+# .feature-deploy-rule: &feature-deploy-rule
+#   - if: '$CI_COMMIT_BRANCH != "development" && $CI_COMMIT_BRANCH != "main" && $CI_COMMIT_BRANCH !~ /^release-.*/ && $CI_COMMIT_BRANCH !~ /^defect-.*/ && $CI_COMMIT_BRANCH !~ /^hotfix-.*/'
+
+# Only allow merges to specific branch names
+.development-build-before-merge-rule: &development-build-before-merge-rule
+  - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != "main" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME !~ /^release-.*/ && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "development" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != "development"'
+
+.development-deploy-rule: &development-deploy-rule
+  - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "development" && $CI_COMMIT_REF_PROTECTED == "true"'
+
+.release-build-before-merge-rule: &release-build-before-merge-rule
+  - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != "main" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME !~ /^release-.*/ && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^release-.*/ && ( $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == "development" || $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^defect-.*/ || $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^hotfix-.*/ )'
+
+.release-deploy-rule: &release-deploy-rule
+  - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH =~ /^release-.*/ && $CI_COMMIT_REF_PROTECTED == "true"'
+
+.production-build-before-merge-rule: &production-build-before-merge-rule
+  - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && ( $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^release-.*/ || $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^hotfix-.*/ ) && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main"'
+
+.production-deploy-rule: &production-deploy-rule
+  - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main" && $CI_COMMIT_REF_PROTECTED == "true"'
+
+include:
+  # - project: 'aces/containermvp/aces-containers-shared'
+  #   ref: main
+  #   file: '/.gradle-project-ci.yml'
+  - project: 'aces/containermvp/aces-containers-shared'
+    ref: main
+    file: '/.maven-project-ci.yml'
+  # - project: 'aces/containermvp/aces-containers-shared'
+  #   ref: main
+  #   file: '/.python-project-ci.yml'
+  - project: 'aces/containermvp/aces-containers-shared'
+    ref: main
+    file: '/.container-project-ci.yml'
+
+# workflow-violation:
+#   stage: preflightcheck
+#   tags:
+#     - 'java'
+#   script:
+#     - 'echo "This is not a valid merge or push configuration"'
+#     - 'false'
+#   rules:
+#     *anti-rules
+
+build-and-deploy-container-after-merge-into-development-noop:
+  stage: build-and-deploy-container-after-merge-into-development
+  script:
+    - 'true'
+  rules:
+    *development-deploy-rule
+
+build-and-deploy-container-after-merge-into-release-noop:
+  stage: build-and-deploy-container-after-merge-into-release
+  script:
+    - 'true'
+  rules:
+    *release-deploy-rule
+
+build-and-deploy-container-after-merge-into-production-noop:
+  stage: build-and-deploy-container-after-merge-into-production
+  script:
+    - 'true'
+  rules:
+    *production-deploy-rule

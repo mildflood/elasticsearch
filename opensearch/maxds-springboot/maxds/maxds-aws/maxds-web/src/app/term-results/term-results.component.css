@@ -1,0 +1,29 @@
+.panel{
+    height: 33%  !important;
+}
+.no-header .ui-panel-titlebar{
+    display: none !important;
+  }
+
+  td{
+   /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;*/
+    word-break: break-all;
+  }
+
+  input.customcheckbox{
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+
+.derivationPopup {
+    width: 50vw;
+}
+
+@media screen and (max-width: 40em) {
+    .derivationPopup {
+        width: 75vw;
+    }
+}

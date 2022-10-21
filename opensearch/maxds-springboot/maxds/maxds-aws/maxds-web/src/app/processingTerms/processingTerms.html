@@ -1,0 +1,387 @@
+<div>
+    <p-progressSpinner *ngIf="progressSpinner" [style]="{width: '50px', height: '50px',float:'left'}" strokeWidth="8"
+        fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+    <p-messages [value]="msgs"></p-messages>
+</div>
+<div *ngIf="showError" class="alert alert-danger" role="alert">
+    <strong>{{errorMsg}}</strong>
+</div>
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"></p-confirmDialog>
+<div>
+
+    <h2 style="background-color:lightblue; width: 100%; text-align: center;">Term Rule Processing</h2>
+
+</div>
+<p-tabView>
+    <p-tabPanel header="Process All Terms" *ngIf="isAdmin">
+        <div class="row">
+            <div class="exprcolumn" style="width: 100%">
+
+
+                <div class="row">
+                    <div class="column1">
+                        <p-radioButton name="filterRadio" value="company" [(ngModel)]="filterRadio"></p-radioButton>
+                        <label>Search by Company: </label>
+
+                    </div>
+                    <div class="column2">
+                        <p-autoComplete [(ngModel)]="companyName" name="companyName" [size]="50"
+                            [suggestions]="filteredCompany" (completeMethod)="searchCompany($event)"
+                            (ngModelChange)="onSelectCompany($event)"
+                            placeholder="Search Company" [size]="50" [dropdown]="true">
+                        </p-autoComplete>
+
+                        <button pButton type="button" label="Go To Peer Group" class="ui-button-rounded"
+                            (click)="goToPeer($event)"></button>&nbsp;&nbsp;
+                        <button type="button" pButton (click)="resetCoverage()" icon="pi pi-times"
+                            Class="ui-button-danger" pTooltip="Reset Term Rule Processing"></button>&nbsp;
+                    </div>
+                </div>
+                <div class="row" style="height: 5px;">
+
+                </div>
+                <div class="row">
+                    <div class="column1">
+                        <p-radioButton name="filterRadio" value="group" [(ngModel)]="filterRadio"></p-radioButton>
+                        Search by Group: <label>
+                            Division -> Sector:</label>
+
+                    </div>
+                    <div class="column2">
+                        <p-dropdown [options]="filtereddivSector" placeholder="Select Division Sector"
+                            [(ngModel)]="divSector" [style]="{'width':'400px'}" dropdownIcon="pi pi-chevron-down"
+                            (onChange)="divSectorChange($event)" [virtualScroll]="true" [itemSize]="31" filter="true">
+                        </p-dropdown>
+                        &nbsp; {{divisionCount}}
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column1">
+                        <label>Industry: </label>
+
+                    </div>
+                    <div class="column2">
+                        <p-dropdown [options]="filteredindustry" [(ngModel)]="industry" placeholder="Select Industry"
+                            [showClear]="true" (onChange)="processIndustryChange($event)" [virtualScroll]="true"
+                            [itemSize]="31" filter="true" [style]="{'width':'400px'}"></p-dropdown>
+                        &nbsp; {{industryCount}}
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column1">
+                        <label>Filer Category:</label>
+
+                    </div>
+                    <div class="column2">
+                        <p-dropdown [options]="filteredfilerCategory" [(ngModel)]="filerCategory"
+                            placeholder="Select Filer Category" [showClear]="true"
+                            (onChange)="processfilCatChange($event)" [virtualScroll]="true" [itemSize]="31"
+                            filter="true" [style]="{'width':'400px'}"></p-dropdown>&nbsp; {{categoryCount}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column1">
+                        <p-radioButton name="filterRadio" value="all" [(ngModel)]="filterRadio"></p-radioButton>
+
+                    </div>
+                    <div class="column2">
+                        <label>
+                            All Companies
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="column1">
+                        &nbsp;
+                    </div>
+                    <div class="column2">
+                        <button pButton type="button" label="Process Now" class="ui-button-rounded ui-button-success"
+                            (click)="ProcessAllRulesWithCriteria()"></button> &nbsp;&nbsp;
+                        <button pButton type="button" label="Continue Processing"
+                            class="ui-button-rounded ui-button-warning" (click)="continueProcessingAllTerms()"></button>
+                        &nbsp;&nbsp;
+                        <button pButton type="button" label="Cancel Processing"
+                            class="ui-button-rounded ui-button-danger"
+                            (click)="cancelProcessing()"></button>&nbsp;&nbsp;
+                        <button pButton type="button" label="Reset Processing"
+                            class="ui-button-rounded ui-button-danger" (click)="resetProcessingPopup = true"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </p-tabPanel>
+    <p-tabPanel header="Process Selected Terms">
+
+        <div class="form-group row">
+            <div class="column1">
+                <input #accuracyTestCheckbox type="checkbox" class=" customcheckbox" (click)="enableAccuracyTest($event)" style="margin:5px !important;">
+                <label style="margin:5px !important;">Process Accuracy Test Terms: </label>
+            </div>
+            <div class="col-xs-8">
+                <button *ngIf="checkAccuracyTest" icon="pi pi-replay" label="Process Accuracy Test Terms"
+                    style="margin:3px " type="button" pButton (click)="processAccuTerm()"></button>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <p-radioButton class="column1" value="termRadio" label="Term Name:" name="termN" [(ngModel)]="processRadio" (onClick)="termRadioChecked($event)"
+                inputId="termN"></p-radioButton>
+            <div class="col-xs-8">
+                <p-autoComplete [style]="{'width':'400px !important'}" [inputStyle]="{'width':'400px'}" name="termName"
+                    [suggestions]="filteredTerms" (completeMethod)="filterTerm($event)" placeholder="Search Terms"
+                    [multiple]="true" [(ngModel)]="selectedTerms" [dropdown]="true"
+                    (ngModelChange)="onSelectTerm($event)" [disabled]="termAutoCompleteDisable">
+                </p-autoComplete>
+            </div>
+        </div>
+        <div class="form-group row">
+            <p-radioButton name="termN" class="column1" value="companyRadio" [(ngModel)]="processRadio"
+                label="Search by Company:">
+            </p-radioButton>
+            <div class="col-xs-8">
+                <p-autoComplete [style]="{'width':'400px !important'}"
+                    [inputStyle]="{'width':'400px','maxwidth':'400px'}" aria-required="true" name="companyName"
+                    [suggestions]="selectedTermsfilteredCompany" placeholders="filteredCompany"
+                    (completeMethod)="selectedTermsSearchCompany($event)" placeholder="Search Company"
+                    [dropdown]="false" multiple="true" aria-required="companyName" [(ngModel)]="selectedTermsCompanies"
+                    (onSelect)="addOrRemoveEntities()" (onUnselect)="addOrRemoveEntities()">
+                </p-autoComplete>
+                <button icon="pi pi-check" label="Go To Peer Group" style="margin:3px"
+                    [disabled]="!(selectedTermsCompanies.length === 1)" (click)="selectedTermGoToPeer($event)"
+                    class="create-profile" type="button" pButton></button>&nbsp;
+
+                <button (click)="handleCIKListSearch('cik-dialog')" pTooltip="Click to Add CIK list" style="margin:0; border:0; outline:0; background-color:transparent; box-shadow: none; " type="button" pButton >
+                    <img src="../../assets/images/Upload.PNG" alt="CIK Upload" style="background: url('../../assets/images/Upload.PNG')" height="100%" width="100%" /></button>&nbsp;
+
+                <jw-modal id="cik-dialog">
+                  <table border="0" style="width: 100%;">
+                    <tr>
+                      <td style="padding: 20px; width:100%; column-span: all;">
+                          <label style="padding-top: 5px; word-break: keep-all" >Please copy paste CIK list or upload a csv file with comma as delimiter. Invalid CIKs will be ignored. </label>
+                      </td>
+                    </tr>
+                    <tr>
+                        <td style="width:100%; column-span: all;">
+                            <table border="0" style="padding: 10px">
+                                <tr>
+                                  <td valign="top" align="right" style="padding: 20px; word-break: keep-all; width:20%;" ><label>CIKs: </label>
+                                  </td>
+                                  <td valign="top" style="padding: 20px; width: 60%;" >
+                                    <textarea style="width: 100%;" [(ngModel)]="ciksFromDialog" ></textarea>
+                                  </td>
+                                  <td valign="bottom" style="padding: 20px; width:20%; ">
+                                      <input #inputFile id="file-field" name="file-field"  onclick="this.value = null" (change)="uploadFile($event)" type="file" > <!--    accept=".png,.jpg,.jpeg">   -->
+                                      <!-- <button type="button"  (click)="upload('cik-dialog');">Upload</button>&nbsp;&nbsp;  -->
+                                  </td>
+                                </tr>
+                              </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 20px; width: 100%; column-span: all; ">
+                            <button type="button"   (click)="close('cik-dialog');">Close</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button type="button"   (click)="confirm('cik-dialog');">Confirm</button>&nbsp;&nbsp;
+                        </td>
+                      </tr>
+                  </table>
+
+                </jw-modal>
+
+                <button type="button" pButton (click)="resetCoverageSelected()" icon="pi pi-times"
+                    Class="ui-button-danger" pTooltip="Reset Term Rule Processing"></button>&nbsp;
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <p-radioButton name="termN" class="column1" value="divisionRadio"
+                label="Search by Group: Division -> Sector:" [(ngModel)]="processRadio">
+            </p-radioButton>
+            <div class="col-xs-7">
+                <p-dropdown [options]="filtereddivSector" placeholder="Select Division Sector"
+                    [(ngModel)]="selectedTermDivSector" [style]="{'width':'400px'}" dropdownIcon="pi pi-chevron-down"
+                    (onChange)="selectedTermDivSectorChange(selectedTermDivSector)" [virtualScroll]="true"
+                    [itemSize]="31" filter="true">
+                </p-dropdown>
+                &nbsp; {{selectedTermDivisionCount}}
+                <button pButton type="button" [disabled]="(selectedTerms.length < 1 || termAutoCompleteDisable)" label="Show Resolved"
+                    class="ui-button-success" (click)="selectedTermShowResolved()"></button>
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+            <label for="industry" class="column1 form-control-label">Industry:</label>
+            <div class="col-xs-5">
+                <p-dropdown [options]="filteredindustry" placeholder="Select Industry"
+                    [(ngModel)]="selectedTermIndustry" [style]="{'width':'400px'}" dropdownIcon="pi pi-chevron-down"
+                    (onChange)="selectedTermProcessIndustryChange(selectedTermIndustry)" [virtualScroll]="true"
+                    [itemSize]="31" filter="true">
+                </p-dropdown>
+                &nbsp; {{selectedTermSectorCount}}
+            </div>
+        </div>
+        <div class="form-group row">
+
+            <label for="filerCategory" class="column1 form-control-label">Filer
+                Category:</label>
+            <div class="col-xs-5">
+                <p-dropdown [options]="filteredfilerCategory" placeholder="Select Filer Category"
+                    [(ngModel)]="selectedTermFilerCategory" [style]="{'width':'400px'}"
+                    dropdownIcon="pi pi-chevron-down"
+                    (onChange)="selectedTermProcessfilCatChange(selectedTermFilerCategory)" [virtualScroll]="true"
+                    [itemSize]="31" filter="true">
+                </p-dropdown>
+                &nbsp; {{selectedTermCategoryCount}}
+            </div>
+        </div>
+
+        <!--
+        <div class="form-group row">
+            <p-radioButton class="column1" name="termN" label="Process Accuracy Test Terms:" value="accuRadio"
+                [(ngModel)]="processRadio" inputId="termN"></p-radioButton>
+            <div class="col-xs-8">
+                <button *ngIf="processRadio === 'accuRadio'" icon="pi pi-replay" label="Process Accuracy Test Terms"
+                    style="margin:3px " type="button" pButton (click)="processAccuTerm()"></button>
+            </div>
+        </div>
+        -->
+
+
+
+        <p-table #entityTable [columns]="homeEntityCol" *ngIf="entityList && (entityList.length > 0)"
+            [value]="entityList" [responsive]="true" selectionMode="single" [(selection)]="selectedEntity"
+            [paginator]="true" [rows]="10">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th style="width:4em;">
+                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                    </th>
+                    <th *ngFor="let col of columns">
+                        {{col.header}}
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr style="height:34px">
+                    <td>
+                        <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+                    </td>
+                    <td *ngFor="let col of columns">
+                        {{rowData[col.field]}}
+
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+
+        <div style="margin: auto; width: 40%; padding: 10px;">
+            <button *ngIf="selectedTerms.length > 0" icon="pi pi-replay"
+                label="Process Selected Terms" style="margin:3px " type="button" pButton
+                (click)="processSelectedTerm()"></button>
+            <button pButton type="button" label="Cancel Processing" class="ui-button-rounded ui-button-danger"
+                (click)="cancelProcessing()"></button>
+        </div>
+
+    </p-tabPanel>
+
+</p-tabView>
+
+<div>
+    <div style="margin-bottom: 15px !important;">
+        <button pButton type="button" label="Refresh Status" icon="pi pi-refresh" style="margin-bottom: 5px;"
+            class="ui-button-rounded ui-button-success pull-left" (click)="refreshLoadStatus()"></button>
+        &nbsp;&nbsp;
+
+        <!-- <button pButton type="button" label="Cancel Processing" icon="pi pi-times" tyle="margin-bottom: 5px;"
+                class="ui-button-rounded ui-button-danger pull-left" (click)="cancelProcessing"></button> -->
+
+    </div>
+
+</div>
+
+<div style="padding: 10px;">
+    <p-table #statusTable [columns]="statusCols" [value]="statusNames" [responsive]=" true"
+        [rowsPerPageOptions]="[10,20,30]" [resizableColumns]="true" columnResizeMode="expand"
+        [reorderableColumns]="true" selectionMode="single" [(selection)]="termId" p-dataTable
+        exportFilename="statusData" paginatorPosition="top" [paginator]="true" [rows]="10"
+        paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+        [showCurrentPageReport]="true" (onPage)="pagenation($event)"
+        currentPageReportTemplate="Showing {{first}} of{{total}}">
+
+        <!--<ng-template pTemplate="caption" style="height: 50px !important;">
+                Total number of Records: {{statusTable.totalRecords}}
+                currentPageReportTemplate="{first} to {last} of {totalRecords}"
+                <p-paginator [rows]="10" totalRecords="100" paginatorPosition="top" (onPageChange)="paginate($event)"
+                    [showCurrentPageReport]="true" currentPageReportTemplate="{first} to {last} of {totalRecords}">
+                </p-paginator>
+
+            </ng-template>-->
+
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th *ngFor="let col of columns" pResizableColumn pReorderableColumn [pSortableColumn]="col.field">
+                    <div pTooltip="Click to sort {{col.header}}">
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"
+                            ariaLabelDesc="Activate to sort in descending order"
+                            ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th *ngFor="let col of columns" [ngSwitch]="col.field">
+                    <div *ngIf="col.field !== ''">
+                        <input *ngSwitchCase="col.field" pInputText type="text" placeholder="Search"
+                            [value]="statusTable.filters[col.field] ? statusTable.filters[col.field].value : ''"
+                            (input)="statusTable.filter($event.target.value, col.field, col.filterMatchMode);
+                                onRowUnClick();onFilter($event.target.value, col.field, col.filterMatchMode)"
+                            style="width: 150px">
+                    </div>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns" let-index="rowIndex">
+            <tr [pSelectableRow]="rowData">
+
+                <td *ngFor="let col of columns" style="word-break:break-all">
+                    <span *ngIf="col.header !=='Last Modified'" pTooltip="{{rowData[col.field] }}">
+                        {{rowData[col.field]}}</span>
+                    <span *ngIf="col.header =='Last Modified'" pTooltip="{{rowData[col.field] | date :'h:mm:ss a'}}">
+                        {{rowData[col.field] | date :'MM/dd/yyyy HH:mm:ss'}} </span>
+
+                </td>
+            </tr>
+        </ng-template>
+
+    </p-table>
+</div>
+
+<p-dialog header="Reset And Restart Term Processing" [(visible)]="resetProcessingPopup" [modal]="true"
+    [style]="{width: '50vw'}" [baseZIndex]="10000" position="top" [contentStyle]="{'max-height':'70vh'}"
+    [draggable]="true" [resizable]="true" [focusOnShow]="true">
+    <div style="padding: 10px;">
+
+        <div class="row p-y-5">
+            <label>
+                Reset Processing will change current Term Rule Inprogress to NotProcessed Status.
+            </label>
+        </div>
+        <div class="row p-y-5">
+            <label>
+                Reset Processing will restart only Term Rules that are currently in Inprogress Status.
+            </label>
+        </div>
+    </div>
+
+    <p-footer>
+        <button type="button" pButton icon="pi pi-check" (click)="resetProcessingPopup=false; resetProcessing()"
+            label="Reset Term Processing"></button>
+        <button type="button" pButton icon="pi pi-times" (click)="resetProcessingPopup=false" label="Cancel"
+            class="ui-button-secondary"></button>
+    </p-footer>
+</p-dialog>

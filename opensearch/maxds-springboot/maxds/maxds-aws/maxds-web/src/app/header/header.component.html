@@ -1,0 +1,176 @@
+<nav class="navbar navbar-light mb-2 bg-secondary text-primary" style="padding: 20px 15px 15px; min-height: 80px;">
+  <div style="display: grid;margin-top: 4px; position: absolute; left: 15px">
+    <div>
+      <p class="pull-left logo-name" style="font-size: 32px; font-weight: bold;
+      line-height: 24px; color: #ffffff;" title="MAXDS "><span aria-hidden="true"></span>
+        <span (click)="goToHome()" style="cursor: pointer;">MAXDS on ACES</span></p>
+    </div>
+    <div style="font-size: 14px; font-weight: normal; color: #ffffff;">Multiple Application XBRL Delivery System
+    </div>
+  </div>
+  <div style=" position: absolute; left: 280px; ">
+    <ul style="list-style: none; " class="pull-left">
+      <!-- <li style="display: inline;">
+      <img class="pull-left" src="../assets/images/sec_logo copy.jpg" style="border-radius: 25px;" height="50"
+        width="50">
+    </li> -->
+
+
+      <li style="display: inline;">
+        <a class="pull-left menuItem" routerLink="/home" title=" Home">
+          Home </a>
+      </li>
+
+      <li style="display: inline;">
+        <a class="pull-left menuItem" routerLink="/export" title="Export">
+          Export</a>
+      </li>
+
+      <li style="display: inline; ">
+        <a class="pull-left menuItem" routerLink="/accuracyTest" title="Accuracy test">
+          Accuracy test</a>
+      </li>
+      <li style="display: inline; " >
+        <a class="pull-left menuItem" routerLink="/processTerm" title="Process Terms">
+          Process Terms</a>
+      </li>
+
+      <li style="display: inline; ">
+        <a class="pull-left menuItem" routerLink="/manageTerm" title="Manage Term Maps">
+          Manage Term Maps</a>
+      </li>
+
+      <li style="display: inline; ">
+        <a class="pull-left menuItem" routerLink="/status" title="Status">
+          Status</a>
+      </li>
+
+      <!-- <li style="display: inline; " *ngIf="isAdmin"> -->
+      <li style="display: inline; ">
+        <a class="pull-left menuItem" routerLink="/admin" title="Administration">
+          Administration</a>
+      </li>
+      <li style="display: inline; ">
+        <a routerLink="/submit" class="pull-left menuItem" title="Submit Feedback">
+          Submit Feedback </a>
+      </li>
+      <li style="display: inline;">
+        <a class="pull-left menuItem" href="https://confluence.ad.sec.gov/display/DOS/SEC_MAXDS_User_Guide"
+          target="_blank" title="help">
+          Help</a>
+      </li>
+
+      <!-- <li style="display: inline; ">
+      <a routerLink="/featurehome" class="pull-left menuItem" title="Next Home">
+        Next Home </a>
+    </li> -->
+
+
+    </ul>
+  </div>
+  <div class="col-lg-3 p-0" style="text-align: right; position: absolute; right: 0px;">
+    <a class="pull-left menuItem" style="margin-top: 10px;" href="javascript:void(0)">
+      Tour</a>
+    <span class="pull-left onoffswitch" joyrideStep="startTour" stepPosition="bottom"
+      title="MAXDS Tour: {{currentPage}}" [stepContent]="customContent" [prevTemplate]="prevButton"
+      [nextTemplate]="nextButton" [doneTemplate]="doneButton" [counterTemplate]="counter">
+      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch"
+        [(ngModel)]="startTourCheck" tabindex="0" (change)="startTour()">
+      <label class="onoffswitch-label" for="myonoffswitch">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+      </label>
+    </span>
+
+    <label class="welcome">Hello</label> <label class="welcome" style="margin: 2px;">&nbsp;{{userFullName}} </label>
+
+    <!-- <span>
+      <a routerLink="/profile" title="Profile" class="bg-secondary text-white dropdownMenuItem">
+        <button class="btn bg-secondary text-white" type="button" data-toggle="dropdown">
+          <span class="glyphicon glyphicon-user" style="font-size: 30px;"></span>
+        </button>
+      </a>
+    </span>
+
+    <span>
+      <a routerLink="/logout" title="Log Off" class="bg-secondary text-white">
+        <button class="btn bg-secondary text-white" type="button" data-toggle="dropdown">
+          <span class="glyphicon glyphicon-log-out" style="font-size: 30px; margin-left: 10px;"></span>
+        </button>
+      </a>
+    </span> -->
+
+    <span class="dropdown">
+      <button class="btn bg-secondary text-white dropdown-toggle" type="button" data-toggle="dropdown">
+        <span class="glyphicon glyphicon-user" style="font-size: 30px;"></span>
+      </button>
+
+      <ul class="dropdown-menu bg-secondary text-white  pull-right">
+        <li class="bg-secondary text-white">
+          <a routerLink="/profile" title="Profile" class="bg-secondary text-white dropdownMenuItem">
+            Profile</a>
+          <a routerLink="/logout" title="Log Off" class="bg-secondary text-white dropdownMenuItem"><span
+              class="glyphicon glyphicon-log-out"></span>
+            Logoff</a>
+        </li>
+      </ul>
+    </span>
+
+    <span class="dropdown" *ngIf="notifications && (notifications.length > 0)">
+      <button class="btn bg-secondary text-white dropdown-toggle" type="button" data-toggle="dropdown">
+        <span class="glyphicon glyphicon-envelope" style="font-size: 30px; margin-left: 10px;"></span>
+      </button>
+
+      <ul class="dropdown-menu bg-secondary text-white  pull-right">
+        <li class="bg-secondary text-white">
+          <a (click)="goToProfile()" href="javascript:void(0)" *ngFor="let notification of notifications"
+            title="Profile" class="bg-secondary text-white font-weight-bold">
+            {{notification.data.preferenceName.split('(')[1].slice(0, notification.data.preferenceName.split('(')[1].length - 1 )}}
+            has
+            {{notification.data.preferenceName.split('(')[0].slice(0, notification.data.preferenceName.split('(')[1].length - 1 )}}
+            of {{notification.data.companyName}}</a>
+        </li>
+      </ul>
+    </span>
+    <div class="notifictaion" *ngIf="notifications && (notifications.length > 0)">{{notifications.length}}</div>
+
+
+  </div>
+</nav>
+
+
+
+<ng-template #customContent>
+  <h3 class="popover-title p-10">Welcome to a guided tour of the MAXDS {{currentPage}}</h3>
+  <div style="padding: 0px 13px 15px 13px">
+    <div>
+      <div>This tour will help guide you through the basic features of the MAXDS {{currentPage}} Page</div>
+      <div *ngIf="currentPage === 'home'">
+        <div>Manage Term Rules – Expressions to Resolve Term Rules and Validate Term Rules</div>
+        <div>To manage term rule expressions and validations, there are three main panels: list term rules, list term
+          details & expressions, expression builder.</div>
+      </div>
+      <div *ngIf="currentPage === 'profile'">
+        <div>The Profile consists of user preferences saved to perform processing multiple times or share preferences
+          among other users.</div>
+        <div>It also provides the ability to add, delete and clear preferences.</div>
+      </div>
+
+      <div>Use the <i class="glyphicon glyphicon-backward"></i> <b> Prev</b> and <b>Next </b> <i
+          class="glyphicon glyphicon-forward"></i> buttons to navigate through the tour. </div>
+      <div> Please select <b>Next </b> <i class="glyphicon glyphicon-forward"></i> button to begin the tour.</div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #prevButton>
+  <button class="btn btn-sm btn-guided-tour" data-role="prev" aria-label="Prev" style="margin-right:10px;"><i
+      class="glyphicon glyphicon-backward"></i>&nbsp;Prev</button>
+</ng-template>
+<ng-template #nextButton>
+  <button class="btn btn-sm btn-guided-tour" data-role="next" aria-label="Next">Next&nbsp;<i
+      class="glyphicon glyphicon-forward"></i></button>
+</ng-template>
+<ng-template #doneButton>
+  <button class="btn btn-sm btn-warning" data-role="end" aria-label="End tour">End tour</button>
+</ng-template>

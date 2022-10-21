@@ -1,0 +1,158 @@
+<div class="col-lg-12 h-33 d-inline-block" style=" margin-bottom: 0px !important;">
+    <div class="col-lg-12 " style="white-space: nowrap;">
+        <div class="col-lg-10 col-md-12 text-white"
+            style="font-size: x-large;text-align: left !important; color: black;">
+            <b style="color: black;">{{termName}} for {{companyName}}</b>
+        </div>
+
+        <div class="col-lg-2 col-md-12 text-white" style="text-align: right !important;">
+
+            <button alt="Export Term Results to CSV." pButton type="submit" label="Export to CSV"
+                (click)="exportData(dt)"></button>
+
+        </div>
+    </div>
+
+    <div class="col-lg-12 h-33 d-inline-block">
+        <div class="col-lg-12 h-33 d-inline-block"
+            style="text-align: left !important; margin-bottom: 0px !important; margin-top: 10px !important;">
+            <div class="col-sm-2">
+                <input type="checkbox" class="col-sm-1 form-check-input customcheckbox" (click)="showAnnualData($event)"
+                    [(ngModel)]="annualChecked" style="margin:5px !important;">
+                <label class="col-sm-1" style="padding-top: 5px !important;">Annual</label>
+            </div>
+            <div class="col-sm-2 row">
+                <input type="checkbox" class="col-sm-1 form-check-input customcheckbox"
+                    (click)="showQuaterlyData($event)" [(ngModel)]="quaterlyChecked" style="margin:5px !important;">
+                <label class="col-sm-1" style="padding-top: 5px !important;">Quarterly</label>
+            </div>
+            <div class="col-sm-3">
+                <input type="checkbox" class="col-sm-1 form-check-input customcheckbox"
+                    (click)="showMissingProductData($event)" [(ngModel)]="showMissPrdChecked"
+                    style="margin:5px !important;">
+                <label class="col-sm-11" style=" padding-top: 5px !important;">Include Missing Periods</label>
+            </div>
+            <!--<p-checkbox (click)="showAnnualData($event)" label="Annual" name="annual" [(ngModel)]="checked">
+            </p-checkbox>
+            <span style="padding-right: 5%;"></span>
+            <p-checkbox (click)="showQuaterlyData($event)" label="Quarterly"></p-checkbox>
+            <span style="padding-right: 5%;"></span>
+            <p-checkbox (onChange)="showMissingProductData($event)" label="Show Missing Products"></p-checkbox>-->
+        </div>
+        <div class="row" style="padding: 0 30px 20px 30px;">
+
+            <div class="col-sm-3">
+                <h3 style="text-align: center"> {{range[0]}} - {{range[1]}} </h3>
+                <p-slider [(ngModel)]="range" [min]="minRange" [max]="maxRange" [step]="1" [range]="true"
+                    (onChange)="yearChange($event)"></p-slider>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <p-panel [transitionOptions]="'0ms'">
+                <p-chart styleClass="col-lg-12" type="bar" [data]="annualdata" height="300px" [responsive]="true" [options]="options">
+                </p-chart>
+            </p-panel>
+        </div>
+
+        <div class="col-lg-6">
+            <p-panel [transitionOptions]="'0ms'">
+                <p-chart styleClass="col-lg-12" type="bar" [data]="quaterlydata" height="300px" [responsive]="true" [options]="quaterlyoptions">
+                </p-chart>
+            </p-panel>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="col-lg-12" style=" margin-top: 10px !important;">
+
+        <p-table class="col-lg-12" #dt [columns]="cols" [value]="termResults" (onPage)="filterData($event)"
+            (onFilter)="filterData($event)" exportFilename="TermResultsData" [(selection)]="selectedTermResults">
+
+            <!--  <ng-template pTemplate="caption">
+
+                <button class="btn btn-primary pull-right" label="Export to CSV" style="margin-left:8px"
+                    (click)="exportData(dt)">Export to CSV</button>
+            </ng-template>-->
+
+
+
+
+            <ng-template pTemplate="header">
+
+
+                <tr>
+                    <th *ngFor="let col of cols" [ngStyle]="{'width': col.width}" pResizableColumn pReorderableColumn
+                        [pSortableColumn]="col.field">
+                        <div pTooltip="Click to sort {{col.header}}">
+                            {{col.header}}
+                            <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"
+                                ariaLabelDesc="Activate to sort in descending order"
+                                ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th *ngFor="let col of cols" [ngSwitch]="col.field">
+                        <div *ngIf="col.field !== ''">
+                            <input *ngSwitchCase="col.field" pInputText type="text" placeholder="Search"
+                                [value]="dt.filters[col.field] ? dt.filters[col.field].value : ''" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode);
+                            onFilter($event.target.value, col.field, col.filterMatchMode);" style="width: 100%">
+                        </div>
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-termResults>
+                <tr>
+                    <td *ngFor="let col of cols">
+
+                        <span *ngIf="col.header==='Period'"> {{termResults[col.field]}}{{termResults.FQ}}</span>
+                        <span *ngIf="col.header ==='Rank'"> {{termResults[col.field]}} </span>
+                        <span *ngIf="col.header==='Value'" style="float:right;" > {{termResults[col.field] | number }}</span>
+                        <span *ngIf="col.header ==='Filing Date'" >
+                            <u>
+                                <a *ngIf="termResults[col.field] != 0" (click)="openTermLink(termResults)"
+                                    style="cursor: pointer; color: blue;"  pTooltip="Click to view processing result">
+                                     {{termResults[col.field]}}
+                                </a>
+                            </u>
+                        </span>
+                        <span *ngIf="col.header ==='Period Over Period Variance'">
+                            {{getPercentage(termResults[col.field])}} </span>
+                        <span *ngIf="col.header==='Year Over Year Variance'"> {{getPercentage(termResults[col.field])}}
+                        </span>
+                        <span *ngIf="col.header ==='Expression'"> {{termResults[col.field]}} </span>
+                        <span *ngIf="col.header==='Validation Messages'"> {{termResults[col.field]}}</span>
+                        <span *ngIf="col.header==='Derivation Trails'" (click)="showDerivationResults(termResults)">
+                            <button pButton type="submit" label="Show Derivation"></button> </span>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+
+
+    </div>
+
+    <p-dialog header="Derivation Trail" [(visible)]="display" [style]="{width: '70vw',overflow:'auto'}"
+        [draggable]="true" [maximizable]="true" [resizable]="true">
+
+        <p-table #drt [value]="derivationList">
+            <ng-template pTemplate="caption">
+                <h5>{{tableHeader}}</h5>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Asset</th>
+                    <th>Value</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-derivation>
+                <tr>
+                    <td><span> {{derivation.asset}}</span> </td>
+                    <td><span>{{derivation.value}} </span></td>
+                </tr>
+            </ng-template>
+        </p-table>
+
+
+    </p-dialog>

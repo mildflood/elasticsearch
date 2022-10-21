@@ -1,0 +1,170 @@
+<div>
+    <p-progressSpinner *ngIf="progressSpinner" [style]="{width: '50px', height: '50px',float:'left'}" strokeWidth="8"
+        fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+    <p-messages [value]="msgs"></p-messages>
+</div>
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"></p-confirmDialog>
+<div *ngIf="showError" class="alert alert-danger" role="alert">
+    <strong>{{errorMsg}}</strong>
+</div>
+<div>
+
+    <h2 style="background-color:lightblue; width: 100%; text-align: center;"> Manage Term </h2>
+
+</div>
+<div class="row">
+
+    <label style="float: left; padding-left: 30px;">Mapping Groups:</label>
+
+    <!-- <button pButton type="button" label="Compustat" style="float: left;" class="ui-button-rounded" (click)="compuStatClick()"></button>
+
+<button pButton type="button" label="IFRS" style="float: center;" class="ui-button-rounded" (click)="ifrsClick()"></button>
+
+<button pButton type="button" label="Bloomberg"  style="float: right;" class="ui-button-rounded" (click)="bloombergClick()"></button> -->
+    <div *ngFor="let group of termMappingGroups; let idx = index" style="padding-left:50px;">
+        <button pButton type="button" label="{{group.mapName}}" style="float: left;" class="ui-button-rounded"
+            (click)="groupClick(group, idx)"></button>&nbsp;&nbsp;
+        <button type="button" pButton style="float: left;" (click)="removeGroup(group.mapName)" icon="pi pi-times"
+            Class="ui-button-danger" pTooltip="Delete Group"></button>&nbsp;
+    </div>
+
+</div>
+<div style="height: 5%;">
+    &nbsp;
+</div>
+<div style="text-align: left;">
+    <input [disabled]="disableNewGroup" type="text" [(ngModel)]="newGroupName" name="group" placeholder="Group Name"
+        joyrideStep="groupName" title="Group Name" text="This is where a user can enter a desired group name.">
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <button [disabled]="disableNewGroup" pButton type="button" label="New Group" icon="pi pi-plus" class=""
+        id="newGroup" (click)="addNewGroup()" joyrideStep="newGroupStep" title="New Group"
+        text="Once a user has entered a group name, to create a new group, click the “New Group” button. "></button>
+    <button pButton type="button" style=" margin-left: 15px; " label="New Row" icon="pi pi-plus" class="" id="newRow"
+        joyrideStep="newRowStep" title="New Row"
+        text="Once a user has entered a group name, to create a new row, click the “New Row” button. "
+        (click)="addNewTermMapping()"></button>
+    <!-- <button pButton type="button" label="Export Term Map" style="float: right" ></button> &nbsp;&nbsp; -->
+</div>
+<div style="height: 5%;">
+    &nbsp;
+</div>
+<div>
+    <p-table #termMapTable [columns]="termMapcols" [value]="actualTermList" [paginator]="true" [rows]="10"
+        editMode="row" p-dataTable [responsive]="true" [rowsPerPageOptions]="[10,20,30]" [resizableColumns]="true"
+        columnResizeMode="expand" [reorderableColumns]="true" dataKey="termId" exportFilename="termMapData">
+
+        <ng-template pTemplate="caption">
+            <div class="ui-helper-clearfix">
+                <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
+                <input type="text" pInputText size="50" placeholder="Search Term Map" joyrideStep="searchTermMap"
+                    title="Search Term Map" text="This is where a user can search the term map for a desired result."
+                    (input)="termMapTable.filterGlobal($event.target.value, 'contains')" style="width:auto">
+                <button type="button" joyrideStep="exportTermMap" title="Export Term Map"
+                    text="Click the “Export Term Map” Button to generate a CSV file with the complete mapping information. The file will be named 'ExportTermMapInformation.csv' and stored in the default download folder."
+                    class="ui-button-warning" pButton icon="fa fa-file-o" iconPos="left" label="Export Term Map"
+                    (click)="termMapTable.exportCSV()" style="float:right"></button>
+            </div>
+        </ng-template>
+
+        <ng-template pTemplate="header" let-columns>
+            <tr style="background-color: aqua">
+                <th colspan="3">MAXDS</th>
+                <th colspan="4" *ngFor="let col of topCol"> {{col.field}}</th>
+
+            </tr>
+            <tr>
+                <th *ngFor="let col of termMapcols" pResizableColumn pReorderableColumn [pSortableColumn]="col.field"
+                    [hidden]="!col.isDisplayed" [ngSwitch]="col.field">
+                    <div pTooltip="Click to sort {{col.header}}">
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"
+                            ariaLabelDesc="Activate to sort in descending order"
+                            ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th *ngFor="let col of columns" [ngSwitch]="col.field" [hidden]="!col.isDisplayed">
+                    <div *ngIf="col.field !== ''">
+                        <input *ngIf="col.field === 'termId'"
+                        pInputText type="text" placeholder= {{presetTermId}}
+                        [value]="termMapTable.filters[col.field] ? termMapTable.filters[col.field].value : ''"
+                        (input)="termMapTable.filter($event.target.value, col.field, col.filterMatchMode);resetPlaceholder()"
+                        style="width: 60px">
+                        <input *ngIf="col.field === 'name' || col.field === 'description'"
+                            pInputText type="text" placeholder= "Search"
+                            [value]="termMapTable.filters[col.field] ? termMapTable.filters[col.field].value : ''"
+                            (input)="termMapTable.filter($event.target.value, col.field, col.filterMatchMode);"
+                            style="width: 60px">
+                        <input *ngIf="col.field !== 'termId' && col.field !== 'name' && col.field !== 'description'"
+                            pInputText type="text" placeholder="Search"
+                            [value]="termMapTable.filters[col.field] ? termMapTable.filters[col.field].value : ''"
+                            (input)="termMapTable.filter($event.target.value, col.field, col.filterMatchMode);onFilter($event.target.value, col.field, col.filterMatchMode)"
+                            style="width: 60px">
+                    </div>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns" let-index="rowIndex" let-editing="editing">
+            <tr [pSelectableRow]="rowData" [pEditableRow]="rowData">
+                <td style="word-break:  break-all" pTooltip="{{rowData.termId}}" pEditableColumn>
+                    {{rowData.termId}}
+                </td>
+                <td style="word-break:  break-all" pTooltip="{{rowData.name}}" pEditableColumn>
+                    {{rowData.name}}
+                </td>
+                <td style="word-break:  break-all" pTooltip="{{rowData.description}}" pEditableColumn>
+                    {{rowData.description}}
+                </td>
+                <ng-container *ngFor="let mappingInfo of rowData.mappedInfoSets let idx = index">
+                    <td *ngIf="isGroupVisible(mappingInfo.mapName)" style="word-break:  break-all"
+                        pTooltip="{{mappingInfo.mapTermId}}" pEditableColumn>
+                        <div *ngIf="!rowData.isEditing">{{rowData.mappedInfoSets[idx].mapTermId}}</div>
+                        <div *ngIf="rowData.isEditing"><input type="text" size="5" [(ngModel)]="mappingInfo.mapTermId">
+                        </div>
+
+                    </td>
+                    <td *ngIf="isGroupVisible(mappingInfo.mapName)" style="word-break:  break-all"
+                        pTooltip="{{mappingInfo.mapTermName}}" pEditableColumn>
+                        <div *ngIf="!rowData.isEditing">{{mappingInfo.mapTermName}}</div>
+                        <div *ngIf="rowData.isEditing"><textarea rows="5" cols="5" type="text"
+                                [(ngModel)]="mappingInfo.mapTermName"></textarea> </div>
+                    </td>
+                    <td *ngIf="isGroupVisible(mappingInfo.mapName)" style="word-break:  break-all"
+                        pTooltip="{{mappingInfo.mapTermDescription}}" pEditableColumn>
+                        <div *ngIf="!rowData.isEditing">{{mappingInfo.mapTermDescription}}</div>
+                        <div *ngIf="rowData.isEditing"><textarea rows="5" cols="5" type="text"
+                                [(ngModel)]="mappingInfo.mapTermDescription"></textarea> </div>
+                    </td>
+                    <td *ngIf="isGroupVisible(mappingInfo.mapName)" style="word-break:  break-all"
+                        pTooltip="{{mappingInfo.mapTermMappingInfo}}" pEditableColumn>
+                        <div *ngIf="!rowData.isEditing">{{mappingInfo.mapTermMappingInfo}}</div>
+                        <div *ngIf="rowData.isEditing"><textarea rows="5" cols="5" type="text"
+                                [(ngModel)]="mappingInfo.mapTermMappingInfo"></textarea> </div>
+                    </td>
+                </ng-container>
+                <td>
+                    <button *ngIf="!rowData.isEditing" type="button" pInitEditableRow pButton
+                        (click)="onRowEdit(rowData, index)" icon="pi pi-pencil" styleClass="ui-button-info"
+                        pTooltip="Edit Manage Term Data"></button>&nbsp;
+                    <button *ngIf="rowData.isEditing" type="button" pSaveEditableRow pButton
+                        (click)="onRowSave(rowData, index)" icon="pi pi-save" styleClass="ui-button-info"
+                        pTooltip="Save Manage Term Data"></button>&nbsp;
+                    <button *ngIf="rowData.isEditing" type="button" pCancelEditableRow pButton
+                        (click)="onRowCancel(rowData, index)" icon="pi pi-times" Class="ui-button-danger"
+                        pTooltip="Cancel Edit"></button>&nbsp;
+                    <button *ngIf="!rowData.isEditing" type="button" pButton (click)="onRowDelete(rowData, index)"
+                        pInitEditableRow icon="pi pi-trash" styleClass="ui-button-info"
+                        pTooltip="Delete Manage Term Data"></button>&nbsp;
+
+                </td>
+            </tr>
+
+        </ng-template>
+        <ng-template pTemplate="summary">
+            Total number of Records: {{termMapTable.totalRecords}}
+        </ng-template>
+    </p-table>
+
+
+</div>

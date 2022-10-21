@@ -1,0 +1,763 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Create an AWS ECS Service and Task
+Metadata:
+  'AWS::CloudFormation::Interface':
+    ParameterGroups:
+      - Label:
+          default: Tag Configuration
+        Parameters:
+          - pLifeCycle
+          - pSystemOwner
+          - pApplicationName
+          - pBusiness
+          - pSubDivision
+          - pSupportBusiness
+          - pSupportCcoeGroup
+          - pDataSteward
+          - pDataSensitivity
+          - pResourceOwner
+          - pResourceExposure
+          - pResourceSensitivity
+          - pPurpose
+      - Label:
+          default: ECS Configuration
+        Parameters:
+          - pFargateClusterName
+          - pFargateClusterArn
+          - pServiceName
+          - pContainerImageName
+          - pContainerImageURI
+          - pContainerPort
+          - pLoadBalancerName
+          - pTargetGroupArn
+
+    ParameterLabels:
+      pFargateClusterName:
+        default: The name of the Fargate cluster
+      pFargateClusterArn:
+        default: The arn of the Fargate cluster
+      pServiceName:
+        default: A name which should be used by the service and reference by the task
+      pContainerImageName:
+        default: Any unique name for the container definition
+      pContainerImageURI:
+        default: The container URI
+      pContainerPort:
+        default: The container definition listening port
+      pLoadBalancerName:
+        default: The name of the load balancer to associate with the Amazon ECS service or task set
+      pTargetGroupArn:
+        default: ARN of the Elastic Load Balancing target group or groups associated with a service or task set
+      pLifeCycle:
+        default: Environment LifeCycle
+      pSystemOwner:
+        default: System Owner
+      pApplicationName:
+        default: Application Name
+      pBusiness:
+        default: Business Division
+      pSubDivision:
+        default: Sub Division
+      pPurpose:
+        default: specify the purpose of the resource.
+      pSupportBusiness:
+        default: Support Business
+      pSupportCcoeGroup:
+        default: Support CCOE Group
+      pDataSteward:
+        default: Data Steward
+      pDataSensitivity:
+        default: Data Sensitivity
+      pResourceOwner:
+        default: Resource Owner
+      pResourceExposure:
+        default: Resource Exposure
+      pResourceSensitivity:
+        default: Resource Sensitivity
+Parameters:
+  pFargateClusterName:
+    Type: String
+    Description: "The name of the Fargate cluster which will manage the container service"
+    Default: "DemoHelloWorldCluster"
+
+  pFargateClusterArn:
+    Type: String
+    Description: "The Fargate cluster which will manage the container service"
+    AllowedPattern: >-
+      (^arn[:]aws[:]ecs[:][a-z0-9-]+[:][0-9]{1,12}[:]cluster[/][a-zA-Z0-9][a-zA-Z0-9-]*$)
+    Default: "arn:aws:ecs:us-east-1:077988995152:cluster/dera-derademo-DemoHelloWorldCluster"
+
+  pContainerImageURI:
+    Type: String
+    Description: "Enter the image uri. Everything except the tag must be lower case and must follow the format repository-url/image:tag"
+    AllowedPattern: >-
+      (^([0-9]+([a-z0-9.-]{0,58}amazonaws[.]com[/]))(([a-z0-9]{0,}([a-z0-9][/]){0,}([a-z0-9][a-z0-9-]{0,}){0,}){0,}[a-z0-9])(([:]([a-zA-Z0-9_.-]{0,126})[a-zA-Z0-9]){0,1})$)
+    Default: "077988995152.dkr.ecr.us-east-1.amazonaws.com/dera/demo/helloworld:20220617183823"
+
+  pServiceName:
+    Type: String
+    Description: >-
+      Name used in ECS resources.
+    AllowedPattern: >-
+      (^[a-zA-Z0-9][a-zA-Z0-9/.-]*$)
+    Default: "HelloWorld"
+
+  pContainerImageName:
+    Type: String
+    AllowedPattern: >-
+      (^[a-zA-Z0-9][a-zA-Z0-9/.-]*$)
+    Description: >-
+      Unique name of this container image instance
+    Default: "helloworld"
+
+  pContainerPort:
+    Type: String
+    Description: The port which the container should listen on.
+    AllowedPattern: >-
+      ([1-9][0-9]{0,4})
+    Default: '8080'
+
+  pLoadBalancerName:
+    Type: String
+    Description: "The name of the load balancer to associate with the Amazon ECS service or task set"
+    Default: "DemoHelloWorld-alb"
+
+  pTargetGroupArn:
+    Type: String
+    Description: "Elastic Load Balancing target group or groups associated with a service or task set"
+    AllowedPattern: >-
+      (^arn[:]aws[:]elasticloadbalancing[:][a-z0-9-]+[:][0-9]{1,12}[:]targetgroup[/][a-zA-Z0-9-]*[/][a-zA-Z0-9-]*$)
+    Default: "arn:aws:elasticloadbalancing:us-east-1:077988995152:targetgroup/Demo-HelloWorld-tg/7419d1ca601d27fc"
+
+  # Tag
+  pSystemOwner:
+    Type: String
+    Description: |+
+      Enter the Active Directory ID of repository owner If you are not sure then use the requestor from the account request spreadsheet.
+      It cannot be more than 20 char, and cannot include [ ] : ; | = + * ? < > / \ , @ or non printable characters
+    AllowedPattern: >-
+      (^[^\x00-\x21\x7f-\xff\[\]:;|=+*?<>/\\,@]{1,20}$)
+    Default: "chiappettit"
+
+  # Application, Business, Lifecycle, and Sub-Division are used for billing
+  pLifeCycle:
+    Type: String
+    Description: Select the environment LifeCycle type (This is part of the subdomain name)
+    AllowedValues:
+      - Sbx
+      - Dev
+      - Stg
+      - Prd
+    ConstraintDescription: The lifecycle must be an allowed value
+    Default: Dev
+
+  # Tag
+  pApplicationName:
+    Type: String
+    Description: Enter the application name. If you are not sure then use the value from the project name in GitLab.
+    ConstraintDescription: The application name must be between 1 and 8 characters in length.
+    AllowedPattern: >-
+      (^[a-zA-Z0-9][a-zA-Z0-9._()-]{0,7}$)
+    MinLength: 1
+    MaxLength: 8
+    Default: "Demo"
+
+  # Tag and subdomain
+  pBusiness:
+    Type: String
+    Description: Select the Business Division name. If you are not sure then use the value from the account request spreadsheet.
+    ConstraintDescription: The business division name must be an allowed value
+    AllowedValues:
+      - ARO
+      - BRO
+      - CHRO
+      - DRO
+      - FWRO
+      - LARO
+      - OCDO
+      - MIRO
+      - NYRO
+      - SFRO
+      - SLRO
+      - PLRO
+      - OC
+      - CF
+      - DERA
+      - ENF
+      - IM
+      - TM
+      - ALJ
+      - EBO
+      - OA
+      - OASB
+      - OCA
+      - OCIE
+      - OCOO
+      - OCR
+      - OEC
+      - OEEO
+      - OFM
+      - OGC
+      - OHR
+      - OIA
+      - OIAD
+      - OIEA
+      - OIG
+      - OIT
+      - OLIA
+      - OMS
+      - OMWI
+      - OPA
+      - OS
+      - OSO
+    Default: DERA
+
+  pSupportBusiness:
+    Type: String
+    Description: Select the business that is responsible for supporting this solution
+    ConstraintDescription: The support business name must be an allowed value
+    AllowedValues:
+      - ARO
+      - BRO
+      - CHRO
+      - DRO
+      - FWRO
+      - LARO
+      - OCDO
+      - MIRO
+      - NYRO
+      - SFRO
+      - SLRO
+      - PLRO
+      - OC
+      - CF
+      - DERA
+      - ENF
+      - IM
+      - TM
+      - ALJ
+      - EBO
+      - OA
+      - OASB
+      - OCA
+      - OCIE
+      - OCOO
+      - OCR
+      - OEC
+      - OEEO
+      - OFM
+      - OGC
+      - OHR
+      - OIA
+      - OIAD
+      - OIEA
+      - OIG
+      - OIT
+      - OLIA
+      - OMS
+      - OMWI
+      - OPA
+      - OS
+      - OSO
+    Default: OIT
+
+  pSupportCcoeGroup:
+    Type: String
+    Description: >-
+      Select the CCOE group responsible for supporting this solution if
+      applicable
+    ConstraintDescription: The support support CCOE group name must be an allowed value
+    AllowedValues:
+      - DevOps
+      - SecOps
+      - ArchitectureAndStandards
+      - ComplianceAndAssurance
+      - Networks
+      - BusinessEnablement
+      - CostManagement
+      - DataGovernance
+      - ServiceDelivery
+      - ''
+    Default: DevOps
+
+  pDataSteward:
+    Type: String
+    Description: >-
+      Enter the Active Directory group that is the steward of data hosted by
+      this solution
+    AllowedPattern: >-
+      (^[^\x00-\x21\x7f-\xff\[\]:;|=+*?<>/\\,@]{1,20}$)
+    Default: "chiappettit"
+
+  pDataSensitivity:
+    Type: String
+    Description: Select the data sensitivity of data hosted by this solution
+    ConstraintDescription: The data sensitivity must be an allowed value
+    AllowedValues:
+      - Red
+      - Amber
+      - Green
+    Default: Amber
+
+  pResourceOwner:
+    Type: String
+    Description: Enter the Active Directory group or user that is the resource owner of this solution. If you are not sure then use the requestor from the account request spreadsheet.
+    AllowedPattern: >-
+      (^[^\x00-\x21\x7f-\xff\[\]:;|=+*?<>/\\,@]{1,20}$)
+    Default: "chiappettit"
+
+  pResourceExposure:
+    Type: String
+    Description: Select the most exposure that this solution is exposed to
+    ConstraintDescription: The resource exposure must be an allowed value
+    AllowedValues:
+      - Public
+      - Partner
+      - Saas
+      - OtherSecCloud
+      - AwsGovCloud
+      - SecOnPremise
+    Default: SecOnPremise
+
+  pResourceSensitivity:
+    Type: String
+    Description: Select the sensitivity of resources in this solution
+    ConstraintDescription: The resource sensitivity must be an allowed value
+    AllowedValues:
+        - Red
+        - Amber
+        - Green
+    Default: Amber
+
+  # Used
+  pSubDivision:
+    Description: Define SubDivision which the resources should be tagged with.
+    Type: String
+    Default: '-'
+
+  pPurpose:
+    Type: String
+    Description: Select the general purpose of the resource
+    ConstraintDescription: The resource sensitivity must be an allowed value
+    AllowedValues:
+      - wwws
+      - appl
+      - daba
+      - devo
+      - netw
+      - secr
+      - comp
+      - dago
+    Default: appl
+
+Mappings:
+
+  SenstivityMap:
+    Sbx:
+      ResourceSensitivity: Green
+      DataSensitivity: Green
+    Dev:
+      ResourceSensitivity: Green
+      DataSensitivity: Green
+    Stg:
+      ResourceSensitivity: Amber
+      DataSensitivity: Amber
+    Prd:
+      ResourceSensitivity: Red
+      DataSensitivity: Red
+
+
+  # Could parse and map an arn for this
+  NameTagPartitionToPartitionAbbreviation:
+    aws-us-gov:
+      PartitionAbbr: G
+    aws:
+      PartitionAbbr: C
+
+  # Could parse and map an arn for this
+  NameTagRegionToRegionAbbreviation:
+    us-east-1:
+      RegionAbbr: USE1
+    us-east-2:
+      RegionAbbr: USE2
+    us-west-1:
+      RegionAbbr: USW1
+    us-west-2:
+      RegionAbbr: USW2
+
+  PartitionToPartitionAbbreviation:
+    aws-us-gov:
+      PartitionAbbr: g
+    aws:
+      PartitionAbbr: c
+
+  # For DNS
+  RegionToRegionAbbreviation:
+    us-east-1:
+      RegionAbbr: use1
+    us-east-2:
+      RegionAbbr: use2
+
+  LifeCycleConversionToLowerCase:
+    Sbx:
+      LowerCase: sbx
+    Dev:
+      LowerCase: dev
+    Stg:
+      LowerCase: stg
+    Prd:
+      LowerCase: prd
+
+  BusinessToLowerCase:
+    ALJ:
+      LowerCase: alj
+    ARO:
+      LowerCase: aro
+    BRO:
+      LowerCase: bro
+    CF:
+      LowerCase: cf
+    CHRO:
+      LowerCase: chro
+    DERA:
+      LowerCase: dera
+    DRO:
+      LowerCase: dro
+    EBO:
+      LowerCase: ebo
+    ENF:
+      LowerCase: enf
+    FWRO:
+      LowerCase: fwro
+    IM:
+      LowerCase: im
+    LARO:
+      LowerCase: laro
+    MIRO:
+      LowerCase: miro
+    NYRO:
+      LowerCase: nyro
+    OA:
+      LowerCase: oa
+    OASB:
+      LowerCase: oasb
+    OC:
+      LowerCase: oc
+    OCA:
+      LowerCase: oca
+    OCDO:
+      LowerCase: ocdo
+    OCIE:
+      LowerCase: ocie
+    OCOO:
+      LowerCase: ocoo
+    OCR:
+      LowerCase: ocr
+    OEC:
+      LowerCase: oec
+    OEEO:
+      LowerCase: oeeo
+    OFM:
+      LowerCase: ofm
+    OGC:
+      LowerCase: ogc
+    OHR:
+      LowerCase: ohr
+    OIA:
+      LowerCase: oia
+    OIAD:
+      LowerCase: oiad
+    OIEA:
+      LowerCase: oiea
+    OIG:
+      LowerCase: oig
+    OIT:
+      LowerCase: oit
+    OLIA:
+      LowerCase: olia
+    OMS:
+      LowerCase: oms
+    OMWI:
+      LowerCase: omwi
+    OPA:
+      LowerCase: opa
+    OS:
+      LowerCase: os
+    OSO:
+      LowerCase: oso
+    PLRO:
+      LowerCase: plro
+    SFRO:
+      LowerCase: sfro
+    SLRO:
+      LowerCase: slro
+    TM:
+      LowerCase: tm
+
+Resources:
+  ECSSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: !Sub "Security Group For ECS Access ECS-${pServiceName}-IngressSecurityGroup"
+      GroupName: !Sub "ECS-${pServiceName}-IngressSecurityGroup"
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 443
+          ToPort: 443
+          CidrIp: !ImportValue VpcCidrBlock
+          Description: Inbound HTTPS from within VPC
+        - IpProtocol: tcp
+          FromPort: !Ref pContainerPort
+          ToPort: !Ref pContainerPort
+          CidrIp: !ImportValue VpcCidrBlock
+          Description: ECS VPC Allowed Ingress Rule
+        - CidrIp: 0.0.0.0/0
+          Description: Rule which is conditionally created to allow SSH
+          FromPort: !Ref pContainerPort
+          ToPort: !Ref pContainerPort
+          IpProtocol: tcp
+      SecurityGroupEgress:
+        - IpProtocol: tcp
+          FromPort: 443
+          ToPort: 443
+          CidrIp: 0.0.0.0/0
+          Description: Outbound HTTPS only
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+          Description: Outbound HTTP access for S3 to Amazon Repos
+        - IpProtocol: tcp
+          FromPort: 8443
+          ToPort: 8443
+          CidrIp: 0.0.0.0/0
+          Description: Outbound HTTP access for Aqua Microenforcer
+      VpcId: !ImportValue VpcId
+      Tags:
+      - Key: Name
+        Value:
+          'Fn::Sub':
+            - >-
+              A-${Partition}${Region}-${mLifeCycle}-${DivisionName}-${pApplicationName}-${pPurpose}-${ServiceType}-${pServiceName}
+            - Partition:
+                'Fn::FindInMap':
+                  - NameTagPartitionToPartitionAbbreviation
+                  - Ref: 'AWS::Partition'
+                  - PartitionAbbr
+              Region:
+                'Fn::FindInMap':
+                  - NameTagRegionToRegionAbbreviation
+                  - Ref: 'AWS::Region'
+                  - RegionAbbr
+              ServiceType: ECSSecurityGroup
+              mLifeCycle:
+                'Fn::FindInMap': [ LifeCycleConversionToLowerCase, !Ref pLifeCycle, LowerCase ]
+              DivisionName:
+                'Fn::FindInMap': [ BusinessToLowerCase, !Ref pBusiness, LowerCase ]
+      - Key: ApplicationName
+        Value: !Ref pApplicationName
+      - Key: Business
+        Value: !Ref pBusiness
+      - Key: SubDivision
+        Value: !Ref pSubDivision
+      - Key: ResourceGroup
+        Value: "ECSSecurityGroup"
+      - Key: LifeCycle
+        Value: !Ref pLifeCycle
+
+  FargateService:
+    DependsOn:
+      - FargateTaskDefinition
+    Type: AWS::ECS::Service
+    Properties:
+      Cluster: !Ref pFargateClusterArn
+      DesiredCount: 1
+      TaskDefinition: !Ref FargateTaskDefinition
+      ServiceName: !Join [ '-', [!Ref pApplicationName, !Ref pServiceName] ]
+      EnableExecuteCommand: true
+      LoadBalancers:
+        - ContainerName: !Ref pContainerImageName 
+          ContainerPort: !Ref pContainerPort
+          #LoadBalancerName: !Ref pLoadBalancerName
+          TargetGroupArn: !Ref pTargetGroupArn
+      NetworkConfiguration:
+        AwsvpcConfiguration:
+          AssignPublicIp: DISABLED
+          SecurityGroups:
+            - !Ref ECSSecurityGroup
+          Subnets:
+            - !ImportValue VpcSubnet1
+            - !ImportValue VpcSubnet2
+            - !ImportValue VpcSubnet3
+      Tags:
+      - Key: Name
+        Value:
+          'Fn::Sub':
+            - >-
+              A-${Partition}${Region}-${mLifeCycle}-${DivisionName}-${pApplicationName}-${pPurpose}-${ServiceType}-${pServiceName}
+            - Partition:
+                'Fn::FindInMap':
+                  - NameTagPartitionToPartitionAbbreviation
+                  - Ref: 'AWS::Partition'
+                  - PartitionAbbr
+              Region:
+                'Fn::FindInMap':
+                  - NameTagRegionToRegionAbbreviation
+                  - Ref: 'AWS::Region'
+                  - RegionAbbr
+              mLifeCycle:
+                'Fn::FindInMap': [ LifeCycleConversionToLowerCase, !Ref pLifeCycle, LowerCase ]
+              DivisionName:
+                'Fn::FindInMap': [ BusinessToLowerCase, !Ref pBusiness, LowerCase ]
+              ServiceType: ECSService
+      - Key: LifeCycle
+        Value: !Ref pLifeCycle
+      - Key: SystemOwner
+        Value: !Ref pSystemOwner
+      - Key: ApplicationName
+        Value: !Ref pApplicationName
+      - Key: Business
+        Value: !Ref pBusiness
+      - Key: SupportBusiness
+        Value: !Ref pSupportBusiness
+      - Key: SupportCcoeGroup
+        Value: !Ref pSupportCcoeGroup
+      - Key: DataSteward
+        Value: !Ref pDataSteward
+      - Key: DataSensitivity
+        Value: !Ref pDataSensitivity
+      - Key: ResourceOwner
+        Value: !Ref pResourceOwner
+      - Key: ResourceSensitivity
+        Value: !Ref pResourceSensitivity
+      - Key: ResourceExposure
+        Value: !Ref pResourceExposure
+      - Key: SubDivision
+        Value: !Ref pSubDivision
+
+  FargateTaskDefinition:
+    Type: AWS::ECS::TaskDefinition
+    Properties:
+      Family: !Join [ '-', [!Ref pApplicationName, !Ref pServiceName] ]
+      NetworkMode: awsvpc
+      RequiresCompatibilities:
+        - FARGATE
+      Cpu: 2048
+      Memory: 4096
+      # ExecutionRoleArn: !ImportValue ECSExecutionRole
+      ExecutionRoleArn: !ImportValue ECSCloudWatchTaskRole
+      # Changing IAM rights on the task role did not have an effect
+      TaskRoleArn: !ImportValue ECSCloudWatchTaskRole
+      ContainerDefinitions:
+        - Name: !Ref pContainerImageName
+          Image: !Ref pContainerImageURI
+          Essential: 'true'
+          Cpu: 1024
+          Memory: 2048
+          Environment:
+            - Name: lifecycle
+              Value: !Ref pLifeCycle
+            - Name: "AQUA_MICROENFORCER"
+              Value: "1"
+            - Name: "AQUA_DEBUG_TYPE"
+              Value: "STDOUT"
+            - Name: "AQUA_SERVER"
+              Value: "c1-up-oitsdecvs01.ad.sec.gov:8443"
+            - Name: "AQUA_TOKEN"
+              Value: "85d61ab7-d8cf-4f3e-a341-05744d798d51"
+            - Name: "AQUA_IMAGE_ID"
+              Value: "sha256:6c68b4f1ecf4c67bd8f63d82bfe1c7368749436d0082b373905329be0be517a1" ##### parameter
+            - Name: "LD_PRELOAD"
+              Value: "'/.aquasec/bin/$PLATFORM/slklib.so'"
+          EntryPoint:
+            - "/.aquasec/bin/microenforcer"
+            - "/usr/bin/env"
+            - "JAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto"
+            - "/usr/bin/java"
+            - "-jar"
+            - "/opt/container-work-init/HelloWorld.jar" ##### Parameter
+          ReadonlyRootFilesystem: false
+          VolumesFrom:
+            - SourceContainer: "ccoe-aquamicroenforcer"
+          # By default stdout is captured to a cloudwatch log group
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-group: !Sub '/aws/ecs/${pApplicationName}-${pServiceName}-${pContainerImageName}'
+              awslogs-region: !Ref AWS::Region
+              awslogs-stream-prefix: !Join [ '-', [!Ref pApplicationName, !Ref pServiceName] ]
+              awslogs-create-group: true
+          PortMappings:
+            - ContainerPort: !Ref pContainerPort
+              HostPort: !Ref pContainerPort
+              Protocol: tcp
+          # Generally speaking 1 tcp port = 1 filehandle. The maximimim number of filehandles is controlled by nofile
+          # Some aws docs state 4096, but this states 65535 nofile HardLimit
+          # https://docs.aws.amazon.com/eks/latest/userguide/fargate.html#fargate-considerations (ulimit nofile max is 65535)
+          # Documentation for setting various ulimit types
+          # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html
+          # You can run into this problem on low utilization systems if you do not close your file desciptors or
+          # if you close a tcp connection, but do not read the outstanding data.
+          Ulimits:
+            - HardLimit: 65535
+              Name: "nofile"
+              SoftLimit: 65535
+        - Name: 'ccoe-aquamicroenforcer'
+          Image: '150454758042.dkr.ecr.us-east-1.amazonaws.com/oit/shared/aquamicroenforcer:20220601'
+          Essential: 'false'
+          Cpu: 1024
+          Memory: 2048
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-group: !Sub '/aws/ecs/${pApplicationName}-${pFargateClusterName}'
+              awslogs-region: !Ref AWS::Region
+              awslogs-stream-prefix: !Join [ '-', [!Ref pApplicationName, !Ref pServiceName] ]
+              awslogs-create-group: true
+      Tags:
+      - Key: Name
+        Value:
+          'Fn::Sub':
+            - >-
+              A-${Partition}${Region}-${mLifeCycle}-${DivisionName}-${pApplicationName}-${pPurpose}-${ServiceType}-${pServiceName}
+            - Partition:
+                'Fn::FindInMap':
+                  - NameTagPartitionToPartitionAbbreviation
+                  - Ref: 'AWS::Partition'
+                  - PartitionAbbr
+              Region:
+                'Fn::FindInMap':
+                  - NameTagRegionToRegionAbbreviation
+                  - Ref: 'AWS::Region'
+                  - RegionAbbr
+              mLifeCycle:
+                'Fn::FindInMap': [ LifeCycleConversionToLowerCase, !Ref pLifeCycle, LowerCase ]
+              DivisionName:
+                'Fn::FindInMap': [ BusinessToLowerCase, !Ref pBusiness, LowerCase ]
+              ServiceType: ECSTaskDefinition
+      - Key: LifeCycle
+        Value: !Ref pLifeCycle
+      - Key: SystemOwner
+        Value: !Ref pSystemOwner
+      - Key: ApplicationName
+        Value: !Ref pApplicationName
+      - Key: Business
+        Value: !Ref pBusiness
+      - Key: SupportBusiness
+        Value: !Ref pSupportBusiness
+      - Key: SupportCcoeGroup
+        Value: !Ref pSupportCcoeGroup
+      - Key: DataSteward
+        Value: !Ref pDataSteward
+      - Key: DataSensitivity
+        Value: !Ref pDataSensitivity
+      - Key: ResourceOwner
+        Value: !Ref pResourceOwner
+      - Key: ResourceSensitivity
+        Value: !Ref pResourceSensitivity
+      - Key: ResourceExposure
+        Value: !Ref pResourceExposure
+      - Key: SubDivision
+        Value: !Ref pSubDivision
+      - Key: ResourceGroup
+        Value: "ECSTaskDefinition"

@@ -1,0 +1,392 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Create ALBs and NLBs for App in ACES Envs. Modified by Tristan Chiappetti  
+Metadata:
+  AWS::CloudFormation::Interface:
+    ParameterGroups:
+    - Label:
+        default: Stack Configuration
+      Parameters:
+      - NamePrefix
+    - Label:
+        default: Network Configuration
+      Parameters:
+      - VpcId
+      - VPCCIDR
+      - PrivateSubnet1ID
+      - PrivateSubnet2ID
+      - AppCertificateARN
+      - SSLPolicy
+    - Label: 
+        default: Tagging Configuration
+      Parameters: 
+      - LifecycleEnv
+      - SystemOwner
+      - ApplicationName
+      - Business
+      - SubDivision
+      - SupportBusiness
+      - SupportCcoeGroup
+      - DataSteward
+      - DataSet
+      - DataSensitivity
+      - AutoShutdown
+      - AutoCompliance
+      - ResourceOwner
+      - ResourceSensitivity
+      - BackupSchedule
+      - BackupDestination
+      - ResourceGroup
+
+Parameters: 
+  NamePrefix: 
+    Description: Naming Prefix before resource. Ex. ccoe-gitlab
+    Type: String
+    Default: ccoe-gitlab
+  VpcId:
+    Description: ID of the VPC (e.g., vpc-0343606e)
+    Type: AWS::EC2::VPC::Id
+    Default: vpc-00d0fbee6d3ca8ae3
+  VPCCIDR:
+    AllowedPattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/(1[6-9]|2[0-8]))$"
+    ConstraintDescription: CIDR block parameter must be in the form x.x.x.x/16-28
+    Description: CIDR block for the VPC
+    Type: String
+    Default: '10.179.80.0/21'
+  PrivateSubnet1ID:
+    Description: ID of the private subnet 1 in Availability Zone 1 (e.g., subnet-a0246dcd)
+    Type: AWS::EC2::Subnet::Id
+    Default: subnet-03dbc2f0b2ea2bbc2
+  PrivateSubnet2ID:
+    Description: ID of the private subnet 2 in Availability Zone 2 (e.g., subnet-a0246dcd)
+    Type: AWS::EC2::Subnet::Id
+    Default: subnet-0865ff0bdbe764e72
+  AppCertificateARN: 
+    Description: App certificate ARN from AWS ACM
+    Type: String
+    Default: 'arn:aws:acm:us-east-1:033701561153:certificate/0c46d5ab-af79-4fb6-a403-bf22623e14b4'
+  SSLPolicy: 
+    Description: SSL Policy for HTTPS ALB
+    Type: String
+    Default: 'ELBSecurityPolicy-TLS-1-2-Ext-2018-06'
+  pHealthCheckPath:
+    Description: The destination for health checks on the targets
+    Type: String
+    Default: '/-/health'
+#
+# Taggings Parameters
+#
+  LifecycleEnv: 
+    Description: Define the Lifecycle. 
+    Type: String
+    Default: Dev
+    AllowedValues:
+    - 'Sbx'
+    - 'Dev'
+    - 'Stg'
+    - 'Prd'
+    ConstraintDescription: Must be exactly Sbx, Dev, Stg, or Prd.
+  SystemOwner: 
+    Description: Define SystemOwner, Active Directory group. 
+    Type: String
+    Default: CCOE DevOps
+  ApplicationName: 
+    Description: Define Application Name. 
+    Type: String
+    Default: GitLabEE
+  Business: 
+    Description: Define Office/Division. 
+    Type: String
+    Default: OIT
+  SubDivision: 
+    Description: Define SubDivision. 
+    Type: String
+    Default: CICD
+  SupportBusiness: 
+    Description: Define Office/Division responsible for supporting the resource. 
+    Type: String
+    Default: OIT
+  SupportCcoeGroup: 
+    Description: Define cloud support group responsible. 
+    Type: String
+    Default: DevOps
+    AllowedValues: 
+    - DevOps
+    - SecOps
+    - ArchitectureAndStandards
+    - ComplianceAndAssurance
+    - Networks
+    - BusinessEnablement
+    - CostManagement
+    - DataGovernance
+    - ServiceDelivery
+  DataSteward: 
+    Description: Conveys the owner of the data. Active Directory Group. 
+    Type: String
+    Default: CCOE group
+  DataSet: 
+    Description: Optionally conveys the set of data that the data belongs to. 
+    Type: String
+    Default: application
+  DataSensitivity: 
+    Description: Conveys the sensitivity of the data. 
+    Type: String
+    Default: Red
+    AllowedValues: 
+    - Red
+    - Amber
+    - Green
+  AutoShutdown: 
+    Description: Optionally conveys if the resoruce can be shutdown during nights and/or weekends to reduce costs. 
+    Type: String
+    Default: "No"
+  AutoCompliance: 
+    Description: Optionally conveys the compliance package name that should be applied to the resource. 
+    Type: String
+    Default: "No"
+  ResourceOwner: 
+    Description: Conveys the owner of the resource. 
+    Type: String
+    Default: CCOE
+  ResourceSensitivity: 
+    Description: Conveys the sensitivity of the data hosted by the resource. 
+    Type: String
+    Default: Red
+    AllowedValues: 
+    - Red
+    - Amber
+    - Green
+  BackupSchedule: 
+    Description: Optionally conveys the frequency of resource backup. 
+    Type: String
+    Default: Daily
+    AllowedValues: 
+    - Daily
+    - Weekly
+    - Monthly
+  BackupDestination: 
+    Description: Optionally conveys the destination of the backup. 
+    Type: String
+    Default: InRegion
+    AllowedValues: 
+    - InRegion
+    - TwoRegions
+  ResourceGroup: 
+    Description: Optionally conveys the group that the resource belongs to for managing groups of resources simultaneously.
+    Type: String
+    Default: GitLab Stack
+
+Resources: 
+  rAppALB: 
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties:
+      Name: !Sub ${NamePrefix}-AppALB
+      Scheme: internal
+      Subnets: 
+      - Ref: PrivateSubnet1ID
+      - Ref: PrivateSubnet2ID
+      SecurityGroups:
+      - Ref: rAppALBSecurityGroup
+      Tags: 
+      - Key: Name
+        Value: !Sub A-CUSE1-${LifecycleEnv}-${Business}-${ApplicationName}-devo-Elb2-1-AppALB
+      - Key: LifeCycle
+        Value: !Ref LifecycleEnv
+      - Key: SystemOwner
+        Value: !Ref SystemOwner
+      - Key: ApplicationName
+        Value: !Ref ApplicationName
+      - Key: Business
+        Value: !Ref Business
+      - Key: SubDivision
+        Value: !Ref SubDivision
+      - Key: SupportBusiness
+        Value: !Ref SupportBusiness
+      - Key: SupportCcoeGroup
+        Value: !Ref SupportCcoeGroup
+      - Key: DataSteward
+        Value: !Ref DataSteward
+      - Key: DataSet
+        Value: !Ref DataSet
+      - Key: DataSensitivity
+        Value: !Ref DataSensitivity
+      - Key: AutoShutdown
+        Value: !Ref AutoShutdown
+      - Key: AutoCompliance
+        Value: !Ref AutoCompliance
+      - Key: ResourceOwner
+        Value: !Ref ResourceOwner
+      - Key: ResourceSensitivity
+        Value: !Ref ResourceSensitivity
+      - Key: ResourceExposure
+        Value: SecOnPremise
+      - Key: IamControlled
+        Value: 'Yes'
+      - Key: BackupSchedule
+        Value: !Ref BackupSchedule
+      - Key: BackupDestination
+        Value: !Ref BackupDestination
+      - Key: ResourceGroup
+        Value: !Ref ResourceGroup
+
+  #Original HTTPS resources
+  rAppALBListener:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties: 
+      LoadBalancerArn: !Ref rAppALB
+      Port: 443
+      Protocol: HTTPS
+      SslPolicy: !Ref SSLPolicy
+      Certificates:
+        - CertificateArn: !Ref AppCertificateARN
+      DefaultActions: 
+        - Type: forward
+          TargetGroupArn: !Ref rAppALBTargetGroup
+  rAppALB80Listener:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties: 
+      LoadBalancerArn: !Ref rAppALB
+      Port: 8080
+      Protocol: HTTP
+      DefaultActions: 
+        - Type: forward
+          TargetGroupArn: !Ref rAppALBTargetGroup          
+  rAppALBTargetGroup: 
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties: 
+      Name: !Sub ${NamePrefix}-AppALBTG
+      HealthCheckIntervalSeconds: 120
+      HealthCheckPath: !Ref pHealthCheckPath
+      HealthCheckProtocol: HTTP
+      HealthCheckTimeoutSeconds: 30
+      HealthyThresholdCount: 2
+      UnhealthyThresholdCount: 10
+      Matcher:
+        HttpCode: '200'
+      VpcId: !Ref VpcId
+      Port: 80
+      Protocol: HTTP
+      Tags: 
+      - Key: Name
+        Value: !Sub A-CUSE1-${LifecycleEnv}-${Business}-${ApplicationName}-devo-Elb2-1-AppALBTG
+      - Key: LifeCycle
+        Value: !Ref LifecycleEnv
+      - Key: SystemOwner
+        Value: !Ref SystemOwner
+      - Key: ApplicationName
+        Value: !Ref ApplicationName
+      - Key: Business
+        Value: !Ref Business
+      - Key: SubDivision
+        Value: !Ref SubDivision
+      - Key: SupportBusiness
+        Value: !Ref SupportBusiness
+      - Key: SupportCcoeGroup
+        Value: !Ref SupportCcoeGroup
+      - Key: DataSteward
+        Value: !Ref DataSteward
+      - Key: DataSet
+        Value: !Ref DataSet
+      - Key: DataSensitivity
+        Value: !Ref DataSensitivity
+      - Key: AutoShutdown
+        Value: !Ref AutoShutdown
+      - Key: AutoCompliance
+        Value: !Ref AutoCompliance
+      - Key: ResourceOwner
+        Value: !Ref ResourceOwner
+      - Key: ResourceSensitivity
+        Value: !Ref ResourceSensitivity
+      - Key: ResourceExposure
+        Value: SecOnPremise
+      - Key: IamControlled
+        Value: 'Yes'
+      - Key: BackupSchedule
+        Value: !Ref BackupSchedule
+      - Key: BackupDestination
+        Value: !Ref BackupDestination
+      - Key: ResourceGroup
+        Value: !Ref ResourceGroup
+  rAppALBSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      VpcId: !Ref VpcId
+      GroupName: !Sub ${NamePrefix}-AppALBSG
+      GroupDescription: Enable Elastic Load Balancer access via port 443 and 80
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: '443'
+        ToPort: '443'
+        CidrIp: 0.0.0.0/0
+      - IpProtocol: tcp
+        FromPort: '80'
+        ToPort: '80'
+        CidrIp: 0.0.0.0/0
+      Tags: 
+      - Key: Name
+        Value: !Sub A-CUSE1-${LifecycleEnv}-${Business}-${ApplicationName}-devo-Ec2s-1-AppALBSG
+      - Key: LifeCycle
+        Value: !Ref LifecycleEnv
+      - Key: SystemOwner
+        Value: !Ref SystemOwner
+      - Key: ApplicationName
+        Value: !Ref ApplicationName
+      - Key: Business
+        Value: !Ref Business
+      - Key: SubDivision
+        Value: !Ref SubDivision
+      - Key: SupportBusiness
+        Value: !Ref SupportBusiness
+      - Key: SupportCcoeGroup
+        Value: !Ref SupportCcoeGroup
+      - Key: DataSteward
+        Value: !Ref DataSteward
+      - Key: DataSet
+        Value: !Ref DataSet
+      - Key: DataSensitivity
+        Value: !Ref DataSensitivity
+      - Key: AutoShutdown
+        Value: !Ref AutoShutdown
+      - Key: AutoCompliance
+        Value: !Ref AutoCompliance
+      - Key: ResourceOwner
+        Value: !Ref ResourceOwner
+      - Key: ResourceSensitivity
+        Value: !Ref ResourceSensitivity
+      - Key: ResourceExposure
+        Value: SecOnPremise
+      - Key: IamControlled
+        Value: 'Yes'
+      - Key: BackupSchedule
+        Value: !Ref BackupSchedule
+      - Key: BackupDestination
+        Value: !Ref BackupDestination
+      - Key: ResourceGroup
+        Value: !Ref ResourceGroup
+
+Outputs:
+  rAppALBEndpoint:
+    Value: !GetAtt rAppALB.DNSName
+    Export: 
+      Name: !Sub ${AWS::StackName}-rAppALBEndpoint
+  rAppALBEndpointHTTP: 
+    Value: !Sub http://${rAppALB.DNSName}
+    Export: 
+      Name: !Sub ${AWS::StackName}-rAppALBEndpointHTTP
+  rAppALBCanonicalHostedZoneID: 
+    Value: !GetAtt rAppALB.CanonicalHostedZoneID
+    Export: 
+      Name: !Sub ${AWS::StackName}-rAppALBCanonicalHostedZoneID
+  rAppALBSecurityGroupId: 
+    Value: !GetAtt rAppALBSecurityGroup.GroupId
+    Export: 
+      Name: !Sub ${AWS::StackName}-rAppALBSecurityGroupId
+  rAppALBName: 
+    Value: !Ref rAppALB
+    Export: 
+      Name: !Sub ${AWS::StackName}-rAppALBName
+  rAppALBTargetGroup: 
+    Value: !Ref rAppALBTargetGroup
+    Export: 
+      Name: !Sub ${AWS::StackName}-rAppALBTargetGroup
+
+ 

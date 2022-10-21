@@ -1,0 +1,200 @@
+.container {
+  display:flex;
+  justify-content:flex-start;
+  flex-direction: row;
+}
+
+.div1 {
+  position: relative;
+  height:100vh;
+  flex-grow:0;
+  margin-left: -45%;
+  min-width: 18vw;
+
+ }
+
+.dragHorizental {
+   padding:15px;
+   position:relative;
+ }
+
+.dragHorizental .dragger{
+  content: '';
+   position: absolute;
+   bottom: 0;
+   margin-left: -15px;
+   cursor: s-resize;
+   height: 7px;
+   width: 78vw;
+   border-top: 1px solid darkgray;
+   overflow: hidden;
+   background-color: #eff0f1;
+   background-position: 210px -364px;
+   background-size: initial;
+   background-repeat: no-repeat;
+}
+
+.p-0 {
+  padding: 0px !important;
+}
+
+.p-y-5 {
+  padding: 5px 0px !important;
+}
+
+.p-x-5 {
+  padding: 0px 5px !important;
+}
+
+.m-y-5 {
+  margin: 5px 0px !important;
+}
+
+.m-x-5 {
+  margin: 0px 5px !important;
+}
+
+.input-wrapper label {
+  display: block;
+}
+
+.input-wrapper input {
+width: 100%;
+height: 35px;
+}
+
+.input-wrapper textarea{
+width: 100%;
+min-height: 35px;
+}
+
+.input-wrapper p-dropdown div {
+width: 100% !important;
+min-height: 35px !important;
+}
+
+.node circle {
+  fill: #999;
+}
+
+.node text {
+  font: 10px sans-serif;
+}
+
+.node--internal circle {
+  fill: #555;
+}
+
+.node--internal text {
+  text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
+}
+
+.link {
+  fill: none;
+  stroke: #555;
+  stroke-opacity: 0.4;
+  stroke-width: 1.5px;
+}
+
+::ng-deep #termRulesTreeTable p-treetable .ui-treetable .ui-treetable-wrapper table.ui-treetable-table tbody.ui-treetable-tbody tr td.ui-toggler-column {
+  border: none !important;
+}
+
+.selected-node {
+  font-weight: bolder !important;
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1050;
+  overflow: auto;
+  outline: 0;
+  max-height: 98vh;
+  height: fit-content;  
+  border: 1px solid #c8c8c8;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0px 10px 10px 10px;
+  border: 1px solid #888;
+  width: 100%;
+}
+
+.minimize-modal {
+  display: block !important;
+  height: 50px !important;
+  width: 185px !important;
+  top: 94.8vh !important;
+  overflow: hidden !important;
+}
+
+.modal-header {
+  border-bottom: 1px solid #c8c8c8;
+  background-color: #f4f4f4;
+  color: #333333;
+  padding: 5px;
+  font-weight: 700;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+/* The Close Button */
+.close {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.minimize {
+  color: #333333;
+  font-size: 28px;
+  opacity: 0.5;
+  margin-right: 10px;
+}
+
+.minimize:hover,
+.minimize:focus, 
+.maximize:hover,
+.maximize:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 1;
+}
+
+.maximize { 
+  color: #333333;
+    font-size: 24px;
+    position: relative;
+    top: 4px;
+    opacity: 0.3;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.float-right {
+  float: right;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cancel-btn-container {
+  padding-top: 15px;  
+}
+
+::ng-deep .company-name-wrapper input {
+  width: 91.78% !important;
+}
+
