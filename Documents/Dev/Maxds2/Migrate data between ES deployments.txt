@@ -1,0 +1,51 @@
+Migrate data between ES deployment
+
+Through the Elasticsearch reindex API, available in version 5.x and later, you can connect your new Elasticsearch Service deployment remotely to your old Elasticsearch cluster. 
+This pulls the data from your old cluster and indexes it into your new one. Reindexing essentially rebuilds the index from scratch and it can be more resource intensive to run.
+
+1. Log in to the Elasticsearch Service Console (the new deployment)
+2. Select a deployment or create one.
+3. If the old Elasticsearch cluster is on a remote host, add an Elasticsearch user setting:
+
+From your deployment menu, go to the Edit page.
+In the Elasticsearch section, click Edit user settings and plugins. (For deployments with existing user settings, you may have to expand the Edit elasticsearch.yml caret for each node type instead.)
+Add the following user setting:
+
+reindex.remote.whitelist: [REMOTE_HOST:PORT]
+where REMOTE_HOST and PORT are the endpoint of the Elasticsearch cluster that you are reindexing from, without the https:// prefix. For example:
+reindex.remote.whitelist: [81693ca13302469c8cbca193625c941c.us-east-1.aws.found.io:9243]
+reindex.remote.whitelist: [maxds.es.us-east-1.aws.found.io:9243]
+
+Click Save.
+
+4. From the API Console or in the Kibana Console app, create the destination index on Elasticsearch Service.
+5. Copy the index from the remote cluster:
+
+POST _reindex
+{
+    "source": {
+    "remote": {
+      "host": "https://maxds.es.us-east-1.aws.found.io:9243",
+      "username": "elastic",
+      "password": "b0EYWKgWIkEaAE3DEXkHnezM"
+    },
+    "index": "entity",
+    "query": {
+      "match_all": {}
+    }
+  },
+  "dest": {
+    "index": "entity"
+  }
+}
+
+6. Verify that the new index is present:
+GET INDEX-NAME/_search?pretty
+
+7. You can remove the reindex.remote.whitelist user setting that you added previously.
+
+8. To update max_result_window setting from API console: //controls max query return count. One time setting for the deployment
+PUT _settings
+{
+    "index": {"max_result_window": 20000}
+}

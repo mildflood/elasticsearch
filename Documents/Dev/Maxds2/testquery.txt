@@ -1,0 +1,493 @@
+
+
+Term result:
+{"bool": {"must":[{"match" : { "entityId" : "?0" }},{"match" : { "termId" : "?1" }},{"match" : { "myDocType" : "?2" }}]}}
+{"query": {"bool": {"must":[{"match" : { "entityId" : "0000769218" }},{"match" : { "termId" : "Test2" }},{"match" : { "myDocType" : "primaryTermResult" }}]}}}
+	
+{"bool": {"must":[{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "myDocType" : "primaryTermResult" }}, {"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}}
+{"query": {"bool": {"must":[{"match" : { "termId" : "Test2" }},{"match" : { "entityId" : "0000769218" }},{"match" : { "myDocType" : "primaryTermResult" }}, {"range": {"FY": {"gte": "2016", "lte": "2021"}}}]}}}
+
+{"bool": {"must":[{"match" : { "termId" : "?0" }},{"match" : { "myDocType" : "primaryTermResult" }}, {"range": {"rank": {"lte": "?1"}}}]}}
+{"query": {"bool": {"must":[{"match" : { "termId" : "Test2" }},{"match" : { "myDocType" : "primaryTermResult" }}, {"range": {"rank": {"lte": "301"}}}]}} }
+
+{"bool": {"must":[{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "FQ" : "?2" }},{"match" : { "myDocType" : "primaryTermResult" }}]}}
+{"query":{"bool": {"must":[{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "FQ" : "?2" }},{"match" : { "myDocType" : "primaryTermResult" }}]}}}
+
+{"bool": {"must":[{"match" : { "termId" : "?0" }},{"match" : { "myDocType" : "primaryTermResult" }}, {"range": {"FY": {"gte": "?1", "lte": "?2"}}}]}}
+ {"query": {"bool": {"must":[{"match" : { "termId" : "?0" }},{"match" : { "myDocType" : "primaryTermResult" }}, {"range": {"FY": {"gte": "?1", "lte": "?2"}}}]}}}
+ 
+ {"bool": {"must":[{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "myDocType" : "primaryTermResult" }}, {"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}}
+ {"query": {"bool": {"must":[{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "myDocType" : "primaryTermResult" }}, {"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}}}
+
+  {"bool": {"must":[{"match" : { "termId" : "?0" }},{"match" : { "myDocType" : "primaryTermResult" }}, {"range": {"FY": {"gte": "?1", "lte": "?2"}}}], "must_not":[{"match" : { "FQ" : "FY" }}]}}
+  {"query": {"bool": {"must":[{"match" : { "termId" : "?0" }},{"match" : { "myDocType" : "primaryTermResult" }}, {"range": {"FY": {"gte": "?1", "lte": "?2"}}}], "must_not":[{"match" : { "FQ" : "FY" }}]}}}
+  
+{"bool": {"must":[{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "myDocType" : "primaryTermResult" }},{"match" : {"FQ":"FY"}},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}}
+{"query": {"bool": {"must":[{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "myDocType" : "primaryTermResult" }},{"match" : {"FQ":"FY"}},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}}}
+
+{"bool": {"must":[{"match" : { "termId" : "?0" }},{"match" : { "myDocType" : "primaryTermResult" }},{"match" : {"FQ":"FY"}},{"range": {"FY": {"gte": "?1", "lte": "?2"}}}]}}
+{"query": {"bool": {"must":[{"match" : { "termId" : "?0" }},{"match" : { "myDocType" : "primaryTermResult" }},{"match" : {"FQ":"FY"}},{"range": {"FY": {"gte": "?1", "lte": "?2"}}}]}}}
+
+{"bool": {"must":[{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "myDocType" : "primaryTermResult" }},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}}
+{"query": {"bool": {"must":[{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "myDocType" : "primaryTermResult" }},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}}}
+
+{"bool": {"must":[{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "myDocType" : "primaryTermResult" }}, {"range": {"FY": {"gte": "?2", "lte": "?3"}}}], "must_not":[{"match" : { "FQ" : "FY" }}]}}
+{"query": {"bool": {"must":[{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "myDocType" : "primaryTermResult" }}, {"range": {"FY": {"gte": "?2", "lte": "?3"}}}], "must_not":[{"match" : { "FQ" : "FY" }}]}}}
+
+{"bool": {"must":[{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "myDocType" : "primaryTermResult" }},{"match" : {"FQ":"FY"}},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}}
+{"query": {"bool": {"must":[{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "myDocType" : "primaryTermResult" }},{"match" : {"FQ":"FY"}},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}}}
+
+Accuracy Test2
+@Query(value="entityId_s:?0 AND fy_i:?1 AND fq_s:?2")
+{"bool": {"must":[{"match" : { "entityId_s" : "?0" }},{"match" : { "fy_i" : "?1" }},{"match" : { "fq_s" : "?2" }}]}}
+{"query": {"bool": {"must":[{"match" : { "entityId_s" : "?0" }},{"match" : { "fy_i" : "?1" }},{"match" : { "fq_s" : "?2" }}]}}}
+
+Lookup Docs
+ @Query(value="type_s:?0")
+{"bool": {"must":[{"match" : { "type_s" : "?0" }}]}}
+{"query": {"bool": {"must":[{"match" : { "type_s" : "?0" }}]}}}
+
+@Query(value="name_s:?0 AND type_s:taxonomyElement")
+{"bool": {"must":[{"match" : { "name_s" : "?0" }},{"match" : { "type_s" : "taxonomyElement" }}]}}
+{"query": {"bool": {"must":[{"match" : { "name_s" : "?0" }},{"match" : { "type_s" : "taxonomyElement" }}]}}}
+
+@Query(value="name_s:\"?0\" AND type_s:?1")
+{"bool": {"must":[{"match" : { "name_s" : "?0" }},{"match" : { "type_s" : "?1" }}]}}
+{"query": {"bool": {"must":[{"match" : { "name_s" : "?0" }},{"match" : { "type_s" : "?1" }}]}}}
+x
+@Query(value="type_s:taxonomyElement AND isTextBlock_b:?0 AND name_s:*?1*")
+{\"bool\":{\"must\":[{\"wildcard\":{\"industry\":\"*?0*\"}}]}}
+{"bool": {"must":[{"match" : { "isTextBlock_b" : "?0" }},{"match" : { "type_s" : "taxonomyElement" }}, {"wildcard": {"name_s": "*?1*"}}]}}
+{"query": {"bool": {"must":[{"match" : { "isTextBlock_b" : "?0" }},{"match" : { "type_s" : "taxonomyElement" }}, {"wildcard": {"name_s": "*?1*"}}]}}}
+
+Normalized Facts
+@Query(value = "sub_cik:(?1) AND tag_custom:false AND num_qtrs:(0 1 4)",
+             fields = "fact_fp,fact_fy_i,num_value,sub_cik,cell_elt,tag_datatype,sub_filed_dt,num_uom,tag_iord,dim_segments,sub_act_standard",
+               filters = {"cell_elt:(?0)"} )
+{"bool": {"must":[{"match" : { "sub_cik" : "?1" }},{"match" : { "tag_custom" : false }},{"terms" : {"num_qtrs":[0,1,4]}}],"filter":{"match":{"cell_elt":"?0"}}}}
+{"query": {"bool": {"must":[{"match" : { "sub_cik" : "?1" }},{"match" : { "tag_custom" : false }},{"terms" : {"num_qtrs":[0,1,4]}}],"filter":{"match":{"cell_elt":"?0"}}}}}
+{"query": {"bool": {"must":[{"match" : { "sub_cik" : 18926 }},{"match" : { "tag_custom" : false }},{"terms" : {"num_qtrs":[0,1,4]}}],"filter":{"match":{"cell_elt":"Revenues"}}}}}
+
+@Query(value = "cell_elt:(?0) AND sub_cik:(?1) AND tag_custom:false AND num_qtrs:(0 1 4) AND -dim_segments:*",
+fields = "fact_fp,fact_fy_i,num_value,sub_cik,cell_elt,tag_datatype,sub_filed_dt,num_uom,tag_iord,sub_act_standard" )
+{"bool": {"must":[{"match" : { "cell_elt" : "?0" }},{"match" : { "sub_cik" : "?1" }},{"match": {"tag_custom": false}},{"terms" : {"num_qtrs":[0,1,4]}}],"must_not": {"match": {"dim_seqment": "*"}}}}
+{"query": {"bool": {"must":[{"match" : { "cell_elt" : "?0" }},{"match" : { "sub_cik" : "?1" }},{"match": {"tag_custom": false}},{"terms" : {"num_qtrs":[0,1,4]}}],"must_not": {"match": {"dim_seqment": "*"}}}}}
+{"query": {"bool": {"must":[{"match" : { "cell_elt" : "Revenues" }},{"match" : { "sub_cik" : "18926" }},{"match": {"tag_custom": false}},{"terms" : {"num_qtrs":[0,1,4]}}],"must_not": {"match": {"dim_seqment": "*"}}}}}
+
+
+Term Result
+
+Facet and aggregate
+Result from Solr "show resolved"
+findEntityFacetByTermIdEntitiesFyRange line290
+[0000320193, 0000926326, 0001375365, 0001571996, 0001447599, 0000949158]
+[0000826083, 0000949158, 0001375365, 0001447599]
+
+findEntityFacetByTermIdEntitiesFyRange line304
+[0000826083, 0000949158, 0001375365, 0001447599]
+
+findEntityRankPivotFacetByTermIdEntitiesFyRange line373
+findEntityRankPivotFacetByTermIdEntitiesFyRange line 417
+
+Solr:
+https://md-ud-derasolr01.ix.sec.gov:8983/solr/MaxDS_TermResults/select?facet.field=entityId&facet.limit=1000&facet.mincount=1&facet=on&fq=myDocType%3AprimaryTermResult&fq=termId%3ATest2&q=*%3A*
+Elastic: Need to set fielddata to true for the aggregate field in mapping if the original field is text type.
+PUT maxds_term_result_new/_mapping
+{
+  "properties": {
+    "entityId": {
+      "type": "text",
+	  "fielddata": true
+    }
+  }
+}
+and then ...
+@Query(value = "myDocType:(?5) AND termId:(?0) AND entityId:(?1) AND FY:[?2 TO ?3] AND FQ:(?4)")
+    @Facet(fields = {"entityId"}, minCount = 1, limit = 1000)
+findEntityFacetByTermIdEntitiesFYRangeFQ()
+{"bool": {"must":[{"match" : { "myDocType" : "?5" }},{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "FQ" : "?4" }},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}},"aggs": {"entityId": {"terms":{"field":"entityId","min_doc_count":1, "size":1000}}}
+{"query":{"bool": {"must":[{"match" : { "myDocType" : "?5" }},{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "FQ" : "?4" }},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}},"aggs": {"entityId": {"terms":{"field":"entityId","min_doc_count":1, "size":1000}}}}
+{"query":{"bool": {"must":[{"match" : { "myDocType" : "primaryTermResult" }},{"match" : { "termId" : "Test2" }},{"match" : { "entityId" : "?1" }},{"match" : { "FQ" : "FY" }},{"range": {"FY": {"gte": "2017", "lte": "2021"}}}]}},"aggs": {"entityId": {"terms":{"field":"entityId","min_doc_count":1, "size":1000}}}}
+
+@Query(value = "myDocType:(?5) AND termId:(?0) AND entityId:(?1) AND FY:[?2 TO ?3] AND FQ:(?4) AND validationStatus:InValid")
+    @Facet(fields = {"entityId"}, minCount = 1, limit = 1000)
+findEntityFacetByTermIdEntitiesFYRangeFQWithValError()
+{"bool": {"must":[{"match" : { "myDocType" : "?5" }},{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "FQ" : "?4" }},{"match" : { "validationStatus" : "InValid" }},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}},"aggs": {"entityId": {"terms":{"field":"entityId","min_doc_count":1, "size":1000}}}
+{"query":{"bool": {"must":[{"match" : { "myDocType" : "?5" }},{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "FQ" : "?4" }},{"match" : { "validationStatus" : "InValid" }},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}},"aggs": {"entityId": {"terms":{"field":"entityId","min_doc_count":1, "size":1000}}}}
+
+@Query(value = "myDocType:(?4) AND termId:(?0) AND entityId:(?1) AND FY:[?2 TO ?3]")
+    @Facet(fields = {"entityId"}, minCount = 1, limit = 1000)
+    public FacetPage<TermResultsDoc> findEntityFacetByTermIdEntitiesFYRange()
+{"bool": {"must":[{"match" : { "myDocType" : "?4" }},{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}},"aggs": {"entityId": {"terms":{"field":"entityId","min_doc_count":1, "size":1000}}}
+{"query":{"bool": {"must":[{"match" : { "myDocType" : "?4" }},{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}},"aggs": {"entityId": {"terms":{"field":"entityId","min_doc_count":1, "size":1000}}}}
+
+{ "query": {
+    		"bool": {
+    		     "must": [
+    		        {"match" : { "myDocType" : "primaryTermResult" }}, 
+    			{"match" : { "termId" : "SALE" }},
+    				{"range": {"FY": {"gte": "2018", "lte": "2022"}}}
+    		     ],
+    		      "filter": [ 
+    		       { "terms":  { "entityId.keyword": ["0001003935", "0001372612", "0001404655", "0000758004", "0000910638", "0001013462", "0001697818", "0001768267", "0001134203", "0001701040", "0001528903", "0001679826", "0001540755", "0001410384", "0001066026", "0001739942", "0000718877", "0001665658", "0001644675", "0001724570", "0001110646", "0000712515", "0001366561", "0000885740", "0001373715", "0001453814", "0001169561", "0001092699", "0001598110", "0001015922", "0001437352", "0001607310", "0000849399", "0001441683", "0001447669", "0001341439", "0001626450", "0001095291", "0001660134", "0001526160", "0000935494", "0001305294", "0001795589", "0000860731", "0001107843", "0001477333", "0001561550", "0001070235", "0001073349", "0001666134", "0001393052", "0001280058", "0000890801", "0001094005", "0001786352", "0001100969", "0001084755", "0001124610", "0001088033", "0001627014", "0001689923", "0001106942", "0001660280", "0001002517", "0001344632", "0001085280", "0001707753", "0000859014", "0001459417", "0001591698", "0001321655", "0000896878", "0001794515", "0001445305", "0000935036", "0001420302", "0001056696", "000"0002491", "0001423774", "0001"000184", "0001428669", "0001568100", "0001050446", "0000896841", "0001505155", "0000857005", "0001355754", "0001117106", "0001505952", "0001725057", "0001560327", "0000835729", "0001359711", "0001080099", "0001467623", "0001650372", "0001254419", "0000876167", "0001402305", "0001016125", "0001528396", "0000877890", "0001418100", "0001348036", "0001361113", "0001514416", "0001643269", "0000813672", "0001773383", "0001477720", "0001668105", "0001627857", "0000946581", "0000883241", "0001827090", "0001784535", "0001800667", "0001824814", "0001086909", "0001517375", "0001517650", "0001402436", "0001779474", "0001163932", "0001122388", "0001102993", "0001433195", "0001517413", "0001191141", "0001459200", "0001640147", "0001590955", "0001261333", "0001401680", "0001783317", "0000796343", "0001618732", "0001448056", "0001353283", "0001610601", "0001721947", "0001385867", "0001802883", "0001364962", "0001160951", "0001031308", "0001441816", "0001902733", "0001108524", "0001286225", "0001535379", "0001512673", "0001701732", "0000789019", "0001764925", "0000356028", "0000816761", "0001169652", "0001810806", "0001535527", "0001303652", "0000769397] }}
+    		     ]
+    		    }
+    		  },
+    		"aggs": {"entityId": {"terms":{"field":"entityId","min_doc_count":1, "size":1000}}}
+}
+			
+			
+@Query(value = "myDocType:(?4) AND termId:(?0) AND entityId:(?1) AND FY:[?2 TO ?3] AND validationStatus:InValid")
+    @Facet(fields = {"entityId"}, minCount = 1, limit = 1000)
+public FacetPage<TermResultsDoc> findEntityFacetByTermIdEntitiesFYRangeWithValError()
+{"bool": {"must":[{"match" : { "myDocType" : "?4" }},{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "validationStatus" : "InValid" }},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}},"aggs": {"entityId": {"terms":{"field":"entityId","min_doc_count":1, "size":1000}}}
+{"query":{"bool": {"must":[{"match" : { "myDocType" : "?4" }},{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "validationStatus" : "InValid" }},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}},"aggs": {"entityId": {"terms":{"field":"entityId","min_doc_count":1, "size":1000}}}}
+
+   @Query(value = "myDocType:(?5) AND termId:(?0) AND entityId:(?1) AND FY:[?2 TO ?3] AND FQ:(?4) AND rank:(?6)")
+    @Facet(fields = {"entityId"}, minCount = 1, limit = 1000)
+public FacetPage<TermResultsDoc> findEntityFacetByTermIdEntitiesFYRangeFQRank()
+{"bool": {"must":[{"match" : { "myDocType" : "?5" }},{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "FQ" : "?4" }},{"match" : { "rank" : "?6" }},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}},"aggs": {"entityId": {"terms":{"field":"entityId","min_doc_count":1, "size":1000}}}
+{"query":{"bool": {"must":[{"match" : { "myDocType" : "?5" }},{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "FQ" : "?4" }},{"match" : { "rank" : "?6" }},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}},"aggs": {"entityId": {"terms":{"field":"entityId","min_doc_count":1, "size":1000}}}}
+
+@Query(value = "myDocType:(?5) AND termId:(?0) AND entityId:(?1) AND FY:[?2 TO ?3] AND FQ:(?4) AND rank:(?6) AND validationStatus:InValid")
+    @Facet(fields = {"entityId"}, minCount = 1, limit = 1000)
+    public FacetPage<TermResultsDoc> findEntityFacetByTermIdEntitiesFYRangeFQRankWithValError()
+{"bool": {"must":[{"match" : { "myDocType" : "?5" }},{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "FQ" : "?4" }},{"match" : { "rank" : "?6" }},{"match" : { "validationStatus" : "InValid" }},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}},"aggs": {"entityId": {"terms":{"field":"entityId","min_doc_count":1, "size":1000}}}
+{"query":{"bool": {"must":[{"match" : { "myDocType" : "?5" }},{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "FQ" : "?4" }},{"match" : { "rank" : "?6" }},{"match" : { "validationStatus" : "InValid" }},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}},"aggs": {"entityId": {"terms":{"field":"entityId","min_doc_count":1, "size":1000}}}}
+
+@Query(value = "myDocType:(?4) AND termId:(?0) AND entityId:(?1) AND FY:[?2 TO ?3] AND rank:(?5)")
+    @Facet(fields = {"entityId"}, minCount = 1, limit = 1000)
+    public FacetPage<TermResultsDoc> findEntityFacetByTermIdEntitiesFYRangeRank()
+{"bool": {"must":[{"match" : { "myDocType" : "?4" }},{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "rank" : "?5" }},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}},"aggs": {"entityId": {"terms":{"field":"entityId","min_doc_count":1, "size":1000}}}
+{"query":{"bool": {"must":[{"match" : { "myDocType" : "?4" }},{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "rank" : "?5" }},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}},"aggs": {"entityId": {"terms":{"field":"entityId","min_doc_count":1, "size":1000}}}}
+
+     @Query(value = "myDocType:(?4) AND termId:(?0) AND entityId:(?1) AND FY:[?2 TO ?3] AND rank:(?5) AND validationStatus:InValid")
+    @Facet(fields = {"entityId"}, minCount = 1, limit = 1000)
+    public FacetPage<TermResultsDoc> findEntityFacetByTermIdEntitiesFYRangeRankWithValError()
+{"bool": {"must":[{"match" : { "myDocType" : "?4" }},{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "rank" : "?5" }},{"match" : { "validationStatus" : "InValid" }},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}},"aggs": {"entityId": {"terms":{"field":"entityId","min_doc_count":1, "size":1000}}}
+{"query":{"bool": {"must":[{"match" : { "myDocType" : "?4" }},{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "rank" : "?5" }},{"match" : { "validationStatus" : "InValid" }},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}},"aggs": {"entityId": {"terms":{"field":"entityId","min_doc_count":1, "size":1000}}}}
+
+@Query(value = "myDocType:(?4) AND termId:(?0) AND entityId:(?1) AND FY:[?2 TO ?3]")
+    @Facet(pivots = @Pivot({"rank", "entityId"}), limit = 15000)
+    public FacetPage<TermResultsDoc> findEntityRankPivotFacetByTermIdEntitiesFYRange()
+{"bool": {"must":[{"match" : { "myDocType" : "?4" }},{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}},"aggs": {"rank_entityId": {"multi_terms":{"terms":[{"field":"rank"},{"field":"entityId"}],"size":15000}}} 
+{"query":{"bool": {"must":[{"match" : { "myDocType" : "?4" }},{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}},"aggs": {"rank_entityId": {"multi_terms":{"terms":[{"field":"rank"},{"field":"entityId"}],"size":15000}}}}
+
+@Query(value = "myDocType:(?4) AND termId:(?0) AND entityId:(?1) AND FY:[?2 TO ?3]  AND FQ:FY")
+    @Facet(pivots = @Pivot({"rank", "entityId"}), limit = 15000)
+    public FacetPage<TermResultsDoc> findEntityRankPivotFacetByTermIdEntitiesFYRangeFQ()
+{"bool": {"must":[{"match" : { "myDocType" : "?4" }},{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "FQ" : "FY" }},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}},"aggs": {"rank_entityId": {"multi_terms":{"terms":[{"field":"rank"},{"field":"entityId"}],"size":15000}}} 
+{"query":{"bool": {"must":[{"match" : { "myDocType" : "?4" }},{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "FQ" : "FY" }},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}},"aggs": {"rank_entityId": {"multi_terms":{"terms":[{"field":"rank"},{"field":"entityId"}],"size":15000}}}}
+
+@Query(value = "myDocType:(?4) AND termId:(?0) AND entityId:(?1) AND FY:[?2 TO ?3]")
+    @Facet(pivots = @Pivot({"FY", "entityId"}), limit = 15000)
+    public FacetPage<TermResultsDoc> findEntityYearPivotFacetByTermIdEntitiesFYRange()
+{"bool": {"must":[{"match" : { "myDocType" : "?4" }},{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}},"aggs": {"fy_entityId": {"multi_terms":{"terms":[{"field":"FY"},{"field":"entityId"}],"size":15000}}} 
+{"query":{"bool": {"must":[{"match" : { "myDocType" : "?4" }},{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}},"aggs": {"fy_entityId": {"multi_terms":{"terms":[{"field":"FY"},{"field":"entityId"}],"size":15000}}}}
+
+@Query(value = "myDocType:(?4) AND termId:(?0) AND entityId:(?1) AND FY:[?2 TO ?3] AND FQ:FY")
+    @Facet(pivots = @Pivot({"FY", "entityId"}), limit = 15000)
+    public FacetPage<TermResultsDoc> findEntityYearPivotFacetByTermIdEntitiesFYRangeFQ()
+{"bool": {"must":[{"match" : { "myDocType" : "?4" }},{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "FQ" : "FY" }},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}},"aggs": {"fy_entityId": {"multi_terms":{"terms":[{"field":"FY"},{"field":"entityId"}],"size":15000}}} 
+{"query":{"bool": {"must":[{"match" : { "myDocType" : "?4" }},{"match" : { "termId" : "?0" }},{"match" : { "entityId" : "?1" }},{"match" : { "FQ" : "FY" }},{"range": {"FY": {"gte": "?2", "lte": "?3"}}}]}},"aggs": {"fy_entityId": {"multi_terms":{"terms":[{"field":"FY"},{"field":"entityId"}],"size":15000}}}}
+
+@Query(value = "myDocType:(?3) AND termId:(?0) AND FY:[?1 TO ?2]")
+    @Facet(pivots = @Pivot({"FY", "entityId"}), limit = 15000)
+    public FacetPage<TermResultsDoc> findAllEntityYearPivotFacetByTermIdEntitiesFYRange()
+{"bool": {"must":[{"match" : { "myDocType" : "?3" }},{"match" : { "termId" : "?0" }},{"range": {"FY": {"gte": "?1", "lte": "?2"}}}]}},"aggs": {"fy_entityId": {"multi_terms":{"terms":[{"field":"FY"},{"field":"entityId"}],"size":15000}}} 
+{"query":{"bool": {"must":[{"match" : { "myDocType" : "?3" }},{"match" : { "termId" : "?0" }},{"range": {"FY": {"gte": "?1", "lte": "?2"}}}]}},"aggs": {"fy_entityId": {"multi_terms":{"terms":[{"field":"FY"},{"field":"entityId"}],"size":15000}}}}
+
+@Query(value = "myDocType:(?3) AND termId:(?0) AND FY:[?1 TO ?2] AND FQ:FY")
+    @Facet(pivots = @Pivot({"FY", "entityId"}), limit = 15000)
+    public FacetPage<TermResultsDoc> findAllEntityYearPivotFacetByTermIdEntitiesFYRangeFQ()
+{"bool": {"must":[{"match" : { "myDocType" : "?3" }},{"match" : { "termId" : "?0" }},{"match" : { "FQ" : "FY" }},{"range": {"FY": {"gte": "?1", "lte": "?2"}}}]}},"aggs": {"fy_entityId": {"multi_terms":{"terms":[{"field":"FY"},{"field":"entityId"}],"size":15000}}} 
+{"query":{"bool": {"must":[{"match" : { "myDocType" : "?3" }},{"match" : { "termId" : "?0" }},{"match" : { "FQ" : "FY" }},{"range": {"FY": {"gte": "?1", "lte": "?2"}}}]}},"aggs": {"fy_entityId": {"multi_terms":{"terms":[{"field":"FY"},{"field":"entityId"}],"size":15000}}}}
+
+
+Raw query parameters: facet.mincount=1&facet.pivot=rank,entityId&facet.limit=10
+
+apiController.getAllTermResultsByTermRuleAndEntity(),
+	termResultService.findBaseInfoByTermIdAndEntity(), 
+		resultsSolrRepo.findByEntityIdAndTermIdAndMyDocType(),[]
+		resultsSolrRepo.findByEntityIdAndTermIdAndMyDocType(),[]
+apiController.postMappedEntitiesForTermRuleForCriteria(),
+	termResultService.getEntitiesForTermRuleAndRank(), 
+		entityService.findEntitiesByDivisionSectorAndSicCode() 7
+	termResultService.getDistinctEntitiesByType() primaryTermResult
+		resultsSolrRepo.findEntityFacetByTermIdEntitiesFyRange() facetPage 77
+	termResultService.getDistinctEntitiesByType() derivedZeroTermResult
+		resultsSolrRepo.findEntityFacetByTermIdEntitiesFyRange() facetPage 22
+apiController.postTermRuleStatisticsforCriteria(),
+	termResultService.getTermRuleStatisticsByRank(),
+		entityService.findByDivisionSectorAndSicCode(), got entityMap 7
+		termResultService.buildStatisticsByRank()
+			resultsSolrRepo.findEntityRankPivotFacetByTermIdEntitiesFyRange() facetPage 77 primaryTermResult
+			resultsSolrRepo.findEntityRankPivotFacetByTermIdEntitiesFyRange() facetPage 22 derivedZeroTermResult
+	
+entityMap returned by entityService.findEntitiesByDivisionSectorAndSicCode()
+
+0000320193, 0000926326, 0001375365, 0000826083, 0001447599, 0001571996, 0000949158 
+16			15			15						11			15			5
+Following query works!
+{
+  "query": { 
+    "bool": {
+      "must": [
+        {"match" : { "myDocType" : "primaryTermResult" }},  
+		{"match" : { "termId" : "CHEC" }},
+		{"range": {"FY": {"gte": "2018", "lte": "2022"}}}
+      ],
+      "filter": [ 
+        { "terms":  { "entityId": ["0000320193","0000926326","0001375365","0000826083","0001447599","0001571996","0000949158"] }}
+      ]
+    }
+  },
+  "aggs": {"entityId": {"terms":{"field":"entityId","min_doc_count":1, "size":1000}}}
+}
+
+{ 
+    "bool": {
+      "must": [
+        {"match" : { "myDocType" : "?4" }},  
+		{"match" : { "termId" : ["?0"] }},
+		{"range": {"FY": {"gte": "?2", "lte": "?3"}}}
+      ],
+      "filter": [ 
+        { "terms":  { "entityId": ?1 }}
+      ]
+    }
+  },
+  "aggs": {"entityId": {"terms":{"field":"entityId","min_doc_count":1, "size":1000}}}
+  
+  [0000826083, 0000949158, 0001375365, 0001447599]
+
+For Pivot facet:
+findEntityRankPivotFacetByTermIdEntitiesFYRange()
+{
+	"query":{
+		"bool": {
+			"must":[
+				{"match" : { "myDocType" : "?4" }},
+				{"match" : { "termId" : "?0" }},
+				{"range": {"FY": {"gte": "?2", "lte": "?3"}}}
+			],
+			"filter": [ 
+				{ "terms":  { "entityId": ["0000320193","0000926326","0001375365","0000826083","0001447599","0001571996","0000949158"] }}
+			]
+		}
+	},
+	"aggs": {"rank_entityId": {"multi_terms":{"terms":[{"field":"rank"},{"field":"entityId"}],"size":15000}}}
+}
+
+
+{
+  "query": { 
+    "bool": {
+      "must": [
+        {"match" : { "myDocType" : "primaryTermResult" }},  
+		{"range": {"FY": {"gte": "2018", "lte": "2022"}}}
+      ], 
+      "should": [
+        { "terms":  { "entityId": ["0000320193","0000926326","0001375365","0000826083","0001447599","0001571996","0000949158"] }},
+        { "terms":  { "termId": ["CHEC"] }}
+      ]
+    }
+  }
+}
+
+
+findByTermIdInAndEntityIdInAndFYBetween() with collection in parameters
+{
+  "query": { 
+    "bool": {
+      "must": [
+        {"match" : { "myDocType" : "primaryTermResult" }},  
+		{"range": {"FY": {"gte": "2018", "lte": "2022"}}}
+      ], 
+      "filter": { "bool": { "should": [
+                { "terms":  { "termId": ["CHEC"] }},
+				{ "terms":  { "entityId": ["0000320193"] }}
+      ]}}
+    }
+  }
+}
+
+{
+  "query": 
+  {
+    		"bool": {
+    	    "must": [
+    	      {"match" : { "myDocType" : "primaryTermResult" }},
+    		    {"range": {"FY": {"gte": "2020", "lte": "2020"}}}
+    		    ], 
+    		    "filter": { "bool": { "should": [
+    		              { "terms":  { "termId": ["AP"] }},
+    		              { "terms":  { "entityId":["0000789019"] }}
+    		          
+    		          ] } }
+    		}
+  }
+}
+
+
+
+
+
+findByTermsInAndEntityIdAndFYAndFQ()
+"termId:(?0) AND entityId:?1 AND FY:?2 AND FQ:?3 AND myDocType:primaryTermResult"
+{
+  "query": { 
+    "bool": {
+      "must": [
+        {"match" : { "myDocType" : "primaryTermResult" }},  
+		{"match" : { "entityId" : "?1" }}, 
+		{"match": {"FY": "?2" }},
+		{"match": {"FQ": "?3" }}
+      ], 
+      "filter": [
+         { "terms":  { "termId": ?0 }}
+	  ]
+    }
+  }
+}
+
+{
+  "query": { 
+    "bool": {
+      "must": [
+        {"match" : { "myDocType" : "primaryTermResult" }},  
+		{"match" : { "entityId" : "0000320193" }}, 
+		{"match": {"FY": "2021" }},
+		{"match": {"FQ": "FY" }}
+      ], 
+      "filter": [
+         { "terms":  { "termId": ["CI", "TXT", "NIP", "ACT", "LT", "ETRQ", "LSE", "STAT", "GP", "LCT"] }}
+	  ]
+    }
+  }
+}
+
+//@Query(value = "termId:(?0) AND FY:[?1 TO ?2] AND myDocType:primaryTermResult")
+    @Query("{\"bool\": {\"must\":[{\"match\" : { \"termId\" : \"?0\" }},{\"match\" : { \"myDocType\" : \"primaryTermResult\" }}, {\"range\": {\"FY\": {\"gte\": \"?1\", \"lte\": \"?2\"}}}]}}")
+    public List<TermResultsDoc> findByTermsAndFY(Collection<String> termIds, int start, int end);
+{
+  "query": { 
+    "bool": {
+      "must": [
+        {"match" : { "myDocType" : "primaryTermResult" }},  
+		{"range": {"FY": {"gte": "2018", "lte": "2022"}}}
+      ], 
+      "filter":[
+                { "terms":  { "termId": ["CHEC"] }}
+      ]
+    }
+  }
+}
+
+//@Query(value = "termId:(?0) AND entityId:(?1) AND FY:[?2 TO ?3] AND -FQ:FY AND myDocType:primaryTermResult")
+    @Query(" {\"bool\": {\"must\":[{\"match\" : { \"termId\" : \"?0\" }},{\"match\" : { \"entityId\" : \"?1\" }},{\"match\" : { \"myDocType\" : \"primaryTermResult\" }}, {\"range\": {\"FY\": {\"gte\": \"?2\", \"lte\": \"?3\"}}}]}}")
+    public List<TermResultsDoc> findByTermsEntitiesAndFYQuarterlyOnly(Collection<String> termIds,
+            Collection<String> entityIds, int start, int end);
+{
+  "query": { 
+    "bool": {
+      "must": [
+        {"match" : { "myDocType" : "primaryTermResult" }},  
+		{"range": {"FY": {"gte": "?2", "lte": "?3"}}}
+      ], 
+	  "must_not": [
+		{"match": { "FQ" : "FY" }}
+	  ]
+      "filter": { "bool": { "should": [
+                { "terms":  { "termId": ?0 }},
+				{ "terms":  { "entityId": ?1 }}
+      ]}}
+    }
+  }
+}
+
+//@Query(value = "termId:(?0) AND FY:[?1 TO ?2] AND -FQ:FY AND myDocType:primaryTermResult")
+    @Query("{\"bool\": {\"must\":[{\"match\" : { \"termId\" : \"?0\" }},{\"match\" : { \"myDocType\" : \"primaryTermResult\" }}, {\"range\": {\"FY\": {\"gte\": \"?1\", \"lte\": \"?2\"}}}], \"must_not\":[{\"match\" : { \"FQ\" : \"FY\" }}]}}")
+    public List<TermResultsDoc> findByTermsAndFYQuarterlyOnly(Collection<String> termIds, int start, int end);
+{
+  "query": { 
+    "bool": {
+      "must": [
+        {"match" : { "myDocType" : "primaryTermResult" }},  
+		{"range": {"FY": {"gte": "?1", "lte": "?2"}}}
+      ], 
+	  "must_not": [
+		{"match": { "FQ" : "FY" }}
+	  ]
+      "filter": [
+                { "terms":  { "termId": ?0 }}
+      ]
+    }
+  }
+}
+
+//@Query(value = "termId:(?0) AND entityId:(?1) AND FY:[?2 TO ?3] AND FQ:FY AND myDocType:primaryTermResult")
+    @Query("{\"bool\": {\"must\":[{\"match\" : { \"termId\" : \"?0\" }},{\"match\" : { \"entityId\" : \"?1\" }},{\"match\" : { \"myDocType\" : \"primaryTermResult\" }},{\"match\" : {\"FQ\":\"FY\"}},{\"range\": {\"FY\": {\"gte\": \"?2\", \"lte\": \"?3\"}}}]}}")
+    public List<TermResultsDoc> findByTermsEntitiesAndFYYealyOnly(Collection<String> termIds,
+            Collection<String> entityIds, int start, int end);
+{
+  "query": { 
+    "bool": {
+      "must": [
+        {"match" : { "myDocType" : "primaryTermResult" }},  
+		{"match" : { "FQ" : "FY" }}, 
+		{"range": {"FY": {"gte": "?2", "lte": "?3"}}}
+      ], 
+      "filter": { "bool": { "should": [
+                { "terms":  { "termId": ?0 }},
+				{ "terms":  { "entityId": ?1 }}
+      ]}}
+    }
+  }
+}			
+
+//@Query(value = "termId:(?0) AND FY:[?1 TO ?2] AND FQ:FY AND myDocType:primaryTermResult")
+    @Query("{\"bool\": {\"must\":[{\"match\" : { \"termId\" : \"?0\" }},{\"match\" : { \"myDocType\" : \"primaryTermResult\" }},{\"match\" : {\"FQ\":\"FY\"}},{\"range\": {\"FY\": {\"gte\": \"?1\", \"lte\": \"?2\"}}}]}}")
+    public List<TermResultsDoc> findByTermsAndFYYealyOnly(Collection<String> termIds,
+            int start, int end);
+{
+  "query": { 
+    "bool": {
+      "must": [
+        {"match" : { "myDocType" : "primaryTermResult" }},  
+		{"match" : { "FQ" : "FY" }}, 
+		{"range": {"FY": {"gte": "?1", "lte": "?2"}}}
+      ], 
+      "filter": [
+                { "terms":  { "termId": ?0 }}
+      ]
+    }
+  }
+}		
+
+{
+  "query": {
+    "bool": {
+      "must": [
+        {"match": { "myDocType" : "primaryTermResult" }},  
+		{"match": { "entityId" : "0000320193" }}, 
+		{"match": {"FY": "2021" }},
+		{"match": {"FQ": "FY" }}
+      ],
+      "filter": [
+         { "terms":  {"termId": ["CI", "TXT", "NIP", "ACT", "LT", "ETRQ", "LSE", "STAT", "GP", "LCT", "CHEC"] }}
+      ]
+    }
+  }
+} 
+CI,TXT,NIP,ACT,LT,ETRQ,LSE,STAT,GP,LCT,TANEQ,BW,SALE,SEQ,DT,MIBT,CSO,REVT,TEQ,CHEC
+
+
+{
+    "query": {
+        "terms" : { "termId" : ["CHEC", "REVT"]}
+    }
+}
+
+
+

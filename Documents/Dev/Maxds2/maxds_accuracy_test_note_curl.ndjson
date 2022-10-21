@@ -1,0 +1,42 @@
+ { "create": { } }
+ {"id":"0000078003-2017-FY-LSE","entityId_s":"0000078003","fy_i":2017,"fq_s":"FY","termId_s":"LSE","isCheckedCS_b":true,"isCheckedMaxDS_b":false,"notes_s":"Golden"}
+      { "create": { } }
+ {"id":"0000078003-2017-FY-STAT","entityId_s":"0000078003","fy_i":2017,"fq_s":"FY","termId_s":"STAT","isCheckedCS_b":false,"isCheckedMaxDS_b":false}
+      { "create": { } }
+ {"id":"0000078003-2017-FY-LT","entityId_s":"0000078003","fy_i":2017,"fq_s":"FY","termId_s":"LT","isCheckedCS_b":false,"isCheckedMaxDS_b":true,"notes_s":"Good One"}
+      { "create": { } }
+ {"id":"0000078003-2017-FY-CI","entityId_s":"0000078003","fy_i":2017,"fq_s":"FY","termId_s":"CI","isCheckedCS_b":false,"isCheckedMaxDS_b":false}
+      { "create": { } }
+ {"id":"0000078003-2017-FY-REVT","entityId_s":"0000078003","fy_i":2017,"fq_s":"FY","termId_s":"REVT","isCheckedCS_b":true,"isCheckedMaxDS_b":false,"notes_s":"Nice"}
+      { "create": { } }
+ {"id":"0000055785-2017-FY-MIBT","entityId_s":"0000055785","fy_i":2017,"fq_s":"FY","termId_s":"MIBT","isCheckedCS_b":false,"isCheckedMaxDS_b":false}
+      { "create": { } }
+ {"id":"0000055785-2016-FY-REVT","entityId_s":"0000055785","fy_i":2016,"fq_s":"FY","termId_s":"REVT","isCheckedCS_b":false,"isCheckedMaxDS_b":false}
+      { "create": { } }
+ {"id":"0000055785-2016-FY-LSE","entityId_s":"0000055785","fy_i":2016,"fq_s":"FY","termId_s":"LSE","isCheckedCS_b":false,"isCheckedMaxDS_b":false}
+      { "create": { } }
+ {"id":"0000055785-2016-FY-LT","entityId_s":"0000055785","fy_i":2016,"fq_s":"FY","termId_s":"LT","isCheckedCS_b":false,"isCheckedMaxDS_b":true,"notes_s":"COMPUSTAT does not include \"Redeemable Preferred Securities of Subsidiaries\" line item in LT. MAXDS and the filer do include this line item in LT."}
+      { "create": { } }
+ {"id":"0000055785-2016-FY-CI","entityId_s":"0000055785","fy_i":2016,"fq_s":"FY","termId_s":"CI","isCheckedCS_b":false,"isCheckedMaxDS_b":false}
+      { "create": { } }
+ {"id":"0000055785-2016-FY-STAT","entityId_s":"0000055785","fy_i":2016,"fq_s":"FY","termId_s":"STAT","isCheckedCS_b":false,"isCheckedMaxDS_b":false}
+      { "create": { } }
+ {"id":"0000055785-2016-FY-CHEC","entityId_s":"0000055785","fy_i":2016,"fq_s":"FY","termId_s":"CHEC","isCheckedCS_b":false,"isCheckedMaxDS_b":false}
+      { "create": { } }
+ {"id":"0000055785-2016-FY-TEQ","entityId_s":"0000055785","fy_i":2016,"fq_s":"FY","termId_s":"TEQ","isCheckedCS_b":false,"isCheckedMaxDS_b":false}
+      { "create": { } }
+ {"id":"0000055785-2017-FY-REVT","entityId_s":"0000055785","fy_i":2017,"fq_s":"FY","termId_s":"REVT","isCheckedCS_b":false,"isCheckedMaxDS_b":false}
+      { "create": { } }
+ {"id":"0000055785-2017-FY-LSE","entityId_s":"0000055785","fy_i":2017,"fq_s":"FY","termId_s":"LSE","isCheckedCS_b":false,"isCheckedMaxDS_b":false}
+      { "create": { } }
+ {"id":"0000055785-2017-FY-LT","entityId_s":"0000055785","fy_i":2017,"fq_s":"FY","termId_s":"LT","isCheckedCS_b":false,"isCheckedMaxDS_b":true,"notes_s":"COMPUSTAT does not include \"Redeemable Preferred Securities of Subsidiaries\" line item in LT. MAXDS and the filer do include this line item in LT."}
+      { "create": { } }
+ {"id":"0000055785-2017-FY-CI","entityId_s":"0000055785","fy_i":2017,"fq_s":"FY","termId_s":"CI","isCheckedCS_b":false,"isCheckedMaxDS_b":false}
+      { "create": { } }
+ {"id":"0000055785-2017-FY-STAT","entityId_s":"0000055785","fy_i":2017,"fq_s":"FY","termId_s":"STAT","isCheckedCS_b":false,"isCheckedMaxDS_b":true}
+      { "create": { } }
+ {"id":"0000055785-2017-FY-CHEC","entityId_s":"0000055785","fy_i":2017,"fq_s":"FY","termId_s":"CHEC","isCheckedCS_b":false,"isCheckedMaxDS_b":true}
+      { "create": { } }
+ {"id":"0000055785-2017-FY-TEQ","entityId_s":"0000055785","fy_i":2017,"fq_s":"FY","termId_s":"TEQ","isCheckedCS_b":false,"isCheckedMaxDS_b":false}
+      { "create": { } }
+ {"id":"null-0-FY-CSO","fy_i":0,"fq_s":"FY","termId_s":"CSO","isCheckedCS_b":false,"isCheckedMaxDS_b":true,"notes_s":"MAXDS is right"}

@@ -1,0 +1,17 @@
+API for Term Process on Entities:
+https://sp-us-deraodp01.ix.sec.gov:18081/api/TermRule/ProcessRuleForEntity?termIds=CHEC,SALE&ciks=0001018724,0000320193&userId=zhaoq
+API for status of Term Process on Entities:
+https://sp-us-deraodp01.ix.sec.gov:18081/api/ProcessStatus/e2d707a0-a4fa-4478-a210-ac3dc278f34c
+API for result of Term Process on Entities:
+https://sp-us-deraodp01.ix.sec.gov:18081/api/ProcessResults?termRuleId=CHEC&cik=0001018724
+
+API for Accuracy Test:
+https://sp-us-deraodp01.ix.sec.gov:18081/api/ProcessAccuracyTest?userId=zhaoq
+API for status of Accuracy Test:
+https://sp-us-deraodp01.ix.sec.gov:18081/api/ProcessAccuracyTestStatus?startTimeStamp=1621342401190
+
+API for process Accuracy Test of an Entity and Year:
+https://sp-us-deraodp01.ix.sec.gov:18081/api/AccuracyTest?cik=0001018724&fiscalYear=2020
+
+API for process Accuracy Test of an Entity and its Peer Group
+https://localhost:18081/api/ProcessEntityAccuracyTest?cik=0000320193&goToPeer=true&userId=zhaoq

@@ -1,0 +1,45 @@
+\set ON_ERROR_STOP
+\set ECHO all
+BEGIN;
+\set ECHO all
+CREATE SEQUENCE "norm2_ops"."maxdfeedback_feedbackid_seq" INCREMENT BY 1 START WITH 1 OWNED BY "norm2_ops"."maxdfeedback"."feedbackid";
+CREATE SEQUENCE "norm2_ops"."maxdsfeedback_id_seq" INCREMENT BY 1 START WITH 1 OWNED BY "norm2_ops"."maxdsfeedback"."id";
+CREATE SEQUENCE "norm2_ops"."maxdspreferences46_preferenceid_seq" INCREMENT BY 1 START WITH 1 OWNED BY "norm2_ops"."maxdspreferences46"."preferenceid";
+CREATE SEQUENCE "norm2_ops"."maxdspreferences_preferenceid_seq" INCREMENT BY 1 START WITH 1 OWNED BY "norm2_ops"."maxdspreferences"."preferenceid";
+CREATE SEQUENCE "norm2_ops"."maxdssharedpreferences46_preferenceid_seq" INCREMENT BY 1 START WITH 1 OWNED BY "norm2_ops"."maxdssharedpreferences46"."preferenceid";
+CREATE SEQUENCE "norm2_ops"."maxdssharedpreferences_preferenceid_seq" INCREMENT BY 1 START WITH 1 OWNED BY "norm2_ops"."maxdssharedpreferences"."preferenceid";
+ALTER TABLE "norm2_ops"."maxdfeedback" ADD PRIMARY KEY ("feedbackid");
+ALTER TABLE "norm2_ops"."maxdspreferences" ADD PRIMARY KEY ("preferenceid");
+ALTER TABLE "norm2_ops"."maxdspreferences46" ADD PRIMARY KEY ("preferenceid");
+ALTER TABLE "norm2_ops"."maxdssharedpreferences" ADD PRIMARY KEY ("preferenceid");
+ALTER TABLE "norm2_ops"."maxdssharedpreferences46" ADD PRIMARY KEY ("preferenceid");
+ALTER TABLE "norm2_ops"."maxdsfeedback" ADD PRIMARY KEY ("id");
+ALTER TABLE "norm2_ops"."maxdsaccuracytestcases" ADD CONSTRAINT "accuracy_pk" UNIQUE ("company_name","year","term_name");
+ALTER TABLE "norm2_ops"."maxdspreferences" ADD CONSTRAINT "ak_company_name_code" UNIQUE ("code","userid","preferencename");
+ALTER TABLE "norm2_ops"."maxdspreferences46" ADD CONSTRAINT "ak_company_name_code_maxdspreferences46" UNIQUE ("code","userid","preferencename");
+ALTER TABLE "norm2_ops"."maxdsprofiletestcases" ADD CONSTRAINT "profile_pk" UNIQUE ("company_name","term_name","year");
+ALTER TABLE "norm2_ops"."maxdfeedback" ALTER COLUMN "feedbackid" SET DEFAULT nextval('"norm2_ops"."maxdfeedback_feedbackid_seq"');
+ALTER TABLE "norm2_ops"."maxdspreferences" ALTER COLUMN "preferenceid" SET DEFAULT nextval('"norm2_ops"."maxdspreferences_preferenceid_seq"');
+ALTER TABLE "norm2_ops"."maxdspreferences" ALTER COLUMN "research_link" SET DEFAULT 'NA';
+ALTER TABLE "norm2_ops"."maxdspreferences" ALTER COLUMN "results_link" SET DEFAULT 'NA';
+ALTER TABLE "norm2_ops"."maxdspreferences" ALTER COLUMN "validation_status" SET DEFAULT 'NA';
+ALTER TABLE "norm2_ops"."maxdspreferences" ALTER COLUMN "isquaterly" SET DEFAULT 'FALSE';
+ALTER TABLE "norm2_ops"."maxdspreferences46" ALTER COLUMN "fsqv_link" SET DEFAULT 'NA';
+ALTER TABLE "norm2_ops"."maxdspreferences46" ALTER COLUMN "preferenceid" SET DEFAULT nextval('"norm2_ops"."maxdspreferences46_preferenceid_seq"');
+ALTER TABLE "norm2_ops"."maxdspreferences46" ALTER COLUMN "research_link" SET DEFAULT 'NA';
+ALTER TABLE "norm2_ops"."maxdspreferences46" ALTER COLUMN "results_link" SET DEFAULT 'NA';
+ALTER TABLE "norm2_ops"."maxdspreferences46" ALTER COLUMN "validation_status" SET DEFAULT 'NA';
+ALTER TABLE "norm2_ops"."maxdspreferences46" ALTER COLUMN "isquaterly" SET DEFAULT 'FALSE';
+ALTER TABLE "norm2_ops"."maxdssharedpreferences" ALTER COLUMN "preferenceid" SET DEFAULT nextval('"norm2_ops"."maxdssharedpreferences_preferenceid_seq"');
+ALTER TABLE "norm2_ops"."maxdssharedpreferences" ALTER COLUMN "research_link" SET DEFAULT 'NA';
+ALTER TABLE "norm2_ops"."maxdssharedpreferences" ALTER COLUMN "results_link" SET DEFAULT 'NA';
+ALTER TABLE "norm2_ops"."maxdssharedpreferences" ALTER COLUMN "validation_status" SET DEFAULT 'NA';
+ALTER TABLE "norm2_ops"."maxdssharedpreferences" ALTER COLUMN "isquaterly" SET DEFAULT 'FALSE';
+ALTER TABLE "norm2_ops"."maxdssharedpreferences46" ALTER COLUMN "preferenceid" SET DEFAULT nextval('"norm2_ops"."maxdssharedpreferences46_preferenceid_seq"');
+ALTER TABLE "norm2_ops"."maxdssharedpreferences46" ALTER COLUMN "research_link" SET DEFAULT 'NA';
+ALTER TABLE "norm2_ops"."maxdssharedpreferences46" ALTER COLUMN "results_link" SET DEFAULT 'NA';
+ALTER TABLE "norm2_ops"."maxdssharedpreferences46" ALTER COLUMN "validation_status" SET DEFAULT 'NA';
+ALTER TABLE "norm2_ops"."maxdssharedpreferences46" ALTER COLUMN "isquaterly" SET DEFAULT 'FALSE';
+ALTER TABLE "norm2_ops"."maxdsfeedback" ALTER COLUMN "id" SET DEFAULT nextval('"norm2_ops"."maxdsfeedback_id_seq"');
+ALTER TABLE "norm2_ops"."maxdsfeedback" ALTER COLUMN "status" SET DEFAULT 'open';
+COMMIT;

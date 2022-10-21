@@ -1,0 +1,6 @@
+﻿idapRoleId,description
+admin,NULL
+emadmin,NULL
+maxdsadmin,Maxds Admin
+maxdsuser,Maxds User
+osadmin,admin to have edit access on OS module of SRMS

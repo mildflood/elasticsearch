@@ -1,0 +1,46 @@
+{
+
+      "properties": {
+        "sector": {
+          "type": "text"
+        },
+        "division": {
+          "type": "text"
+        },
+        "geoState": {
+          "type": "keyword"
+        },
+        "filerCategory": {
+          "type": "keyword"
+        },
+        "cik": {
+          "type": "long"
+        },
+        "industry": {
+          "type": "text"
+        },
+        "companyName": {
+          "type": "text"
+        },
+        "latestFilingDate": {
+          "type": "long"
+        },
+        "sic": {
+          "type": "long"
+        },
+        "tradingSymbol": {
+          "type": "keyword"
+        },
+        "earliestFilingDate": {
+          "type": "long"
+        },
+        "entityId": {
+          "type": "long"
+        },
+        "id": {
+          "type": "long"
+        }
+      }
+}
+
+sector, division, geoState,filerCategory,cik,industry,companyName,latestFilingDate,sic,tradingSymbol,earliestFilingDate,entityId,id

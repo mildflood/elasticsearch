@@ -1,0 +1,10 @@
+﻿environmentId,name,description,sortOrder
+ci,Continuous Integration Environment,NULL,NULL
+ci1,ci1_testing,NULL,NULL
+dev,Development Environment,NULL,NULL
+emstg,emstg is the profile in stage em-app,NULL,NULL
+lab,lab environment,NULL,NULL
+ops,Backend Operations Environment,NULL,NULL
+prod,Production Environment,NULL,NULL
+prod1,Prod for fsqv solr,NULL,NULL
+stg,Staging  Environment,NULL,NULL

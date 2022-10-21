@@ -1,0 +1,28 @@
+https://us-east-1.console.aws.amazon.com/ecs/home?region=us-east-1#/clusters/dera-idap-IDAPcluster/services
+
+https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks?filteringStatus=active&filteringText=&viewNested=true&hideStacks=false
+
+https://us-east-1.console.aws.amazon.com/ecr/repositories/private/077988995152/dera/maxds/maxds-aws?region=us-east-1
+
+Deloy Maxds via CICD pipeline to cloud:
+1. checkout feature branch
+2. make the change
+3. update pom.xml and workspace/docker file with a new version number 
+4. checkin changes to feature branch
+5. create merge request to dev
+6. pipeline build/deploy successfully
+7. go to ECR (Elastic Container Registry) to find image repositories dera/maxds/maxds-awsmaxds and get newly generated image URI and Digest 
+8. go to cloudFormation Stacks and find ecs-idap-maxds. Update Parameter for ECS configuration (The Container URI, Port if necessary, and pAqulmageID (digest))
+Done.
+
+After each dev merge, after cicd successfully finished all jobs. Go to ECR, find dera/maxds/maxds-aws latest image URI (just created by cicd), copy it.
+Go to CloudFormation, ecs-idap-maxds, under stack filter maxds, select ecs-idap-maxds, go to parameter and update pContainerImageURI with whatever copied. 
+Done. Now the clould version of Maxds get the latest code from development branch. 
+
+Enable MaxDS Cloud to access on-prim DB SQL Server on port 1433.
+Add security group:
+Go to CloudFormation -> filter MaxDS -> select ecs-idap-maxds from stacks -> select Resources tab -> on Row of ECSSecurityGroup, click on physical id -> go to Outbound rules and do following:
+Edit Outbound Rules-> Add rule -> fill in port and ip and other info.
+Done. (no need to bounce anything, that's it)
+
+077988995152.dkr.ecr.us-east-1.amazonaws.com/dera/maxds/maxds-aws:20220909211428

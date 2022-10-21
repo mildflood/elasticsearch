@@ -1,0 +1,25 @@
+{
+      "properties": {
+        "version_s": {
+          "type": "long"
+        },
+        "mapTermDescription_s": {
+          "type": "text"
+        },
+        "mapName_s": {
+          "type": "keyword"
+        },
+        "mapTermId_s": {
+          "type": "keyword"
+        },
+        "termId_s": {
+          "type": "keyword"
+        },
+        "id": {
+          "type": "keyword"
+        },
+        "mapTermName_s": {
+          "type": "text"
+        }
+      }
+    }

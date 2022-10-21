@@ -1,0 +1,5 @@
+@Query("{"bool" : {"must" : [ {"field" : {"userId" : "?0"}}, {"field" : {"questionId" : "?1"}} ]}}"")
+
+@Query("{\"bool\":{\"must\":[{\"wildcard\":{\"type_s\":{\"wildcard\":\"termMapGroup\",\"boost\":1.0}}}],\"adjust_pure_negative\":true,\"boost\":1.0}}}")
+
+{ "query" : { "bool" : { "must" : [ { "query_string" : { "query" : "?", "fields" : [ "name" ] } } ] } }}

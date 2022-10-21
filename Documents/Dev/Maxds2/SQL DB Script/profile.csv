@@ -1,0 +1,15 @@
+profileId,name,description,sortOrder,environmentId
+ci,Continious Integration,NULL,NULL,ci
+ci1,ci1 for testing,NULL,NULL,ci1
+default,Default (no profile specified ),NULL,NULL,ci
+dev,Development Environment,NULL,NULL,dev
+emstg,emstg is the profile in stage em-app,NULL,NULL,emstg
+lab,lab - controlled environment,NULL,NULL,lab
+local,local - development on work station,NULL,NULL,dev
+newdevldr,newdevldr,NULL,NULL,dev
+newdevsolr,newdevsolr,NULL,NULL,dev
+newdevweb,newdevweb,NULL,NULL,dev
+ops,Operations profile,NULL,NULL,dev
+prod,Production Environment,NULL,NULL,prod
+prod1,prod1-new fsqv solr,NULL,NULL,prod1
+stg,stg - stage profile,NULL,NULL,stg

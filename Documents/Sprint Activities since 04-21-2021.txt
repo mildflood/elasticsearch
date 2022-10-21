@@ -1,0 +1,111 @@
+2021-05-26
+1. Convert all API response to Application/Json mime type
+2. Remove scheduled job in MaxDS. The job checks for abondened Term Rules which are in Inprogress state and not processing every hour. 
+3. Implement running process status check before kicking off a new Accuracy Test API call to prevent performance impact.
+   User can only run Accuracy Test when there is no InProgress or Scheduled process 
+   response screen shot
+4. API implementation for enhanced Accuracy Test
+API takes parameters as entity cik number, goToPeer flag and user id.
+API:
+https://hostname:18081/api/ProcessEntityAccuracyTest?cik=[cik]&goToPeer=[true/false]&userId=[userId]
+e.g. https://sp-us-deraodp01.ix.sec.gov:18081/api/ProcessEntityAccuracyTest?cik=0000320193&goToPeer=true&userId=zhaoq
+
+If goToPeer is true, API will run Accuracy Test against those entities in the peer group on included accuracy test terms, otherwise API will only run the cik in url for those terms.
+
+Once completed, user can check status from following API url that is included in initial response.
+API: 
+https://hostname:18081/api/ProcessAccuracyTestStatus?startTimeStamp=[timestamp in milliseconds]
+e.g. https://sp-us-deraodp01.ix.sec.gov:18081/api/ProcessAccuracyTestStatus?startTimeStamp=1621973976177
+5. Corrected spelling errors in Derivation Trail, including replace Asset/Assets with Terms/Term
+
+2021-05-19 
+1.	Convert all API response to JSON format
+2.	Implemented API request for Accuracy Test module 
+Process Accuracy Test based on terms already in system. The API takes userId as parameter and responds with process starting time and API Url for status check.
+API request format:
+https://hostname:18081/api/ProcessAccuracyTest?userId=[userId]
+e.g. https://sp-us-deraodp01.ix.sec.gov:18081/api/ProcessAccuracyTest?userId=zhaoq
+Response:
+ 
+Process Accuracy Test for a particular Entity and Fiscal Year
+               API request format:
+               https://hostname:18081/api/AccuracyTest?cik=[cik]&fiscalYear=[year]
+e.g. https://sp-us-deraodp01.ix.sec.gov:18081/api/AccuracyTest?cik=0001018724&fiscalYear=2020
+Response:
+ 
+3.	Implemented API for status checking for Accuracy Test process
+API takes Accuracy Test process starting time as parameter and response with all process after the timestamp. This API call url is provided in response when sending Accuracy Test API request.
+               API request format:
+https://hostname:18081/api/ProcessAccuracyTestStatus?startTimeStamp=[timestamp]
+               e.g. https://sp-us-deraodp01.ix.sec.gov:18081/api/ProcessAccuracyTestStatus?startTimeStamp=1621342401190
+               API response:
+ 
+2021-05-12
+
+
+1.	Deployed MaxDS API to CI with URL parameters, status and result links in response, we are working to get one status and one response link. Right now, the rows depend on number of terms and entities in parameter. Also, we need to clean up response object.
+2.	Processing multiple terms on multiple entities
+Term process kicks off on each term and entity combination. Parameters are in format of URL query string. Multiple values are comma delimited. And response provides API URL to check each individual process status and result.
+API: https://sp-us-deraodp01.ix.sec.gov:18081/api/TermRule/ProcessRuleForEntity?termIds=[termid00, termid01, termid02, ....]&ciks=[cik00, cik01, cik02, ...]&userId=[userid]
+e.g. https://sp-us-deraodp01.ix.sec.gov:18081/api/TermRule/ProcessRuleForEntity?termIds=CHEC,SALE&ciks=0001018724,0000320193&userId=zhaoq
+Note: For cik value, user can use 10 digit or last 7 digit without leading 0s.
+Response:
+ 
+The response JSON provides each individual process status API link and process result API link.
+
+3.	Checking process status
+The status API call returns termid, entityid, process status(In processing or completed), user name, and processing time etc. 
+API: https://sp-us-deraodp01.ix.sec.gov:18081/api/ProcessStatus/[processid]
+e.g. https://sp-us-deraodp01.ix.sec.gov:18081/api/ProcessStatus/e2d707a0-a4fa-4478-a210-ac3dc278f34c
+ 
+4.	Checking process results
+The result API call returns detail report of processing of a term on an entity. 
+API: https://sp-us-deraodp01.ix.sec.gov:18081/api/ProcessResults?termRuleId=[termid]&cik=[cik]
+e.g. https://sp-us-deraodp01.ix.sec.gov:18081/api/ProcessResults?termRuleId=CHEC&cik=0001018724
+Note: For cik value, user can use 10 digit or last 7 digit without leading 0s.
+
+2021-05-05
+Overall  MaxDS API feature and scope:
+•	User is able to submit an API call
+•	User is able to check API call status
+•	User is able to view the API call result once process completed
+•	User is able to process entity and term based on customized criteria, e.g. year, quarter, industry, sector, category etc. and filter out response data based on interest
+
+MaxDs API this week.  We are working on deploying following code to CI to enable review.
+
+1.	User is able to process a CIK on a Term by calling following API 
+https://localhost:18081/api/TermRule/ProcessRuleForEntity?termId={termId}&cik={cik}&userId={userId}
+e.g. https://localhost:18081/api/TermRule/ProcessRuleForEntity?termId=CHEC&cik=0001644675&userId=zhaoq
+The process response look like this, where view result API url will be included.
+        e.g. 
+        {"status":true,"errorMessage":null,
+        "processingLogGroupId":"472d79ad-6dd0-4610-a6ab-daa30c3be400",
+        "resultObject":"https://localhost:18081/api/ProcessResults?termRuleId=CHEC&cik=0001644675"}
+The process status will also be available on MaxDs Status page
+
+2.	User is able to view the process result by calling API that included in above API call response.
+https://localhost:18081/api/ProcessResults?termRuleId={termId}&cik={cik}
+e.g. https://localhost:18081/api/ProcessResults?termRuleId=CHEC&cik=0001644675
+The result view is in JSON format as shown below
+ 
+
+Please find list of updates and fixes:
+
+2021-04-28
+
+•	Automatically move Radio check to Search by Company when user input company 
+•	Automatically move Radio check to Search By Group when user click on Go To Peer Group
+•	Fix issues with Show Resolved function
+•	Fix the issue that process duplicate companies when running term processing
+•	Add Clear button to reset user input for company and go to peer group information
+•	Term Rule Processing for multiple terms and multiple companies
+•	Add user input data tracking when user navigate to other page and come back to Process Terms page
+
+2021-04-21:
+•	Remove slider for now from home page
+•	We were able to recreate the issue in term processing that “click on goto peer group” does not work – this is fixed in CI 
+•	While we resolved ‘goto peer group” issue we found out that processing not working as expected for more than one term and more than one company. We are working to address this.
+•	Looking into Cancel term processing not working as expected
+•	Continue to work on custom API. We are working to get parameters, format etc…
+
+

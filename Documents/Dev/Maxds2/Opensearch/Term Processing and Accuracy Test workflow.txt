@@ -1,0 +1,104 @@
+Term Rule Processing
+
+ApiController.ProcessRuleWithCriteria()
+
+gov.sec.idap.maxds.service.ProcessingService.ProcessRuleWithCriteria((String termId, int orderId, 
+            String entityId, String division, String sector, String sic, String filerCategory,
+            String userName, String logHeader, String processingId)
+			
+TermRuleProcessor trp = new TermRuleProcessor(termId, orderId,  entityService, termRulesService,
+                termResultService, normalizedFactService, processingLogService,
+                division, sector, sic, filerCategory,
+                canPopulateDerivedNonZeroData(), entityListSize, 
+                userName,logHeader, processingId); 
+				
+				canPopulateDerivedNonZeroData()
+
+TermRuleProcessor.process(entityId) entityId is null
+	validateData(entityId) -> loadData(entityId) 
+								if entityId = NUll, EntityService.findAll(), Opensearch Query
+								EntityService.findByDivisionSectorAndSicCode(myDivision, mySector, mySic, myFilerCategory); Opensearch Query
+								myTermRuleService.getTermRuleByTermId(termRuleId); Opensearch Query
+	this.myTermRule.setProcessingStatus(ProcessingStatusCode.InProgress); 
+    this.myTermRuleService.SaveAsIs(myTermRule); Opensearch Query
+    deleteExistingResults() -> myTermResultService.deleteByTermIdAndEntityId(termRuleId, et.getEntityId()); Opensearch Query
+	processEntityList() -> List<TermExpression> exps = this.myTermRule.getExpressions();
+							TermRuleInfoProvider termRuleProvider = new TermRuleInfoProvider(this.myTermRule, this.myTermRuleService) 
+							myProcessingLogService.SaveProgressStatus(myProcessingId, "", myTermRule.getTermId(), processingInfoHeader + "Starting Processing of Term Rule.", 0, this.entityCount, userName); Opensearch Query
+							termRuleProvider.buildEntityGroupedByExpressionMap(myEntities);
+							
+						EntityListTermProcessor etp = new EntityListTermProcessor(entMap, termRuleProvider,
+							myEntityService, myTermRuleService, myTermResultService,
+							myNormalizedFactService, myProcessingLogService, ecFactsCache, myProcessingId,
+							populateDerivedNonZeroData, expressionMapsToUse);
+
+						etp.process();
+	EntityListTermProcessor.process()->
+		        cikNumericIdsAsString
+					= NormalizedFactService.buildEntitySolrQueryStringForFacts(myEntityList); //turn entity list to cik without 0 at beginning
+
+				entityIdsQueryString
+						= NormalizedFactService.buildEntitySolrQueryStringForFilings(myEntityList); //turn entity list to entityId with 0 at begining in 10 digit
+
+				allFilingPeriods
+						= this.myTermResultService.getValidPeriodsForEntityList(entityIdsQueryString);
+						TermResultService.getValidPeriodsForEntityList()
+						String query = String.format("entityId:%s %s AND -formType:S-1 AND -formType:POS AM", entity,getFiscalConfigurationFilingQueryLimits());
+						return idapAPIService.findFilingsByQuery(query); Opensearch Query
+				
+				missingFilingPeriods
+						= this.myTermResultService.getMissingFilingPeriodsForEntityList(myEntityList,
+								allFilingPeriods);
+				processConceptMatch() -> List<NormalizedFact> facts  = myNormalizedFactService.findByEntityIdListAndElementNameIdap(this.cikNumericIdsAsString, elementName, false); Opensearch Query
+				processConceptMatchMultiple();
+				processConceptMatchWithDim();
+				processExtendedCheck();  List<NormalizedFact> facts = myNormalizedFactService.findByEntityIdListAndElementNameWithDimensions(this.cikNumericIdsAsString,  cte.elementName); Opensearch Query
+				processExtendedCheckWithDim(); List<NormalizedFact> facts = myNormalizedFactService.findDimensionFactsInfoByEntityIdListAndExtendedElements(this.cikNumericIdsAsString, cte);  Opensearch Query
+
+				processQ4Results();
+				if (processFormula()) {  List<TermResultsDoc> termResults = this.myTermRuleProvider.GetTermResultsByEntityListAndTermNames(this.entityIdsQueryString, formulaExp, this.myTermResultService); Opensearch Query
+
+					//since we have formulas we might need to recalculate Q4
+					processQ4Results();
+				}
+
+				processVarianceInfo();
+				processValidationInfo(); -> List<TermResultsDoc> dataList = resultsSolrRepo.findByEntityIdListAndTermIdAndMyDocType(entityIds, termId, TermResultsDoc.TermResultsDocType.primaryTermResult.toString()); Opensearch Query
+				saveTermResults(); ->  myTermResultService.saveTermResults(termResults);
+				saveDerivedZeroData(); -> DerivedZeroTermExpressionProcessor dProcessor = new DerivedZeroTermExpressionProcessor(
+                        this.entityIdsQueryString,
+                        this.cikNumericIdsAsString,
+                        myTermRuleProvider, myTermResultService, termResultsMap, populateDerivedNonZeroData,
+                        allFilingPeriods,missingFilingPeriods, myEntityList);
+ 
+						dProcessor.reBuildDerivedZeroResults(); -> myTermResultService.saveDerivedZeroData(derivedZeroDataList);
+																	this.myTermResultService.saveDerivedNonZeroData(derivedNonZeroDataList);
+																	
+	myTermRule = myTermRuleService.getTermRuleByTermId(myTermRule.getTermId());
+	myTermRule.setProcessingStatus(ProcessingStatusCode.Completed);
+    this.myTermRuleService.SaveAsIs(myTermRule);
+	myProcessingLogService.SaveCompletedStatus(myProcessingId, "",
+                        myTermRule.getTermId(), String.format("%s Completed processing of Term rule in %d seconds ",
+                        this.processingInfoHeader,
+                        difference),
+                        difference, entityCount, userName);
+						
+Accuracy Test Process:
+
+ApiController.getAccuracyTestResults() -> AccuracyTestService.runAccuracyTest()
+											->termRuleService.getTermRulesForAccuracyTesting() -> repository.findByIncludeInAccuracyTests(PageRequest.of(0, 2000))-> @Query("{\r\n"
+																																											+ "        \"term\" : { \"includeInAccuracyTests\" : true }\r\n"
+																																											+ " }")
+																																									public List<TermRuleDoc> findByIncludeInAccuracyTests(Pageable pagebale);
+																																									
+											-> termResultService.getResultsByTermId()
+											->this.termMapService.findCompustatIds()
+											-> getNotesDetails() -> repository.findByEntityIdAndFYAndFQ() ->  @Query("{\"bool\": {\"must\":[{\"match\" : { \"entityId_s\" : \"?0\" }},{\"match\" : { \"fy_i\" : \"?1\" }},{\"match\" : { \"fq_s\" : \"?2\" }}]}}")
+																												List<AccuracyTestNotesDoc> findByEntityIdAndFYAndFQ(String entityId, int fy, String fq);
+										
+											-> getCompustatValues() -> SQL:  select  *  from maxds.ViewC951B  where cik=1018724 and fyear=2020
+											
+											-> setFilingInfo() -> SQL: select * from maxds.ViewFiledUrl  where cik=1018724 and fy='2020'
+				-> getFilingUrl()
+				-> getAccuracyTestGetHtml()
+										

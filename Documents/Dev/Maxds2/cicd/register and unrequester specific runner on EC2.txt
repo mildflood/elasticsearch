@@ -1,0 +1,133 @@
+//Register a specific runner on EC2, url and token info are from gitlab repo setting->cicd->runner section
+[gitlab-runner@C1UDDERA-5vGpXr builds]$ sudo gitlab-runner register --name maxds-aws-runner --url https://gitlab.cicd.prdoit-cuse1.aces.sec.gov/ --registration-token GR1348941LRimUdeeYZsDEqUm6AY8
+Runtime platform                                    arch=amd64 os=linux pid=2651136 revision=f188edd7 version=14.9.1
+Running in system-mode.
+
+Enter the GitLab instance URL (for example, https://gitlab.com/):
+[https://gitlab.cicd.prdoit-cuse1.aces.sec.gov/]:
+Enter the registration token:
+[GR1348941LRimUdeeYZsDEqUm6AY8]:
+Enter a description for the runner:
+[maxds-aws-runner]:
+Enter tags for the runner (comma-separated):
+maxds-aws-runner
+Enter optional maintenance note for the runner:
+
+Registering runner... succeeded                     runner=GR134894
+Enter an executor: custom, docker, docker-ssh, docker-ssh+machine, parallels, shell, ssh, virtualbox, docker+machine, kubernetes:
+shell
+Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded!
+[gitlab-runner@C1UDDERA-5vGpXr builds]$ sudo gitlab-runner list
+Runtime platform                                    arch=amd64 os=linux pid=2651155 revision=f188edd7 version=14.9.1
+Listing configured runners                          ConfigFile=/etc/gitlab-runner/config.toml
+maxds-aws-runner                                    Executor=shell Token=2ki7euk3xPSzFg3V4Wch URL=https://gitlab.cicd.prdoit-cuse1.aces.sec.gov/
+[gitlab-runner@C1UDDERA-5vGpXr builds]$ sudo gitlab-runner verify
+Runtime platform                                    arch=amd64 os=linux pid=2651164 revision=f188edd7 version=14.9.1
+Running in system-mode.
+
+Verifying runner... is alive                        runner=2ki7euk3
+[gitlab-runner@C1UDDERA-5vGpXr builds]$
+
+//Unregistering a specific runner on EC2
+[gitlab-runner@C1UDDERA-5vGpXr builds]$ sudo gitlab-runner list
+Runtime platform                                    arch=amd64 os=linux pid=2650991 revision=f188edd7 version=14.9.1
+Listing configured runners                          ConfigFile=/etc/gitlab-runner/config.toml
+runner-ec2                                          Executor=shell Token=cxpmyGoQKnmtLHHwBJdf URL=https://gitlab.cicd.prdoit-cuse1.aces.sec.gov/
+gitlab-runner registered for demo                   Executor=shell Token=s2M8VLHp2zzS4suwyNCr URL=https://gitlab.cicd.prdoit-cuse1.aces.sec.gov/
+[gitlab-runner@C1UDDERA-5vGpXr builds]$
+[gitlab-runner@C1UDDERA-5vGpXr builds]$
+[gitlab-runner@C1UDDERA-5vGpXr builds]$ sudo gitlab-runner unregister --url https://gitlab.cicd.prdoit-cuse1.aces.sec.gov/ --token cxpmyGoQKnmtLHHwBJdf
+Runtime platform                                    arch=amd64 os=linux pid=2650998 revision=f188edd7 version=14.9.1
+Running in system-mode.
+
+ERROR: Unregistering runner from GitLab forbidden   runner=cxpmyGoQ
+FATAL: Failed to unregister runner
+[gitlab-runner@C1UDDERA-5vGpXr builds]$ sudo cat /etc/gitlab-runner/config.toml
+concurrent = 1
+check_interval = 0
+
+[session_server]
+  session_timeout = 1800
+
+[[runners]]
+  name = "runner-ec2"
+  url = "https://gitlab.cicd.prdoit-cuse1.aces.sec.gov/"
+  token = "cxpmyGoQKnmtLHHwBJdf"
+  executor = "shell"
+  [runners.custom_build_dir]
+  [runners.cache]
+    [runners.cache.s3]
+    [runners.cache.gcs]
+    [runners.cache.azure]
+
+[[runners]]
+  name = "gitlab-runner registered for demo"
+  url = "https://gitlab.cicd.prdoit-cuse1.aces.sec.gov/"
+  token = "s2M8VLHp2zzS4suwyNCr"
+  executor = "shell"
+  [runners.custom_build_dir]
+  [runners.cache]
+    [runners.cache.s3]
+    [runners.cache.gcs]
+    [runners.cache.azure]
+	
+//unregister a specific runner
+[gitlab-runner@C1UDDERA-5vGpXr builds]$ sudo gitlab-runner verify --delete
+Runtime platform                                    arch=amd64 os=linux pid=2651023 revision=f188edd7 version=14.9.1
+Running in system-mode.
+
+ERROR: Verifying runner... is removed               runner=cxpmyGoQ
+Verifying runner... is alive                        runner=s2M8VLHp
+Updated /etc/gitlab-runner/config.toml
+[gitlab-runner@C1UDDERA-5vGpXr builds]$
+[gitlab-runner@C1UDDERA-5vGpXr builds]$
+[gitlab-runner@C1UDDERA-5vGpXr builds]$ sudo cat /etc/gitlab-runner/config.toml
+concurrent = 1
+check_interval = 0
+
+[session_server]
+  session_timeout = 1800
+
+[[runners]]
+  name = "gitlab-runner registered for demo"
+  url = "https://gitlab.cicd.prdoit-cuse1.aces.sec.gov/"
+  token = "s2M8VLHp2zzS4suwyNCr"
+  executor = "shell"
+  [runners.custom_build_dir]
+  [runners.cache]
+    [runners.cache.s3]
+    [runners.cache.gcs]
+    [runners.cache.azure]
+	
+//somehow cannot using the same cmd to unregister the other runner
+[gitlab-runner@C1UDDERA-5vGpXr builds]$ sudo gitlab-runner verify --delete
+Runtime platform                                    arch=amd64 os=linux pid=2651034 revision=f188edd7 version=14.9.1
+Running in system-mode.
+
+Verifying runner... is alive                        runner=s2M8VLHp
+
+[gitlab-runner@C1UDDERA-5vGpXr builds]$ sudo gitlab-runner list
+Runtime platform                                    arch=amd64 os=linux pid=2651044 revision=f188edd7 version=14.9.1
+Listing configured runners                          ConfigFile=/etc/gitlab-runner/config.toml
+gitlab-runner registered for demo                   Executor=shell Token=s2M8VLHp2zzS4suwyNCr URL=https://gitlab.cicd.prdoit-cuse1.aces.sec.gov/
+[gitlab-runner@C1UDDERA-5vGpXr builds]$ sudo gitlab-runner status
+Runtime platform                                    arch=amd64 os=linux pid=2651051 revision=f188edd7 version=14.9.1
+gitlab-runner: Service is running
+
+//this cmd unregister the other runner
+[gitlab-runner@C1UDDERA-5vGpXr builds]$ sudo gitlab-runner unregister --url https://gitlab.cicd.prdoit-cuse1.aces.sec.gov/ --token s2M8VLHp2zzS4suwyNCr
+Runtime platform                                    arch=amd64 os=linux pid=2651068 revision=f188edd7 version=14.9.1
+Running in system-mode.
+
+Unregistering runner from GitLab succeeded          runner=s2M8VLHp
+Updated /etc/gitlab-runner/config.toml
+[gitlab-runner@C1UDDERA-5vGpXr builds]$ sudo gitlab-runner list
+Runtime platform                                    arch=amd64 os=linux pid=2651076 revision=f188edd7 version=14.9.1
+Listing configured runners                          ConfigFile=/etc/gitlab-runner/config.toml
+[gitlab-runner@C1UDDERA-5vGpXr builds]$ sudo cat /etc/gitlab-runner/config.toml
+concurrent = 1
+check_interval = 0
+
+[session_server]
+  session_timeout = 1800
+[gitlab-runner@C1UDDERA-5vGpXr builds]$

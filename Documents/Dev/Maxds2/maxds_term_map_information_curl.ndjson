@@ -1,0 +1,792 @@
+{ "create": { } }
+ {  "mapTermId_s":"AM","termId_s":"AMTZ","mapTermDescription_s":"This item represents a non-cash charge for the systematic write-off of the cost of intangible assets over the period for which there is an economic benefit.","mapTermName_s":"Amortization of Intangibles","mapName_s":"Compustat","id":"Compustat_AMTZ_AM","version_s":"1616527026063147008"}
+{ "create": { } }
+ {  "mapTermId_s":"AM","termId_s":"AMTZAR","mapTermDescription_s":"This item represents a non-cash charge for the systematic write-off of the cost of intangible assets over the period for which there is an economic benefit.","mapTermName_s":"Amortization of Intangibles","mapName_s":"Compustat","id":"Compustat_AMTZAR_AM","version_s":"1616527026093555712"}
+{ "create": { } }
+ {  "mapTermId_s":"AM","termId_s":"AMTZBML","mapTermDescription_s":"This item represents a non-cash charge for the systematic write-off of the cost of intangible assets over the period for which there is an economic benefit.","mapTermName_s":"Amortization of Intangibles","mapName_s":"Compustat","id":"Compustat_AMTZBML_AM","version_s":"1616527026093555713"}
+{ "create": { } }
+ {  "mapTermId_s":"AMDC","termId_s":"AMTZDC","mapTermDescription_s":"This item represents noncash charges to income for the systematic write-off of deferred charges over the period for which there is an economic benefit.","mapTermName_s":"Amortization of Deferred Charges","mapName_s":"Compustat","id":"Compustat_AMTZDC_AMDC","version_s":"1616527026094604288"}
+{ "create": { } }
+ {  "mapTermId_s":"AM","termId_s":"AMTZDDP","mapTermDescription_s":"This item represents a non-cash charge for the systematic write-off of the cost of intangible assets over the period for which there is an economic benefit.","mapTermName_s":"Amortization of Intangibles","mapName_s":"Compustat","id":"Compustat_AMTZDDP_AM","version_s":"1616527026094604289"}
+{ "create": { } }
+ {  "mapTermId_s":"AM","termId_s":"AMTZDI","mapTermDescription_s":"This item represents a non-cash charge for the systematic write-off of the cost of intangible assets over the period for which there is an economic benefit.","mapTermName_s":"Amortization of Intangibles","mapName_s":"Compustat","id":"Compustat_AMTZDI_AM","version_s":"1616527026094604290"}
+{ "create": { } }
+ {  "mapTermId_s":"AM","termId_s":"AMTZDIC","mapTermDescription_s":"This item represents a non-cash charge for the systematic write-off of the cost of intangible assets over the period for which there is an economic benefit.","mapTermName_s":"Amortization of Intangibles","mapName_s":"Compustat","id":"Compustat_AMTZDIC_AM","version_s":"1616527026094604291"}
+{ "create": { } }
+ {  "mapTermId_s":"AM","termId_s":"AMTZDLF","mapTermDescription_s":"This item represents a non-cash charge for the systematic write-off of the cost of intangible assets over the period for which there is an economic benefit.","mapTermName_s":"Amortization of Intangibles","mapName_s":"Compustat","id":"Compustat_AMTZDLF_AM","version_s":"1616527026094604292"}
+{ "create": { } }
+ {  "mapTermId_s":"AM","termId_s":"AMTZDPT","mapTermDescription_s":"This item represents a non-cash charge for the systematic write-off of the cost of intangible assets over the period for which there is an economic benefit.","mapTermName_s":"Amortization of Intangibles","mapName_s":"Compustat","id":"Compustat_AMTZDPT_AM","version_s":"1616527026095652864"}
+{ "create": { } }
+ {  "mapTermId_s":"AM","termId_s":"AMTZHG","mapTermDescription_s":"This item represents a non-cash charge for the systematic write-off of the cost of intangible assets over the period for which there is an economic benefit.","mapTermName_s":"Amortization of Intangibles","mapName_s":"Compustat","id":"Compustat_AMTZHG_AM","version_s":"1616527026095652865"}
+{ "create": { } }
+ {  "mapTermId_s":"AM","termId_s":"AMTZIA","mapTermDescription_s":"This item represents a non-cash charge for the systematic write-off of the cost of intangible assets over the period for which there is an economic benefit.","mapTermName_s":"Amortization of Intangibles","mapName_s":"Compustat","id":"Compustat_AMTZIA_AM","version_s":"1616527026095652866"}
+{ "create": { } }
+ {  "mapTermId_s":"AM","termId_s":"AMTZLI","mapTermDescription_s":"This item represents a non-cash charge for the systematic write-off of the cost of intangible assets over the period for which there is an economic benefit.","mapTermName_s":"Amortization of Intangibles","mapName_s":"Compustat","id":"Compustat_AMTZLI_AM","version_s":"1616527026095652867"}
+{ "create": { } }
+ {  "mapTermId_s":"AM","termId_s":"AMTZNF","mapTermDescription_s":"This item represents a non-cash charge for the systematic write-off of the cost of intangible assets over the period for which there is an economic benefit.","mapTermName_s":"Amortization of Intangibles","mapName_s":"Compustat","id":"Compustat_AMTZNF_AM","version_s":"1616527026095652868"}
+{ "create": { } }
+ {  "mapTermId_s":"AM","termId_s":"AMTZRD","mapTermDescription_s":"This item represents a non-cash charge for the systematic write-off of the cost of intangible assets over the period for which there is an economic benefit.","mapTermName_s":"Amortization of Intangibles","mapName_s":"Compustat","id":"Compustat_AMTZRD_AM","version_s":"1616527026095652869"}
+{ "create": { } }
+ {  "mapTermId_s":"AM","termId_s":"AMTZSC","mapTermDescription_s":"This item represents a non-cash charge for the systematic write-off of the cost of intangible assets over the period for which there is an economic benefit.","mapTermName_s":"Amortization of Intangibles","mapName_s":"Compustat","id":"Compustat_AMTZSC_AM","version_s":"1616527026096701440"}
+{ "create": { } }
+ {  "mapTermId_s":"AP","termId_s":"AP","mapTermDescription_s":"This item represents only trade obligations due within one year or the normal operating cycle of the company.","mapTermName_s":"Accounts Payable - Trade","mapName_s":"Compustat","id":"Compustat_AP_AP","version_s":"1616527026096701441"}
+{ "create": { } }
+ {  "mapTermId_s":"AP","termId_s":"APCH","mapTermDescription_s":"This item represents only trade obligations due within one year or the normal operating cycle of the company.","mapTermName_s":"Accounts Payable - Trade","mapName_s":"Compustat","id":"Compustat_APCH_AP","version_s":"1616527026096701442"}
+{ "create": { } }
+ {  "mapTermId_s":"AQC","termId_s":"AQC","mapTermDescription_s":"This item represents cash outflow of funds used for and/or the costs relating to acquisition of a company in the current year or effects of an acquisition in a prior year carried over to the current year.","mapTermName_s":"Acquisitions","mapName_s":"Compustat","id":"Compustat_AQC_AQC","version_s":"1616527026096701443"}
+{ "create": { } }
+ {  "mapTermId_s":"AQC","termId_s":"AQCEI","mapTermDescription_s":"This item represents cash outflow of funds used for and/or the costs relating to acquisition of a company in the current year or effects of an acquisition in a prior year carried over to the current year.","mapTermName_s":"Acquisitions","mapName_s":"Compustat","id":"Compustat_AQCEI_AQC","version_s":"1616527026096701444"}
+{ "create": { } }
+ {  "mapTermId_s":"AQC","termId_s":"AQCL","mapTermDescription_s":"This item represents cash outflow of funds used for and/or the costs relating to acquisition of a company in the current year or effects of an acquisition in a prior year carried over to the current year.","mapTermName_s":"Acquisitions","mapName_s":"Compustat","id":"Compustat_AQCL_AQC","version_s":"1616527026096701445"}
+{ "create": { } }
+ {  "mapTermId_s":"IVST","termId_s":"AVAILSEC","mapTermDescription_s":"This item represents currently marketable investments as presented in the current asset section of the Balance Sheet. Such investments may be converted to cash within a relatively short period of time.","mapTermName_s":"Short-Term Investments - Total","mapName_s":"Compustat","id":"Compustat_AVAILSEC_IVST","version_s":"1616527026097750016"}
+{ "create": { } }
+ {  "mapTermId_s":"CAPSFT","termId_s":"CAPSF","mapTermName_s":"Capitalized Software","mapName_s":"Compustat","id":"Compustat_CAPSF_CAPSFT","version_s":"1616527026097750017"}
+{ "create": { } }
+ {  "mapTermId_s":"CAPX","termId_s":"CAPX","mapTermDescription_s":"This item represents the funds used for additions to property, plant, and equipment, excluding amounts arising from acquisitions (for example, fixed assets of purchased companies). This item includes property & equipment expenditures.","mapTermName_s":"Capital Expenditures","mapName_s":"Compustat","id":"Compustat_CAPX_CAPX","version_s":"1616527026097750018"}
+{ "create": { } }
+ {  "mapTermId_s":"CH","termId_s":"CE","mapTermDescription_s":"This item represents any immediately negotiable medium of exchange or any instruments normally accepted by banks for deposit and immediate credit to a customer's account.","mapTermName_s":"Cash","mapName_s":"Compustat","id":"Compustat_CE_CH","version_s":"1616527026097750019"}
+{ "create": { } }
+ {  "mapTermId_s":"CEQ","termId_s":"CEQ","mapTermDescription_s":"This item represents the common shareholders' interest in the company.","mapTermName_s":"Common/Ordinary Equity - Total","mapName_s":"Compustat","id":"Compustat_CEQ_CEQ","version_s":"1616527026098798592"}
+{ "create": { } }
+ {  "mapTermId_s":"CH","termId_s":"CH","mapTermDescription_s":"This item represents any immediately negotiable medium of exchange or any instruments normally accepted by banks for deposit and immediate credit to a customer's account.","mapTermName_s":"Cash","mapName_s":"Compustat","id":"Compustat_CH_CH","version_s":"1616527026098798593"}
+{ "create": { } }
+ {  "mapTermId_s":"CHE","termId_s":"CHE","mapTermDescription_s":"This item represents cash and all securities readily transferable to cash as listed in the Current Asset section.","mapTermName_s":"Cash and Short-Term Investments","mapName_s":"Compustat","id":"Compustat_CHE_CHE","version_s":"1616527026098798594"}
+{ "create": { } }
+ {  "mapTermId_s":"CH","termId_s":"CHEC","mapTermDescription_s":"This item represents any immediately negotiable medium of exchange or any instruments normally accepted by banks for deposit and immediate credit to a customer's account.","mapTermName_s":"Cash","mapName_s":"Compustat","id":"Compustat_CHEC_CH","version_s":"1616527026098798595"}
+{ "create": { } }
+ {  "mapTermId_s":"CI","termId_s":"CI","mapTermDescription_s":"This item represents the total comprehensive income to the company, which means it includes amounts attributable to both the parent and the noncontrolling interest.","mapTermName_s":"Comprehensive Income - Total","mapName_s":"Compustat","id":"Compustat_CI_CI","version_s":"1616527026098798596"}
+{ "create": { } }
+ {  "mapTermId_s":"DCLO","termId_s":"CLOC","mapTermDescription_s":"This item represents the debt obligation a company incurs when capitalizing leases.","mapTermName_s":"Debt Capitalized Lease Obligations","mapName_s":"Compustat","id":"Compustat_CLOC_DCLO","version_s":"1616527026098798597"}
+{ "create": { } }
+ {  "mapTermId_s":"COGS","termId_s":"COGS","mapTermDescription_s":"This item represents all costs directly allocated by the company to production, such as material, labor and overhead.","mapTermName_s":"Cost of Goods Sold","mapName_s":"Compustat","id":"Compustat_COGS_COGS","version_s":"1616527026099847168"}
+{ "create": { } }
+ {  "mapTermId_s":"COGS","termId_s":"COR","mapTermDescription_s":"This item represents all costs directly allocated by the company to production, such as material, labor and overhead.","mapTermName_s":"Cost of Goods Sold","mapName_s":"Compustat","id":"Compustat_COR_COGS","version_s":"1616527026099847169"}
+{ "create": { } }
+ {  "mapTermId_s":"COGS","termId_s":"COS","mapTermDescription_s":"This item represents all costs directly allocated by the company to production, such as material, labor and overhead.","mapTermName_s":"Cost of Goods Sold","mapName_s":"Compustat","id":"Compustat_COS_COGS","version_s":"1616527026099847170"}
+{ "create": { } }
+ {  "mapTermId_s":"XOPR","termId_s":"CXP","mapTermName_s":"Operating Expenses Total","mapName_s":"Compustat","id":"Compustat_CXP_XOPR","version_s":"1616527026099847171"}
+{ "create": { } }
+ {  "mapTermId_s":"XOPR","termId_s":"CXPRP","mapTermName_s":"Operating Expenses Total","mapName_s":"Compustat","id":"Compustat_CXPRP_XOPR","version_s":"1616527026099847172"}
+{ "create": { } }
+ {  "mapTermId_s":"XDEPL","termId_s":"DEPL","mapTermDescription_s":"This item represents the non-cash charge for the removal, extinguishment or exhaustion of natural resources from producing properties.","mapTermName_s":"Depletion Expense (Schedule VI)","mapName_s":"Compustat","id":"Compustat_DEPL_XDEPL","version_s":"1616527026099847173"}
+{ "create": { } }
+ {  "mapTermId_s":"XDP","termId_s":"DEPR","mapTermDescription_s":"This item represents the amount of depreciation charged to the accumulated depreciation account by the company.","mapTermName_s":"Depreciation Expense (Schedule VI)","mapName_s":"Compustat","id":"Compustat_DEPR_XDP","version_s":"1616527026100895744"}
+{ "create": { } }
+ {  "mapTermId_s":"XDP","termId_s":"DEPRC","mapTermDescription_s":"This item represents the amount of depreciation charged to the accumulated depreciation account by the company.","mapTermName_s":"Depreciation Expense (Schedule VI)","mapName_s":"Compustat","id":"Compustat_DEPRC_XDP","version_s":"1616527026100895745"}
+{ "create": { } }
+ {  "mapTermId_s":"XDP","termId_s":"DEPRCS","mapTermDescription_s":"This item represents the amount of depreciation charged to the accumulated depreciation account by the company.","mapTermName_s":"Depreciation Expense (Schedule VI)","mapName_s":"Compustat","id":"Compustat_DEPRCS_XDP","version_s":"1616527026100895746"}
+{ "create": { } }
+ {  "mapTermId_s":"XDP","termId_s":"DEPRN","mapTermDescription_s":"This item represents the amount of depreciation charged to the accumulated depreciation account by the company.","mapTermName_s":"Depreciation Expense (Schedule VI)","mapName_s":"Compustat","id":"Compustat_DEPRN_XDP","version_s":"1616527026100895747"}
+{ "create": { } }
+ {  "mapTermId_s":"LCT","termId_s":"DFRPC","mapTermDescription_s":"This item represents liabilities due within one year, including the current portion of long-term debt.","mapTermName_s":"Current Liabilities - Total","mapName_s":"Compustat","id":"Compustat_DFRPC_LCT","version_s":"1616527026100895748"}
+{ "create": { } }
+ {  "mapTermId_s":"DLC","termId_s":"DLC","mapTermDescription_s":"This item represents the total amount of short-term notes and the current portion of long-term debt (debt due in one year).","mapTermName_s":"Debt in Current Liabilities - Total","mapName_s":"Compustat","id":"Compustat_DLC_DLC","version_s":"1616527026100895749"}
+{ "create": { } }
+ {  "mapTermId_s":"DD1","termId_s":"DLCC","mapTermDescription_s":"This item represents the total long-term debt falling due within the first year from the balance sheet date, including all long-term bank, finance lease and other forms of debt.","mapTermName_s":"Long-Term Debt Due in One Year","mapName_s":"Compustat","id":"Compustat_DLCC_DD1","version_s":"1616527026101944320"}
+{ "create": { } }
+ {  "mapTermId_s":"DCVT","termId_s":"DLCCCD","mapTermDescription_s":"This item represents all long-term debt convertible to the company's common or preferred stock and not subordinated to any other long-term debt.","mapTermName_s":"Debt - Convertible","mapName_s":"Compustat","id":"Compustat_DLCCCD_DCVT","version_s":"1616527026101944321"}
+{ "create": { } }
+ {  "mapTermId_s":"DD1","termId_s":"DLCCCL","mapTermDescription_s":"This item represents the total long-term debt falling due within the first year from the balance sheet date, including all long-term bank, finance lease and other forms of debt.","mapTermName_s":"Long-Term Debt Due in One Year","mapName_s":"Compustat","id":"Compustat_DLCCCL_DD1","version_s":"1616527026101944322"}
+{ "create": { } }
+ {  "mapTermId_s":"CMP","termId_s":"DLCCCP","mapTermDescription_s":"This item represents the unsecured promissory notes issued in large denominations, usually maturing in four to six months, which are sold on the open market to supplement the bank's borrowing needs.","mapTermName_s":"Commercial Paper","mapName_s":"Compustat","id":"Compustat_DLCCCP_CMP","version_s":"1616527026101944323"}
+{ "create": { } }
+ {  "mapTermId_s":"DCVSUB","termId_s":"DLCCCSD","mapTermDescription_s":"This item represents the portion of long-term debt that is both convertible and subordinated.","mapTermName_s":"Debt Subordinated Convertible","mapName_s":"Compustat","id":"Compustat_DLCCCSD_DCVSUB","version_s":"1616527026101944324"}
+{ "create": { } }
+ {  "mapTermId_s":"DD1","termId_s":"DLCCLC","mapTermDescription_s":"This item represents the total long-term debt falling due within the first year from the balance sheet date, including all long-term bank, finance lease and other forms of debt.","mapTermName_s":"Long-Term Debt Due in One Year","mapName_s":"Compustat","id":"Compustat_DLCCLC_DD1","version_s":"1616527026102992896"}
+{ "create": { } }
+ {  "mapTermId_s":"NP","termId_s":"DLCCNLP","mapTermDescription_s":"This item represents the total amount of short-term notes.","mapTermName_s":"Notes Payable Short-Term Borrowings","mapName_s":"Compustat","id":"Compustat_DLCCNLP_NP","version_s":"1616527026102992897"}
+{ "create": { } }
+ {  "mapTermId_s":"DLTO","termId_s":"DLCCOLD","mapTermDescription_s":"This item represents all other long-term debt of the company not fitting one of the other classifications.","mapTermName_s":"Other Long-term Debt","mapName_s":"Compustat","id":"Compustat_DLCCOLD_DLTO","version_s":"1616527026102992898"}
+{ "create": { } }
+ {  "mapTermId_s":"DM","termId_s":"DLCCSD","mapTermDescription_s":"This item represents all long-term debt secured or collateralized by a mortgage, property, receivables, stock or other assets.","mapTermName_s":"Debt Mortgages & Other Secured","mapName_s":"Compustat","id":"Compustat_DLCCSD_DM","version_s":"1616527026102992899"}
+{ "create": { } }
+ {  "mapTermId_s":"DS","termId_s":"DLCCSDC","mapTermDescription_s":"This item represents long-term debt with claims to interest and principal junior to that of ordinary debt. All debt specifically labeled subordinated but not convertible is included.","mapTermName_s":"Debt-Subordinated","mapName_s":"Compustat","id":"Compustat_DLCCSDC_DS","version_s":"1616527026102992900"}
+{ "create": { } }
+ {  "mapTermId_s":"DLTO","termId_s":"DLCCUD","mapTermDescription_s":"This item represents all other long-term debt of the company not fitting one of the other classifications.","mapTermName_s":"Other Long-term Debt","mapName_s":"Compustat","id":"Compustat_DLCCUD_DLTO","version_s":"1616527026102992901"}
+{ "create": { } }
+ {  "mapTermId_s":"DLTT","termId_s":"DLEC","mapTermDescription_s":"The item represents debt obligations due more than one year from the company's balance sheet date.","mapTermName_s":"Long-Term Debt - Total","mapName_s":"Compustat","id":"Compustat_DLEC_DLTT","version_s":"1616527026104041472"}
+{ "create": { } }
+ {  "mapTermId_s":"DT","termId_s":"DLTT","mapTermName_s":"Total Debt Including Current","mapName_s":"Compustat","id":"Compustat_DLTT_DT","version_s":"1616527026104041473"}
+{ "create": { } }
+ {  "mapTermId_s":"DD1","termId_s":"DLTTC","mapTermDescription_s":"This item represents the total long-term debt falling due within the first year from the balance sheet date, including all long-term bank, finance lease and other forms of debt.","mapTermName_s":"Long-Term Debt Due in One Year","mapName_s":"Compustat","id":"Compustat_DLTTC_DD1","version_s":"1616527026104041474"}
+{ "create": { } }
+ {  "mapTermId_s":"XOPR","termId_s":"DOPRC","mapTermName_s":"Operating Expenses Total","mapName_s":"Compustat","id":"Compustat_DOPRC_XOPR","version_s":"1616527026104041475"}
+{ "create": { } }
+ {  "mapTermId_s":"DP","termId_s":"DP","mapTermDescription_s":"Depreciation is concerned with spreading the actual cost or other basic value of tangible capital assets over their estimated useful life is a systematic manner. Amortization is the process of cost allocation for intangible assets","mapTermName_s":"Depreciation and Amortization","mapName_s":"Compustat","id":"Compustat_DP_DP","version_s":"1616527026105090048"}
+{ "create": { } }
+ {  "mapTermId_s":"DPACT","termId_s":"DPACT","mapTermDescription_s":"This item represents the total portion of asset cost written off by periodic depreciation charges since the assets were acquired.","mapTermName_s":"Depreciation, Depletion and Amortization (Accumulated)","mapName_s":"Compustat","id":"Compustat_DPACT_DPACT","version_s":"1616527026105090049"}
+{ "create": { } }
+ {  "mapTermId_s":"DP","termId_s":"DPAE","mapTermDescription_s":"Depreciation is concerned with spreading the actual cost or other basic value of tangible capital assets over their estimated useful life is a systematic manner. Amortization is the process of cost allocation for intangible assets","mapTermName_s":"Depreciation and Amortization","mapName_s":"Compustat","id":"Compustat_DPAE_DP","version_s":"1616527026105090050"}
+{ "create": { } }
+ {  "mapTermId_s":"NP","termId_s":"DSTTEC","mapTermDescription_s":"This item represents the total amount of short-term notes.","mapTermName_s":"Notes Payable Short-Term Borrowings","mapName_s":"Compustat","id":"Compustat_DSTTEC_NP","version_s":"1616527026105090051"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBL","termId_s":"DTXLPE","mapTermDescription_s":"This item represents the deferred tax liability reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Liability","mapName_s":"Compustat","id":"Compustat_DTXLPE_TXNDBL","version_s":"1616527026105090052"}
+{ "create": { } }
+ {  "mapTermId_s":"DV","termId_s":"DV","mapTermDescription_s":"This item represents the total amount of cash dividends paid for common/ordinary capital, preferred/preference capital and other share capital.","mapTermName_s":"Cash Dividends (Cash Flow)","mapName_s":"Compustat","id":"Compustat_DV_DV","version_s":"1616527026106138624"}
+{ "create": { } }
+ {  "mapTermId_s":"DVC","termId_s":"DVC","mapTermDescription_s":"This represents the total amount of dividends (other than stock dividends) declared on the common/ordinary capital of the company, based on the current year's net income.","mapTermName_s":"Dividends Common/Ordinary","mapName_s":"Compustat","id":"Compustat_DVC_DVC","version_s":"1616527026106138625"}
+{ "create": { } }
+ {  "mapTermId_s":"DVP","termId_s":"DVP","mapTermName_s":"Dividends - Preferred/Preference","mapName_s":"Compustat","id":"Compustat_DVP_DVP","version_s":"1616527026106138626"}
+{ "create": { } }
+ {  "mapTermId_s":"DVT","termId_s":"DVT","mapTermDescription_s":"This item represents the total amount of dividends, other than stock dividends, declared on all equity capital of the company, based on the current year's net income.","mapTermName_s":"Dividends - Total","mapName_s":"Compustat","id":"Compustat_DVT_DVT","version_s":"1616527026106138627"}
+{ "create": { } }
+ {  "mapTermId_s":"EBIT","termId_s":"EBIT","mapTermDescription_s":"This item is the sum of Sales - Net (SALE) minus Cost of Goods Sold (COGS) minus Selling, General & Administrative Expense (XSGA) minus Depreciation/Amortization (DP).","mapTermName_s":"Earnings Before Interest and Taxes","mapName_s":"Compustat","id":"Compustat_EBIT_EBIT","version_s":"1616527026107187200"}
+{ "create": { } }
+ {  "mapTermId_s":"EBITDA","termId_s":"EBITDA","mapTermName_s":"Earnings Before Interest","mapName_s":"Compustat","id":"Compustat_EBITDA_EBITDA","version_s":"1616527026107187201"}
+{ "create": { } }
+ {  "mapTermId_s":"EPSFI","termId_s":"EPSFI","mapTermDescription_s":"This item represents basic earnings per share after allowing for the conversion of convertible senior stock and debt, and the exercise of warrants, options and agreements for issuance of common shares upon satisfaction of certain conditions.","mapTermName_s":"Earnings Per Share (Diluted) Including Extraordinary Items","mapName_s":"Compustat","id":"Compustat_EPSFI_EPSFI","version_s":"1616527026107187202"}
+{ "create": { } }
+ {  "mapTermId_s":"EPSPI","termId_s":"EPSPI","mapTermDescription_s":"This item represents basic earnings per share including all extraordinary items and discontinued operations as reported by the company.","mapTermName_s":"Earnings Per Share (Basic) Including Extraordinary Items","mapName_s":"Compustat","id":"Compustat_EPSPI_EPSPI","version_s":"1616527026107187203"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"ETRDTA","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_ETRDTA_TXT","version_s":"1616527026108235776"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"ETRDTAV","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_ETRDTAV_TXT","version_s":"1616527026108235777"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"ETRDV","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_ETRDV_TXT","version_s":"1616527026108235778"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"ETRNESV","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_ETRNESV_TXT","version_s":"1616527026108235779"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"ETRQ","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_ETRQ_TXT","version_s":"1616527026109284352"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"ETRRDV","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_ETRRDV_TXT","version_s":"1616527026109284353"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"ETRTC","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_ETRTC_TXT","version_s":"1616527026109284354"}
+{ "create": { } }
+ {  "mapTermId_s":"AM","termId_s":"FLIA12","mapTermDescription_s":"This item represents a non-cash charge for the systematic write-off of the cost of intangible assets over the period for which there is an economic benefit.","mapTermName_s":"Amortization of Intangibles","mapName_s":"Compustat","id":"Compustat_FLIA12_AM","version_s":"1616527026109284355"}
+{ "create": { } }
+ {  "mapTermId_s":"AM","termId_s":"FLIA2","mapTermDescription_s":"This item represents a non-cash charge for the systematic write-off of the cost of intangible assets over the period for which there is an economic benefit.","mapTermName_s":"Amortization of Intangibles","mapName_s":"Compustat","id":"Compustat_FLIA2_AM","version_s":"1616527026110332928"}
+{ "create": { } }
+ {  "mapTermId_s":"AM","termId_s":"FLIA3","mapTermDescription_s":"This item represents a non-cash charge for the systematic write-off of the cost of intangible assets over the period for which there is an economic benefit.","mapTermName_s":"Amortization of Intangibles","mapName_s":"Compustat","id":"Compustat_FLIA3_AM","version_s":"1616527026110332929"}
+{ "create": { } }
+ {  "mapTermId_s":"AM","termId_s":"FLIA4","mapTermDescription_s":"This item represents a non-cash charge for the systematic write-off of the cost of intangible assets over the period for which there is an economic benefit.","mapTermName_s":"Amortization of Intangibles","mapName_s":"Compustat","id":"Compustat_FLIA4_AM","version_s":"1616527026110332930"}
+{ "create": { } }
+ {  "mapTermId_s":"AM","termId_s":"FLIA5","mapTermDescription_s":"This item represents a non-cash charge for the systematic write-off of the cost of intangible assets over the period for which there is an economic benefit.","mapTermName_s":"Amortization of Intangibles","mapName_s":"Compustat","id":"Compustat_FLIA5_AM","version_s":"1616527026111381504"}
+{ "create": { } }
+ {  "mapTermId_s":"AM","termId_s":"FLIAA5","mapTermDescription_s":"This item represents a non-cash charge for the systematic write-off of the cost of intangible assets over the period for which there is an economic benefit.","mapTermName_s":"Amortization of Intangibles","mapName_s":"Compustat","id":"Compustat_FLIAA5_AM","version_s":"1616527026111381505"}
+{ "create": { } }
+ {  "mapTermId_s":"AM","termId_s":"FLIAAAM","mapTermDescription_s":"This item represents a non-cash charge for the systematic write-off of the cost of intangible assets over the period for which there is an economic benefit.","mapTermName_s":"Amortization of Intangibles","mapName_s":"Compustat","id":"Compustat_FLIAAAM_AM","version_s":"1616527026111381506"}
+{ "create": { } }
+ {  "mapTermId_s":"GDWLIP","termId_s":"GDWLIP","mapTermDescription_s":"This item is the sum of all Impairment of Goodwill special items reported before taxes.","mapTermName_s":"Impairments of Goodwill Pretax","mapName_s":"Compustat","id":"Compustat_GDWLIP_GDWLIP","version_s":"1616527026111381507"}
+{ "create": { } }
+ {  "mapTermId_s":"GDWL","termId_s":"GDWLQ","mapTermDescription_s":"This item represents the excess cost over equity of an acquired company.","mapTermName_s":"Goodwill","mapName_s":"Compustat","id":"Compustat_GDWLQ_GDWL","version_s":"1616527026112430080"}
+{ "create": { } }
+ {  "mapTermId_s":"GP","termId_s":"GP","mapTermDescription_s":"This item is the difference of: Sales/Turnover (Net) (SALE) less Cost of Goods Sold (COGS)","mapTermName_s":"Gross Profit (Loss)","mapName_s":"Compustat","id":"Compustat_GP_GP","version_s":"1616527026112430081"}
+{ "create": { } }
+ {  "mapTermId_s":"ISFI","termId_s":"HTMSEC","mapTermDescription_s":"This item represents all funds invested in corporate and other debt securities paying a fixed rate of return.","mapTermName_s":"Investment Securities - Fixed Income","mapName_s":"Compustat","id":"Compustat_HTMSEC_ISFI","version_s":"1616527026112430082"}
+{ "create": { } }
+ {  "mapTermId_s":"IBKI","termId_s":"IBKI","mapTermDescription_s":"This item represents revenue received by a securities broker/dealer for acting as underwriter or agent for an issue of securities. It is the difference between purchase price and public offering price of securities.","mapTermName_s":"Investment Banking Income","mapName_s":"Compustat","id":"Compustat_IBKI_IBKI","version_s":"1616527026112430083"}
+{ "create": { } }
+ {  "mapTermId_s":"ICAPT","termId_s":"ICAPT","mapTermDescription_s":"This item represents the sum of these data items: Long-Term Debt - Total, Preferred Stock - Carrying Value, Minority Interest (Balance Sheet), Common Equity - Total. This item may include the current portion of long-term debt when long-term debt is footnoted indicating long-term debt includes the current portion.","mapTermName_s":"Invested Capital - Total","mapName_s":"Compustat","id":"Compustat_ICAPT_ICAPT","version_s":"1616527026112430084"}
+{ "create": { } }
+ {  "mapTermId_s":"DO","termId_s":"IDCNT","mapTermDescription_s":"This item represents the total income (loss) from operations of a division discontinued or sold by the company and the gain (loss) on disposal of the division, reported after income taxes.","mapTermName_s":"Discontinued Operations","mapName_s":"Compustat","id":"Compustat_IDCNT_DO","version_s":"1616527026113478656"}
+{ "create": { } }
+ {  "mapTermId_s":"IDIIS","termId_s":"IDIOS","mapTermDescription_s":"This item represents interest and dividends received from securities held for investment purposes. This item is not available for utility companies.","mapTermName_s":"Interest and Dividend Income - Investment Securities","mapName_s":"Compustat","id":"Compustat_IDIOS_IDIIS","version_s":"1616527026113478657"}
+{ "create": { } }
+ {  "mapTermId_s":"IDIIS","termId_s":"IDOI","mapTermDescription_s":"This item represents interest and dividends received from securities held for investment purposes. This item is not available for utility companies.","mapTermName_s":"Interest and Dividend Income - Investment Securities","mapName_s":"Compustat","id":"Compustat_IDOI_IDIIS","version_s":"1616527026113478658"}
+{ "create": { } }
+ {  "mapTermId_s":"XINST","termId_s":"IEB","mapTermDescription_s":"This item represents the total periodic expense for using short-term borrowings.","mapTermName_s":"Interest Expense - Short-Term Borrowings","mapName_s":"Compustat","id":"Compustat_IEB_XINST","version_s":"1616527026113478659"}
+{ "create": { } }
+ {  "mapTermId_s":"XINDB","termId_s":"IED","mapTermDescription_s":"This item represents the total periodic expense for using interbank deposit accounts.","mapTermName_s":"Interest Expense - Deposits - Banks","mapName_s":"Compustat","id":"Compustat_IED_XINDB","version_s":"1616527026113478660"}
+{ "create": { } }
+ {  "mapTermId_s":"IDILB","termId_s":"IFILAL","mapTermDescription_s":"This item represents total revenue received from interbank and government lending activities of banks and banking-related companies or divisions.","mapTermName_s":"Interest and Dividend Income - Loans/Claims/Advances - Banks","mapName_s":"Compustat","id":"Compustat_IFILAL_IDILB","version_s":"1616527026114527232"}
+{ "create": { } }
+ {  "mapTermId_s":"XINDB","termId_s":"IIDD","mapTermDescription_s":"This item represents the total periodic expense for using interbank deposit accounts.","mapTermName_s":"Interest Expense - Deposits - Banks","mapName_s":"Compustat","id":"Compustat_IIDD_XINDB","version_s":"1616527026114527233"}
+{ "create": { } }
+ {  "mapTermId_s":"IDIIS","termId_s":"IIMBS","mapTermDescription_s":"This item represents interest and dividends received from securities held for investment purposes. This item is not available for utility companies.","mapTermName_s":"Interest and Dividend Income - Investment Securities","mapName_s":"Compustat","id":"Compustat_IIMBS_IDIIS","version_s":"1616527026114527234"}
+{ "create": { } }
+ {  "mapTermId_s":"NIINT","termId_s":"IINLL","mapTermDescription_s":"This item represents total interest and dividends received from earning assets less total interest paid for use of debt and deposit accounts.","mapTermName_s":"Net Interest Income","mapName_s":"Compustat","id":"Compustat_IINLL_NIINT","version_s":"1616527026114527235"}
+{ "create": { } }
+ {  "mapTermId_s":"IVI","termId_s":"ININVST","mapTermDescription_s":"This item represents the interest, dividends, and rental income derived from the investment assets held by an insurance company or division and includes realized and unrealized gain (loss) on disposition of assets.","mapTermName_s":"Investment Income - Total (Insurance)","mapName_s":"Compustat","id":"Compustat_ININVST_IVI","version_s":"1616527026114527236"}
+{ "create": { } }
+ {  "mapTermId_s":"INITB","termId_s":"INIT","mapTermDescription_s":"This item represents the total revenue/income of a bank not attributed to interest and dividends received from earning assets.","mapTermName_s":"Income - Non-interest - Total (Bank)","mapName_s":"Compustat","id":"Compustat_INIT_INITB","version_s":"1616527026115575808"}
+{ "create": { } }
+ {  "mapTermId_s":"INTAN","termId_s":"INTAN","mapTermDescription_s":"This item consists almost exclusively of the excess of cost over equity acquired in assets of purchased subsidiaries which are still unamortized or not eliminated by a direct charge to a capital account.","mapTermName_s":"Intangible Assets - Total","mapName_s":"Compustat","id":"Compustat_INTAN_INTAN","version_s":"1616527026115575809"}
+{ "create": { } }
+ {  "mapTermId_s":"INTAN","termId_s":"INTANFL","mapTermDescription_s":"This item consists almost exclusively of the excess of cost over equity acquired in assets of purchased subsidiaries which are still unamortized or not eliminated by a direct charge to a capital account.","mapTermName_s":"Intangible Assets - Total","mapName_s":"Compustat","id":"Compustat_INTANFL_INTAN","version_s":"1616527026115575810"}
+{ "create": { } }
+ {  "mapTermId_s":"INTAN","termId_s":"INTANFLG","mapTermDescription_s":"This item consists almost exclusively of the excess of cost over equity acquired in assets of purchased subsidiaries which are still unamortized or not eliminated by a direct charge to a capital account.","mapTermName_s":"Intangible Assets - Total","mapName_s":"Compustat","id":"Compustat_INTANFLG_INTAN","version_s":"1616527026115575811"}
+{ "create": { } }
+ {  "mapTermId_s":"INTAN","termId_s":"INTANIL","mapTermDescription_s":"This item consists almost exclusively of the excess of cost over equity acquired in assets of purchased subsidiaries which are still unamortized or not eliminated by a direct charge to a capital account.","mapTermName_s":"Intangible Assets - Total","mapName_s":"Compustat","id":"Compustat_INTANIL_INTAN","version_s":"1616527026115575812"}
+{ "create": { } }
+ {  "mapTermId_s":"INVT","termId_s":"INVT","mapTermDescription_s":"This item represents merchandise bought for resale and materials and supplies purchased for use in production of revenue.","mapTermName_s":"Inventories - Total","mapName_s":"Compustat","id":"Compustat_INVT_INVT","version_s":"1616527026116624384"}
+{ "create": { } }
+ {  "mapTermId_s":"INVT","termId_s":"INVTA","mapTermDescription_s":"This item represents merchandise bought for resale and materials and supplies purchased for use in production of revenue.","mapTermName_s":"Inventories - Total","mapName_s":"Compustat","id":"Compustat_INVTA_INVT","version_s":"1616527026116624385"}
+{ "create": { } }
+ {  "mapTermId_s":"INVT","termId_s":"INVTG","mapTermDescription_s":"This item represents merchandise bought for resale and materials and supplies purchased for use in production of revenue.","mapTermName_s":"Inventories - Total","mapName_s":"Compustat","id":"Compustat_INVTG_INVT","version_s":"1616527026116624386"}
+{ "create": { } }
+ {  "mapTermId_s":"OPIOI","termId_s":"IO","mapTermDescription_s":"This item represents insurance underwriting pretax income (loss) not attributed to the life, nonlife, or reinsurance divisions of the company.","mapTermName_s":"Operating Income - Other","mapName_s":"Compustat","id":"Compustat_IO_OPIOI","version_s":"1616527026116624387"}
+{ "create": { } }
+ {  "mapTermId_s":"RDIPA","termId_s":"IPRD","mapTermDescription_s":"This item represents the reported after-tax amount relating to the pretax portion of R&D considered to be \"purchased\" and written off immediately upon acquisition if the R&D items are deemed not to have an alternative use.","mapTermName_s":"In Process R&D Expense After-tax","mapName_s":"Compustat","id":"Compustat_IPRD_RDIPA","version_s":"1616527026116624388"}
+{ "create": { } }
+ {  "mapTermId_s":"ISGR","termId_s":"ISGR","mapTermDescription_s":"This item represents the net gain (loss) realized from the sale, maturity, or disposal of investment securities. It represents the excess of the sale price over the book value of the investment securities.","mapTermName_s":"Investment Securities - Gain (Loss) - Realized","mapName_s":"Compustat","id":"Compustat_ISGR_ISGR","version_s":"1616527026117672960"}
+{ "create": { } }
+ {  "mapTermId_s":"IVST","termId_s":"IVST","mapTermDescription_s":"This item represents currently marketable investments as presented in the current asset section of the Balance Sheet. Such investments may be converted to cash within a relatively short period of time.","mapTermName_s":"Short-Term Investments - Total","mapName_s":"Compustat","id":"Compustat_IVST_IVST","version_s":"1616527026117672961"}
+{ "create": { } }
+ {  "mapTermId_s":"LCO","termId_s":"LCO","mapTermDescription_s":"This item is a residual item representing those current liabilities that are not debt, trade accounts payable, or income taxes payable.","mapTermName_s":"Current Liabilities Other Total","mapName_s":"Compustat","id":"Compustat_LCO_LCO","version_s":"1616527026117672962"}
+{ "create": { } }
+ {  "mapTermId_s":"INTAN","termId_s":"LCSN","mapTermDescription_s":"This item consists almost exclusively of the excess of cost over equity acquired in assets of purchased subsidiaries which are still unamortized or not eliminated by a direct charge to a capital account.","mapTermName_s":"Intangible Assets - Total","mapName_s":"Compustat","id":"Compustat_LCSN_INTAN","version_s":"1616527026117672963"}
+{ "create": { } }
+ {  "mapTermId_s":"LCT","termId_s":"LCT","mapTermDescription_s":"This item represents liabilities due within one year, including the current portion of long-term debt.","mapTermName_s":"Current Liabilities - Total","mapName_s":"Compustat","id":"Compustat_LCT_LCT","version_s":"1616527026117672964"}
+{ "create": { } }
+ {  "mapTermId_s":"LSE","termId_s":"LSE","mapTermDescription_s":"Liabilities and Stockholders' Equity - Total represents the total amount of liabilities and Shareholders' Equity reported on the Balance Sheet.","mapTermName_s":"Liabilities and Stockholders Equity - Total","mapName_s":"Compustat","id":"Compustat_LSE_LSE","version_s":"1616527026118721536"}
+{ "create": { } }
+ {  "mapTermId_s":"DT","termId_s":"LTDC","mapTermName_s":"Total Debt Including Current","mapName_s":"Compustat","id":"Compustat_LTDC_DT","version_s":"1616527026118721538"}
+{ "create": { } }
+ {  "mapTermId_s":"MIBN","termId_s":"MIB","mapTermDescription_s":"This item represents the nonredeemable portion of the par or stated value of a consolidated subsidiary's preferred or common stock not owned by the parent company.","mapTermName_s":"Noncontrolling Interests - Nonredeemable - Balance Sheet","mapName_s":"Compustat","id":"Compustat_MIB_MIBN","version_s":"1616527026118721539"}
+{ "create": { } }
+ {  "mapTermId_s":"MIBT","termId_s":"MIBT","mapTermDescription_s":"The item represents the total noncontrolling interest of a company.","mapTermName_s":"Noncontrolling Interests - Total - Balance Sheet","mapName_s":"Compustat","id":"Compustat_MIBT_MIBT","version_s":"1616527026118721540"}
+{ "create": { } }
+ {  "mapTermId_s":"IST","termId_s":"MKTSEC","mapTermDescription_s":"This item represents all funds invested in securities.","mapTermName_s":"Investment Securities -Total","mapName_s":"Compustat","id":"Compustat_MKTSEC_IST","version_s":"1616527026119770112"}
+{ "create": { } }
+ {  "mapTermId_s":"ACT","termId_s":"NCA","mapTermDescription_s":"This item represents cash and other assets that are expected to be realized in cash or used in the production of revenue within the next 12 months.","mapTermName_s":"Current Assets - Total","mapName_s":"Compustat","id":"Compustat_NCA_ACT","version_s":"1616527026119770113"}
+{ "create": { } }
+ {  "mapTermId_s":"LCT","termId_s":"NCL","mapTermDescription_s":"This item represents liabilities due within one year, including the current portion of long-term debt.","mapTermName_s":"Current Liabilities - Total","mapName_s":"Compustat","id":"Compustat_NCL_LCT","version_s":"1616527026119770114"}
+{ "create": { } }
+ {  "mapTermId_s":"NI","termId_s":"NICSB","mapTermDescription_s":"This item represents the fiscal period income or loss reported by a company after subtracting expenses and losses from all revenues and gains.","mapTermName_s":"Net Income (Loss)","mapName_s":"Compustat","id":"Compustat_NICSB_NI","version_s":"1616527026119770115"}
+{ "create": { } }
+ {  "mapTermId_s":"NI","termId_s":"NINCI","mapTermDescription_s":"This item represents the fiscal period income or loss reported by a company after subtracting expenses and losses from all revenues and gains.","mapTermName_s":"Net Income (Loss)","mapName_s":"Compustat","id":"Compustat_NINCI_NI","version_s":"1616527026119770116"}
+{ "create": { } }
+ {  "mapTermId_s":"NI","termId_s":"NINI","mapTermDescription_s":"This item represents the fiscal period income or loss reported by a company after subtracting expenses and losses from all revenues and gains.","mapTermName_s":"Net Income (Loss)","mapName_s":"Compustat","id":"Compustat_NINI_NI","version_s":"1616527026119770117"}
+{ "create": { } }
+ {  "mapTermId_s":"NOPI","termId_s":"NOPI","mapTermDescription_s":"This item represents any income or expense items resulting from secondary business-related activities, excluding those considered part of the normal operations of the business.","mapTermName_s":"Nonoperating Income (Expense)","mapName_s":"Compustat","id":"Compustat_NOPI_NOPI","version_s":"1616527026120818689"}
+{ "create": { } }
+ {  "mapTermId_s":"NOPIO","termId_s":"NOPIO","mapTermDescription_s":"This item represents any income or expense items resulting from secondary business-related activities, excluding those activities considered a normal part of company operations.","mapTermName_s":"Nonoperating Income (Expense) Other","mapName_s":"Compustat","id":"Compustat_NOPIO_NOPIO","version_s":"1616527026120818690"}
+{ "create": { } }
+ {  "mapTermId_s":"ACOMINC","termId_s":"OCINT","mapTermDescription_s":"This item represents the accumulated change in equity of a business from transactions and other events and circumstances from non-owner sources.","mapTermName_s":"Accumulated Other Comprehensive Income (Loss)","mapName_s":"Compustat","id":"Compustat_OCINT_ACOMINC","version_s":"1616527026120818691"}
+{ "create": { } }
+ {  "mapTermId_s":"ACOMINC","termId_s":"OCIP","mapTermDescription_s":"This item represents the accumulated change in equity of a business from transactions and other events and circumstances from non-owner sources.","mapTermName_s":"Accumulated Other Comprehensive Income (Loss)","mapName_s":"Compustat","id":"Compustat_OCIP_ACOMINC","version_s":"1616527026121867264"}
+{ "create": { } }
+ {  "mapTermId_s":"TLCF","termId_s":"OLC","mapTermName_s":"Tax Loss Carry Forward","mapName_s":"Compustat","id":"Compustat_OLC_TLCF","version_s":"1616527026121867265"}
+{ "create": { } }
+ {  "mapTermId_s":"OPIOI","termId_s":"OPIOI","mapTermDescription_s":"This item represents insurance underwriting pretax income (loss) not attributed to the life, nonlife, or reinsurance divisions of the company.","mapTermName_s":"Operating Income - Other","mapName_s":"Compustat","id":"Compustat_OPIOI_OPIOI","version_s":"1616527026121867266"}
+{ "create": { } }
+ {  "mapTermId_s":"OPITI","termId_s":"OPITI","mapTermDescription_s":"This item represents insurance underwriting pretax income (loss) from all lines of insurance policies. It includes total insurance revenue earned less total underwriting expenses incurred.","mapTermName_s":"Operating Income - Total","mapName_s":"Compustat","id":"Compustat_OPITI_OPITI","version_s":"1616527026121867267"}
+{ "create": { } }
+ {  "mapTermId_s":"PBNAA","termId_s":"PBA","mapTermDescription_s":"This item represents a pension plan's assets (as of the benefit information date), which are available to pay benefits when due.","mapTermName_s":"Pension Benefits - Net Assets","mapName_s":"Compustat","id":"Compustat_PBA_PBNAA","version_s":"1616527026121867268"}
+{ "create": { } }
+ {  "mapTermId_s":"PBNAA","termId_s":"PBAC","mapTermDescription_s":"This item represents a pension plan's assets (as of the benefit information date), which are available to pay benefits when due.","mapTermName_s":"Pension Benefits - Net Assets","mapName_s":"Compustat","id":"Compustat_PBAC_PBNAA","version_s":"1616527026121867269"}
+{ "create": { } }
+ {  "mapTermId_s":"PBNAA","termId_s":"PBACN","mapTermDescription_s":"This item represents a pension plan's assets (as of the benefit information date), which are available to pay benefits when due.","mapTermName_s":"Pension Benefits - Net Assets","mapName_s":"Compustat","id":"Compustat_PBACN_PBNAA","version_s":"1616527026122915840"}
+{ "create": { } }
+ {  "mapTermId_s":"PBPRO","termId_s":"PBAL","mapTermDescription_s":"These items represent actuarial present value of all benefits earned by an employee as of a specified date for service rendered prior to that date plus projected benefits attributable to future salary increases.","mapTermName_s":"Pension - Projected Benefit Obligation","mapName_s":"Compustat","id":"Compustat_PBAL_PBPRO","version_s":"1616527026122915841"}
+{ "create": { } }
+ {  "mapTermId_s":"PBARR","termId_s":"PBARR","mapTermDescription_s":"Accumulated pension plan benefits are reflected at present value to remain on a comparable basis with plan assets. The assumed rate of return on assets is the discount rate used to arrive at the present value of plan benefits.","mapTermName_s":"Pension Benefits Discount Rate - Assumed Rate of Return","mapName_s":"Compustat","id":"Compustat_PBARR_PBARR","version_s":"1616527026122915842"}
+{ "create": { } }
+ {  "mapTermId_s":"PVPL","termId_s":"PBL","mapTermDescription_s":"This item represents all provisions for future pension liabilities and similar obligations.","mapTermName_s":"Provision - Pension Liabilities","mapName_s":"Compustat","id":"Compustat_PBL_PVPL","version_s":"1616527026122915843"}
+{ "create": { } }
+ {  "mapTermId_s":"PBLC","termId_s":"PBLC","mapTermDescription_s":"This item represents the current liability portion of pension obligations recognized within the Balance Sheet.","mapTermName_s":"Pension - Current Liability","mapName_s":"Compustat","id":"Compustat_PBLC_PBLC","version_s":"1616527026122915844"}
+{ "create": { } }
+ {  "mapTermId_s":"PBLLT","termId_s":"PBLCN","mapTermName_s":"Pension - Long-Term Liability","mapName_s":"Compustat","id":"Compustat_PBLCN_PBLLT","version_s":"1616527026123964416"}
+{ "create": { } }
+ {  "mapTermId_s":"PCPPAO","termId_s":"PCPPAO","mapTermDescription_s":"Indicates the funded status of a pension plan as either overfunded or underfunded.","mapTermName_s":"Pension - Prepaid/Accrued Cost","mapName_s":"Compustat","id":"Compustat_PCPPAO_PCPPAO","version_s":"1616527026123964417"}
+{ "create": { } }
+ {  "mapTermId_s":"PCL","termId_s":"PLLE","mapTermDescription_s":"This item represents the net amount charged against income in order to maintain adequate reserves for the absorption of future loan losses.","mapTermName_s":"Provision - Credit Losses (Income Account)","mapName_s":"Compustat","id":"Compustat_PLLE_PCL","version_s":"1616527026123964419"}
+{ "create": { } }
+ {  "mapTermId_s":"PLL","termId_s":"PLLL","mapTermDescription_s":"This item represents an expense charged to earnings which increases the allowance for possible losses on assets owned due to the decline in value of collateralized assets or foreclosed assets.","mapTermName_s":"Provision for Loan/Asset Losses","mapName_s":"Compustat","id":"Compustat_PLLL_PLL","version_s":"1616527026123964420"}
+{ "create": { } }
+ {  "mapTermId_s":"PLL","termId_s":"PLLOL","mapTermDescription_s":"This item represents an expense charged to earnings which increases the allowance for possible losses on assets owned due to the decline in value of collateralized assets or foreclosed assets.","mapTermName_s":"Provision for Loan/Asset Losses","mapName_s":"Compustat","id":"Compustat_PLLOL_PLL","version_s":"1616527026123964421"}
+{ "create": { } }
+ {  "mapTermId_s":"PPEGT","termId_s":"PPEGT","mapTermDescription_s":"This item represents the cost and/or valuation of tangible fixed assets used in the production of revenue.","mapTermName_s":"Property, Plant and Equipment - Total (Gross)","mapName_s":"Compustat","id":"Compustat_PPEGT_PPEGT","version_s":"1616527026125012992"}
+{ "create": { } }
+ {  "mapTermId_s":"PPENT","termId_s":"PPENT","mapTermDescription_s":"This item represents the cost, less accumulated depreciation, of tangible fixed property used in the production of revenue.","mapTermName_s":"Property, Plant and Equipment - Total (Net)","mapName_s":"Compustat","id":"Compustat_PPENT_PPENT","version_s":"1616527026125012993"}
+{ "create": { } }
+ {  "mapTermId_s":"PPLAO","termId_s":"PPLAO","mapTermName_s":"Pension Plan Assets","mapName_s":"Compustat","id":"Compustat_PPLAO_PPLAO","version_s":"1616527026125012994"}
+{ "create": { } }
+ {  "mapTermId_s":"PPROR","termId_s":"PPROR","mapTermDescription_s":"This item represents a company's assumptions about anticipated interest rates earned by pension plan assets.","mapTermName_s":"Pension Plans - Anticipated Long-Term Rate of Return on Plan Assets","mapName_s":"Compustat","id":"Compustat_PPROR_PPROR","version_s":"1616527026125012995"}
+{ "create": { } }
+ {  "mapTermId_s":"PPRPA","termId_s":"PPRPA","mapTermDescription_s":"This item represents the expected change in market value of pension plan assets, excluding contributions to the plan or payments by the plan. It is the expected return on plan assets.","mapTermName_s":"Pension Plans - Return on Plan Assets (Expected)","mapName_s":"Compustat","id":"Compustat_PPRPA_PPRPA","version_s":"1616527026125012996"}
+{ "create": { } }
+ {  "mapTermId_s":"RE","termId_s":"RE","mapTermDescription_s":"This item represents the cumulative earnings of the company less total dividend distributions to shareholders. Stock adjustments made to this item relate to unissued shares.","mapTermName_s":"Retained Earnings","mapName_s":"Compustat","id":"Compustat_RE_RE","version_s":"1616527026126061568"}
+{ "create": { } }
+ {  "mapTermId_s":"RECTR","termId_s":"RECANL","mapTermName_s":"Receivables Total","mapName_s":"Compustat","id":"Compustat_RECANL_RECTR","version_s":"1616527026126061569"}
+{ "create": { } }
+ {  "mapTermId_s":"RECTR","termId_s":"RECC","mapTermName_s":"Receivables - Trade","mapName_s":"Compustat","id":"Compustat_RECC_RECTR","version_s":"1616527026126061570"}
+{ "create": { } }
+ {  "mapTermId_s":"RECCO","termId_s":"RECCO","mapTermDescription_s":"This item represents claims against others collectible in cash, generally within one year of the Balance Sheet date.","mapTermName_s":"Receivables - Current - Other","mapName_s":"Compustat","id":"Compustat_RECCO_RECCO","version_s":"1616527026126061571"}
+{ "create": { } }
+ {  "mapTermId_s":"RECTR","termId_s":"RECGC","mapTermName_s":"Receivables - Trade","mapName_s":"Compustat","id":"Compustat_RECGC_RECTR","version_s":"1616527026127110144"}
+{ "create": { } }
+ {  "mapTermId_s":"RECTR","termId_s":"RECNLC","mapTermName_s":"Receivables Total","mapName_s":"Compustat","id":"Compustat_RECNLC_RECTR","version_s":"1616527026127110145"}
+{ "create": { } }
+ {  "mapTermId_s":"RECT","termId_s":"RECT","mapTermName_s":"Receivables Total","mapName_s":"Compustat","id":"Compustat_RECT_RECT","version_s":"1616527026127110146"}
+{ "create": { } }
+ {  "mapTermId_s":"RECUB","termId_s":"RECUB","mapTermDescription_s":"This item represents revenue that has been recognized but cannot be billed for until a later time.","mapTermName_s":"Unbilled Receivables","mapName_s":"Compustat","id":"Compustat_RECUB_RECUB","version_s":"1616527026127110147"}
+{ "create": { } }
+ {  "mapTermId_s":"PRSTKCC","termId_s":"REPCOM","mapTermName_s":"Purchase of Common Stock (Cash Flow)","mapName_s":"Compustat","id":"Compustat_REPCOM_PRSTKCC","version_s":"1616527026127110148"}
+{ "create": { } }
+ {  "mapTermId_s":"CAPX","termId_s":"REPEDO","mapTermDescription_s":"This item represents the funds used for additions to property, plant, and equipment, excluding amounts arising from acquisitions (for example, fixed assets of purchased companies). This item includes property & equipment expenditures.","mapTermName_s":"Capital Expenditures","mapName_s":"Compustat","id":"Compustat_REPEDO_CAPX","version_s":"1616527026127110149"}
+{ "create": { } }
+ {  "mapTermId_s":"CAPX","termId_s":"REPEDSO","mapTermDescription_s":"This item represents the funds used for additions to property, plant, and equipment, excluding amounts arising from acquisitions (for example, fixed assets of purchased companies). This item includes property & equipment expenditures.","mapTermName_s":"Capital Expenditures","mapName_s":"Compustat","id":"Compustat_REPEDSO_CAPX","version_s":"1616527026128158720"}
+{ "create": { } }
+ {  "mapTermId_s":"CAPX","termId_s":"REPIA","mapTermDescription_s":"This item represents the funds used for additions to property, plant, and equipment, excluding amounts arising from acquisitions (for example, fixed assets of purchased companies). This item includes property & equipment expenditures.","mapTermName_s":"Capital Expenditures","mapName_s":"Compustat","id":"Compustat_REPIA_CAPX","version_s":"1616527026128158721"}
+{ "create": { } }
+ {  "mapTermId_s":"CAPX","termId_s":"REPME","mapTermDescription_s":"This item represents the funds used for additions to property, plant, and equipment, excluding amounts arising from acquisitions (for example, fixed assets of purchased companies). This item includes property & equipment expenditures.","mapTermName_s":"Capital Expenditures","mapName_s":"Compustat","id":"Compustat_REPME_CAPX","version_s":"1616527026128158722"}
+{ "create": { } }
+ {  "mapTermId_s":"DVPD","termId_s":"REPOD","mapTermDescription_s":"This represents the total amount of dividends (other than stock dividends) declared on the common/ordinary capital of the company, based on the current year's net income.","mapTermName_s":"Cash Dividends Paid","mapName_s":"Compustat","id":"Compustat_REPOD_DVPD","version_s":"1616527026128158723"}
+{ "create": { } }
+ {  "mapTermId_s":"CDVC","termId_s":"REPODCS","mapTermDescription_s":"This item represents the total amount of cash dividends for common stock.","mapTermName_s":"Cash Dividends on Common Stock (Cash Flow)","mapName_s":"Compustat","id":"Compustat_REPODCS_CDVC","version_s":"1616527026129207296"}
+{ "create": { } }
+ {  "mapTermId_s":"CDVC","termId_s":"REPODNCI","mapTermDescription_s":"This item represents the total amount of cash dividends for common stock.","mapTermName_s":"Cash Dividends on Common Stock (Cash Flow)","mapName_s":"Compustat","id":"Compustat_REPODNCI_CDVC","version_s":"1616527026129207297"}
+{ "create": { } }
+ {  "mapTermId_s":"DVP","termId_s":"REPODPS","mapTermName_s":"Dividends - Preferred/Preference","mapName_s":"Compustat","id":"Compustat_REPODPS_DVP","version_s":"1616527026129207298"}
+{ "create": { } }
+ {  "mapTermId_s":"CAPX","termId_s":"REPOOPPE","mapTermDescription_s":"This item represents the funds used for additions to property, plant, and equipment, excluding amounts arising from acquisitions (for example, fixed assets of purchased companies). This item includes property & equipment expenditures.","mapTermName_s":"Capital Expenditures","mapName_s":"Compustat","id":"Compustat_REPOOPPE_CAPX","version_s":"1616527026129207299"}
+{ "create": { } }
+ {  "mapTermId_s":"CAPX","termId_s":"REPOP","mapTermDescription_s":"This item represents the funds used for additions to property, plant, and equipment, excluding amounts arising from acquisitions (for example, fixed assets of purchased companies). This item includes property & equipment expenditures.","mapTermName_s":"Capital Expenditures","mapName_s":"Compustat","id":"Compustat_REPOP_CAPX","version_s":"1616527026129207300"}
+{ "create": { } }
+ {  "mapTermId_s":"CAPX","termId_s":"REPOPPE","mapTermDescription_s":"This item represents the funds used for additions to property, plant, and equipment, excluding amounts arising from acquisitions (for example, fixed assets of purchased companies). This item includes property & equipment expenditures.","mapTermName_s":"Capital Expenditures","mapName_s":"Compustat","id":"Compustat_REPOPPE_CAPX","version_s":"1616527026130255872"}
+{ "create": { } }
+ {  "mapTermId_s":"CAPX","termId_s":"REPPA","mapTermDescription_s":"This item represents the funds used for additions to property, plant, and equipment, excluding amounts arising from acquisitions (for example, fixed assets of purchased companies). This item includes property & equipment expenditures.","mapTermName_s":"Capital Expenditures","mapName_s":"Compustat","id":"Compustat_REPPA_CAPX","version_s":"1616527026130255873"}
+{ "create": { } }
+ {  "mapTermId_s":"CAPX","termId_s":"REPPP","mapTermDescription_s":"This item represents the funds used for additions to property, plant, and equipment, excluding amounts arising from acquisitions (for example, fixed assets of purchased companies). This item includes property & equipment expenditures.","mapTermName_s":"Capital Expenditures","mapName_s":"Compustat","id":"Compustat_REPPP_CAPX","version_s":"1616527026130255874"}
+{ "create": { } }
+ {  "mapTermId_s":"CAPX","termId_s":"REPPPE","mapTermDescription_s":"This item represents the funds used for additions to property, plant, and equipment, excluding amounts arising from acquisitions (for example, fixed assets of purchased companies). This item includes property & equipment expenditures.","mapTermName_s":"Capital Expenditures","mapName_s":"Compustat","id":"Compustat_REPPPE_CAPX","version_s":"1616527026130255875"}
+{ "create": { } }
+ {  "mapTermId_s":"CAPX","termId_s":"REPS","mapTermDescription_s":"This item represents the funds used for additions to property, plant, and equipment, excluding amounts arising from acquisitions (for example, fixed assets of purchased companies). This item includes property & equipment expenditures.","mapTermName_s":"Capital Expenditures","mapName_s":"Compustat","id":"Compustat_REPS_CAPX","version_s":"1616527026130255876"}
+{ "create": { } }
+ {  "mapTermId_s":"REVT","termId_s":"REVT","mapTermDescription_s":"This item represents the gross income received from all divisions of the company.","mapTermName_s":"Revenue - Total","mapName_s":"Compustat","id":"Compustat_REVT_REVT","version_s":"1616527026131304448"}
+{ "create": { } }
+ {  "mapTermId_s":"SALE","termId_s":"SALE","mapTermDescription_s":"This item represents gross sales (the amount of actual billings to customers for regular sales completed during the period) reduced by cash discounts, trade discounts, and returned sales and allowances for which credit is given to customers, for each operating segment. Differences, which exist between the data as reported by the company and the Compustat definition, will be indicated by a footnote.","mapTermName_s":"Sales/Turnover (Net)","mapName_s":"Compustat","id":"Compustat_SALE_SALE","version_s":"1616527026131304449"}
+{ "create": { } }
+ {  "mapTermId_s":"SALE","termId_s":"SALEDA","mapTermDescription_s":"This item represents gross sales (the amount of actual billings to customers for regular sales completed during the period) reduced by cash discounts, trade discounts, and returned sales and allowances for which credit is given to customers, for each operating segment. Differences, which exist between the data as reported by the company and the Compustat definition, will be indicated by a footnote.","mapTermName_s":"Sales/Turnover (Net)","mapName_s":"Compustat","id":"Compustat_SALEDA_SALE","version_s":"1616527026131304450"}
+{ "create": { } }
+ {  "mapTermId_s":"SALE","termId_s":"SALEG","mapTermDescription_s":"This item represents gross sales (the amount of actual billings to customers for regular sales completed during the period) reduced by cash discounts, trade discounts, and returned sales and allowances for which credit is given to customers, for each operating segment. Differences, which exist between the data as reported by the company and the Compustat definition, will be indicated by a footnote.","mapTermName_s":"Sales/Turnover (Net)","mapName_s":"Compustat","id":"Compustat_SALEG_SALE","version_s":"1616527026131304451"}
+{ "create": { } }
+ {  "mapTermId_s":"SALE","termId_s":"SALEGG","mapTermDescription_s":"This item represents gross sales (the amount of actual billings to customers for regular sales completed during the period) reduced by cash discounts, trade discounts, and returned sales and allowances for which credit is given to customers, for each operating segment. Differences, which exist between the data as reported by the company and the Compustat definition, will be indicated by a footnote.","mapTermName_s":"Sales/Turnover (Net)","mapName_s":"Compustat","id":"Compustat_SALEGG_SALE","version_s":"1616527026132353024"}
+{ "create": { } }
+ {  "mapTermId_s":"SALE","termId_s":"SALES","mapTermDescription_s":"This item represents gross sales (the amount of actual billings to customers for regular sales completed during the period) reduced by cash discounts, trade discounts, and returned sales and allowances for which credit is given to customers, for each operating segment. Differences, which exist between the data as reported by the company and the Compustat definition, will be indicated by a footnote.","mapTermName_s":"Sales/Turnover (Net)","mapName_s":"Compustat","id":"Compustat_SALES_SALE","version_s":"1616527026132353025"}
+{ "create": { } }
+ {  "mapTermId_s":"SPI","termId_s":"SPI","mapTermName_s":"Special Items","mapName_s":"Compustat","id":"Compustat_SPI_SPI","version_s":"1616527026132353027"}
+{ "create": { } }
+ {  "mapTermId_s":"STIO","termId_s":"STIO","mapTermDescription_s":"This item represents liquid assets not immediately negotiable and not classified as federal funds sold or resale agreements.","mapTermName_s":"Short-Term Investments - Other","mapName_s":"Compustat","id":"Compustat_STIO_STIO","version_s":"1616527026132353029"}
+{ "create": { } }
+ {  "mapTermId_s":"STKCO","termId_s":"STKCO","mapTermDescription_s":"This item represents compensation in the form of company stock on a pre-tax basis.","mapTermName_s":"Stock Compensation Expense","mapName_s":"Compustat","id":"Compustat_STKCO_STKCO","version_s":"1616527026133401600"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TDXBAOPLF","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TDXBAOPLF_TXNDBA","version_s":"1616527026133401601"}
+{ "create": { } }
+ {  "mapTermId_s":"TEQ","termId_s":"TEQ","mapTermDescription_s":"This item represents the common equity, preferred equity and nonredeemable noncontrolling interest of a company.","mapTermName_s":"Stockholders Equity - Total","mapName_s":"Compustat","id":"Compustat_TEQ_TEQ","version_s":"1616527026133401602"}
+{ "create": { } }
+ {  "mapTermId_s":"TDST","termId_s":"TRADSEC","mapTermDescription_s":"This item represents all securities held in dealer trading accounts for resale to other institutions and/or the public.","mapTermName_s":"Trading/Dealing Account Securities - Total","mapName_s":"Compustat","id":"Compustat_TRADSEC_TDST","version_s":"1616527026133401603"}
+{ "create": { } }
+ {  "mapTermId_s":"TXC","termId_s":"TXC","mapTermDescription_s":"This item represents the current amount of taxes payable to local, provincial/state ,national, and foreign governments.","mapTermName_s":"Income Taxes - Current","mapName_s":"Compustat","id":"Compustat_TXC_TXC","version_s":"1616527026133401604"}
+{ "create": { } }
+ {  "mapTermId_s":"TXFO","termId_s":"TXCF","mapTermDescription_s":"This item represents the current amount of income taxes payable to foreign governments.","mapTermName_s":"Income Taxes - Foreign","mapName_s":"Compustat","id":"Compustat_TXCF_TXFO","version_s":"1616527026134450176"}
+{ "create": { } }
+ {  "mapTermId_s":"TXFED","termId_s":"TXCFED","mapTermDescription_s":"This item represents the current amount of taxes payable to the federal government and is net of investment tax credits.","mapTermName_s":"Income Taxes Federal","mapName_s":"Compustat","id":"Compustat_TXCFED_TXFED","version_s":"1616527026134450177"}
+{ "create": { } }
+ {  "mapTermId_s":"TXS","termId_s":"TXCSL","mapTermDescription_s":"This item represents the current amount of taxes payable to state and local governments (included in income taxes by the company).","mapTermName_s":"Income Taxes State","mapName_s":"Compustat","id":"Compustat_TXCSL_TXS","version_s":"1616527026134450178"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXD","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXD_TXT","version_s":"1616527026134450179"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDBAATIP","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDBAATIP_TXNDBA","version_s":"1616527026134450180"}
+{ "create": { } }
+ {  "mapTermId_s":"TXDBCA","termId_s":"TXDBACNVA","mapTermDescription_s":"This item is the amount of current deferred tax assets that are reported on the Balance Sheet or in a note that corresponds to the balance sheet. It represents the accumulated tax benefits available due to timing differences between the reporting of revenues and expenses for financial reporting and tax purposes.","mapTermName_s":"Deferred Tax Asset - Current","mapName_s":"Compustat","id":"Compustat_TXDBACNVA_TXDBCA","version_s":"1616527026135498752"}
+{ "create": { } }
+ {  "mapTermId_s":"TXDBA","termId_s":"TXDBANCNVA","mapTermDescription_s":"This item is the amount of long-term deferred tax assets that are reported on the Balance Sheet or in a note that corresponds to the balance sheet. It represents the accumulated tax benefits available due to timing differences between the reporting of revenues and expenses for financial reporting and tax purposes.","mapTermName_s":"Deferred Tax Asset - Long Term","mapName_s":"Compustat","id":"Compustat_TXDBANCNVA_TXDBA","version_s":"1616527026135498753"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDBANVA","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDBANVA_TXNDBA","version_s":"1616527026135498754"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDBAOLPD","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDBAOLPD_TXNDBA","version_s":"1616527026135498755"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDBAOPL","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDBAOPL_TXNDBA","version_s":"1616527026135498756"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDBAOPLSL","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDBAOPLSL_TXNDBA","version_s":"1616527026136547328"}
+{ "create": { } }
+ {  "mapTermId_s":"TXDBCL","termId_s":"TXDBCL","mapTermDescription_s":"This item represents the current portion of a Deferred Tax Liability that arises as an indeterminate term liability when the pretax income shown on the tax return is less than what it should have been had the same accounting principles and cost basis for assets and liabilities been used in tax returns as was used for financial reporting.","mapTermName_s":"Deferred Tax Liability - Current","mapName_s":"Compustat","id":"Compustat_TXDBCL_TXDBCL","version_s":"1616527026136547329"}
+{ "create": { } }
+ {  "mapTermId_s":"TXDBCL","termId_s":"TXDBNCL","mapTermDescription_s":"This item represents the current portion of a Deferred Tax Liability that arises as an indeterminate term liability when the pretax income shown on the tax return is less than what it should have been had the same accounting principles and cost basis for assets and liabilities been used in tax returns as was used for financial reporting.","mapTermName_s":"Deferred Tax Liability - Current","mapName_s":"Compustat","id":"Compustat_TXDBNCL_TXDBCL","version_s":"1616527026136547330"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDCB","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDCB_TXNDBA","version_s":"1616527026136547331"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDCBCA","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDCBCA_TXNDBA","version_s":"1616527026136547332"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDCBP","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDCBP_TXNDBA","version_s":"1616527026137595904"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDCBSB","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDCBSB_TXNDBA","version_s":"1616527026137595905"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDCBT","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDCBT_TXNDBA","version_s":"1616527026137595906"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDDE","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDDE_TXNDBA","version_s":"1616527026137595907"}
+{ "create": { } }
+ {  "mapTermId_s":"TXDFO","termId_s":"TXDF","mapTermDescription_s":"This item represents the deferred amount of income taxes payable to governments outside a company's country of incorporation.","mapTermName_s":"Deferred Taxes-Foreign","mapName_s":"Compustat","id":"Compustat_TXDF_TXDFO","version_s":"1616527026137595908"}
+{ "create": { } }
+ {  "mapTermId_s":"TXDFED","termId_s":"TXDFED","mapTermDescription_s":"This item represents the deferred amount of income taxes allocated to a company's domestic government.","mapTermName_s":"Deferred Taxes-Federal","mapName_s":"Compustat","id":"Compustat_TXDFED_TXDFED","version_s":"1616527026137595909"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDG","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDG_TXNDBA","version_s":"1616527026138644480"}
+{ "create": { } }
+ {  "mapTermId_s":"TXDBCA","termId_s":"TXDGC","mapTermDescription_s":"This item is the amount of current deferred tax assets that are reported on the Balance Sheet or in a note that corresponds to the balance sheet. It represents the accumulated tax benefits available due to timing differences between the reporting of revenues and expenses for financial reporting and tax purposes.","mapTermName_s":"Deferred Tax Asset - Current","mapName_s":"Compustat","id":"Compustat_TXDGC_TXDBCA","version_s":"1616527026138644481"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDGI","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDGI_TXNDBA","version_s":"1616527026138644482"}
+{ "create": { } }
+ {  "mapTermId_s":"TXDBA","termId_s":"TXDGNC","mapTermDescription_s":"This item is the amount of long-term deferred tax assets that are reported on the Balance Sheet or in a note that corresponds to the balance sheet. It represents the accumulated tax benefits available due to timing differences between the reporting of revenues and expenses for financial reporting and tax purposes.","mapTermName_s":"Deferred Tax Asset - Long Term","mapName_s":"Compustat","id":"Compustat_TXDGNC_TXDBA","version_s":"1616527026138644483"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDHT","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDHT_TXNDBA","version_s":"1616527026138644484"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDI","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDI_TXNDBA","version_s":"1616527026139693056"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDIPRD","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDIPRD_TXNDBA","version_s":"1616527026139693057"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBL","termId_s":"TXDL","mapTermDescription_s":"This item represents the deferred tax liability reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Liability","mapName_s":"Compustat","id":"Compustat_TXDL_TXNDBL","version_s":"1616527026139693058"}
+{ "create": { } }
+ {  "mapTermId_s":"TXDBCL","termId_s":"TXDLC","mapTermDescription_s":"This item represents the current portion of a Deferred Tax Liability that arises as an indeterminate term liability when the pretax income shown on the tax return is less than what it should have been had the same accounting principles and cost basis for assets and liabilities been used in tax returns as was used for financial reporting.","mapTermName_s":"Deferred Tax Liability - Current","mapName_s":"Compustat","id":"Compustat_TXDLC_TXDBCL","version_s":"1616527026139693059"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBL","termId_s":"TXDLCI","mapTermDescription_s":"This item represents the deferred tax liability reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Liability","mapName_s":"Compustat","id":"Compustat_TXDLCI_TXNDBL","version_s":"1616527026139693060"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBL","termId_s":"TXDLCRD","mapTermDescription_s":"This item represents the deferred tax liability reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Liability","mapName_s":"Compustat","id":"Compustat_TXDLCRD_TXNDBL","version_s":"1616527026139693061"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBL","termId_s":"TXDLD","mapTermDescription_s":"This item represents the deferred tax liability reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Liability","mapName_s":"Compustat","id":"Compustat_TXDLD_TXNDBL","version_s":"1616527026140741632"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBL","termId_s":"TXDLDE","mapTermDescription_s":"This item represents the deferred tax liability reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Liability","mapName_s":"Compustat","id":"Compustat_TXDLDE_TXNDBL","version_s":"1616527026140741633"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBL","termId_s":"TXDLGI","mapTermDescription_s":"This item represents the deferred tax liability reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Liability","mapName_s":"Compustat","id":"Compustat_TXDLGI_TXNDBL","version_s":"1616527026140741634"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBL","termId_s":"TXDLI","mapTermDescription_s":"This item represents the deferred tax liability reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Liability","mapName_s":"Compustat","id":"Compustat_TXDLI_TXNDBL","version_s":"1616527026140741635"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBL","termId_s":"TXDLIA","mapTermDescription_s":"This item represents the deferred tax liability reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Liability","mapName_s":"Compustat","id":"Compustat_TXDLIA_TXNDBL","version_s":"1616527026140741636"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDB","termId_s":"TXDLN","mapTermName_s":"Net Deferred Tax Asset (Liab) - Total","mapName_s":"Compustat","id":"Compustat_TXDLN_TXNDB","version_s":"1616527026141790208"}
+{ "create": { } }
+ {  "mapTermId_s":"TXDBCL","termId_s":"TXDLNC","mapTermDescription_s":"This item represents the current portion of a Deferred Tax Liability that arises as an indeterminate term liability when the pretax income shown on the tax return is less than what it should have been had the same accounting principles and cost basis for assets and liabilities been used in tax returns as was used for financial reporting.","mapTermName_s":"Deferred Tax Liability - Current","mapName_s":"Compustat","id":"Compustat_TXDLNC_TXDBCL","version_s":"1616527026141790209"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBL","termId_s":"TXDLO","mapTermDescription_s":"This item represents the deferred tax liability reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Liability","mapName_s":"Compustat","id":"Compustat_TXDLO_TXNDBL","version_s":"1616527026141790210"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBL","termId_s":"TXDLOCI","mapTermDescription_s":"This item represents the deferred tax liability reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Liability","mapName_s":"Compustat","id":"Compustat_TXDLOCI_TXNDBL","version_s":"1616527026141790211"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDLPL","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDLPL_TXNDBA","version_s":"1616527026142838784"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBL","termId_s":"TXDLPPE","mapTermDescription_s":"This item represents the deferred tax liability reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Liability","mapName_s":"Compustat","id":"Compustat_TXDLPPE_TXNDBL","version_s":"1616527026142838785"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBL","termId_s":"TXDLUFE","mapTermDescription_s":"This item represents the deferred tax liability reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Liability","mapName_s":"Compustat","id":"Compustat_TXDLUFE_TXNDBL","version_s":"1616527026142838786"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBL","termId_s":"TXDLUTS","mapTermDescription_s":"This item represents the deferred tax liability reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Liability","mapName_s":"Compustat","id":"Compustat_TXDLUTS_TXNDBL","version_s":"1616527026142838787"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDB","termId_s":"TXDN","mapTermName_s":"Net Deferred Tax Asset (Liab) - Total","mapName_s":"Compustat","id":"Compustat_TXDN_TXNDB","version_s":"1616527026142838788"}
+{ "create": { } }
+ {  "mapTermId_s":"TXDBCA","termId_s":"TXDNC","mapTermDescription_s":"This item is the amount of current deferred tax assets that are reported on the Balance Sheet or in a note that corresponds to the balance sheet. It represents the accumulated tax benefits available due to timing differences between the reporting of revenues and expenses for financial reporting and tax purposes.","mapTermName_s":"Deferred Tax Asset - Current","mapName_s":"Compustat","id":"Compustat_TXDNC_TXDBCA","version_s":"1616527026142838789"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXDNII","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXDNII_TXT","version_s":"1616527026143887360"}
+{ "create": { } }
+ {  "mapTermId_s":"TXDBA","termId_s":"TXDNNC","mapTermDescription_s":"This item is the amount of long-term deferred tax assets that are reported on the Balance Sheet or in a note that corresponds to the balance sheet. It represents the accumulated tax benefits available due to timing differences between the reporting of revenues and expenses for financial reporting and tax purposes.","mapTermName_s":"Deferred Tax Asset - Long Term","mapName_s":"Compustat","id":"Compustat_TXDNNC_TXDBA","version_s":"1616527026143887361"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDO","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDO_TXNDBA","version_s":"1616527026143887362"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDOCI","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDOCI_TXNDBA","version_s":"1616527026143887363"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDPPE","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDPPE_TXNDBA","version_s":"1616527026143887364"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDRA","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDRA_TXNDBA","version_s":"1616527026143887365"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDRAAD","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDRAAD_TXNDBA","version_s":"1616527026143887366"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDRAAL","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDRAAL_TXNDBA","version_s":"1616527026143887367"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDRAC","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDRAC_TXNDBA","version_s":"1616527026144935936"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDRAIL","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDRAIL_TXNDBA","version_s":"1616527026144935937"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDRALS","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDRALS_TXNDBA","version_s":"1616527026144935938"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDRAO","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDRAO_TXNDBA","version_s":"1616527026144935939"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDRARA","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDRARA_TXNDBA","version_s":"1616527026144935940"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDROC","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDROC_TXNDBA","version_s":"1616527026144935941"}
+{ "create": { } }
+ {  "mapTermId_s":"TXDS","termId_s":"TXDSL","mapTermName_s":"Deferred Taxes-State","mapName_s":"Compustat","id":"Compustat_TXDSL_TXDS","version_s":"1616527026144935942"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDTC","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDTC_TXNDBA","version_s":"1616527026144935943"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDTCF","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDTCF_TXNDBA","version_s":"1616527026145984512"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXDTCFA","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXDTCFA_TXT","version_s":"1616527026145984513"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDTCGB","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDTCGB_TXNDBA","version_s":"1616527026145984514"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXDTCOP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXDTCOP_TXT","version_s":"1616527026145984515"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDTCR","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDTCR_TXNDBA","version_s":"1616527026145984516"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDUCL","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDUCL_TXNDBA","version_s":"1616527026145984517"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDVA","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDVA_TXNDBA","version_s":"1616527026145984518"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDVAC","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDVAC_TXNDBA","version_s":"1616527026147033088"}
+{ "create": { } }
+ {  "mapTermId_s":"TXNDBA","termId_s":"TXDVANC","mapTermDescription_s":"This item represents the deferred tax asset reported as a part of the income tax note.","mapTermName_s":"Net Deferred Tax Asset","mapName_s":"Compustat","id":"Compustat_TXDVANC_TXNDBA","version_s":"1616527026147033089"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXFOD","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXFOD_TXT","version_s":"1616527026147033090"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXFSI","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXFSI_TXT","version_s":"1616527026147033091"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXNE","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXNE_TXT","version_s":"1616527026147033092"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXNEA","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXNEA_TXT","version_s":"1616527026147033093"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXNECC","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXNECC_TXT","version_s":"1616527026147033094"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXNED","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXNED_TXT","version_s":"1616527026148081664"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXNEDA","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXNEDA_TXT","version_s":"1616527026148081665"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXNEDL","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXNEDL_TXT","version_s":"1616527026148081666"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXNEL","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXNEL_TXT","version_s":"1616527026148081667"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXNELI","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXNELI_TXT","version_s":"1616527026148081668"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXNEME","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXNEME_TXT","version_s":"1616527026148081669"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXNEO","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXNEO_TXT","version_s":"1616527026149130240"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXNERC","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXNERC_TXT","version_s":"1616527026149130241"}
+{ "create": { } }
+ {  "mapTermId_s":"TXP","termId_s":"TXP","mapTermDescription_s":"This item represents the accrued tax liability on income due within one year.","mapTermName_s":"Income Taxes Payable","mapName_s":"Compustat","id":"Compustat_TXP_TXP","version_s":"1616527026149130242"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDCDTAVA","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDCDTAVA_TXT","version_s":"1616527026149130243"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDCDTAVAP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDCDTAVAP_TXT","version_s":"1616527026149130244"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDCETR","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDCETR_TXT","version_s":"1616527026149130245"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDCETXRP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDCETXRP_TXT","version_s":"1616527026149130246"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDD","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDD_TXT","version_s":"1616527026150178816"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDDA","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDDA_TXT","version_s":"1616527026150178817"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDDAP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDDAP_TXT","version_s":"1616527026150178818"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDDB","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDDB_TXT","version_s":"1616527026150178819"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDDBP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDDBP_TXT","version_s":"1616527026150178820"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDDDP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDDDP_TXT","version_s":"1616527026150178821"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDDEIEP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDDEIEP_TXT","version_s":"1616527026150178822"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDDESOPDP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDDESOPDP_TXT","version_s":"1616527026151227392"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDDMPDBP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDDMPDBP_TXT","version_s":"1616527026151227393"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDDP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDDP_TXT","version_s":"1616527026151227394"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDDQPAP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDDQPAP_TXT","version_s":"1616527026151227395"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDEEUS","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDEEUS_TXT","version_s":"1616527026151227396"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDEIE","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDEIE_TXT","version_s":"1616527026151227397"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDEIEUSP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDEIEUSP_TXT","version_s":"1616527026151227398"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDESOPD","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDESOPD_TXT","version_s":"1616527026152275968"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDMPDB","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDMPDB_TXT","version_s":"1616527026152275969"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDNEAP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDNEAP_TXT","version_s":"1616527026152275970"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDNECP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDNECP_TXT","version_s":"1616527026152275971"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDNEDAP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDNEDAP_TXT","version_s":"1616527026152275972"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDNEDLP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDNEDLP_TXT","version_s":"1616527026152275973"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDNEDP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDNEDP_TXT","version_s":"1616527026152275974"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDNEILA","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDNEILA_TXT","version_s":"1616527026152275975"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDNELIP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDNELIP_TXT","version_s":"1616527026153324544"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDNELP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDNELP_TXT","version_s":"1616527026153324545"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDNEMEP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDNEMEP_TXT","version_s":"1616527026153324546"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDNEOP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDNEOP_TXT","version_s":"1616527026153324547"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDNEP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDNEP_TXT","version_s":"1616527026153324548"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDNERDP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDNERDP_TXT","version_s":"1616527026153324549"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDNERP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDNERP_TXT","version_s":"1616527026153324550"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDNESBCP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDNESBCP_TXT","version_s":"1616527026154373120"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDNIIP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDNIIP_TXT","version_s":"1616527026154373121"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDO","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDO_TXT","version_s":"1616527026154373122"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDOA","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDOA_TXT","version_s":"1616527026154373123"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDOAP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDOAP_TXT","version_s":"1616527026154373124"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDODP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDODP_TXT","version_s":"1616527026154373125"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDOR","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDOR_TXT","version_s":"1616527026154373126"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDORIP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDORIP_TXT","version_s":"1616527026154373127"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDPYIT","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDPYIT_TXT","version_s":"1616527026155421696"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDPYITP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDPYITP_TXT","version_s":"1616527026155421697"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDQPA","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDQPA_TXT","version_s":"1616527026155421698"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDRFE","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDRFE_TXT","version_s":"1616527026155421699"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDRFEJCA2004P","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDRFEJCA2004P_TXT","version_s":"1616527026155421700"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDRFEP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDRFEP_TXT","version_s":"1616527026155421701"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDTC","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDTC_TXT","version_s":"1616527026155421702"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDTCD","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDTCD_TXT","version_s":"1616527026156470272"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDTCDP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDTCDP_TXT","version_s":"1616527026156470273"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDTCF","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDTCF_TXT","version_s":"1616527026156470274"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDTCFP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDTCFP_TXT","version_s":"1616527026156470275"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDTCI","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDTCI_TXT","version_s":"1616527026156470276"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDTCO","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDTCO_TXT","version_s":"1616527026156470277"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDTCOP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDTCOP_TXT","version_s":"1616527026157518848"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDTCP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDTCP_TXT","version_s":"1616527026157518849"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDTCR","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDTCR_TXT","version_s":"1616527026157518850"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDTCSL","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDTCSL_TXT","version_s":"1616527026157518851"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDTCSLP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDTCSLP_TXT","version_s":"1616527026157518852"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDTEI","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDTEI_TXT","version_s":"1616527026157518853"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDTEIP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDTEIP_TXT","version_s":"1616527026157518854"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDTH","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDTH_TXT","version_s":"1616527026158567424"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDTHP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDTHP_TXT","version_s":"1616527026158567425"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDTS","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDTS_TXT","version_s":"1616527026158567426"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDTSD","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDTSD_TXT","version_s":"1616527026158567427"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDTSDP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDTSDP_TXT","version_s":"1616527026158567428"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDTSF","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDTSF_TXT","version_s":"1616527026158567429"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDTSFP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDTSFP_TXT","version_s":"1616527026158567430"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDTSO","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDTSO_TXT","version_s":"1616527026158567431"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDTSOP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDTSOP_TXT","version_s":"1616527026159616000"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDTSP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDTSP_TXT","version_s":"1616527026159616001"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDTSSL","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDTSSL_TXT","version_s":"1616527026159616002"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRDTSSLP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRDTSSLP_TXT","version_s":"1616527026159616003"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRFOD","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRFOD_TXT","version_s":"1616527026159616004"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRFST","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRFST_TXT","version_s":"1616527026160664576"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRIP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRIP_TXT","version_s":"1616527026160664577"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRRP","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRRP_TXT","version_s":"1616527026160664578"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXRSL","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXRSL_TXT","version_s":"1616527026160664579"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXSLI","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXSLI_TXT","version_s":"1616527026160664580"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXT","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXT_TXT","version_s":"1616527026160664581"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXTC","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXTC_TXT","version_s":"1616527026160664582"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXTCI","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXTCI_TXT","version_s":"1616527026161713152"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXTCO","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXTCO_TXT","version_s":"1616527026161713153"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXTCR","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXTCR_TXT","version_s":"1616527026161713154"}
+{ "create": { } }
+ {  "mapTermId_s":"TXT","termId_s":"TXTXC","mapTermDescription_s":"This item represents all income taxes imposed by federal, state and foreign governments.","mapTermName_s":"Income Taxes - Total","mapName_s":"Compustat","id":"Compustat_TXTXC_TXT","version_s":"1616527026161713155"}
+{ "create": { } }
+ {  "mapTermId_s":"UPSTK","termId_s":"UPSTK","mapTermDescription_s":"Preferred Stock represents the number of the company's redeemable and nonredeemable preferred shares issued at year-end times the par or stated value per share, as presented in the Balance Sheet. Preference Stock represents the par or stated value of preference stock. If the stock has neither par nor stated value, it is represented at the cash value of the consideration received for such nonpar stock.","mapTermName_s":"Preferred Stock at Carrying Value","mapName_s":"Compustat","id":"Compustat_UPSTK_UPSTK","version_s":"1616527026161713156"}
+{ "create": { } }
+ {  "mapTermId_s":"XAD","termId_s":"XAD","mapTermDescription_s":"This item represents the cost of advertising media (i.e., radio, television, and periodicals) and promotional expenses.","mapTermName_s":"Advertising Expense","mapName_s":"Compustat","id":"Compustat_XAD_XAD","version_s":"1616527026161713157"}
+{ "create": { } }
+ {  "mapTermId_s":"XAGT","termId_s":"XAGT","mapTermDescription_s":"This item represents the aggregate amount of indirect operating costs incurred that are not allocated to another expense component.","mapTermName_s":"Administrative and General Expense - Total","mapName_s":"Compustat","id":"Compustat_XAGT_XAGT","version_s":"1616527026161713158"}
+{ "create": { } }
+ {  "mapTermId_s":"XINST","termId_s":"XINST","mapTermDescription_s":"This item represents the total periodic expense for using short-term borrowings.","mapTermName_s":"Interest Expense - Short-Term Borrowings","mapName_s":"Compustat","id":"Compustat_XINST_XINST","version_s":"1616527026161713159"}
+{ "create": { } }
+ {  "mapTermId_s":"XINTD","termId_s":"XINTD","mapTermDescription_s":"This item represents the amount of interest expense specifically applicable to long-term debt.","mapTermName_s":"Interest Expense - Long-Term Debt","mapName_s":"Compustat","id":"Compustat_XINTD_XINTD","version_s":"1616527026162761728"}
+{ "create": { } }
+ {  "mapTermId_s":"XINTD","termId_s":"XINTDD","mapTermDescription_s":"This item represents the amount of interest expense specifically applicable to long-term debt.","mapTermName_s":"Interest Expense - Long-Term Debt","mapName_s":"Compustat","id":"Compustat_XINTDD_XINTD","version_s":"1616527026162761729"}
+{ "create": { } }
+ {  "mapTermId_s":"IINTS","termId_s":"XINTI","mapTermDescription_s":"This item represents the revenue received from interest-bearing obligations held by the company.","mapTermName_s":"Interest Income","mapName_s":"Compustat","id":"Compustat_XINTI_IINTS","version_s":"1616527026162761730"}
+{ "create": { } }
+ {  "mapTermId_s":"NIINT","termId_s":"XINTIEN","mapTermDescription_s":"This item represents total interest and dividends received from earning assets less total interest paid for use of debt and deposit accounts.","mapTermName_s":"Net Interest Income","mapName_s":"Compustat","id":"Compustat_XINTIEN_NIINT","version_s":"1616527026162761731"}
+{ "create": { } }
+ {  "mapTermId_s":"XINTD","termId_s":"XINTRP","mapTermDescription_s":"This item represents the amount of interest expense specifically applicable to long-term debt.","mapTermName_s":"Interest Expense - Long-Term Debt","mapName_s":"Compustat","id":"Compustat_XINTRP_XINTD","version_s":"1616527026162761732"}
+{ "create": { } }
+ {  "mapTermId_s":"XAD","termId_s":"XMAD","mapTermDescription_s":"This item represents the cost of advertising media (i.e., radio, television, and periodicals) and promotional expenses.","mapTermName_s":"Advertising Expense","mapName_s":"Compustat","id":"Compustat_XMAD_XAD","version_s":"1616527026162761733"}
+{ "create": { } }
+ {  "mapTermId_s":"XAD","termId_s":"XME","mapTermDescription_s":"This item represents the cost of advertising media (i.e., radio, television, and periodicals) and promotional expenses.","mapTermName_s":"Advertising Expense","mapName_s":"Compustat","id":"Compustat_XME_XAD","version_s":"1616527026163810304"}
+{ "create": { } }
+ {  "mapTermId_s":"XPR","termId_s":"XPEN","mapTermDescription_s":"This item represents the pension and retirement expense included as an expense in the Income Statement.","mapTermName_s":"Pension and Retirement Expense","mapName_s":"Compustat","id":"Compustat_XPEN_XPR","version_s":"1616527026163810305"}
+{ "create": { } }
+ {  "mapTermId_s":"PPC","termId_s":"XPRB","mapTermDescription_s":"This item represents the cost of pension plans as shown on the Financial Statements for all plans covered by SFAS #87.","mapTermName_s":"Periodic Pension Cost (Net)","mapName_s":"Compustat","id":"Compustat_XPRB_PPC","version_s":"1616527026163810306"}
+{ "create": { } }
+ {  "mapTermId_s":"XRD","termId_s":"XRD","mapTermDescription_s":"This item represents all costs incurred during the year that relate to the development of new products or services.","mapTermName_s":"Research and Development Expense","mapName_s":"Compustat","id":"Compustat_XRD_XRD","version_s":"1616527026163810307"}
+{ "create": { } }
+ {  "mapTermId_s":"XRENT","termId_s":"XRENT","mapTermDescription_s":"This item represents all costs charged to operations for rental, lease, or hire of space and/or equipment.","mapTermName_s":"Rental Expense","mapName_s":"Compustat","id":"Compustat_XRENT_XRENT","version_s":"1616527026163810308"}
+{ "create": { } }
+ {  "mapTermId_s":"XCOMI","termId_s":"XSCF","mapTermDescription_s":"This item represents fees paid to agents and brokers for insurance policies sold.","mapTermName_s":"Commissions Expense (Insurance)","mapName_s":"Compustat","id":"Compustat_XSCF_XCOMI","version_s":"1616527026163810309"}
+{ "create": { } }
+ {  "mapTermId_s":"XSGA","termId_s":"XSE","mapTermDescription_s":"Selling, General and Administrative Expense","mapTermName_s":"Selling, General and Administrative Expense","mapName_s":"Compustat","id":"Compustat_XSE_XSGA","version_s":"1616527026163810310"}
+{ "create": { } }
+ {  "mapTermId_s":"XSGA","termId_s":"XSM","mapTermDescription_s":"Selling, General and Administrative Expense","mapTermName_s":"Selling, General and Administrative Expense","mapName_s":"Compustat","id":"Compustat_XSM_XSGA","version_s":"1616527026164858880"}
+{ "create": { } }
+ {  "mapTermId_s":"AM","termId_s":"AMTZCS","mapTermDescription_s":"This item represents a non-cash charge for the systematic write-off of the cost of intangible assets over the period for which there is an economic benefit.","mapTermName_s":"Amortization of Intangibles","mapName_s":"Compustat","id":"Compustat_AMTZCS_AM","version_s":"1616527026164858881"}
+{ "create": { } }
+ {  "mapTermId_s":"ACT","termId_s":"ACT","mapTermDescription_s":"This item represents cash and other assets that are expected to be realized in cash or used in the production of revenue within the next 12 months.","mapTermName_s":"Current Assets - Total","mapName_s":"Compustat","id":"597de503213738582eb87f23","version_s":"1616527026164858882"}
+{ "create": { } }
+ {  "mapTermId_s":"RECD","termId_s":"ADAC","mapTermDescription_s":"This item represents the provision for bad debts. This is the dollar amount of receivables estimated to be uncollectible based on historical and industry averages. This account allows for a practical presentation of the realizable value of the customer receivables.","mapTermName_s":"Receivables - Estimated Doubtful","mapName_s":"Compustat","id":"597de51f213738582eb87f24","version_s":"1616527026164858883"}
+{ "create": { } }
+ {  "mapTermId_s":"LCT","termId_s":"ALC","mapTermDescription_s":"This item represents liabilities due within one year, including the current portion of long-term debt.","mapTermName_s":"Current Liabilities - Total","mapName_s":"Compustat","id":"597de534213738582eb87f25","version_s":"1616527026164858884"}
+{ "create": { } }
+ {  "mapTermId_s":"XSGA","termId_s":"XSGA","mapTermDescription_s":"Selling, General and Administrative Expense","mapTermName_s":"Selling, General and Administrative Expense","mapName_s":"Compustat","id":"597de56b213738582eb87f26","version_s":"1616527026164858885"}
+{ "create": { } }
+ {  "mapTermId_s":"CSHI","termId_s":"CSHI","mapTermDescription_s":"This item represents the total number of common shares purchased by the public and the number of common shares purchased and held by the issuing corporation.","mapTermName_s":"Common Shares Issued","mapName_s":"Compustat","id":"597de59c213738582eb87f27","version_s":"1616527026164858886"}
+{ "create": { } }
+ {  "mapTermId_s":"CSHO","termId_s":"CSHO","mapTermDescription_s":"This item represents the net number of all common shares outstanding at year-end, excluding treasury shares and scrip.","mapTermName_s":"Common Shares Outstanding","mapName_s":"Compustat","id":"597de5c1213738582eb87f28","version_s":"1616527026165907456"}
+{ "create": { } }
+ {  "mapTermId_s":"TSTKN","termId_s":"TSSC","mapTermDescription_s":"This item represents all shares of the company's common stock that are acquired by the company through purchase in the market or directly from stockholders.","mapTermName_s":"Treasury Stock Number of Common Shares","mapName_s":"Compustat","id":"597de625213738582eb87f29","version_s":"1616527026165907457"}
+{ "create": { } }
+ {  "mapTermId_s":"CSHO","termId_s":"CSO","mapTermName_s":"Common Shares Outstanding","mapName_s":"Compustat","id":"4320bc63-9109-4177-82b7-8b9009c2bd6d","version_s":"1616527026165907459"}
+{ "create": { } }
+ {  "mapTermId_s":"","termId_s":"ACO","mapTermDescription_s":"","mapTermName_s":"","mapName_s":"IFRS","id":"597f734fd2a109f33ab7051b"}
+{ "create": { } }
+ {  "mapTermId_s":"AT","termId_s":"STAT","mapTermDescription_s":"This item represents the total assets/liabilities of a company at a point in time. If the company does not report a useable amount, this data item will be left blank.","mapTermName_s":"Assets - Total","mapName_s":"Compustat","id":"Compustat_AT"}
+{ "create": { } }
+ {  "mapTermId_s":"BS_TOT_ASSET","termId_s":"STAT","mapName_s":"Bloomberg","id":"Bloomberg_BS_TOT_ASSET"}
+{ "create": { } }
+ {  "mapTermId_s":"LT","termId_s":"LT","mapTermDescription_s":"This item represents current liabilities plus long-term debt plus other noncurrent liabilities, including deferred taxes and investment tax credit. / This item represents the total value of all items reported in the Liabilities section.","mapTermName_s":"Liabilities - Total","mapName_s":"Compustat","id":"Compustat_LT"}
+{ "create": { } }
+ {  "mapTermId_s":"BS_TOT_LIAB2","termId_s":"LT","mapName_s":"Bloomberg","id":"Bloomberg_BS_TOT_LIAB2"}
+{ "create": { } }
+ {  "mapTermId_s":"BS_LT_BORROW","termId_s":"LTD","mapName_s":"Bloomberg","id":"Bloomberg_BS_LT_BORROW"}
+{ "create": { } }
+ {  "mapTermId_s":"SEQ","termId_s":"SEQ","mapTermDescription_s":"This item represents the common and preferred shareholders' interest in the company.","mapTermName_s":"Stockholders' Equity - Total","mapName_s":"Compustat","id":"Compustat_SEQ"}
+{ "create": { } }
+ {  "mapTermId_s":"TOTAL_EQUITY","termId_s":"SEQ","mapName_s":"Bloomberg","id":"Bloomberg_TOTAL_EQUITY"}
+{ "create": { } }
+ {  "mapTermId_s":"PI","termId_s":"PI","mapTermDescription_s":"This item represents operating and nonoperating income before provisions for income taxes and minority interest. This item will be reported after deduction of minority interest when minority interest is included in non-operating expense and no break out is available.","mapTermName_s":"Pretax Income","mapName_s":"Compustat","id":"Compustat_PI"}
+{ "create": { } }
+ {  "mapTermId_s":"PRETAX_INC","termId_s":"PI","mapName_s":"Bloomberg","id":"Bloomberg_PRETAX_INC"}
+{ "create": { } }
+ {  "mapTermId_s":"NI","termId_s":"NIP","mapTermDescription_s":"This item represents the fiscal period income or loss reported by a company after subtracting expenses and losses from all revenues and gains.","mapTermName_s":"Net Income (Loss)","mapName_s":"Compustat","id":"Compustat_NI"}
+{ "create": { } }
+ {  "mapTermId_s":"NET_INCOME","termId_s":"NIP","mapName_s":"Bloomberg","id":"Bloomberg_NET_INCOME"}

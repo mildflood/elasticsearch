@@ -1,0 +1,1 @@
+select top 1000 'https://www.sec.gov/Archives/edgar/data/'+convert(varchar(10),sub_cik)+'/'+REPLACE(sub_adsh,'-', '') +'/'+sub_adsh +'.txt' url from [norm2_ops].[ViewSolrMDASearch45]

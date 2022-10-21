@@ -1,0 +1,30 @@
+Create angular API app
+
+prerequisition:
+Node.js, Angular, Angular-CLI, 
+$node -v
+$npm -v
+$sudo npm install -g @angular/cli
+
+1. check angular version
+$ng version
+2. create a new app with angular routing
+$ng new angular-api-app --routing
+3. start server
+$cd angular-api-app
+$ng serve
+or ng serve --host ipaddress --port 8080
+A local dev server will start listening on the http://localhost:4200 
+
+open visual studio code by 
+$code .
+
+4. setup and config angular httpclient
+src/app/app.module.ts
+import { HttpClientModule } from '@angular/commom/http';
+Add that module in @NgModule imports
+Then, Angular HttpClient is ready for the app
+
+5. create angular service for consuming REST API using Angular HttpClient
+$ ng g service rest
+this will generate src/app/rest.service.ts 

@@ -1,0 +1,2640 @@
+{
+  "maxds_term_result": {
+    "mappings": {
+      "properties": {
+        "FQ": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "elementName": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "FY": {
+          "type": "long"
+        },
+        "expType": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "rank": {
+          "type": "long"
+        },
+        "value": {
+          "type": "float"
+        },
+        "validationStatus": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "id": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "termName": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "hasDimensionalData": {
+          "type": "boolean"
+        },
+        "percentVarianceWithPrevPeriod": {
+          "type": "float"
+        },
+        "_class": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "accession_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "filingDate": {
+          "type": "long"
+        },
+        "companyName": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "resolvedExpression": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "termId": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "keyword"
+        },
+        "verifiedNotes": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "stockSymbol": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "entityId": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "periodEndDate_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "cik": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "lastModified": {
+          "type": "date"
+        },
+        "validationMessages": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "isFilingPeriod": {
+          "type": "boolean"
+        },
+        "effectiveRank": {
+          "type": "long"
+        },
+        "periodType": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "percentVarianceWithPrevYear": {
+          "type": "float"
+        },
+        "expression": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "myDocType": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        }
+      }
+    }
+  },
+  "maxds_term_map_info": {
+    "mappings": {
+      "_meta": {
+        "created_by": "file-data-visualizer"
+      },
+      "properties": {
+        "version_s": {
+          "type": "long"
+        },
+        "mapTermDescription_s": {
+          "type": "text"
+        },
+        "mapName_s": {
+          "type": "keyword"
+        },
+        "mapTermId_s": {
+          "type": "keyword"
+        },
+        "termId_s": {
+          "type": "keyword"
+        },
+        "id": {
+          "type": "keyword"
+        },
+        "mapTermName_s": {
+          "type": "text"
+        }
+      }
+    }
+  },
+  "maxds_term_result_new": {
+    "mappings": {
+      "properties": {
+        "FQ": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "elementName": {
+          "type": "text"
+        },
+        "dimExpression": {
+          "type": "text"
+        },
+        "FY": {
+          "type": "integer"
+        },
+        "expType": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "periodEndDate": {
+          "type": "text"
+        },
+        "accession": {
+          "type": "text"
+        },
+        "rank": {
+          "type": "integer"
+        },
+        "value": {
+          "type": "double"
+        },
+        "validationStatus": {
+          "type": "keyword"
+        },
+        "id": {
+          "type": "keyword"
+        },
+        "termName": {
+          "type": "text"
+        },
+        "hasDimensionalData": {
+          "type": "boolean"
+        },
+        "percentVarianceWithPrevPeriod": {
+          "type": "double"
+        },
+        "_class": {
+          "index": false,
+          "type": "keyword",
+          "doc_values": false
+        },
+        "accession_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "filingDate": {
+          "type": "integer"
+        },
+        "companyName": {
+          "type": "text"
+        },
+        "resolvedExpression": {
+          "type": "text"
+        },
+        "termId": {
+          "type": "text"
+        },
+        "verifiedNotes": {
+          "type": "text"
+        },
+        "stockSymbol": {
+          "type": "text"
+        },
+        "entityId": {
+          "type": "text",
+          "fielddata": true
+        },
+        "periodEndDate_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "cik": {
+          "type": "text"
+        },
+        "lastModified": {
+          "type": "date",
+          "format": "date_optional_time||epoch_millis"
+        },
+        "validationMessages": {
+          "type": "object"
+        },
+        "dimMemberName": {
+          "type": "text"
+        },
+        "isFilingPeriod": {
+          "type": "boolean"
+        },
+        "effectiveRank": {
+          "type": "integer"
+        },
+        "periodType": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "percentVarianceWithPrevYear": {
+          "type": "double"
+        },
+        "expression": {
+          "type": "text"
+        },
+        "myDocType": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        }
+      }
+    }
+  },
+  "maxds_termrule": {
+    "mappings": {
+      "properties": {
+        "description": {
+          "type": "text"
+        },
+        "processingStatus": {
+          "type": "keyword"
+        },
+        "lastModified": {
+          "type": "date",
+          "format": "date_optional_time||epoch_millis"
+        },
+        "ruleText": {
+          "type": "text"
+        },
+        "order": {
+          "type": "long"
+        },
+        "termId": {
+          "type": "keyword"
+        },
+        "financialStatement": {
+          "type": "text"
+        },
+        "hasValidations": {
+          "type": "boolean"
+        },
+        "_class": {
+          "index": false,
+          "type": "keyword",
+          "doc_values": false
+        },
+        "type": {
+          "type": "text"
+        },
+        "id": {
+          "type": "keyword"
+        },
+        "periodType": {
+          "type": "keyword"
+        },
+        "name": {
+          "type": "text"
+        }
+      }
+    }
+  },
+  "maxds_idap_favoredfacts": {
+    "mappings": {
+      "properties": {
+        "factkey": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "cell_elt": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "sub_act_standard": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "num_ddate": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "sub_name": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "id": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "tag_crdr": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "sub_cik": {
+          "type": "long"
+        },
+        "fact_fy_i": {
+          "type": "long"
+        },
+        "fact_fp": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "num_qtrs": {
+          "type": "long"
+        },
+        "sub_adsh": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "num_uom": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "dtCreated": {
+          "type": "date"
+        },
+        "num_value": {
+          "type": "float"
+        },
+        "tag_datatype": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "tag_iord": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "sub_fyend": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "sub_form": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "sub_filed_dt": {
+          "type": "date"
+        },
+        "sub_filed": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "tag_custom": {
+          "type": "boolean"
+        },
+        "dim_segments": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        }
+      }
+    }
+  },
+  "maxds_processing_log": {
+    "mappings": {
+      "properties": {
+        "userName": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "processingSequence": {
+          "type": "long"
+        },
+        "description": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "noOfEntitiesBeingProcessed": {
+          "type": "long"
+        },
+        "currentTime": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "lastModified": {
+          "type": "date"
+        },
+        "logStatus": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "termId": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "entityId": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "_class": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "processingGroupId": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "id": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "processingTimeInSec": {
+          "type": "long"
+        }
+      }
+    }
+  },
+  "maxds_term_rule": {
+    "mappings": {
+      "properties": {
+        "description": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "includeInAccuracyTests_b": {
+          "type": "boolean"
+        },
+        "processingStatus": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "lastModified": {
+          "type": "date"
+        },
+        "ruleText": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "includeInAccuracyTests": {
+          "type": "boolean"
+        },
+        "order": {
+          "type": "long"
+        },
+        "termId": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "keyword"
+        },
+        "priorityGroup": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "financialStatement": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "hasValidations": {
+          "type": "boolean"
+        },
+        "_class": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "type": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "id": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "periodType": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "name": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        }
+      }
+    }
+  },
+  "maxds_accuracy_test_notes": {
+    "mappings": {
+      "properties": {
+        "FQ": {
+          "type": "text"
+        },
+        "FY": {
+          "type": "long"
+        },
+        "notes": {
+          "type": "text"
+        },
+        "isCheckedCS": {
+          "type": "boolean"
+        },
+        "termId": {
+          "type": "text"
+        },
+        "isCheckedMaxDS": {
+          "type": "boolean"
+        },
+        "entityId": {
+          "type": "text"
+        },
+        "_class": {
+          "index": false,
+          "type": "keyword",
+          "doc_values": false
+        },
+        "id": {
+          "type": "keyword"
+        }
+      }
+    }
+  },
+  "maxds_mzhao": {
+    "mappings": {
+      "properties": {
+        "FQ": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "elementName": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "FY": {
+          "type": "long"
+        },
+        "expType": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "rank": {
+          "type": "long"
+        },
+        "value": {
+          "type": "float"
+        },
+        "validationStatus": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "id": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "termName": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "hasDimensionalData": {
+          "type": "boolean"
+        },
+        "percentVarianceWithPrevPeriod": {
+          "type": "float"
+        },
+        "accession_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "filingDate": {
+          "type": "long"
+        },
+        "companyName": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "resolvedExpression": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "termId": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "stockSymbol": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "entityId": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "periodEndDate_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "cik": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "lastModified": {
+          "type": "date"
+        },
+        "isFilingPeriod": {
+          "type": "boolean"
+        },
+        "effectiveRank": {
+          "type": "long"
+        },
+        "periodType": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "percentVarianceWithPrevYear": {
+          "type": "float"
+        },
+        "expression": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "myDocType": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        }
+      }
+    }
+  },
+  "maxds_processing_log_new": {
+    "mappings": {
+      "properties": {
+        "processingTimeInSec": {
+          "type": "long"
+        },
+        "userName_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "logStatus": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "id": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "description_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "processingSequence": {
+          "type": "long"
+        },
+        "lastModified_dt": {
+          "type": "date"
+        },
+        "noOfEntitiesBeingProcessed_i": {
+          "type": "long"
+        },
+        "_class": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "logStatus_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "entityId_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "description": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "processingSequence_i": {
+          "type": "long"
+        },
+        "termId": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "entityId": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "termId_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "userName": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "noOfEntitiesBeingProcessed": {
+          "type": "long"
+        },
+        "currentTime": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "processingGroupId_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "lastModified": {
+          "type": "long"
+        },
+        "processingTimeInSec_l": {
+          "type": "long"
+        },
+        "currentTime_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "processingGroupId": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        }
+      }
+    }
+  },
+  "maxds_accuracy_test_note_new": {
+    "mappings": {
+      "properties": {
+        "entityId_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "notes_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "isCheckedMaxDS_b": {
+          "type": "boolean"
+        },
+        "fq_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "fy_i": {
+          "type": "long"
+        },
+        "termId_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "id": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "isCheckedCS_b": {
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "maxds_lookup_references": {
+    "mappings": {
+      "_meta": {
+        "created_by": "file-data-visualizer"
+      },
+      "properties": {
+        "description_s": {
+          "type": "text"
+        },
+        "isTextBlock_b": {
+          "type": "boolean"
+        },
+        "name_s": {
+          "type": "text"
+        },
+        "type_s": {
+          "type": "keyword"
+        },
+        "label_s": {
+          "type": "text"
+        },
+        "id": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}
+
+
+{
+  "maxds_term_result": {
+    "mappings": {
+      "properties": {
+        "FQ": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "elementName": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "FY": {
+          "type": "long"
+        },
+        "expType": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "rank": {
+          "type": "long"
+        },
+        "value": {
+          "type": "float"
+        },
+        "validationStatus": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "id": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "termName": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "hasDimensionalData": {
+          "type": "boolean"
+        },
+        "percentVarianceWithPrevPeriod": {
+          "type": "float"
+        },
+        "_class": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "accession_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "filingDate": {
+          "type": "long"
+        },
+        "companyName": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "resolvedExpression": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "termId": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "keyword"
+        },
+        "verifiedNotes": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "stockSymbol": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "entityId": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "periodEndDate_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "cik": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "lastModified": {
+          "type": "date"
+        },
+        "validationMessages": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "isFilingPeriod": {
+          "type": "boolean"
+        },
+        "effectiveRank": {
+          "type": "long"
+        },
+        "periodType": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "percentVarianceWithPrevYear": {
+          "type": "float"
+        },
+        "expression": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "myDocType": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        }
+      }
+    }
+  },
+  "maxds_term_map_info": {
+    "mappings": {
+      "_meta": {
+        "created_by": "file-data-visualizer"
+      },
+      "properties": {
+        "version_s": {
+          "type": "long"
+        },
+        "mapTermDescription_s": {
+          "type": "text"
+        },
+        "mapName_s": {
+          "type": "keyword"
+        },
+        "mapTermId_s": {
+          "type": "keyword"
+        },
+        "termId_s": {
+          "type": "keyword"
+        },
+        "id": {
+          "type": "keyword"
+        },
+        "mapTermName_s": {
+          "type": "text"
+        }
+      }
+    }
+  },
+  "maxds_term_result_new": {
+    "mappings": {
+      "properties": {
+        "FQ": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "elementName": {
+          "type": "text"
+        },
+        "dimExpression": {
+          "type": "text"
+        },
+        "FY": {
+          "type": "integer"
+        },
+        "expType": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "periodEndDate": {
+          "type": "text"
+        },
+        "accession": {
+          "type": "text"
+        },
+        "rank": {
+          "type": "integer"
+        },
+        "value": {
+          "type": "double"
+        },
+        "validationStatus": {
+          "type": "keyword"
+        },
+        "id": {
+          "type": "keyword"
+        },
+        "termName": {
+          "type": "text"
+        },
+        "hasDimensionalData": {
+          "type": "boolean"
+        },
+        "percentVarianceWithPrevPeriod": {
+          "type": "double"
+        },
+        "_class": {
+          "index": false,
+          "type": "keyword",
+          "doc_values": false
+        },
+        "accession_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "filingDate": {
+          "type": "integer"
+        },
+        "companyName": {
+          "type": "text"
+        },
+        "resolvedExpression": {
+          "type": "text"
+        },
+        "termId": {
+          "type": "text"
+        },
+        "verifiedNotes": {
+          "type": "text"
+        },
+        "stockSymbol": {
+          "type": "text"
+        },
+        "entityId": {
+          "type": "text",
+          "fielddata": true
+        },
+        "periodEndDate_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "cik": {
+          "type": "text"
+        },
+        "lastModified": {
+          "type": "date",
+          "format": "date_optional_time||epoch_millis"
+        },
+        "validationMessages": {
+          "type": "object"
+        },
+        "dimMemberName": {
+          "type": "text"
+        },
+        "isFilingPeriod": {
+          "type": "boolean"
+        },
+        "effectiveRank": {
+          "type": "integer"
+        },
+        "periodType": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "percentVarianceWithPrevYear": {
+          "type": "double"
+        },
+        "expression": {
+          "type": "text"
+        },
+        "myDocType": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        }
+      }
+    }
+  },
+  "maxds_termrule": {
+    "mappings": {
+      "properties": {
+        "description": {
+          "type": "text"
+        },
+        "processingStatus": {
+          "type": "keyword"
+        },
+        "lastModified": {
+          "type": "date",
+          "format": "date_optional_time||epoch_millis"
+        },
+        "ruleText": {
+          "type": "text"
+        },
+        "order": {
+          "type": "long"
+        },
+        "termId": {
+          "type": "keyword"
+        },
+        "financialStatement": {
+          "type": "text"
+        },
+        "hasValidations": {
+          "type": "boolean"
+        },
+        "_class": {
+          "index": false,
+          "type": "keyword",
+          "doc_values": false
+        },
+        "type": {
+          "type": "text"
+        },
+        "id": {
+          "type": "keyword"
+        },
+        "periodType": {
+          "type": "keyword"
+        },
+        "name": {
+          "type": "text"
+        }
+      }
+    }
+  },
+  "maxds_idap_favoredfacts": {
+    "mappings": {
+      "properties": {
+        "factkey": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "cell_elt": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "sub_act_standard": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "num_ddate": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "sub_name": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "id": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "tag_crdr": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "sub_cik": {
+          "type": "long"
+        },
+        "fact_fy_i": {
+          "type": "long"
+        },
+        "fact_fp": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "num_qtrs": {
+          "type": "long"
+        },
+        "sub_adsh": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "num_uom": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "dtCreated": {
+          "type": "date"
+        },
+        "num_value": {
+          "type": "float"
+        },
+        "tag_datatype": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "tag_iord": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "sub_fyend": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "sub_form": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "sub_filed_dt": {
+          "type": "date"
+        },
+        "sub_filed": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "tag_custom": {
+          "type": "boolean"
+        },
+        "dim_segments": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        }
+      }
+    }
+  },
+  "maxds_processing_log": {
+    "mappings": {
+      "properties": {
+        "userName": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "processingSequence": {
+          "type": "long"
+        },
+        "description": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "noOfEntitiesBeingProcessed": {
+          "type": "long"
+        },
+        "currentTime": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "lastModified": {
+          "type": "date"
+        },
+        "logStatus": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "termId": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "entityId": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "_class": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "processingGroupId": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "id": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "processingTimeInSec": {
+          "type": "long"
+        }
+      }
+    }
+  },
+  "maxds_term_rule": {
+    "mappings": {
+      "properties": {
+        "description": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "includeInAccuracyTests_b": {
+          "type": "boolean"
+        },
+        "processingStatus": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "lastModified": {
+          "type": "date"
+        },
+        "ruleText": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "includeInAccuracyTests": {
+          "type": "boolean"
+        },
+        "order": {
+          "type": "long"
+        },
+        "termId": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "keyword"
+        },
+        "priorityGroup": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "financialStatement": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "hasValidations": {
+          "type": "boolean"
+        },
+        "_class": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "type": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "id": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "periodType": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "name": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        }
+      }
+    }
+  },
+  "maxds_accuracy_test_notes": {
+    "mappings": {
+      "properties": {
+        "FQ": {
+          "type": "text"
+        },
+        "FY": {
+          "type": "long"
+        },
+        "notes": {
+          "type": "text"
+        },
+        "isCheckedCS": {
+          "type": "boolean"
+        },
+        "termId": {
+          "type": "text"
+        },
+        "isCheckedMaxDS": {
+          "type": "boolean"
+        },
+        "entityId": {
+          "type": "text"
+        },
+        "_class": {
+          "index": false,
+          "type": "keyword",
+          "doc_values": false
+        },
+        "id": {
+          "type": "keyword"
+        }
+      }
+    }
+  },
+  "maxds_mzhao": {
+    "mappings": {
+      "properties": {
+        "FQ": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "elementName": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "FY": {
+          "type": "long"
+        },
+        "expType": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "rank": {
+          "type": "long"
+        },
+        "value": {
+          "type": "float"
+        },
+        "validationStatus": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "id": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "termName": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "hasDimensionalData": {
+          "type": "boolean"
+        },
+        "percentVarianceWithPrevPeriod": {
+          "type": "float"
+        },
+        "accession_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "filingDate": {
+          "type": "long"
+        },
+        "companyName": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "resolvedExpression": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "termId": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "stockSymbol": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "entityId": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "periodEndDate_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "cik": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "lastModified": {
+          "type": "date"
+        },
+        "isFilingPeriod": {
+          "type": "boolean"
+        },
+        "effectiveRank": {
+          "type": "long"
+        },
+        "periodType": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "percentVarianceWithPrevYear": {
+          "type": "float"
+        },
+        "expression": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "myDocType": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        }
+      }
+    }
+  },
+  "maxds_processing_log_new": {
+    "mappings": {
+      "properties": {
+        "processingTimeInSec": {
+          "type": "long"
+        },
+        "userName_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "logStatus": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "id": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "description_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "processingSequence": {
+          "type": "long"
+        },
+        "lastModified_dt": {
+          "type": "date"
+        },
+        "noOfEntitiesBeingProcessed_i": {
+          "type": "long"
+        },
+        "_class": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "logStatus_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "entityId_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "description": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "processingSequence_i": {
+          "type": "long"
+        },
+        "termId": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "entityId": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "termId_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "userName": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "noOfEntitiesBeingProcessed": {
+          "type": "long"
+        },
+        "currentTime": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "processingGroupId_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "lastModified": {
+          "type": "long"
+        },
+        "processingTimeInSec_l": {
+          "type": "long"
+        },
+        "currentTime_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "processingGroupId": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        }
+      }
+    }
+  },
+  "maxds_accuracy_test_note_new": {
+    "mappings": {
+      "properties": {
+        "entityId_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "notes_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "isCheckedMaxDS_b": {
+          "type": "boolean"
+        },
+        "fq_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "fy_i": {
+          "type": "long"
+        },
+        "termId_s": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "id": {
+          "fields": {
+            "keyword": {
+              "ignore_above": 256,
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "isCheckedCS_b": {
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "maxds_lookup_references": {
+    "mappings": {
+      "_meta": {
+        "created_by": "file-data-visualizer"
+      },
+      "properties": {
+        "description_s": {
+          "type": "text"
+        },
+        "isTextBlock_b": {
+          "type": "boolean"
+        },
+        "name_s": {
+          "type": "text"
+        },
+        "type_s": {
+          "type": "keyword"
+        },
+        "label_s": {
+          "type": "text"
+        },
+        "id": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}

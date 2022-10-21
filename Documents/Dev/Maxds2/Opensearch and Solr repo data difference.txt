@@ -1,0 +1,15 @@
+2022 Sprint 01:
+
+Synch up Opensearch repo with Solr repo
+									Opensearch			Solr
+	TermResults: 					22940				137168599
+	TermRules:						619					619
+	TermMapInformation: 			396					396
+	LookupPreference:				21721				21720
+	ProcessingLogs:					27656				28174
+	AccuracyTestNotes:				21					21
+	Entities:						14733				14733
+	FavoredFacts:					10000				172449396
+	Fillings:						5000				231552
+	
+	

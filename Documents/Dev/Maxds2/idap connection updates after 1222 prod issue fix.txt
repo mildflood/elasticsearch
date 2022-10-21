@@ -1,0 +1,10 @@
+Realease branch file changes after idap prod connection issue on Wednesday 12/22. Bring the same to elastic and log4j2 branch
+
+Fast-forward
+ .gitignore                                                            | 1 +
+ .../gov/sec/idap/maxds/security/CustomAuthenticationProvider.java     | 2 +-
+ src/main/java/gov/sec/idap/maxds/security/MaxdsAuthentication.java    | 4 ++--
+ 3 files changed, 4 insertions(+), 3 deletions(-)
+
+myDocType,entityId,termId,FY,FQ,termName,cik,stockSymbol,companyName,periodType,rank,effectiveRank,expType,expression,resolvedExpression,elementName,hasDimensionalData,lastModified,isFilingPeriod,value,filingDate,percentVarianceWithPrevPeriod,percentVarianceWithPrevYear,validationStatus,periodEndDate_s,accession_s,id
+

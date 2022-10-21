@@ -1,0 +1,237 @@
+
+From DEV Tool, set track_total_hits to true to see total records in index
+GET maxds_entities/_search
+{
+  "track_total_hits" : true,
+  "query": {
+    "match_all": {}
+  }
+}
+
+Set max return rows:
+PUT /maxds_termresults/_settings
+{
+  "index.max_result_window": 21000
+}
+
+Get all index info:
+GET /_cat/indices?v
+
+Set http.compression: false and http.max_content_length: 100mb (doesnt work, split large input dcjson file into two files)
+
+Create a new index:
+PUT /maxds_termrules_new
+
+Set mappings for index:
+PUT /maxds_termrules_new/mapping
+{......} mapping json body 
+
+Upload data to index:
+curl -H 'Content-Type: application/x-ndjson' -XGET -u admin:Admin1234!  'https://vpc-maxds-test-2m5zodmiy5kxabieplizajocpe.us-east-1.es.amazonaws.com/maxds_termrules_new/_search?pretty' 
+
+//update _id for dev termrules
+curl -H 'Content-Type: application/x-ndjson' -XPOST -u admin:Admin1234!  'https://vpc-maxds-test-2m5zodmiy5kxabieplizajocpe.us-east-1.es.amazonaws.com/maxds_termrules/_bulk?pretty' --data-binary @maxds_term_rule_all_new_curl_updated_meta_id.ndjson
+
+Delete an index:
+DELETE /termrule
+
+Delete data in index:
+Delete record by query:
+POST /maxds_termrule/_delete_by_query
+{
+  "query": { 
+      "bool": {
+          "must": [
+                {"match": {"termId": "CHEC"}},
+                {"match": {"includeInAccuracyTests": true}}
+              ]
+    }
+  }
+}
+
+For duplicate termrule issue after term processing, remove the term rule with _id system generated and keep the one with _id as the termId. 
+
+Find all duplicate termID in index
+POST /maxds_termrules/_search
+{
+    "query":{
+        "match_all":{}
+    },
+    "aggs":{
+        "termId":{
+            "terms":{
+                "field":"termId",
+                "size":100000,
+                "min_doc_count":2
+            }
+        }
+    }
+}
+
+Update a field with another field in index:
+POST /maxds_termrules/_update_by_query
+{
+  "script": {
+    "source": "ctx._id= ctx._source.termId",
+    "lang": "painless"
+  },
+  "query": {
+          "term": {
+                  "termId": "CHEC"
+          }
+  }
+}
+
+You cannnot update meta field _id in elastic existing index. But you can delete the old one (or all records) and create a new one by doing following:
+{"index": {"_id": "CHEC"}}
+{  "id":"CHEC",  "termId":"CHEC",  "name":"Cash and Cash Equivalents",  "description":"Amount of currency on hand as well as demand deposits with banks or financial institutions. Includes other kinds of accounts that have the general characteristics of demand deposits. Also includes short-term, highly liquid investments that are both readily convertible to known amounts of cash and so near their maturity that they present insignificant risk of changes in value because of changes in interest rates. Excludes cash and cash equivalents within disposal group and discontinued operation.",  "type":"monetary",  "periodType":"instant",  "lastModified":"2022-01-21T18:02:36.689Z",  "order":105,  "processingStatus":"Completed",  "financialStatement":"Balance Sheet - Current Assets",  "hasValidations":false,  "includeInAccuracyTests_b":true,  "ruleText":"{\"id\":\"CHEC\",\"termId\":\"CHEC\",\"name\":\"Cash and Cash Equivalents\",\"description\":\"Amount of currency on hand as well as demand deposits with banks or financial institutions. Includes other kinds of accounts that have the general characteristics of demand deposits. Also includes short-term, highly liquid investments that are both readily convertible to known amounts of cash and so near their maturity that they present insignificant risk of changes in value because of changes in interest rates. Excludes cash and cash equivalents within disposal group and discontinued operation.\",\"type\":\"monetary\",\"periodType\":\"instant\",\"includeInAccuracyTests\":true,\"lastModified\":1642788156689,\"order\":105,\"processingStatus\":\"Completed\",\"priorityGroup\":null,\"financialStatement\":\"Balance Sheet - Current Assets\",\"expressions\":[{\"expression\":\"{us-gaap_CashAndCashEquivalentsAtCarryingValue}\",\"axisExpression\":null,\"memberExpression\":null,\"type\":\"ConceptMatch\",\"conceptName\":\"{us-gaap_CashAndCashEquivalentsAtCarryingValue}\",\"NamedAxisList\":[],\"NamedMemberList\":[],\"conceptMatchMultipleList\":null,\"virtualFactMemberExclusionList\":null,\"useVirtualParentNew\":false,\"virtualFactAxis\":null,\"useMaxAxisCount\":false,\"maxAxisCount\":0,\"dimensionExpressionSets\":null,\"balType\":null,\"perType\":null,\"isShareItemType\":null,\"containsWords\":[],\"doesNotContainsWords\":[],\"usePositiveValuesOnly\":false,\"useNegativeValuesOnly\":false,\"reverseNegativeValues\":false,\"formulaList\":null,\"rank\":1},{\"expression\":\"{sec:Cash=0} +{sec:Cash Equivalents=0}\",\"axisExpression\":null,\"memberExpression\":null,\"type\":\"Formula\",\"conceptName\":null,\"NamedAxisList\":[],\"NamedMemberList\":[],\"conceptMatchMultipleList\":null,\"virtualFactMemberExclusionList\":null,\"useVirtualParentNew\":false,\"virtualFactAxis\":null,\"useMaxAxisCount\":false,\"maxAxisCount\":0,\"dimensionExpressionSets\":null,\"balType\":null,\"perType\":null,\"isShareItemType\":null,\"containsWords\":[],\"doesNotContainsWords\":[],\"usePositiveValuesOnly\":false,\"useNegativeValuesOnly\":false,\"reverseNegativeValues\":false,\"formulaList\":[{\"termName\":\"Cash\",\"nullable\":true,\"operation\":\"+\"},{\"termName\":\"Cash Equivalents\",\"nullable\":true,\"operation\":\"\"}],\"rank\":2},{\"expression\":\"isExtended && nameContains(Cash) && nameContains(Equivalents) && isDebit && isInstant\",\"axisExpression\":null,\"memberExpression\":null,\"type\":\"ExtendedCheck\",\"conceptName\":null,\"NamedAxisList\":[],\"NamedMemberList\":[],\"conceptMatchMultipleList\":null,\"virtualFactMemberExclusionList\":null,\"useVirtualParentNew\":false,\"virtualFactAxis\":null,\"useMaxAxisCount\":false,\"maxAxisCount\":0,\"dimensionExpressionSets\":null,\"balType\":\"debit\",\"perType\":\"instant\",\"isShareItemType\":null,\"containsWords\":[\"Cash\",\"Equivalents\"],\"doesNotContainsWords\":[],\"usePositiveValuesOnly\":false,\"useNegativeValuesOnly\":false,\"reverseNegativeValues\":false,\"formulaList\":null,\"rank\":3},{\"expression\":\"{us-gaap_CashAndDueFromBanks}\",\"axisExpression\":null,\"memberExpression\":null,\"type\":\"ConceptMatch\",\"conceptName\":\"{us-gaap_CashAndDueFromBanks}\",\"NamedAxisList\":[],\"NamedMemberList\":[],\"conceptMatchMultipleList\":null,\"virtualFactMemberExclusionList\":null,\"useVirtualParentNew\":false,\"virtualFactAxis\":null,\"useMaxAxisCount\":false,\"maxAxisCount\":0,\"dimensionExpressionSets\":null,\"balType\":null,\"perType\":null,\"isShareItemType\":null,\"containsWords\":[],\"doesNotContainsWords\":[],\"usePositiveValuesOnly\":false,\"useNegativeValuesOnly\":false,\"reverseNegativeValues\":false,\"formulaList\":null,\"rank\":4},{\"expression\":\"{ifrs-full_CashAndBankBalancesAtCentralBanks}\",\"axisExpression\":null,\"memberExpression\":null,\"type\":\"ConceptMatch\",\"conceptName\":\"{ifrs-full_CashAndBankBalancesAtCentralBanks}\",\"NamedAxisList\":[],\"NamedMemberList\":[],\"conceptMatchMultipleList\":null,\"virtualFactMemberExclusionList\":[],\"useVirtualParentNew\":true,\"virtualFactAxis\":null,\"useMaxAxisCount\":false,\"maxAxisCount\":2,\"dimensionExpressionSets\":null,\"balType\":null,\"perType\":null,\"isShareItemType\":null,\"containsWords\":[],\"doesNotContainsWords\":[],\"usePositiveValuesOnly\":false,\"useNegativeValuesOnly\":false,\"reverseNegativeValues\":false,\"formulaList\":null,\"rank\":5}],\"validationExpressions\":null,\"derivedZeroExpressions\":null,\"overrides\":null,\"userid\":null,\"termIds\":null,\"sortedOverrides\":null}"}
+
+To delete all records and import new in staging:
+https://vpc-dera-idap-idap-opensearch-jlxohkjjheth5gnl3yfodpefbq.us-east-1.es.amazonaws.com/
+curl -H 'Content-Type: application/x-ndjson' -XGET -u maxds:Maxds1234!  'https://vpc-dera-idap-idap-opensearch-jlxohkjjheth5gnl3yfodpefbq.us-east-1.es.amazonaws.com/maxds_termrules/_search?pretty' 
+curl -H 'Content-Type: application/x-ndjson' -XPOST -u admin:Admin1234!  'https://vpc-dera-idap-idap-opensearch-jlxohkjjheth5gnl3yfodpefbq.us-east-1.es.amazonaws.com/maxds_termrules/_bulk?pretty' --data-binary @maxds_term_rule_all_new_curl_updated_meta_id.ndjson
+
+
+Note: in termrule, keep includeInAccuracyTests field name without _b so that termrule class under domain package will work, otherwise throws exception.
+run a curl upload cmd against above ndjson to create a doc in the index. And meta field _id will be assigned by customized value.
+
+Search only selected field: 
+POST /maxds_termrules/_search
+{
+  "size": 700, 
+  "query": { 
+    "bool": { 
+      "must": [
+        { "match_all": { }}
+      ]
+    }
+  },
+  "fields": [
+    "_id",
+    "id",
+    "termId"
+  ],
+  "_source": false
+}
+
+//
+//Copy from DEV Tool console in OS DEV:
+//
+// For a new opensearch data load, do following:
+// set max_result_window": 21000 for all index, and make sure that termrules _id hold value as termId.
+//
+GET /maxds_termrules/_search
+{
+  "track_total_hits" : true,
+  "query": {
+    "match_all": {}
+  }
+}
+
+GET /maxds_processinglogs/_mapping
+
+GET /maxds_entities_new/_search
+{"query": { 
+					"bool": {
+			           "must": [
+			                 {"match": {"division": "Manufacturing"}},
+			                 {"match": {"sector.keyword": "Food and Kindred Products"}},
+			 				   {"match": {"sic": "2082"}},
+			 				   {"match": {"filerCategory.keyword": "Large Accelerated Filer"}}
+			               ]
+			     }
+			   }
+}
+
+POST /maxds_termrules/_search
+{
+"query": {
+    "bool": {
+        "must":
+        [
+            {
+                "wildcard" : { "termId" : "TEST2" }
+            }
+        ]
+    }
+}
+}
+
+
+GET /maxds_termresults/_mapping/field/entityId.keyword
+
+GET /maxds_termrules/_search
+{
+  "track_total_hits" : true,
+  "query": {
+    "match": {
+      "termId": "CHE"
+    }
+  }
+}
+GET /maxds_termresults/_search
+{ "query": {
+    		"bool": {
+    		     "must": [
+    		        {"match" : { "myDocType" : "primaryTermResult" }}, 
+    			      {"match" : { "termId" : "CHE" }},
+    				    {"range": {"FY": {"gte": "2018", "lte": "2022"}}}
+    		     ]
+    		}
+}
+}
+
+GET /maxds_termresults/_search
+{ "query": {
+    		"bool": {
+    		     "must": [
+    		        {"match" : { "myDocType": "primaryTermResult" }}, 
+    			      {"match" : { "termId": "IVST" }}
+    		     ],
+    		      "filter": [ 
+    		       { "terms":  { "entityId": ["0000707179", "0001128361", "0000092230", "0000036966", "0000723188", "0001139812", "0001281761", "0000090498", "0000700863", "0000702325", "0000726854", "0001171825", "0001115055", "0000700733", "0000875357", "0000311094", "0000714310", "0001295401", "0001475841", "0000712534", "0000750556", "0000354869", "0000947559", "0001051741", "0000831001", "0000091576", "0000708955", "0001610520", "0001264755", "0000070858", "0000203596", "0000801337", "0000019617", "0001210227", "0001600125", "0001479750", "0001102112", "0000106926", "0001070154", "0001169770", "0000019612", "0000036104", "0000036146", "0000700564", "0000039263", "0000201461", "0000790359", "0001471265", "0000828944", "0001102266", "0000028412", "0001360683", "0001476651", "0000846617", "0001614184", "0000037808", "0000927628", "0000712537", "0000049196", "0000760498", "0000814184", "0001263043", "0000109380", "0000072971", "0000101382", "0000907471", "0000805676", "0001335730", "0000018349", "0000936528", "0000824410", "0000713676"] }}
+    		     ]
+    		    }
+    		  }
+}
+
+    		     
+GET /maxds_termresults/_search
+{ "query": {
+    		"bool": {
+    		     "must": [
+    		        {"match" : { "myDocType" : "primaryTermResult" }}, 
+    			      {"match" : { "termId" : "CHE" }},
+    				    {"range": {"FY": {"gte": "2018", "lte": "2022"}}}
+    		     ],
+    		      "filter": [ 
+    		       { "terms":  { "entityId.keyword": ["0000707179", "0001128361", "0000092230", "0000036966", "0000723188", "0001139812", "0001281761", "0000090498", "0000700863", "0000702325", "0000726854", "0001171825", "0001115055", "0000700733", "0000875357", "0000311094", "0000714310", "0001295401", "0001475841", "0000712534", "0000750556", "0000354869", "0000947559", "0001051741", "0000831001", "0000091576", "0000708955", "0001610520", "0001264755", "0000070858", "0000203596", "0000801337", "0000019617", "0001210227", "0001600125", "0001479750", "0001102112", "0000106926", "0001070154", "0001169770", "0000019612", "0000036104", "0000036146", "0000700564", "0000039263", "0000201461", "0000790359", "0001471265", "0000828944", "0001102266", "0000028412", "0001360683", "0001476651", "0000846617", "0001614184", "0000037808", "0000927628", "0000712537", "0000049196", "0000760498", "0000814184", "0001263043", "0000109380", "0000072971", "0000101382", "0000907471", "0000805676", "0001335730", "0000018349", "0000936528", "0000824410", "0000713676"
+] }}
+    		     ]
+    		    }
+    		  },
+    		"aggs": {"entityId": {"terms":{"field":"entityId.keyword","min_doc_count":1, "size":1000}}}
+}
+
+PUT /maxds_*/_settings
+{
+  "index.max_result_window": 21000
+}
+//END
+
+GET /maxds_filings/_search
+{"query": {
+    		"bool": {
+    		     "must": [
+    				    {"range": {"fy_l": {"gte": "2016"}}}
+    		     ],
+    		     "must_not": [
+    		         {"match" : {"formType": "S-1"}},
+    		         {"match" : {"formType": "POS AM"}}
+    		       ],
+    		      "filter": [ 
+    		       { "terms":  { "entityId": ["0000707179", "0001128361", "0000092230", "0000036966", "0000723188", "0001139812", "0001281761", "0000090498", "0000700863", "0000702325", "0000726854", "0001171825", "0001115055", "0000700733", "0000875357", "0000311094", "0000714310", "0001295401", "0001475841", "0000712534", "0000750556", "0000354869", "0000947559", "0001051741", "0000831001", "0000091576", "0000708955", "0001610520", "0001264755", "0000070858", "0000203596", "0000801337", "0000019617", "0001210227", "0001600125", "0001479750", "0001102112", "0000106926", "0001070154", "0001169770", "0000019612", "0000036104", "0000036146", "0000700564", "0000039263", "0000201461", "0000790359", "0001471265", "0000828944", "0001102266", "0000028412", "0001360683", "0001476651", "0000846617", "0001614184", "0000037808", "0000927628", "0000712537", "0000049196", "0000760498", "0000814184", "0001263043", "0000109380", "0000072971", "0000101382", "0000907471", "0000805676", "0001335730", "0000018349", "0000936528", "0000824410", "0000713676"] }}
+    		       ]
+          }
+      }
+}

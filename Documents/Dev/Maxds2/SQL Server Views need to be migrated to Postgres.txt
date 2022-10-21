@@ -1,0 +1,63 @@
+
+VIEW: [Idap].[maxds].[ViewC951B]    ------ AccuracyTestService.java, secApiService.getGenericJsonResponseList(uri); //select * from maxds.ViewC951B  where cik = 320193 and fyear = 2020
+SELECT count(*) FROM [Idap].[maxds].[ViewC951B]		115025
+VIEW Creation sql:
+SELECT        gvkey, cik, datadate, curcd, conm, consol, cusip, datafmt, fdate, fyear, indfmt, popsrc, tic, aco, acox, act, am, aoloch, ao, aol2, aox, ap, apalch, aqpl1, at, aul3, au, auop, caps, capx, ceoso, ceq, ceqt, cfoso, ch, che, cogs, costat, 
+                         cshi, csho, cstk, dc, dd1, dfxa, dlc, dltis, dltt, dp, dpc, dv, ebit, ebitda, emp, epspx, esubc, fic, fincf, fopo, fyr, ib, idbflag, ibc, idit, incorp, intan, invch, invt, itcb, ivaeq, ivao, ivst, lco, lcox, lct, lo, ls, lt, mib, mibn, mibt, mii, mrc1, 
+                         mrc2, mrc3, mrc4, mrc5, ni, niint, np, nopi, nopio, oancf, ob, pi, ppegt, ppent, prcc_f, pstk, rank, re, recco, recch, rect, rectr, sale, seq, sic, sich, spi, sppiv, sstk, tie, tii, tstk, tstkc, tstkn, tstkp, txach, txc, txdb, txdc, txdi, txditc, txo, 
+                         txp, txr, txt, wcap, xacc, xi, xidoc, xint, xpp, xsga, am_fn, ap_fn, at_fn, caps_fn, capx_fn, cogs_fn, csho_fn, cstk_fn, dd1_fn, dltt_fn, dp_fn, dpc_fn, emp_fn, epspx_fn, ib_fn, idit_fn, invt_fn, mib_fn, mrc1_fn, mrc2_fn, mrc3_fn, 
+                         mrc4_fn, mrc5_fn, ni_fn, oancf_fn, ppegt_fn, ppent_fn, re_fn, sale_fn, tie_fn, tstkc_fn, tstk_fn, txo_fn, txt_fn, txp_fn, xint_fn, xsga_fn, aco_dc, acox_dc, am_dc, aoloch_dc, ao_dc, aol2_dc, aox_dc, ap_dc, apalch_dc, aqpl1_dc, 
+                         aul3_dc, capx_dc, caps_dc, ceq_dc, ceqt_dc, ch_dc, che_dc, cshi_dc, csho_dc, cstk_dc, dc_dc, dd1_dc, dfxa_dc, dlc_dc, dltis_dc, dltt_dc, dp_dc, dpc_dc, dv_dc, ebitda_dc, emp_dc, epspx_dc, esubc_dc, fopo_dc, ib_dc, idit_dc, 
+                         intan_dc, invch_dc, invt_dc, itcb_dc, ivaeq_dc, ivao_dc, ivst_dc, lco_dc, lcox_dc, lct_dc, lo_dc, lt_dc, mib_dc, mibn_dc, mibt_dc, mii_dc, mrc1_dc, mrc2_dc, mrc3_dc, mrc4_dc, mrc5_dc, ni_dc, nopi_dc, nopio_dc, np_dc, ob_dc, 
+                         pi_dc, ppegt_dc, ppent_dc, pstk_dc, re_dc, recch_dc, recco_dc, rect_dc, rectr_dc, seq_dc, spi_dc, sppiv_dc, sstk_dc, tstk_dc, tstkc_dc, tstkn_dc, tstkp_dc, txach_dc, txc_dc, txdb_dc, txdc_dc, txdi_dc, txditc_dc, txp_dc, txr_dc, 
+                         txt_dc, xacc_dc, xi_dc, xidoc_dc, xint_dc, xpp_dc, xsga_dc, created, updated, c951b, lse, gp, teq, revt, epsfi, epspi, ci, dt
+FROM            cs0.C951B
+WHERE        (cik IS NOT NULL)
+
+
+
+
+VIEW: [Idap].[maxds].[ViewFiledUrl]    ------- AccuracyTestService. secApiService.getGenericJsonResponse(uri);//  select * from [Idap].[maxds].[ViewFiledUrl] where cik=320193 and fy=2020
+SELECT count(*) FROM [Idap].[maxds].[ViewFiledUrl]		82800
+VIEW Creation sql:
+SELECT        id, cik, fy, fp, filed, form, url
+FROM            maxds.ViewFiledUrlImpl
+WHERE        (RIGHT(url, 4) = '.htm')
+
+
+
+
+VIEW: [Idap].[maxds].[ViewFiledUrlImpl]  ------ not be directly used by maxds, but is referenced by viewFileUrl view. 
+SELECT count(*) FROM [Idap].[maxds].[ViewFiledUrlImpl] 	83658
+VIEW Creation sql:
+SELECT ROW_NUMBER() OVER (ORDER BY (SELECT        1)) AS id, cik, fy, fp, filed, i.form, 'https://www.sec.gov/Archives/edgar/data/' + CONVERT(VARCHAR(10), i.cik) + '/' + replace(adsh, '-', '') + '/' + s.sFilename AS url
+FROM  norm1.SubCache i INNER JOIN  raw0.SubDocument s ON i.adsh = s.fkSubmission AND i.form = s.sType WHERE        (form LIKE '10-K%' OR    form LIKE '20-F%');
+
+
+
+
+VIEW: [Idap].[norm2_ops].[ViewSolrEntities] 			14733   --- PreferenceService.java (User Profile module)
+SELECT count(*) FROM [Idap].[norm2_ops].[ViewSolrEntities]	15009
+VIEW Creation sql:
+SELECT        a.cik AS id, dbo.sZeroPad(a.cik, 10) AS cik, b.otherCiks AS altCik, a.companyName, a.tradingSymbol, a.entityId, a.sic,
+                             (SELECT        division
+                               FROM            dbo.MapSic4Division
+                               WHERE        (a.sic >= sicFrom AND a.sic < sicTo)) AS division, d .sector AS sector, c.sDescription AS industry, a.geoState, a.filerCategory, ef.earliestFilingDate, a.latestFilingDate
+FROM            (SELECT        cik, filerCategory, ticker AS tradingSymbol, name AS companyName, sic, bastpr AS geoState, dbo.sZeroPad(cik, 10) AS entityId, latestFilingDate
+                          FROM            (SELECT        cik, ticker, name, sic, bastpr, filed AS latestFilingDate/*,fp AS latestFQ*/ , ROW_NUMBER() OVER (PARTITION BY cik
+                                                    ORDER BY filed DESC) r, (norm1.SubCache.afs) AS filerCategory
+                          FROM            norm1.SubCache) s
+WHERE        1 = 1 AND r = 1) a LEFT JOIN
+    (SELECT        cik, earliestFilingDate
+      FROM            (SELECT        cik, filed AS earliestFilingDate/*,fp AS earliestFQ*/ , ROW_NUMBER() OVER (PARTITION BY cik
+                                ORDER BY filed ASC) r
+      FROM            norm1.SubCache) s
+WHERE        1 = 1 AND r = 1) AS ef ON a.cik = ef.cik LEFT JOIN
+    (SELECT        cik, MAX(otherCiks) AS otherCiks
+      FROM            [raw0].[Instance]
+      WHERE        otherCiks <> ''
+      GROUP BY cik) b ON a.cik = b.cik LEFT JOIN
+dbo.Sic4Map c ON a.sic = c.sSIC LEFT JOIN
+[dbo].[MapSic2Sector] d ON LEFT(a.sic, 2) = d .sector_code
+
+

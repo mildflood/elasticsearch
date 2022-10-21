@@ -1,0 +1,22 @@
+{
+      "properties": {
+        "description_s": {
+          "type": "text"
+        },
+        "isTextBlock_b": {
+          "type": "boolean"
+        },
+        "name_s": {
+          "type": "text"
+        },
+        "type_s": {
+          "type": "keyword"
+        },
+        "label_s": {
+          "type": "text"
+        },
+        "id": {
+          "type": "keyword"
+        }
+      }
+    }

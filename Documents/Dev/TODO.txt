@@ -1,0 +1,6 @@
+09152021:
+Todo:
+ElasticSearch on Sandbox of AWS account
+Enable query log in ElasticSearch
+Compare performance for ElasticSearch and Solr for a particular query
+
