@@ -1,0 +1,233 @@
+<div>
+    <p-progressSpinner *ngIf="progressSpinner" [style]="{width: '50px', height: '50px',float:'left'}" strokeWidth="8"
+        fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+    <p-messages [style]="{color: 'black'}" [value]="msgs"></p-messages>
+</div>
+<div id="profiles-div">
+
+    <div class="col-lg-12" style="margin-bottom: 5px;">
+        <label class="col-lg-11">List of Profiles</label>
+        <button type="button" pButton (click)="refreshData()" joyrideStep="refreshData" title="Refresh Data Button"
+            text="The user can click this button to refresh the profile and update the list of profiles."
+            stepPosition="left" label="Create Preference(s)" label="Refresh Data"></button>
+    </div>
+    <div class="table-responsive">
+
+        <p-treeTable [value]="listPreferences" [columns]="cols" selectionMode="checkbox"
+            [(selection)]="selectedProfile">
+            <ng-template pTemplate="caption">
+                <div style="text-align:left">
+                    <p-treeTableHeaderCheckbox joyrideStep="selectUnselect" title="Select / Un Select All"
+                        text="This option enables the user to select/Un-select and process single/multiple preferences at the same time."
+                        stepPosition="right">
+                    </p-treeTableHeaderCheckbox>
+                    <span style="margin-left: .25em; vertical-align: middle">Select / Un Select All</span>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th *ngFor="let col of columns">
+                        {{col.header}}
+                    </th>
+                    <th>Actions</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowNode let-rowData="rowData" let-columns="columns">
+                <tr>
+                    <td *ngFor="let col of columns; let i = index">
+                        <p-treeTableToggler [rowNode]="rowNode" *ngIf="i == 0"></p-treeTableToggler>
+                        <p-treeTableCheckbox [value]="rowNode" *ngIf="i == 0"></p-treeTableCheckbox>
+                        <span *ngIf="col.header==='Company Name'">
+                            {{rowData[col.field]}}
+                        </span>
+                        <span *ngIf="col.header ==='Term Name'"> {{rowData[col.field]}} </span>
+                        <span *ngIf="col.header==='Code'"> {{rowData[col.field]}}</span>
+                        <span *ngIf="col.header ==='Preference Name'"> {{rowData[col.field]}} </span>
+
+                        <span *ngIf="col.header==='View Results Link'">
+                            <span *ngIf="rowData[col.field] != 'NA' ">
+                                <u><a (click)="showTermResultnavigate(rowData)"
+                                        style="cursor: pointer; color: blue;">View
+                                        Result</a></u>
+                            </span>
+                            <span *ngIf="rowData[col.field] == 'NA' ">
+                                {{ rowData[col.field] }}
+                            </span>
+                        </span>
+
+                        <span *ngIf="col.header ==='Status'">
+                            {{ rowData[col.field] }}
+                        </span>
+
+                        <span *ngIf="col.header==='Research Link'">
+                            <span *ngIf="rowData[col.field] != 'NA' ">
+                                <u> <a (click)="openResearchLink(rowData)"
+                                        style="cursor: pointer; color: blue;">Research</a></u>
+                            </span>
+                            <span *ngIf="rowData[col.field] == 'NA' ">
+                                {{ rowData[col.field] }}
+                            </span>
+                        </span>
+
+                        <span *ngIf="col.header==='FSQV Link'">
+                          <span *ngIf="rowData[col.field] != 'NA' ">
+                              <u> <a (click)="openFSQVLink(rowData)"
+                                      style="cursor: pointer; color: blue;">FSQV</a></u>
+                          </span>
+                          <span *ngIf="rowData[col.field] == 'NA' ">
+                              {{ rowData[col.field] }}
+                          </span>
+                        </span>
+
+                        <span *ngIf="col.header ==='Is Quarterly'"> {{rowData[col.field]}} </span>
+                        <span *ngIf="col.header==='User'"> {{rowData[col.field]}}</span>
+                    </td>
+
+
+                    <td id="icons">
+                        <a (click)="updateModal(rowData)" *ngIf="!VIEW_ONLY"> <i class="fa fa-edit fa-lg"
+                                style="font-size:2em; margin-left: 5px !important; margin-right: 10px !important;"></i></a>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-treeTable>
+
+    </div>
+
+    <div class="col-lg-12">
+        <div class="col-lg-8"></div>
+        <div class="col-lg-4">
+            <button type="button" style="margin-right: 5px !important; margin-top: 5px !important;" pButton
+                class="create-profile" (click)="processPreference()"
+                [disabled]="!(selectedProfile && selectedProfile.length > 0)" label="Process Preference(s)"
+                joyrideStep="processPreference" title="Process Preference"
+                text="This button enables the user to process preference(s) and if the user chooses, view the results. "></button>
+            <button type="button" style="margin-right: 5px !important; margin-top: 5px !important;" pButton
+                class="create-profile" (focus)="openModal()" (click)="openModal()" joyrideStep="createPreference"
+                title="Create Preference" [stepContent]="createPreference" label="Create Preference"></button>
+            <button type="button" style="margin-right: 5px !important; margin-top: 5px !important;" pButton
+                class="create-profile" (click)="deletePreference()"
+                [disabled]="!(selectedProfile && selectedProfile.length > 0)" label="Delete Preference(s)"
+                joyrideStep="deletePreference" title="Delete Preference"
+                text="The Delete Preference button enables a user to delete selected preference(s) and delete them when they are not needed."></button>
+            <button type="button" style="margin-top: 5px !important;" pButton class="create-profile"
+                (click)="clearPreference();refreshData()" [disabled]="!(selectedProfile && selectedProfile.length > 0)"
+                label="Clear Preference(s)" joyrideStep="clearPreference" title="Clear Preference"
+                text="The Clear Preference button enables a user to clear selected preference(s), this deletes the previously processed results. "></button>
+            <button type="button" style="margin-left: 5px !important; margin-top: 5px !important;" pButton
+                class="create-profile" (click)="sharePreference()"
+                [disabled]="!(selectedProfile && selectedProfile.length > 0)" label="Share Preference(s)"
+                joyrideStep="sharePreference" title="Share Preference"
+                text="The Share Preference enables user to select and share group of their own personal preferences among other users, the shared preferences from other users will be displayed in a grid below the preference table."></button>
+        </div>
+    </div>
+
+    <div *ngIf="(listSharedPreferences.length > 0)" class="col-lg-12" style="margin: 10px 0px 5px 0px;">
+        <label class="col-lg-12"> <span joyrideStep="listOfSharedProfile" title="List of Shared Preference"
+                text="List of Shared Preferences shared by other users.">List of Shared Profiles</span></label>
+    </div>
+
+    <div class="table-responsive" *ngIf="(listSharedPreferences.length > 0)">
+
+        <p-treeTable [value]="listSharedPreferences" [columns]="sharedPreferenceCols">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th *ngFor="let col of columns">
+                        {{col.header}}
+                    </th>
+                    <th>Actions</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowNode let-rowData="rowData" let-columns="columns">
+                <tr>
+                    <td *ngFor="let col of columns; let i = index">
+                        <p-treeTableToggler [rowNode]="rowNode" *ngIf="i == 0"></p-treeTableToggler>
+                        <span *ngIf="col.header==='Company Name'">
+                            {{rowData[col.field]}}
+                        </span>
+                        <span *ngIf="col.header ==='Term Name'"> {{rowData[col.field]}} </span>
+                        <span *ngIf="col.header==='Code'"> {{rowData[col.field]}}</span>
+                        <span *ngIf="col.header ==='Preference Name'"> {{rowData[col.field]}} </span>
+
+                        <span *ngIf="col.header==='View Results Link'">
+                            <span *ngIf="rowData[col.field] != 'NA' ">
+                                <u><a (click)="showTermResultnavigate(rowData)"
+                                        style="cursor: pointer; color: blue;">View
+                                        Result</a></u>
+                            </span>
+                            <span *ngIf="rowData[col.field] == 'NA' ">
+                                {{ rowData[col.field] }}
+                            </span>
+                        </span>
+
+                        <span *ngIf="col.header ==='Status'">
+                            {{ rowData[col.field] }}
+                        </span>
+
+                        <span *ngIf="col.header==='Research Link'">
+                            <span *ngIf="rowData[col.field] != 'NA' ">
+                                <u> <a (click)="openResearchLink(rowData)"
+                                        style="cursor: pointer; color: blue;">Research</a></u>
+                            </span>
+                            <span *ngIf="rowData[col.field] == 'NA' ">
+                                {{rowData[col.field]}}
+                            </span>
+                        </span>
+
+                        <span *ngIf="col.header ==='Is Quarterly'"> {{rowData[col.field]}} </span>
+                        <span *ngIf="col.header==='User'"> {{rowData[col.field]}}</span>
+                    </td>
+
+
+                    <td id="icons">
+                        <a (click)="acceptPreferences(rowData)" joyrideStep="accept" title="Accept Preference"
+                            text="Accept Preference enables user to accept the preference shared by other users, upon accept the shared preference will be added to user preferences"
+                            *ngIf="!VIEW_ONLY"> <i class="fa fa-check fa-lg"
+                                style="font-size:2em; margin-left: 5px !important; margin-right: 10px !important;"></i></a>
+                        <a (click)="deleteSharedPreference(rowData)" joyrideStep="delete" title="Delete Preference"
+                            text="Delete Shared Preference enables user to dis regard the shared preference and clear from the list of shared preferences grid."
+                            *ngIf="!VIEW_ONLY"> <i class="fa fa-trash fa-lg"
+                                style="font-size:2em; margin-left: 5px !important; margin-right: 10px !important;"></i></a>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-treeTable>
+
+    </div>
+</div>
+
+<p-dialog header="Create Profile" [(visible)]="displayCreateModal" [modal]="true"
+    [style]="{width: '80vw',overflow:'auto',height:'120vh'}" [maximizable]="true" [draggable]="true"
+    [resizable]="false">
+    <span style="height: 10px;"></span>
+    <app-create-profile *ngIf="displayCreateModal" [completeCompanyList]="completeCompanyList"
+        [filteredfilerCategory]="filteredfilerCategory" [filteredindustry]="filteredindustry" [actionType]="'create'"
+        (closeDialogBox)=closeDialog($event) [profile]="profile" [companyList]="companyList"
+        [termNamesList]="termNamesList" [filteredTerms]="filteredTerms" [filteredCompany]="filteredCompany"
+        [filtereddivSector]="filtereddivSector" [entityList]="entityList" [isUpdate]="isUpdate"></app-create-profile>
+</p-dialog>
+
+<p-dialog header="Create Profile" [(visible)]="displayCreateProfileEditModal" [modal]="true"
+    [style]="{width: '80vw',overflow:'auto',height:'120vh'}" [maximizable]="true" [draggable]="true"
+    [resizable]="false">
+    <span style="height: 10px;"></span>
+    <app-create-profile *ngIf="displayCreateProfileEditModal" [completeCompanyList]="completeCompanyList"
+        [filteredfilerCategory]="filteredfilerCategory" [filteredindustry]="filteredindustry" [actionType]="'edit'"
+        (closeDialogBox)=closeDialog($event) [profile]="profile" [companyList]="companyList"
+        [termNamesList]="termNamesList" [filteredTerms]="filteredTerms" [filteredCompany]="filteredCompany"
+        [filtereddivSector]="filtereddivSector" [entityList]="entityList" [isUpdate]="isUpdate"></app-create-profile>
+</p-dialog>
+
+<p-dialog header="Share Profile" [(visible)]="displayShareProfileModal" [modal]="true"
+    [style]="{width: '80vw',overflow:'auto',height:'120vh'}" [maximizable]="true" [draggable]="true"
+    [resizable]="false">
+    <span style="height: 10px;"></span>
+    <app-share-preferences *ngIf="displayShareProfileModal" (closeDialogBox)=closeSharePreferencesDialog($event)
+        [selectedProfile]="selectedProfile"></app-share-preferences>
+</p-dialog>
+
+<ng-template #createPreference>
+    <div>This option enables the user to Create Preference by selecting the term, entity, and peer group.</div>
+    <div>The user can choose these options from a modal pop up that is displayed when the user clicks this button.
+    </div>
+</ng-template>

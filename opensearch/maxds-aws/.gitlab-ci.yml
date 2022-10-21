@@ -1,0 +1,23 @@
+variables:
+  MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode"
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+
+stages:
+    - build
+
+build-job:
+    stage: build
+    tags: 
+        - maxds-aws-runner
+    script:
+        - echo "Building MaxDS Opensearch ..."
+        - cd /home/gitlab-runner
+        - sudo mvn $MAVEN_CLI_OPTS $MAVEN_OPTS -f /home/gitlab-runner/builds/2ki7euk3/0/dera/idap/maxds-aws/pom.xml clean compile package -DskipTests
+        - echo "Finished building MaxDS Opensearch."
+
+        - echo "Deploy process starts ... "
+        - cd /home/gitlab-runner/builds/2ki7euk3/0/dera/idap/maxds-aws
+        - chmod +x ./misc/bounce.sh
+        - sudo nohup ./misc/bounce.sh ci &>/dev/null &
+        - echo "Deploy job is done."
+

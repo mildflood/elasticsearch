@@ -1,0 +1,102 @@
+
+/* You can add global styles to this file, and also import other style files */
+
+@import url('../node_modules/bootstrap/dist/css/bootstrap.css');
+@import url('../node_modules/primeng/resources/primeng.min.css');
+@import url('../font-awesome-4.7.0/css/font-awesome.min.css');
+@import url('../node_modules/primeicons/primeicons.css');
+@import url('../node_modules/primeng/resources/themes/nova-light/theme.css');
+@import '~bootstrap/dist/css/bootstrap.css';
+
+
+.ui-paginator {
+	text-align: right ! important;
+}
+td{
+	/* white-space: nowrap;
+	 overflow: hidden;
+	 text-overflow: ellipsis;*/
+	 word-break: break-all;
+   }
+   ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+  }
+
+  .verticalLine {
+	border-left: 1px solid white;
+  }
+
+  
+.bg-searched-latter {
+	background-color: yellow !important;
+}
+
+path.link {
+	fill: none !important;
+	stroke: #CCC !important;
+	stroke-width: 3px !important;
+}
+
+.node {
+	cursor: pointer;
+  }
+  
+  .node circle {
+	fill: #fff;
+	stroke: steelblue;
+	stroke-width: 1.5px;
+  }
+  
+  .found {
+	fill: #ff4136;
+	stroke: #ff4136;
+  }
+  .p-10 {
+	padding: 10px !important;
+}
+
+.joyride-step__body {
+	padding: 10px !important;
+}
+
+.joyride-step__container {
+	max-width: 35vw !important;
+}
+
+.joyride-step__buttons-container {
+	width: 100%;
+}
+
+.joyride-step__header {
+  background-image: -webkit-linear-gradient(top,#fff200 0,#fda50f 100%) !important;
+  border-radius: 6px 6px 0px 0px;
+}
+
+.joyride-step__title {
+	color: #000 !important;
+	font-size: 14px !important;
+	font-weight: 700;
+	padding-left: 7px;
+}
+
+.joyride-step__container {
+  padding: 0px 0px 10px 0px !important;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 6px;
+}
+
+.joyride-step__holder {
+	font-size: 14px !important;
+}
+
+.btn-guided-tour {
+  color: #fff;
+  background-color: #000000;
+  border-color: #272727;
+}
+
+.btn-guided-tour:hover {
+  color: #FFF !important;
+}
